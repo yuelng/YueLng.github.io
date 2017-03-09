@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+          Linux基础知识与命令（Ubuntu14.10） - YueLng的博客 | YueLng&#39;s Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://penicillus.github.io/2015/11/13/study_linux/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">TamChen&#39;s Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archives/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    
+<!-- Image to hack wechat -->
+<!-- <img src="http://penicillus.github.io/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('/img/home-bg.jpg')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/tags/#学习" title="学习">学习</a>
+                        
+                    </div>
+                    <h1>Linux基础知识与命令（Ubuntu14.10）</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by YueLng Chen on
+                        2015-11-13
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <p>这里记录常用的一些linux命令，以备不时之需。 </p>
+<h2 id="常用的命令"><a href="#常用的命令" class="headerlink" title="常用的命令"></a>常用的命令</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">sudo cp xxxx /xxxx <span class="comment">#移动文件</span></div><div class="line">sudo mv xxxx xxxxx <span class="comment">#为文件改名</span></div><div class="line">sudo tar zxvf xxx.tar <span class="comment">#解压文件夹</span></div><div class="line">sudo unrar xxxx.rar <span class="comment">#解压文件夹 </span></div><div class="line">sudo chmod 775 xxxx <span class="comment">#给文件或文件夹加权限</span></div><div class="line">sudo chown -R hadoop:hadoop ./hadoop <span class="comment">#修改文件的归属</span></div><div class="line">sudo apt-get remove iptables</div></pre></td></tr></table></figure>
+<p>防火墙建议直接删除</p>
+<h2 id="Ubuntu下安装jdk"><a href="#Ubuntu下安装jdk" class="headerlink" title="Ubuntu下安装jdk"></a>Ubuntu下安装jdk</h2><p>首先找到jdk包，我用的是jdk1.7.0_80<br>接下来的步骤是上传，移动，解压，配置环境<br>配置环境变量<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#set jdk environment  </span></div><div class="line"><span class="built_in">export</span> JAVA_HOME=/usr/<span class="built_in">local</span>/java/jdk1.7.0_80  </div><div class="line"><span class="built_in">export</span> CLASSPATH=.:<span class="variable">$JAVA_HOME</span>/lib:<span class="variable">$JAVA_HOME</span>/jre/lib:<span class="variable">$CLASSPATH</span>  </div><div class="line"><span class="built_in">export</span> PATH=<span class="variable">$JAVA_HOME</span>/bin:<span class="variable">$JAVA_HOME</span>/jre/bin:<span class="variable">$PATH</span></div></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p>配置环境变量后使用以下命令，使配置生效<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">source</span> /etc/profile</div></pre></td></tr></table></figure></p>
+<p>使用java -version查看版本<br>如果遇到权限问题，在/bin/java和/bin/javac加上以下命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo chmod 775 /bin/java</div></pre></td></tr></table></figure></p>
+<h2 id="Ubuntu下安装tomcat"><a href="#Ubuntu下安装tomcat" class="headerlink" title="Ubuntu下安装tomcat"></a>Ubuntu下安装tomcat</h2><p>一般情况下解压就可以直接用，如果遇到以下信息</p>
+<ul>
+<li>Neither the JAVA_HOME nor the JRE_HOME environment variable is defined</li>
+<li>At least one of these environment variable is needed to run this program<br>则新建文件 tomcat/bin/setenv.sh ,catalina.out也需要新建。<br>后台接收request.getparameter需要在设置useBodyEncodingForURI=”true”<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">Connector</span> <span class="attr">port</span>=<span class="string">"80"</span> <span class="attr">protocol</span>=<span class="string">"HTTP/1.1"</span></span></div><div class="line">           <span class="attr">connectionTimeout</span>=<span class="string">"20000"</span></div><div class="line">           <span class="attr">redirectPort</span>=<span class="string">"8443"</span> <span class="attr">useBodyEncodingForURI</span>=<span class="string">"true"</span> /&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/bin/bash</span></div><div class="line"><span class="built_in">export</span> JAVA_HOME=/usr/<span class="built_in">local</span>/java/jdk1.7.0_80/</div><div class="line"><span class="built_in">export</span> CATALINA_OUT=/var/<span class="built_in">log</span>/tomcat/catalina.out</div><div class="line"><span class="built_in">export</span> CATALINA_PID=/var/<span class="built_in">log</span>/tomcat/catalina.pid</div></pre></td></tr></table></figure>
+<p>使用以下命令运行或关闭tomcat<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo bin/startup.sh</div><div class="line">sudo bin/shutdown.sh</div><div class="line">sudo bin/catalina.sh run</div></pre></td></tr></table></figure></p>
+<h2 id="unbuntu下安装mysql"><a href="#unbuntu下安装mysql" class="headerlink" title="unbuntu下安装mysql"></a>unbuntu下安装mysql</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install mysql-server mysql-client</div><div class="line">mysql -u root -p </div><div class="line">sudo start mysql <span class="comment">#手动的话这样启动</span></div><div class="line">sudo stop mysql <span class="comment">#手动停止</span></div><div class="line"><span class="comment">#三种方法</span></div><div class="line">sudo restart mysql</div><div class="line">sudo service mysql start </div><div class="line">sudo /etc/init.d/mysql start</div><div class="line">pgrep mysqld <span class="comment">#查看进程号</span></div></pre></td></tr></table></figure>
+<p>修改/etc/mysql/my.cnf文件将bind 127.0.0.1注释。<br>在mysql5.6中my.cnf的位置更改为/etc/mysql/mysql.conf.d/下的 mysqld.cnf<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ERROR 1130: Host <span class="string">'192.168.1.3'</span> is not allowed to connect to this MySQL server</div></pre></td></tr></table></figure></p>
+<p>如果要远程访问mysql有以下两种方法,这里推荐第二种方法<br>1。 改表法。可能是你的帐号不允许从远程登陆，只能在localhost。这个时候只要在localhost的那台电脑，登入mysql后，更改 “mysql” 数据库里的 “user” 表里的 “host” 项，从”localhost”改称”%”</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql -u root -pvmwaremysql&gt;use mysql;mysql&gt;update user <span class="built_in">set</span> host = <span class="string">'%'</span> <span class="built_in">where</span> user = <span class="string">'root'</span>;mysql&gt;select host, user from user;</div></pre></td></tr></table></figure>
+<ol>
+<li>授权法。例如，你想myuser使用mypassword从任何主机连接到mysql服务器的话。</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">GRANT ALL PRIVILEGES ON *.* TO <span class="string">'myuser'</span>@<span class="string">'%'</span> IDENTIFIED BY <span class="string">'mypassword'</span> WITH GRANT OPTION;</div><div class="line">如果你想允许用户myuser从ip为192.168.1.3的主机连接到mysql服务器，并使用mypassword作为密码</div><div class="line">GRANT ALL PRIVILEGES ON *.* TO <span class="string">'root'</span>@<span class="string">'192.168.1.3'</span> IDENTIFIED BY <span class="string">'mypassword'</span> WITH GRANT OPTION;</div><div class="line">GRANT ALL PRIVILEGES ON *.* TO <span class="string">'root'</span>@<span class="string">'10.10.40.54'</span> IDENTIFIED BY <span class="string">'123456'</span> WITH GRANT OPTION;</div></pre></td></tr></table></figure>
+<h2 id="localhost、127-0-0-1与本机IP地址的区别"><a href="#localhost、127-0-0-1与本机IP地址的区别" class="headerlink" title="localhost、127.0.0.1与本机IP地址的区别"></a>localhost、127.0.0.1与本机IP地址的区别</h2><p>localhost也叫local ，正确的解释是:本地服务器<br>127.0.0.1在windows等系统的正确解释是:本机地址(本机服务器)<br>他们的解析通过本机的host文件，windows自动将localhost解析为127.0.0.1</p>
+<p>localhot(local)是不经网卡传输！这点很重要，它不受网络防火墙和网卡相关的的限制。<br>127.0.0.1是通过网卡传输，依赖网卡，并受到网络防火墙和网卡相关的限制。<br>本机IP 也是通过网卡传输的，依赖网卡，并受到网络防火墙和网卡相关的限制。<br>但是本机IP与127.0.0.1的区别是：<br>127.0.0.1 只能通过本机访问<br>本机IP 通过本机访问也能通过外部访问</p>
+<h2 id="Ubuntu开机自启与服务脚本"><a href="#Ubuntu开机自启与服务脚本" class="headerlink" title="Ubuntu开机自启与服务脚本"></a>Ubuntu开机自启与服务脚本</h2><ol>
+<li>加入/etc/rc.loal实现开机自启<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">root@ubuntu :~<span class="comment"># vim /etc/rc.loal</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>在exit 0 之前添加如下内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/local/apache-tomcat-7.0.54/bin/startup.sh</div></pre></td></tr></table></figure></p>
+<ol>
+<li>通过启动脚本创建一个服务<br>首先，自己要先写一个tomcat.sh，里面实现start、stop、restart等操作。文件内容如下：<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/bin/sh </span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># description: Auto-starts tomcat</span></div><div class="line"><span class="comment"># processname: tomcat</span></div><div class="line"> </div><div class="line"><span class="keyword">case</span> <span class="string">"<span class="variable">$1</span>"</span> <span class="keyword">in</span></div><div class="line">    start)</div><div class="line">        sh /usr/<span class="built_in">local</span>/apache-tomcat-7.0.54/bin/startup.sh</div><div class="line">        ;;  </div><div class="line">    stop) </div><div class="line">        sh /usr/<span class="built_in">local</span>/apache-tomcat-7.0.54/bin/shutdown.sh</div><div class="line">        ;;  </div><div class="line">    restart)</div><div class="line">        sh /usr/<span class="built_in">local</span>/apache-tomcat-7.0.54/bin/shutdown.sh</div><div class="line">        sh /usr/<span class="built_in">local</span>/apache-tomcat-7.0.54/bin/startup.sh</div><div class="line">        ;;  </div><div class="line">    status)</div><div class="line">        ;;  </div><div class="line">    *)  </div><div class="line">        ;;  </div><div class="line"><span class="keyword">esac</span> </div><div class="line"><span class="built_in">exit</span> 0</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>执行以下指令，把tomcat创建为服务：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /etc/init.d</div><div class="line">update-rc.d tomcat defaults 99</div><div class="line">chkconfig --add tomcat</div><div class="line">chkconfig --level 2345 tomcat on</div></pre></td></tr></table></figure></p>
+<p>通过执行以下指令，可以开启服务<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">service tomcat start</div></pre></td></tr></table></figure></p>
+<p>如果要卸载服务，则执行以下指令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /etc/init.d</div><div class="line">update-rc.d <span class="_">-f</span> tomcat remove</div></pre></td></tr></table></figure></p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>1.<a href="http://my.oschina.net/u/2417752/blog/479722" target="_blank" rel="external"> ubuntu设置自定义程序开机启动</a></p>
+
+
+                <hr>
+
+                
+
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2015/11/13/note_category/" data-toggle="tooltip" data-placement="top" title="操作技能目录">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/2015/11/13/note_system_design_question/" data-toggle="tooltip" data-placement="top" title="笔记-系统设计">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                
+
+                
+
+            </div>
+    <!-- Side Catalog Container -->
+        
+
+    <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#学习" title="学习">学习</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="http://blog.kaijun.rocks" target="_blank">Kaijun&#39;s Blog</a></li>
+                    
+                </ul>
+                
+            </div>
+
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; TamChen&#39;s Blog 2017 
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    Ported by <a href="http://blog.kaijun.rocks">Kaijun</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=kaijun&repo=hexo-theme-huxblog&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://penicillus.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- Side Catalog -->
+
+
+
+
+
+<!-- Image to hack wechat -->
+<img src="http://penicillus.github.io/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

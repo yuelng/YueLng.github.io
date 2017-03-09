@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+          web远程登录系统 - YueLng的博客 | YueLng&#39;s Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://penicillus.github.io/2015/11/27/project_remote/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">TamChen&#39;s Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archives/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    
+<!-- Image to hack wechat -->
+<!-- <img src="http://penicillus.github.io/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('/img/home-bg.jpg')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/tags/#项目" title="项目">项目</a>
+                        
+                    </div>
+                    <h1>web远程登录系统</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by YueLng Chen on
+                        2015-11-27
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <h2 id="项目截图"><a href="#项目截图" class="headerlink" title="项目截图"></a>项目截图</h2><p><img src="/img/remote3.png" alt="项目首页" width="70%" height="auto"><br><a id="more"></a><br><img src="/img/remote2.png" alt="关于页面" width="70%" height="auto"><br><img src="/img/remote1.png" alt="信息与下载页面" width="70%" height="auto"></p>
+<h2 id="web远程登录系统文档简要说明"><a href="#web远程登录系统文档简要说明" class="headerlink" title="web远程登录系统文档简要说明"></a>web远程登录系统文档简要说明</h2><p>web远程登录系统总体上分为两部分，web工程与web远程登录系统，本文档将会从系统的功能架构和技术架构对本系统进行说明，web工程主要是针对FPGA实验仿真平台的配套设置，用户通过web工程了解FPGA实验仿真平台的基本信息，主要的功能模块有信息首页、公告新闻、文件下载、实验平台等。web远程登录系统则是基于guacamole-一款基于HTML5的web远程登录的开源系统</p>
+<h3 id="web工程"><a href="#web工程" class="headerlink" title="web工程"></a>web工程</h3><p>web部分主要从功能和架构技术上进行说明<br>web导航栏分为主页、信息、下载、联系、更多，对应的主要功能模块为新闻公告、实验平台、上传下载、评论留言等基本信息管理功能。信息模块具体包含的信息内容为新闻、公告、通知三种，文件下载分为软件、文档、数据下载；实验平台则实现了后台上传word文档，前台实时查看实验内容的效果，同样实现了四个不同的实验室，在不同的实验室有着不同的实验室文档，点击即可在看查看word实验内容，其余的基本平台信息都是基于CMS信息管理系统进行定制。<br>在技术架构上采用了传统的javaweb技术栈<br>spring mvc +spring+ hibernate+ehcache<br>数据库采用mysql数据库</p>
+<h3 id="web远程登录系统"><a href="#web远程登录系统" class="headerlink" title="web远程登录系统"></a>web远程登录系统</h3><h4 id="guacamole简介"><a href="#guacamole简介" class="headerlink" title="guacamole简介"></a>guacamole简介</h4><p>guacamole是基于vnc技术的web远程登录框架，vnc技术是远程登录协议的一种，可以将服务端的原始图像传送到客户端。该协议支持Javaweb对其扩写。于是国外的guacamole就是基于这个做的开源框架。该框架分为三部分，vnc服务端、guacd、guacamole客户端；<br>&emsp;&emsp;vnc服务端：是基于vnc协议产生画面内容的。<br>&emsp;&emsp;guacad：在vnc服务端和guacamole之间充当中介，guacamole实现了自身的对vnc的包装协议<br>&emsp;&emsp;guacamole客户端：Javaweb实现，页面端则是利用HTML5和JavaScript进行鼠标和键盘的捕捉，动作传到guacamole的后台进行相应的转换，传送到被控制的vnc服务端。<br><!--more--></p>
+<h4 id="guacamole环境搭建"><a href="#guacamole环境搭建" class="headerlink" title="guacamole环境搭建"></a>guacamole环境搭建</h4><p>在virtual box的unbuntu 14.0虚拟机下，初始化Linux的基本设置，如vim。根据如下几步进行安装<br>Ubuntu上安装VNC server（window同样也支持VNC协议）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install vnc4server</div></pre></td></tr></table></figure></p>
+<p>安装完后要给当前用户设置密码，这个密码就是连接VNC时要用到的: 接着输入:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vncserver :1  <span class="comment"># :1 表示显示号，启启用的端口为5901</span></div></pre></td></tr></table></figure></p>
+<p>注意vncserver默认的端口是5900,如果采用VNC客户端的话，直接使用display-number即可，涉及到具体端口的，则使用端口display-number+5900，从0开始。</p>
+<p> Guacamole-Web的部署<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install guacamole-tomcat</div><div class="line">//会提示重启tomcat，确认即可</div></pre></td></tr></table></figure></p>
+<p>其就是安装好java,tomcat之后，发布guacamole的war包。同时在/etc/guacamole中可以看到两个配置文件:guacamole.properties和user-mapping.xml</p>
+<p>guacamole.properties的配置如下:<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">// guacd服务绑定的ip和port，必须和guacd中配置相同</div><div class="line">guacd-hostname: localhost</div><div class="line">guacd-port:     4822</div><div class="line"> //这个不用管</div><div class="line">auth-provider: net.sourceforge.guacamole.net.basic.BasicFileAuthenticationProvider</div><div class="line">basic-user-mapping: /etc/guacamole/user-mapping.xml</div></pre></td></tr></table></figure></p>
+<p>user-mapping.xml的配置如下:<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">user-mapping</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">authorize</span> <span class="attr">username</span>=<span class="string">"USERNAME"</span> <span class="attr">password</span>=<span class="string">"PASSWORD"</span>&gt;</span> //在浏览器中的登录账号密码</div><div class="line">        <span class="tag">&lt;<span class="name">protocol</span>&gt;</span>vnc<span class="tag">&lt;/<span class="name">protocol</span>&gt;</span> //rdp类型</div><div class="line">        <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"hostname"</span>&gt;</span>localhost<span class="tag">&lt;/<span class="name">param</span>&gt;</span> //VNC的ip，可以是任意的ip和hostname，此处以本机为例</div><div class="line">        <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"port"</span>&gt;</span>5901<span class="tag">&lt;/<span class="name">param</span>&gt;</span> //这个和你的VNC端口类似，注意其对应于 :1</div><div class="line">        <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"password"</span>&gt;</span>password<span class="tag">&lt;/<span class="name">param</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">authorize</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">user-mapping</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>最后直接在浏览器中打开<a href="http://localhost:8080/guacamole/" target="_blank" rel="external">http://localhost:8080/guacamole/</a></p>
+<h3 id="远程系统web部分的开发"><a href="#远程系统web部分的开发" class="headerlink" title="远程系统web部分的开发"></a>远程系统web部分的开发</h3><p>采用spring mvc + spring + hibernate进行搭建，采用mysql数据库，ehcache作为缓存，json作为web前端与后端的传输数据格式，前台统一采用JavaScript进行数据解析。</p>
+<h4 id="开发中情况记录"><a href="#开发中情况记录" class="headerlink" title="开发中情况记录"></a>开发中情况记录</h4><p>&emsp;&emsp;部署项目发生bean没有被实例化，最后查看日志是由于没有正确配置数据库连接配置<br>&emsp;&emsp;Another unnamed CacheManager already exists in the same VM</p>
+<p>Shiro的echcache与自身配置的echcache发生冲突，除去shiro框架。由于这个框架的配置基本是按照上文的义工系统来的，所以遗留的shiro的配置，可以移去。<br>&emsp;&emsp;spring mvc json数据传输的基本写法，在response里写入<br>&emsp;&emsp;spring mvc 文件上传下载的基本写法。commons-fileupload</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><hr>
+<p>1.&emsp;<a href="http://www.lnmpy.com/install-guacamole/" target="_blank" rel="external">Ubuntu上搭建Guacamole</a>————作者：<a href="http://www.lnmpy.com/" target="_blank" rel="external">Lnmpy - elvis’s blog</a><br>2.&emsp; </p>
+
+
+                <hr>
+
+                
+
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2015/11/27/project_network/" data-toggle="tooltip" data-placement="top" title="网络监控系统">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/2015/11/27/project_volunteer/" data-toggle="tooltip" data-placement="top" title="义工平台说明">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                
+
+                
+
+            </div>
+    <!-- Side Catalog Container -->
+        
+
+    <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#项目" title="项目">项目</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="http://blog.kaijun.rocks" target="_blank">Kaijun&#39;s Blog</a></li>
+                    
+                </ul>
+                
+            </div>
+
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; TamChen&#39;s Blog 2017 
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    Ported by <a href="http://blog.kaijun.rocks">Kaijun</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=kaijun&repo=hexo-theme-huxblog&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://penicillus.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- Side Catalog -->
+
+
+
+
+
+<!-- Image to hack wechat -->
+<img src="http://penicillus.github.io/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

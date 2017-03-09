@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+          笔记-系统设计 - YueLng的博客 | YueLng&#39;s Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://penicillus.github.io/2015/11/13/note_system_design_question/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">TamChen&#39;s Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archives/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    
+<!-- Image to hack wechat -->
+<!-- <img src="http://penicillus.github.io/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('/img/home-bg.jpg')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/tags/#学习" title="学习">学习</a>
+                        
+                    </div>
+                    <h1>笔记-系统设计</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by YueLng Chen on
+                        2015-11-13
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <h3 id="重点考察内容"><a href="#重点考察内容" class="headerlink" title="重点考察内容"></a>重点考察内容</h3><p>面向对象，接口设计，设计模式，数据库表，分布式</p>
+<p>关于高并发系统设计。主要有以下几个关键技术点：缓存，索引，数据分片，锁粒度尽可能小。</p>
+<h3 id="常见分布式系统设计问题"><a href="#常见分布式系统设计问题" class="headerlink" title="常见分布式系统设计问题"></a>常见分布式系统设计问题</h3><p>如何设计Twitter，短网址系统设计，如何设计Uber<br>分布式系统<br>1)Inverted index<br>2)Anagram<br>3) Word Count<br>4) Distributed File System Design 设计<br>实时位置系统<br>1) Design Yelp<br>2) Design Uber<br>3) Design Whatsapp<br>搜索系统设计<br>1) crawler<br>2) typeahead<br>3) inverted index<br>failure rate, DNS, web server, file server, timeout, content delivery network, cookie, HTTP, divide and conquer, Internet service provider, hosts, hijack, retention rate, cache, lazy load, rate limiter, QPS, counter , expire, request list, token bucket<br>网站系统设计<br>1) What happend if you visit www.google.com?<br>2）How to design rate limiter?<br>3) How to design data log?<br>面向对象设计<br>数据库系统设计<br>database, primary/foreign key, table, row, attribute, index, transaction, log, lock, lifecycle graph, binary search tree, B+Tree, atomicity, consistency, isolation, durability, session   </p>
+<ol>
+<li>设计一个牌类游戏 OOD</li>
+<li>设计一个服务监视系統。说你有一堆服务器和一堆服务，怎么监视服务状态。 系统设计。各种情况。各种要求。</li>
+<li>设计一个企业内部用的那种日志系统。大概的用途是A发现一个什么问题，log问题，相关的人会接到通知。半系统半OOD。中间面试我的人想给我点提醒。说中间某部分可以用某种design pattern来做。不过那个design pattern不是factory singleton observer strategy等几个常见的。所以提示了和没提示一样。</li>
+<li>设计一个和配置相关的系统。大概的功能是比如A要买你的软件，人家可能不需要把你所有的功能买走。他提出了一些他想实现的功能，然后你把你内部的一些模块啥的拼一拼然后给人家。这样一个系统怎么设计。</li>
+<li>要求设计一个DNS的Cache结构，要求能够满足每秒5000以上的查询，满足IP数据的快速插入，查询的速度要快。（题目还给出了一系列的数据，比如：站点数总共为5000万，IP地址有1000万，等等）</li>
+<li>有N台机器，M个文件，文件可以以任意方式存放到任意机器上，文件可任意分割成若干块。假设这N台机器的宕机率小于1/3，想在宕机时可以从其他未宕机的机器中完整导出这M个文件，求最好的存放与分割策略。</li>
+<li>假设有三十台服务器，每个上面都存有上百亿条数据（有可能重复），如何找出这三十台机器中，根据某关键字，重复出现次数最多的前100条？要求用Hadoop来做。</li>
+<li>设计一个系统，要求写速度尽可能高，说明设计原理。</li>
+<li>设计一个高并发系统，说明架构和关键技术要点。</li>
+<li>有25T的log(query-&gt;queryinfo)，log在不段的增长，设计一个方案，给出一个query能快速反回queryinfo</li>
+</ol>
+<h3 id="一些其他题目"><a href="#一些其他题目" class="headerlink" title="一些其他题目"></a>一些其他题目</h3><ol>
+<li>设计文件系统</li>
+<li>数据结构for spreadsheet</li>
+<li>一个app需要用cache，怎么实现thread safe</li>
+<li>social network, billions id, every id has about 100 friends roughly, what is<br>max connections between any two ppls. write algorithm to return min<br>connections between two ids: int min_connection(id1, id2)<br>you can call following functions<br>expand(id) return friends list of id<br>expandall(list) return friends union of all the ids in the list<br>intersection(list1, list2) return intersection<br>removeintersection(list1, list2)</li>
+<li>Open google.com, you type some words in the edit box to search something, it will return lots of search  results. Among these returning results (that<br>is, website link), you may only CLICK some results that are interesting to you. The system will record the “CLICK”action. Finally, you will have the search results (i.e. url) and “CLICK” informatin at hand.<br>Question: how do you find the similarity of these searching?</li>
+<li>如何找出最热门的话题(根据tweets)。如果一个话题一直热门，我们不想考虑怎么办</li>
+<li>Discuss design challenges of a distributed web crawler running on commercial PCs. How to utilize network bandwidth of those PCs efficiently?</li>
+<li>Design a site similar to tinyurl.com</li>
+<li>large log file,含有 customer id, product id, time stamp想得到在某一天中某个custom看网页的次数1. 足够memory 2. limited memory</li>
+<li>设计一个actor和movie的数据库的schema, 支持从movie得到它的actors和从actor得到ta出现过的moive (Google, phone, 2006)</li>
+<li>某建筑有五十层高,打算装俩电梯,设计该电梯系统</li>
+<li>how to design facebook’s newsfeed?</li>
+<li>一个文件里n行m列，每行是一个record，每列一个feature，你时不时要按不同feature排序和查找。不能用数据库，文件大小内存能装下，数据结构和算法不限，语言不限，给出你最好的办法。</li>
+<li>Design online game</li>
+<li>static 变量用来在整个class中共享数据.基于此，各种synchronization技术， 以及busy waiting的优缺点，啥时候要用基于busy waiting的 spinlock主要是基于性能的探讨。 如果有一个应用程序运行时没有达到timing constraint，<br>你如何去分析问题出在哪儿， 可以用什么工具或者技术。</li>
+<li>设计题， 有一个多台机器构成的cluster。 现在有大量公司的数据文件 （并有多个备份）。 如果设计一个算法，使得每台机器尽量均衡的使用，并且 每个公司文件的不同copy不能存在于同一台机器上。主要的Idea就是用round-robin的方式assign每个公司的原数据文件到一台机器，再结合使用hashtable。<br>Interviewer提到我的解法正是他现在在使用的解法。</li>
+<li>Design a class providing lock function which provide lock only if it sees there are no possible deadlocks.</li>
+<li>设计一个分布式文件系统，给定path name，可以读写文件。具体的system design这里就不提了。其中一个细节是，给定path name，怎么知道哪个node拥有这个文件。我提出需要实现一个lookup function，它可以是一个hash function，也可以是一个lookup<br>table。如果是lookup table，为了让所有client sync，可以考虑额外做一个lookup cluster。然后Interviewer很纠结，既然可以用hash function，为什么还搞得那么复杂。我就告诉他hash function的缺点。假定一开始有N个node，hash function把M个文件uniformly distribute到N个node上。某天发现capacity不够，加了一个node。首先，要通知所有的client machine，configuration 改变了。如果不想重启client<br>machine的process，这不是一个trivial job。其次，文件到node的mapping也变了。比如，本来按照hash function，一个文件是放在node 1。加了一个node 后，它可能就map到node 2了。平均来说，N/(N<br>+1)的文件需要move到新的node。这个data migration还是很大的。然后我就提出一些hash function的design，可以减少data migration。最后他提了一个问题，说要实现一个function，要统计distributed file system所有目录的大小。前提是，一个目录下的文件可能放在不同的node上。我说这个不就是在每个node上统计，然后发到一个merge吗。他说对，但是又问用什么data<br>structure来表示。我说这就是hash table，key就是directory name，value就是大小。因为directory本身是树结构，这个hash table的key可以用tree来组织。最后让我实现一个function，把我说得这个data structure serialize成byte array。因为这个byte array就是网络传输的data。我用了depth first traverse。不过等我程序写完，才发现，用breath first traverse会更方便，code也会很简洁</li>
+<li>超大图的存储问题</li>
+<li>给个Lock w/ two atomic method lock() and unlock()，请用lock实现一个文件读写的系统，要求：</li>
+</ol>
+<ul>
+<li>reader blocks writer;</li>
+<li>writer blocks reader;</li>
+<li>writer blocks writer;<br>21。设计一个web cache server，假设存储网页数量是10个billion，打算怎么设计<br>22.你可以得到网站访问记录，每条记录有user IP, 写一个程序，要随时能算出过去5分钟内访问次数最多的1000个IP.   这个好像跟着这个rolling window 的precision 有关，所以我们暂且定为5秒钟update 一次window</li>
+</ul>
+<ol>
+<li>Design free and malloc.</li>
+<li>how to design data structures for a facebook network and how to design an algorithm to find connection? How to optimize it if data is distributed<br>into multiple computers?</li>
+<li>design a deck class and member function to randomly select a card from those cards which haven’t been selected before. (You can assume the number<br>of this function call will never be larger than the number of cards) For example, we have a deck of four card: 1,2,3,4. First it may select 3, then next time it should randomly select one from 1,2,4… And design a member function to reset.</li>
+<li>google search design problem. How to distribute data and how to design backup system</li>
+<li>设计一个online chat system</li>
+<li>design bit.ly url shortening web service。算法设计，后端存储，中间层cache，前端load balance，最后是web analytics。</li>
+<li>Design and implement an algorithm that would correct typos: for example, if an extra letter is added, what would you do?</li>
+<li>Suppose there are 2 persons A and B on FB . A should be able to view the pictures of B only if either A is friend of B or A and B have at least<br>one common friend . The interviewer discussed it for nearly 30 minutes . The discussion mainly included following points：<ul>
+<li>How are you going to store the list of friends for a given user?</li>
+<li>File system vs DB</li>
+<li>Given list of friends of 2 users, how are you going to find common friends?</li>
+<li>If you are going to store the friends in DB then how will the table look like?</li>
+<li>How many servers do you need?</li>
+<li>How are you going to allocate work to servers?</li>
+<li>How many copies of data will you need?</li>
+<li>What problems will you face if you are maintaining multiple copies of data.</li>
+</ul>
+</li>
+<li>design structure for auto completion</li>
+<li>如何实现search suggestions。</li>
+<li>设计fb的系统支持like那个button</li>
+<li>design 股票#，time，price；<br>-设计一个client side显示股票信息，给出尽可能多的user case<br>-在给出的user case里面，怎么设计客户端，使得客户段性能提高<br>-怎么设计server端<br>-数据如何传输<br>-server端如何保存数据<br>-怎么设计database table保存数据<br>-不用index怎么提高数据查询速度<br>-database是怎么实现数据查询的（要求从database implementation角度解释）</li>
+</ol>
+<h3 id="系统设计面试总结"><a href="#系统设计面试总结" class="headerlink" title="系统设计面试总结"></a>系统设计面试总结</h3><ol>
+<li>入门级的news feed<br><a href="http://www.quora.com/What-are-best-practices-for-building-somet" target="_blank" rel="external">http://www.quora.com/What-are-best-practices-for-building-somet</a><br><a href="http://www.infoq.com/presentations/Scale-at-Facebook" target="_blank" rel="external">http://www.infoq.com/presentations/Scale-at-Facebook</a><br><a href="http://www.infoq.com/presentations/Facebook-Software-Stack" target="_blank" rel="external">http://www.infoq.com/presentations/Facebook-Software-Stack</a><br>一般的followup question是估算需要多少server<br>另外这个帖子有讨论<br><a href="http://www.mitbbs.ca/article_t/JobHunting/32463885.html" target="_blank" rel="external">http://www.mitbbs.ca/article_t/JobHunting/32463885.html</a><br>这篇文章稍微提到要怎么approach这种题，可以稍微看看<br><a href="http://book.douban.com/reading/23757677/" target="_blank" rel="external">http://book.douban.com/reading/23757677/</a></li>
+</ol>
+<ol>
+<li><p>facebook chat,这个也算是挺常问的<br><a href="http://www.erlang-factory.com/upload/presentations/31/EugeneLet" target="_blank" rel="external">http://www.erlang-factory.com/upload/presentations/31/EugeneLet</a><br><a href="https://www.facebook.com/note.php?note_id=14218138919" target="_blank" rel="external">https://www.facebook.com/note.php?note_id=14218138919</a><br><a href="http://www.cnblogs.com/piaoger/archive/2012/08/19/2646530.html" target="_blank" rel="external">http://www.cnblogs.com/piaoger/archive/2012/08/19/2646530.html</a><br><a href="http://essay.utwente.nl/59204/1/scriptie_J_Schipers.pdf" target="_blank" rel="external">http://essay.utwente.nl/59204/1/scriptie_J_Schipers.pdf</a></p>
+</li>
+<li><p>typeahead search/search suggestion，这个也常见<br><a href="https://www.facebook.com/video/video.php?v=432864835468" target="_blank" rel="external">https://www.facebook.com/video/video.php?v=432864835468</a><br>问题在这个帖子里被讨论到，基本上每个问题，在视频里都有回答<br><a href="http://www.mitbbs.com/article_t/JobHunting/32438927.html" target="_blank" rel="external">http://www.mitbbs.com/article_t/JobHunting/32438927.html</a></p>
+</li>
+</ol>
+<ol>
+<li>Facebook Messaging System(有提到inbox search, which has been asked before）<br>messaging system就是一个把所有chat/sms/email之类的都结合起来的一个系统<br><a href="http://www.infoq.com/presentations/HBase-at-Facebook" target="_blank" rel="external">http://www.infoq.com/presentations/HBase-at-Facebook</a><br><a href="http://sites.computer.org/debull/A12june/facebook.pdf" target="_blank" rel="external">http://sites.computer.org/debull/A12june/facebook.pdf</a><br><a href="http://www.slideshare.net/brizzzdotcom/facebook-messages-hbase/" target="_blank" rel="external">http://www.slideshare.net/brizzzdotcom/facebook-messages-hbase/</a><br><a href="https://www.youtube.com/watch?v=UaGINWPK068" target="_blank" rel="external">https://www.youtube.com/watch?v=UaGINWPK068</a></li>
+</ol>
+<ol>
+<li>任给一个手机的位置信号(经纬度)，需要返回附近5mile 的POI<br>这个这里有讨论，这题貌似nyc很爱考…<br><a href="http://www.mitbbs.ca/article0/JobHunting/32476139_0.html" target="_blank" rel="external">http://www.mitbbs.ca/article0/JobHunting/32476139_0.html</a></li>
+</ol>
+<ol>
+<li>Implement second/minute/hour/day counters<br>这题真不觉得是system design，但万一问道，还是要有准备，貌似在总部面试会被问<br>道….<br>这个帖子有讨论<br><a href="http://www.mitbbs.com/article_t/JobHunting/32458451.html" target="_blank" rel="external">http://www.mitbbs.com/article_t/JobHunting/32458451.html</a></li>
+</ol>
+<ol>
+<li>facebook photo storage，这个不太会被问起，但是知道也不错<br><a href="https://www.usenix.org/legacy/event/osdi10/tech/full_papers/Beaver.pdf" target="_blank" rel="external">https://www.usenix.org/legacy/event/osdi10/tech/full_papers/Beaver.pdf</a><br><a href="https://www.facebook.com/note.php?note_id=76191543919" target="_blank" rel="external">https://www.facebook.com/note.php?note_id=76191543919</a></li>
+</ol>
+<ol>
+<li>facebook timeline,这个也不太是个考题，看看就行了<br><a href="https://www.facebook.com/note.php?note_id=10150468255628920" target="_blank" rel="external">https://www.facebook.com/note.php?note_id=10150468255628920</a><br><a href="http://highscalability.com/blog/2012/1/23/facebook-timeline-bro" target="_blank" rel="external">http://highscalability.com/blog/2012/1/23/facebook-timeline-bro</a></li>
+</ol>
+<p>除了这些，准备一下这些题目<br>implement memcache<br><a href="http://www.adayinthelifeof.nl/2011/02/06/memcache-internals/" target="_blank" rel="external">http://www.adayinthelifeof.nl/2011/02/06/memcache-internals/</a></p>
+<p>implement tinyurl（以及distribute across multiple servers)<br><a href="http://stackoverflow.com/questions/742013/how-to-code-a-url-sho" target="_blank" rel="external">http://stackoverflow.com/questions/742013/how-to-code-a-url-sho</a></p>
+<p>determine trending topics(twitter)<br><a href="http://www.americanscientist.org/issues/pub/the-britney-spears-" target="_blank" rel="external">http://www.americanscientist.org/issues/pub/the-britney-spears-</a><br><a href="http://www.michael-noll.com/blog/2013/01/18/implementing-real-t" target="_blank" rel="external">http://www.michael-noll.com/blog/2013/01/18/implementing-real-t</a></p>
+<p>copy one file to multiple servers<br><a href="http://vimeo.com/11280885" target="_blank" rel="external">http://vimeo.com/11280885</a></p>
+<p>稍微知道一下dynamo key value store，以及google的gfs和big table</p>
+<p>另外推荐一些网站<br><a href="http://highscalability.com/blog/category/facebook" target="_blank" rel="external">http://highscalability.com/blog/category/facebook</a><br>这个high scalability上有很多讲system design的东西，不光是facebook的，没空的<br>话，就光看你要面试的那家就好了..<br>facebook engineering blog<br><a href="http://www.quora.com/Facebook-Engineering/What-is-Facebooks-arc" target="_blank" rel="external">http://www.quora.com/Facebook-Engineering/What-is-Facebooks-arc</a><br><a href="http://stackoverflow.com/questions/3533948/facebook-architectur" target="_blank" rel="external">http://stackoverflow.com/questions/3533948/facebook-architectur</a></p>
+<p>其他家的<br><a href="http://www.quora.com/What-are-the-top-startup-engineering-blogs" target="_blank" rel="external">http://www.quora.com/What-are-the-top-startup-engineering-blogs</a></p>
+<p>==================================================================<br>在说说怎么准备这样的面试<br>首先如果你连availability/scalability/consistency/partition之类的都不是太有概<br>念的话，我建议先去wikipedia或者找一个某个大学讲这门课的网站稍微看一下，别一<br>点都不知道<br>这个链接也不错<br><a href="http://www.aosabook.org/en/distsys.html" target="_blank" rel="external">http://www.aosabook.org/en/distsys.html</a></p>
+<p>如果你这些基本的东西都还知道，那么我觉得你就和大部分毫无实际经验的人差不多一<br>个水平…<br>能做的就是一点一点去准备，如果你还有充足的时间的话，建议从你面试的那家公司的<br>engineering blog看起，把人家用的technology stack/product都搞清楚，然后在把能<br>找到的面试题都做一遍呗….我们做coding题说白了不也是题海战术…而且你如果坚<br>持看下去，真的会看出心得，你会发现很多地方都有相同之处，看多了就也能照葫芦画<br>瓢了…</p>
+<p>再有就是面试的时候应该怎么去approach这种题，我说说我的做法</p>
+<ol>
+<li><p>product spec/usage scenario 和面试者confirm这个东西到底是做什么的<br>可以先列出来几个major functionality，然后有时间的话，再补充一些不重要的<br>把你想的都写下来</p>
+</li>
+<li><p>define some major components<br>就是画几个圈圈框框的，每个发表一番您的高见….然后讲他们之间怎么interact</p>
+</li>
+</ol>
+<p>以上是question specific的东西，<br>这个讲完了，我们可以讲一些每道题都是用的，比如说<br>怎么scale/怎么partition/怎么实现consistency，这些东西，可以套用到任何题上</p>
+<p>当然了，我们遇到的题和解题的方法可能都有些出入，不见得每道题有一个路数下来，<br>最重要的是，讲题的时候要有条理，画图要清楚，保持和面试官的交流，随时问一下人<br>家的意见。</p>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p>10.<a href="http://www.xuebuyuan.com/1451253.html" target="_blank" rel="external">系统设计类题目</a></p>
+
+
+                <hr>
+
+                
+
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2015/11/13/study_linux/" data-toggle="tooltip" data-placement="top" title="Linux基础知识与命令（Ubuntu14.10）">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/2015/11/13/note_message_queue/" data-toggle="tooltip" data-placement="top" title="消息队列">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                
+
+                
+
+            </div>
+    <!-- Side Catalog Container -->
+        
+
+    <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#学习" title="学习">学习</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="http://blog.kaijun.rocks" target="_blank">Kaijun&#39;s Blog</a></li>
+                    
+                </ul>
+                
+            </div>
+
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; TamChen&#39;s Blog 2017 
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    Ported by <a href="http://blog.kaijun.rocks">Kaijun</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=kaijun&repo=hexo-theme-huxblog&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://penicillus.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- Side Catalog -->
+
+
+
+
+
+<!-- Image to hack wechat -->
+<img src="http://penicillus.github.io/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

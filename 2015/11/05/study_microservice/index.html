@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+          微服务入门 - YueLng的博客 | YueLng&#39;s Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://penicillus.github.io/2015/11/05/study_microservice/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">TamChen&#39;s Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archives/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    
+<!-- Image to hack wechat -->
+<!-- <img src="http://penicillus.github.io/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('/img/home-bg.jpg')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/tags/#学习" title="学习">学习</a>
+                        
+                    </div>
+                    <h1>微服务入门</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by YueLng Chen on
+                        2015-11-05
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <p> <img src="/Users/tamchen/blog/source/img/micro_architecture.png" alt="micro_architecture"></p>
+<h5 id="使用API-Gateway"><a href="#使用API-Gateway" class="headerlink" title="使用API Gateway"></a>使用API Gateway</h5><p>API Gateway by golang <a href="https://github.com/containous/traefik" target="_blank" rel="external">traefik_github</a></p>
+<p>Resilient service mesh for cloud native apps <a href="https://github.com/BuoyantIO/linkerd" target="_blank" rel="external">linkerd_github</a></p>
+<ul>
+<li>性能与可扩展性</li>
+<li>采用反应性编程模型</li>
+<li>服务调用</li>
+<li>服务发现</li>
+<li>处理部分失败</li>
+</ul>
+<h5 id="进程间通信"><a href="#进程间通信" class="headerlink" title="进程间通信"></a>进程间通信</h5><ul>
+<li>消息队列（rabbitmq）</li>
+<li>RPC服务（grpc）</li>
+</ul>
+<h5 id="微服务如何处理数据"><a href="#微服务如何处理数据" class="headerlink" title="微服务如何处理数据"></a>微服务如何处理数据</h5><p>需要解决的问题</p>
+<ul>
+<li>如何在多服务之间维护业务交易一致性</li>
+<li>如何从多服务环境中获取一致性数据</li>
+</ul>
+<p>解决方案</p>
+<ul>
+<li>分布式事务控制（两阶段提交型事务）</li>
+<li>可靠消息的最终一致性（可靠事件模式、业务补偿模式、TCC模式）</li>
+</ul>
+<p>使用事件驱动的两个问题</p>
+<ul>
+<li>如何原子性地更新状态和发布事件（将数据库视为消息队列、交易日志挖掘和事件源）</li>
+<li>可靠事件传递（服务的原子性）</li>
+<li>避免消息事件重复（消费者的幂等性）</li>
+</ul>
+<p>考虑以下两种情况</p>
+<ul>
+<li>服务A消息投递成功，但是消息队列返回投递成功消息时遇到错误，导致消息投递成功，数据库却被回滚</li>
+<li>服务A消息投递成功，消息返回投递成功，服务A数据库出现问题，导致消息投递成功，数据库却被回滚</li>
+</ul>
+<p>可靠事件投递的两种方式</p>
+<ul>
+<li>本地事件表，在同一个事务中保存业务与事件，</li>
+</ul>
+<p>Christian Posta认为微服务的价值在于自治，在于每一个系统都能够独立的变化，为了在实现自治的同时又保证业务需求，“事件机制”是非常好的选择。事件是不可变的数据结构，它会及时捕获与某个动作相关的信息，并被广播到其他节点，其他节点会监听它们感兴趣的事件，并根据事件的数据做出决策（存储数据、更新数据等）。</p>
+<ul>
+<li>领域是什么？实际情况是什么？</li>
+<li>事务的边界在哪里？</li>
+<li>微服务应该采用什么方式实现跨边界通信？</li>
+<li>如果把数据库拿出来会怎样？</li>
+</ul>
+<h5 id="SOA-与微服务"><a href="#SOA-与微服务" class="headerlink" title="SOA 与微服务"></a>SOA 与微服务</h5><ul>
+<li>你可以把微服务想成是 SOA 的一种实践方式，正如 XP 或 Scrum 是敏捷软件开发的实践方式</li>
+<li>微服务不再强调传统SOA架构里面比较重的ESB企业服务总线，同时SOA的思想进入到单个业务系统内部实现真正的组件化。</li>
+<li>微服务提供了一种更清晰、定义更良好的方式。两者之间最关键的区别在于，微服务专注于以自治的方式产生价值</li>
+</ul>
+<h5 id="集群管理"><a href="#集群管理" class="headerlink" title="集群管理"></a>集群管理</h5><ul>
+<li>容器docker</li>
+<li>服务编排kubernetes</li>
+<li>性能数据收集prometheus</li>
+<li>数据监控UI Grafana</li>
+<li>日志收集系统 fluentd</li>
+</ul>
+<p>思考</p>
+<p>用户购买东西，</p>
+<p>用户检查余额，执行本地事务，发送异步消息，仓库加物品</p>
+<p>服务A check_then_act，但是到第二阶段时，check 的条件已经不成立，如何处理第二阶段执行不成功的状态。</p>
+<p>用户买东西</p>
+<p>用户跟收银员付钱，收银员给小票给用户，用户拿小票去后台，工作人员留下小票，发货给用户</p>
+<ul>
+<li>用户跟收银员付钱，工作人员给用户发货，分为两个服务</li>
+<li>小票是凭证，类似消息系统记录</li>
+<li>如何处理商店没有货的情况，即第二阶段不成功，第一阶段是否回滚？</li>
+<li>如何处理等幂性，即消息被正确地一次消费，留下小票，发货给用户，是一个事务操作，在本地做一个账本</li>
+<li>在工作人员方有一个账本，是否在收银员那有一个账本</li>
+</ul>
+<p>保证消息的幂等性</p>
+<p>如果收到的事件的时间戳早于我们记录的，丢弃该事件。</p>
+<p>如果事件不是在同一个服务器上发出的，那么服务器之间的时间同步是个难题，更稳妥的做法是使用一个全局递增序列号替换时间戳。</p>
+<p>采用外部消息记录，事务分为“接收”、“发送请求”、“收到应答”、“处理完成”，</p>
+<p>最重要的一个问题，如何回滚多个微服务中的业务。</p>
+<p>BASE模型</p>
+<ul>
+<li>Basically Available（基本可用）：系统在出现不可预知的故障的时候，允许损失部分可用性，但不等于系统不可用</li>
+<li>Soft State（软状态）：允许系统中的数据存在中间状态，并认为该中间状态的存在不会影响系统的整体可用性</li>
+<li>Eventually Consistent（最终一致性）：系统保证最终数据能够达到一致</li>
+</ul>
+<p>在微服务架构中，每个微服务都有自己私有的数据集。不同微服务可能使用不同的SQL或者NoSQL数据库。尽管数据库架构有很强的优势，但是也面对数据分布式管理的挑战。第一个挑战就是如何在多服务之间维护业务交易一致性；第二个挑战是如何从多服务环境中获取一致性数据。</p>
+<p>最佳解决办法是采用事件驱动架构。其中碰到的一个挑战是如何原子性的更新状态和发布事件。有几种方法可以解决此问题，包括将数据库视为消息队列、交易日志挖掘和事件源。</p>
+<p>发布事件的同时要处理接收事件，除非不需要关系该操作的处理结果</p>
+<h2 id="参考内容"><a href="#参考内容" class="headerlink" title="参考内容"></a>参考内容</h2><ol>
+<li><a href="http://microservices.io/patterns/index.html" target="_blank" rel="external">microservices官网</a></li>
+<li><a href="">Nginx官方博客</a></li>
+<li><a href="http://dockone.io/article/394" target="_blank" rel="external">微服务实战（一）：微服务架构的优势与不足</a></li>
+<li><a href="http://dockone.io/article/482" target="_blank" rel="external">微服务实战（二）：使用API Gateway</a></li>
+<li><a href="http://dockone.io/article/549" target="_blank" rel="external">微服务实战（三）：深入微服务架构的进程间通信</a></li>
+<li><a href="http://dockone.io/article/771" target="_blank" rel="external">微服务实战（四）：服务发现的可行方案以及实践案例</a></li>
+<li><a href="http://dockone.io/article/936" target="_blank" rel="external">微服务实践（五）：微服务的事件驱动数据管理</a></li>
+<li><a href="http://dockone.io/article/1066" target="_blank" rel="external">微服务实践（六）：选择微服务部署策略</a></li>
+<li><a href="http://dockone.io/article/1266" target="_blank" rel="external">微服务实践（七）：从单体式架构迁移到微服务架构</a></li>
+<li><a href="http://dockone.io/article/1519" target="_blank" rel="external">微服务实战：从架构到部署</a></li>
+<li><a href="http://www.infoq.com/cn/news/2016/09/Christian-Posta-Micro-service-da" target="_blank" rel="external">Christian Posta谈如何处理微服务的数据</a></li>
+<li><a href="http://weibo.com/ttarticle/p/show?id=2309403965965003062676" target="_blank" rel="external">保证分布式系统数据一致性的6种方案</a></li>
+<li><a href="https://www.zybuluo.com/babydragon/note/518192" target="_blank" rel="external">Monzo是如何从0开始构建7*24小时不停歇的银行后台系统的？</a></li>
+<li><a href="http://kubernetes.io/docs/admin/high-availability/" target="_blank" rel="external">Building High-Availability Clusters</a></li>
+<li><a href="http://www.infoq.com/cn/articles/solution-of-distributed-system-transaction-consistency" target="_blank" rel="external">分布式系统事务一致性解决方案</a></li>
+<li><a href="https://segmentfault.com/a/1190000005891501" target="_blank" rel="external">论微服务安全</a></li>
+</ol>
+
+
+                <hr>
+
+                
+
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2015/11/07/study_info/" data-toggle="tooltip" data-placement="top" title="消息推送入门">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/2015/10/30/study_thrift/" data-toggle="tooltip" data-placement="top" title="thrift入门">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                
+
+                
+
+            </div>
+    <!-- Side Catalog Container -->
+        
+
+    <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#学习" title="学习">学习</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="http://blog.kaijun.rocks" target="_blank">Kaijun&#39;s Blog</a></li>
+                    
+                </ul>
+                
+            </div>
+
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; TamChen&#39;s Blog 2017 
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    Ported by <a href="http://blog.kaijun.rocks">Kaijun</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=kaijun&repo=hexo-theme-huxblog&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://penicillus.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- Side Catalog -->
+
+
+
+
+
+<!-- Image to hack wechat -->
+<img src="http://penicillus.github.io/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>
