@@ -90,13 +90,6 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
                             <a href="/about/">About</a>
                         </li>
                         
@@ -105,6 +98,13 @@
                         
                         <li>
                             <a href="/archives/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -218,7 +218,7 @@
 <ol>
 <li>user-access_token（用户对应access_token），key 是用户，保存的是token</li>
 <li>access_token user- access_token对应用户，key是token，保存的是struct实体</li>
-<li>access_token refresh策略，当token过期，使用refresh_token刷新（返回新的access_token,refresh_token）<br>注：当access_token过期，并不会影响用户操作行为，自动判断，并调用refresh_token的接口，返回新的access_token和refresh_token(微信是否会返回新的refresh_token？)当refresh_token过期，则说明30天内用户都无任何行为，则直接让用户重新登录。<br><img src="/img/OAuth.jpg" width="70%" height="auto"></li>
+<li>access_token refresh策略，当token过期，使用refresh_token刷新（返回新的access_token,refresh_token）<br>注：当access_token过期，并不会影响用户操作行为，自动判断，并调用refresh_token的接口，返回新的access_token和refresh_token(微信是否会返回新的refresh_token？)当refresh_token过期，则说明30天内用户都无任何行为，则直接让用户重新登录。<br><img src="/img/OAuth.jpg"></li>
 </ol>
 <h3 id="支付系统"><a href="#支付系统" class="headerlink" title="支付系统"></a>支付系统</h3><p>一般支付流程</p>
 <ol>
@@ -228,7 +228,7 @@
 <li>调用query_order查询支付结果，后台与第三方交互</li>
 <li>第三方回调notify，支付成功或失败</li>
 </ol>
-<p><img src="/img/pay.png" width="70%" height="auto"></p>
+<p><img src="/img/pay.png"></p>
 <h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
 <li><a href="https://open.weixin.qq.com/cgi-bin/showdocument?action=doc&amp;id=open1419317851&amp;t=0.2433644973207265" target="_blank" rel="external">移动应用微信登录开发指南</a></li>
 <li><a href="https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=9_1" target="_blank" rel="external">微信支付</a></li>
