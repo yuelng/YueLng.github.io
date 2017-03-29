@@ -17,7 +17,7 @@
         
     </title>
 
-    <link rel="canonical" href="http://penicillus.github.io/2017/03/28/business/">
+    <link rel="canonical" href="http://yuelng.github.io/2017/03/28/business/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -97,14 +97,14 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -149,7 +149,7 @@
     <!-- Main Content -->
     
 <!-- Image to hack wechat -->
-<!-- <img src="http://penicillus.github.io/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="http://yuelng.github.io/img/icon_wechat.png" width="0" height="0"> -->
 <!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
 
 <!-- Post Header -->
@@ -198,7 +198,44 @@
                 <blockquote>
 <p>“Yeah It’s on. ”</p>
 </blockquote>
-<h3 id="微服务代码结构（Golang）"><a href="#微服务代码结构（Golang）" class="headerlink" title="微服务代码结构（Golang）"></a>微服务代码结构（Golang）</h3><p>如何使用配置或者环境变量，发现服务<br>服务依赖的问题，分清楚基础业务与复合业务<br>微服务的目录结构<br>client 提供给第三方的直接函数调用，封装底层grpc service调用，读取配置连接服务器，<br>service 下分dao、server、manager，dao层主要跟数据库交互，server是grpc server接口的实现，manager是中间层 server –&gt; manager –&gt; dao<br>serviceImpl { mysqlConnection } serviceImpl { manager } manager { mysqlConnection redisConnection}<br>subscriber 主要是kafka消费服务，引入消息队列主要是为了异步通讯，解耦业务服务。所有的消息都是单向的，都假定是一定是成功的，不成功则有相应的解决方案<br>使用with function结构，将要调用的函数当做参数传递，将重复逻辑复用。例如grpc客户端的调用，可统一埋点。</p>
+<h3 id="微服务代码结构（Golang）"><a href="#微服务代码结构（Golang）" class="headerlink" title="微服务代码结构（Golang）"></a>微服务代码结构（Golang）</h3><p>微服务设计原则</p>
+<ul>
+<li>单一责任原则（Single Responsibility Principle，SRP）</li>
+<li>确保证微服务设计能支持服务的敏捷/独立地开发和部署。</li>
+</ul>
+<p>微服务之间的通信</p>
+<ul>
+<li>同步通信，restful、thrift、grpc</li>
+<li>异步通信，rabbitmq、kafka</li>
+<li>消息格式，json、protobuf</li>
+<li>服务协议，swagger、IDL</li>
+</ul>
+<p>微服务的架构模式</p>
+<ul>
+<li>点对点风格-直接调用服务</li>
+<li>API Gateway风格</li>
+<li>消息代理风格，pub/sub</li>
+</ul>
+<p>数据管理</p>
+<ul>
+<li>去中心化的数据管理</li>
+</ul>
+<p>服务注册与服务发现</p>
+<ul>
+<li>客户端发现，或者服务端发现（k8s）</li>
+</ul>
+<p>微服务部署</p>
+<ul>
+<li>能够横向扩展，无状态部署</li>
+<li>一个服务崩溃不能影响其他服务崩溃</li>
+<li>docker将应用打包成镜像，部署为容器，使用k8s管理docker</li>
+</ul>
+<p>安全</p>
+<ul>
+<li>使用oauth2的授权模式</li>
+<li>独立出oauth服务</li>
+</ul>
+<p>如何使用配置或者环境变量，发现服务<br>服务依赖的问题，分清楚基础业务与复合业务<br>微服务的目录结构<br>client 提供给第三方的直接函数调用，封装底层grpc service调用，读取配置连接服务器，<br>service 下分dao、server、manager，dao层主要跟数据库交互，server是grpc server接口的实现，manager是中间层 server –&gt; manager –&gt; dao<br>serviceImpl { mysqlConnection } serviceImpl { manager } manager { mysqlConnection redisConnection}<br>subscriber 主要是kafka消费服务，引入消息队列主要是为了异步通讯，解耦业务服务。所有的消息都是单向的，都假定是一定是成功的，不成功则有相应的解决方案<br>使用with function结构，将要调用的函数当做参数传递，将重复逻辑复用。例如grpc客户端的调用，可统一埋点。</p>
 <p>protocol（grpc pbfile gen-go）、foundation(公共代码)、openapi（第三方接口）<br>服务发现，服务解耦，服务层级划分，如果需要强一致性，可以将该服务的范围放大，例如金钱操作</p>
 <h3 id="账户系统"><a href="#账户系统" class="headerlink" title="账户系统"></a>账户系统</h3><ul>
 <li>注册（手机号、验证码、密码）验证验证码、验证密码、创建用户、创建access_token</li>
@@ -232,6 +269,8 @@
 <h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
 <li><a href="https://open.weixin.qq.com/cgi-bin/showdocument?action=doc&amp;id=open1419317851&amp;t=0.2433644973207265" target="_blank" rel="external">移动应用微信登录开发指南</a></li>
 <li><a href="https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=9_1" target="_blank" rel="external">微信支付</a></li>
+<li><a href="http://dockone.io/article/1519" target="_blank" rel="external">微服务实战：从架构到部署</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/21563604" target="_blank" rel="external">微服务架构下的开发部署实践</a></li>
 </ul>
 
 
@@ -310,8 +349,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "tamchen";
-    var disqus_identifier = "http://penicillus.github.io/2017/03/28/business/";
-    var disqus_url = "http://penicillus.github.io/2017/03/28/business/";
+    var disqus_identifier = "http://yuelng.github.io/2017/03/28/business/";
+    var disqus_url = "http://yuelng.github.io/2017/03/28/business/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -404,7 +443,7 @@
 
                 
                     <li>
-                        <a target="_blank"  href="https://github.com/Penicilluus">
+                        <a target="_blank"  href="https://github.com/YueLng">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa fa-github fa-stack-1x fa-inverse"></i>
@@ -480,7 +519,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("http://penicillus.github.io/js/jquery.tagcloud.js",function(){
+        async("http://yuelng.github.io/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},
@@ -505,7 +544,7 @@
 <script>
     // dynamic User by Hux
     var _gaId = 'UA-67304654-1';
-    var _gaDomain = 'penicilluus.github.io';
+    var _gaDomain = 'yuelng.github.io';
 
     // Originial
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -530,7 +569,7 @@
 
 
 <!-- Image to hack wechat -->
-<img src="http://penicillus.github.io/img/icon_wechat.png" width="0" height="0" />
+<img src="http://yuelng.github.io/img/icon_wechat.png" width="0" height="0" />
 <!-- Migrate from head to bottom, no longer block render and still work -->
 
 </body>

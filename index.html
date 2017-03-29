@@ -17,7 +17,7 @@
         
     </title>
 
-    <link rel="canonical" href="http://penicillus.github.io/">
+    <link rel="canonical" href="http://yuelng.github.io/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -97,14 +97,14 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -195,7 +195,17 @@
             
 “Yeah It’s on. ”
 
-微服务代码结构（Golang）如何使用配置或者环境变量，发现服务服务依赖的问题，分清楚基础业务与复合业务微服务的目录结构client 提供给第三方的直接函数调用，封装底层grpc service调用，读取配置连接服务器，service 下分dao、server、manager，dao层主要跟数据库交互，server是grpc server接口的实现，ma......
+微服务代码结构（Golang）微服务设计原则
+
+单一责任原则（Single Responsibility Principle，SRP）
+确保证微服务设计能支持服务的敏捷/独立地开发和部署。
+
+微服务之间的通信
+
+同步通信，restful、thrift、grpc
+异步通信，rabbitmq、kafka
+消息格式，json、protobuf
+服务协议，swa......
         </div>
     </a>
     <p class="post-meta">
@@ -514,15 +524,13 @@ In computer science, functional programming is a programming paradigm that treat
                             
                         
                             
-                        
-                            
                             <a href="/tags/#学习" title="学习" rel="15">学习</a>
                             
                         
                             
-                            <a href="/tags/#项目" title="项目" rel="6">项目</a>
-                            
                         
+                            
+                            <a href="/tags/#项目" title="项目" rel="6">项目</a>
                             
                         
                             
@@ -534,11 +542,13 @@ In computer science, functional programming is a programming paradigm that treat
                             
                         
                             
-                            <a href="/tags/#分布式" title="分布式" rel="4">分布式</a>
-                            
                         
                             
                             <a href="/tags/#随笔" title="随笔" rel="9">随笔</a>
+                            
+                        
+                            
+                            <a href="/tags/#分布式" title="分布式" rel="4">分布式</a>
                             
                         
                             
@@ -605,7 +615,7 @@ In computer science, functional programming is a programming paradigm that treat
 
                             
                                 <li>
-                                    <a target="_blank"  href="https://github.com/Penicilluus">
+                                    <a target="_blank"  href="https://github.com/YueLng">
                                         <span class="fa-stack fa-lg">
                                             <i class="fa fa-circle fa-stack-2x"></i>
                                             <i class="fa fa-github fa-stack-1x fa-inverse"></i>
@@ -681,7 +691,7 @@ In computer science, functional programming is a programming paradigm that treat
 
                 
                     <li>
-                        <a target="_blank"  href="https://github.com/Penicilluus">
+                        <a target="_blank"  href="https://github.com/YueLng">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa fa-github fa-stack-1x fa-inverse"></i>
@@ -757,7 +767,7 @@ In computer science, functional programming is a programming paradigm that treat
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("http://penicillus.github.io/js/jquery.tagcloud.js",function(){
+        async("http://yuelng.github.io/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},
@@ -782,7 +792,7 @@ In computer science, functional programming is a programming paradigm that treat
 <script>
     // dynamic User by Hux
     var _gaId = 'UA-67304654-1';
-    var _gaDomain = 'penicilluus.github.io';
+    var _gaDomain = 'yuelng.github.io';
 
     // Originial
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -807,7 +817,7 @@ In computer science, functional programming is a programming paradigm that treat
 
 
 <!-- Image to hack wechat -->
-<img src="http://penicillus.github.io/img/icon_wechat.png" width="0" height="0" />
+<img src="http://yuelng.github.io/img/icon_wechat.png" width="0" height="0" />
 <!-- Migrate from head to bottom, no longer block render and still work -->
 
 </body>
