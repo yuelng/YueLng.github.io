@@ -198,64 +198,42 @@
                 <blockquote>
 <p>“Yeah It’s on. ”</p>
 </blockquote>
-<h3 id="微服务代码结构（Golang）"><a href="#微服务代码结构（Golang）" class="headerlink" title="微服务代码结构（Golang）"></a>微服务代码结构（Golang）</h3><p>微服务设计原则</p>
+<h3 id="微服务代码结构"><a href="#微服务代码结构" class="headerlink" title="微服务代码结构"></a>微服务代码结构</h3><p>微服务是大的趋势。无论后台架构怎么改变，都不能脱离它是业务架构具体实现的本质。无论是前期发展而来的单体架构，遵循着严格的代码分层风格，还是现在大家认同的微服务。微服务是后端开发的绝对趋势，外部用户需求增强直接导致了应用复杂度增加，只有将应用分解再分解才能利用更小的成本干更多的事。微服务的另一种表现是后端“侵占”系统工程、运维部署、DBA的工作，在中型及以下的公司中更多地利用云资源，云主机，云数据库的租用模式降低了企业的成本，也使得后端开发是多面手，能够开发应用，能够部署发布系统，规划网络。整个趋势应该是效率更高成本更低的模式迈进。当然在产品创意时期，快速试错阶段，是否采用微服务结构，则完全取决于开发组长在微服务领域的积累，有的同学认为使用微服务会增加系统成本，但是这个“成本问题”还需要好好商榷。在产品期初阶段，我是不反对单体架构的，只要做好设计做好分层，对后面拆分服务也是方便的。毕竟微服务是<code>高内聚</code>、<code>低耦合</code>、<code>设计的正交性</code> 的正确实现。微服务在本质上是SOA面向服务架构的一种具体实现，过去的企业总线模式绑定了固定的技术，而微服务则更加注重轻量级，易于修改与部署。可以这么说单体架构是一张服务图，而微服务是一棵服务树。</p>
+<p>该怎么合理设计微服务架构，服务在系统中应该表示为组件，可以提供某种作用例如汽车中的发动机，具体在代码系统中应该是能提供接口。所以规范好服务的边界，以及提供充分的周边服务就是设计的考虑点。我们可以从Chris Richardson 微服务系列的七篇文章得到一些灵感</p>
+<ol>
+<li>微服务架构的优势与不足</li>
+<li>使用 API 网关构建微服务</li>
+<li>微服务架构中的进程间通信</li>
+<li>服务发现的可行方案以及实践案例</li>
+<li>微服务的事件驱动数据管理</li>
+<li>选择微服务部署策略</li>
+<li>将单体应用改造为微服务</li>
+</ol>
+<p>除了第一篇的总起和最后一篇的具体实践，其余5篇都是指导我们在微服务中应该具体注意哪些话题。当然还包括其他应该关注的话题</p>
 <ul>
-<li>单一责任原则（Single Responsibility Principle，SRP）</li>
-<li>确保证微服务设计能支持服务的敏捷/独立地开发和部署。</li>
+<li>日志和审计，主要是日志的汇总，分类和查询</li>
+<li>监控和告警，主要是监控每个服务的状态，必要时产生告警</li>
+<li>认证与鉴权</li>
+<li>统一的服务测试（单元测试，整体测试）</li>
+<li>服务依赖关系管理（服务调用关系链跟踪）</li>
 </ul>
-<p>微服务之间的通信</p>
+<p>很多团队在想自己公司是否需要引入微服务，他应该考虑应用系统是否能够拆分成体积小的微服务，以及各个服务之间的耦合情况，其次外部条件是否容许，是否能够独立开发与部署，能否采用轻量级的通信机制和架构。在我看来微服务还是另外一种单体应用，只是着重关注于本身的业务实现。一个完整的微服务同样也包括handler、service、dao，具体的代码组织架构则是设计模式那一层级所要考虑的事，例如是否需要在handler层与dao层加入service来实现具体的业务逻辑，这个就跟软件开发具体能力直接相关，也是能看出后端工程师是否能写好代码的重要表现。但是有一点要注意，过早的优化是万恶之源，在写代码中不断思考不断优化才是可持续发展之路。</p>
+<p>BASE模型</p>
 <ul>
-<li>同步通信，restful、thrift、grpc</li>
-<li>异步通信，rabbitmq、kafka</li>
-<li>消息格式，json、protobuf</li>
-<li>服务协议，swagger、IDL</li>
+<li>Basically Available（基本可用）：系统在出现不可预知的故障的时候，允许损失部分可用性，但不等于系统不可用</li>
+<li>Soft State（软状态）：允许系统中的数据存在中间状态，并认为该中间状态的存在不会影响系统的整体可用性</li>
+<li>Eventually Consistent（最终一致性）：系统保证最终数据能够达到一致</li>
 </ul>
-<p>微服务的架构模式</p>
-<ul>
-<li>点对点风格-直接调用服务</li>
-<li>API Gateway风格</li>
-<li>消息代理风格，pub/sub</li>
-</ul>
-<p>数据管理</p>
-<ul>
-<li>去中心化的数据管理</li>
-</ul>
-<p>服务注册与服务发现</p>
-<ul>
-<li>客户端发现，或者服务端发现（k8s）</li>
-</ul>
-<p>微服务部署</p>
-<ul>
-<li>能够横向扩展，无状态部署</li>
-<li>一个服务崩溃不能影响其他服务崩溃</li>
-<li>docker将应用打包成镜像，部署为容器，使用k8s管理docker</li>
-</ul>
-<p>安全</p>
-<ul>
-<li>使用oauth2的授权模式</li>
-<li>独立出oauth服务</li>
-</ul>
-<p>如何使用配置或者环境变量，发现服务<br>服务依赖的问题，分清楚基础业务与复合业务<br>微服务的目录结构<br>client 提供给第三方的直接函数调用，封装底层grpc service调用，读取配置连接服务器，<br>service 下分dao、server、manager，dao层主要跟数据库交互，server是grpc server接口的实现，manager是中间层 server –&gt; manager –&gt; dao<br>serviceImpl { mysqlConnection } serviceImpl { manager } manager { mysqlConnection redisConnection}<br>subscriber 主要是kafka消费服务，引入消息队列主要是为了异步通讯，解耦业务服务。所有的消息都是单向的，都假定是一定是成功的，不成功则有相应的解决方案<br>使用with function结构，将要调用的函数当做参数传递，将重复逻辑复用。例如grpc客户端的调用，可统一埋点。</p>
-<p>protocol（grpc pbfile gen-go）、foundation(公共代码)、openapi（第三方接口）<br>服务发现，服务解耦，服务层级划分，如果需要强一致性，可以将该服务的范围放大，例如金钱操作</p>
-<h3 id="账户系统"><a href="#账户系统" class="headerlink" title="账户系统"></a>账户系统</h3><ul>
-<li>注册（手机号、验证码、密码）验证验证码、验证密码、创建用户、创建access_token</li>
-<li>登录（手机号、密码）</li>
-<li>第三方登录（微信）（客户端调用微信登录界面，微信回调后台接口并携带code，后台接收code，换取access_token）</li>
-<li>刷新access_token 返回新的access_token和refresh_token， refresh_token比access_token的有效期更长，当refresh_token过期，重新登录</li>
-</ul>
+<p>在微服务架构中，每个微服务都有自己私有的数据集。不同微服务可能使用不同的SQL或者NoSQL数据库。尽管数据库架构有很强的优势，但是也面对数据分布式管理的挑战。第一个挑战就是如何在多服务之间维护业务交易一致性；第二个挑战是如何从多服务环境中获取一致性数据。最佳解决办法是采用事件驱动架构。其中碰到的一个挑战是如何原子性的更新状态和发布事件。有几种方法可以解决此问题，包括将数据库视为消息队列、交易日志挖掘和事件源。</p>
+<p>Christian Posta认为微服务的价值在于自治，在于每一个系统都能够独立的变化，为了在实现自治的同时又保证业务需求，“事件机制”是非常好的选择。事件是不可变的数据结构，它会及时捕获与某个动作相关的信息，并被广播到其他节点，其他节点会监听它们感兴趣的事件，并根据事件的数据做出决策（存储数据、更新数据等）。</p>
+<h3 id="账户系统"><a href="#账户系统" class="headerlink" title="账户系统"></a>账户系统</h3><p>基本所有面向用户的系统都会涉及账户系统，在学校做项目的时候，只会注意注册、登录、登出功能。在工作之后才发现账户系统是有套路可寻的。现在的账户系统都会涉及第三方登录，所以这部分会两个话题讲。使用手机或邮箱注册登录，最初的办法是将登录信息写入服务器端的session、客户端的cookie，在用户访问网页时才能记住这个用户。后面发现更加简单的方法–使用token，JWT的声明一般被用来在身份提供者和服务提供者间传递被认证的用户身份信息，以便于从资源服务器获取资源。OAuth技术同样也可以用在自建账户系统中,值得特别注意的是refresh_token的设计，很多认证系统虽然使用了jwt作为认证的技术，但是并没有建立完整的鉴权系统。另外保存access-token的策略，简单做法直接使用user_id作为key，使用jwt-token作为value，而使用OAuth标准的系统来说，则需要考虑存储完整信息，使用token做key，而将所有与用户鉴权信息作为value。<br><img src="jwt.jpg"></p>
 <p>微信登录流程</p>
 <ol>
 <li>用户点击微信登录，调用第三方接口，进入授权页面，与后台无交互</li>
 <li>用户点击授权，回调后台，将code参数传入后台</li>
 <li>后台根据code、AppID和AppSecret 换取access_token</li>
 <li>access_token的有效期是2小时，refresh_token的有效期是30天</li>
-<li>通过access_token获取用户头像、昵称等信息</li>
-</ol>
-<p>access_token 策略 (使用redis保存token)</p>
-<ol>
-<li>user-access_token（用户对应access_token），key 是用户，保存的是token</li>
-<li>access_token user- access_token对应用户，key是token，保存的是struct实体</li>
-<li>access_token refresh策略，当token过期，使用refresh_token刷新（返回新的access_token,refresh_token）<br>注：当access_token过期，并不会影响用户操作行为，自动判断，并调用refresh_token的接口，返回新的access_token和refresh_token(微信是否会返回新的refresh_token？)当refresh_token过期，则说明30天内用户都无任何行为，则直接让用户重新登录。<br><img src="/img/OAuth.jpg"></li>
+<li>通过access_token获取用户头像、昵称等信息<br><img src="/img/OAuth.jpg"></li>
 </ol>
 <h3 id="支付系统"><a href="#支付系统" class="headerlink" title="支付系统"></a>支付系统</h3><p>一般支付流程</p>
 <ol>
@@ -263,10 +241,25 @@
 <li>应用收到后台的sign签名，调起第三方支付页面</li>
 <li>用户与第三方支付交互，支付失败或成功返回应用</li>
 <li>调用query_order查询支付结果，后台与第三方交互</li>
-<li>第三方回调notify，支付成功或失败</li>
+<li>第三方回调notify，支付成功或失败<br><img src="/img/pay.png"></li>
 </ol>
-<p><img src="/img/pay.png"></p>
 <h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
+<li><a href="http://microservices.io/patterns/index.html" target="_blank" rel="external">microservices官网</a></li>
+<li><a href="http://dockone.io/article/394" target="_blank" rel="external">微服务实战（一）：微服务架构的优势与不足</a></li>
+<li><a href="http://dockone.io/article/482" target="_blank" rel="external">微服务实战（二）：使用API Gateway</a></li>
+<li><a href="http://dockone.io/article/549" target="_blank" rel="external">微服务实战（三）：深入微服务架构的进程间通信</a></li>
+<li><a href="http://dockone.io/article/771" target="_blank" rel="external">微服务实战（四）：服务发现的可行方案以及实践案例</a></li>
+<li><a href="http://dockone.io/article/936" target="_blank" rel="external">微服务实践（五）：微服务的事件驱动数据管理</a></li>
+<li><a href="http://dockone.io/article/1066" target="_blank" rel="external">微服务实践（六）：选择微服务部署策略</a></li>
+<li><a href="http://dockone.io/article/1266" target="_blank" rel="external">微服务实践（七）：从单体式架构迁移到微服务架构</a></li>
+<li><a href="http://dockone.io/article/1519" target="_blank" rel="external">微服务实战：从架构到部署</a></li>
+<li><a href="http://www.infoq.com/cn/news/2016/09/Christian-Posta-Micro-service-da" target="_blank" rel="external">Christian Posta谈如何处理微服务的数据</a></li>
+<li><a href="http://weibo.com/ttarticle/p/show?id=2309403965965003062676" target="_blank" rel="external">保证分布式系统数据一致性的6种方案</a></li>
+<li><a href="https://www.zybuluo.com/babydragon/note/518192" target="_blank" rel="external">Monzo是如何从0开始构建7*24小时不停歇的银行后台系统的？</a></li>
+<li><a href="http://kubernetes.io/docs/admin/high-availability/" target="_blank" rel="external">Building High-Availability Clusters</a></li>
+<li><a href="http://www.infoq.com/cn/articles/solution-of-distributed-system-transaction-consistency" target="_blank" rel="external">分布式系统事务一致性解决方案</a></li>
+<li><a href="https://segmentfault.com/a/1190000005891501" target="_blank" rel="external">论微服务安全</a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2014/05/oauth_2_0.html" target="_blank" rel="external">理解OAuth 2.0</a></li>
 <li><a href="https://open.weixin.qq.com/cgi-bin/showdocument?action=doc&amp;id=open1419317851&amp;t=0.2433644973207265" target="_blank" rel="external">移动应用微信登录开发指南</a></li>
 <li><a href="https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=9_1" target="_blank" rel="external">微信支付</a></li>
 <li><a href="http://dockone.io/article/1519" target="_blank" rel="external">微服务实战：从架构到部署</a></li>
@@ -281,7 +274,7 @@
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/2017/03/30/study_engineering/" data-toggle="tooltip" data-placement="top" title="代码工程建设">&larr; Previous Post</a>
+                            <a href="/2017/03/30/study_engineering/" data-toggle="tooltip" data-placement="top" title="后端代码工程">&larr; Previous Post</a>
                         </li>
                     
                     
