@@ -97,14 +97,14 @@
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
@@ -226,14 +226,14 @@
 </ul>
 <p>在微服务架构中，每个微服务都有自己私有的数据集。不同微服务可能使用不同的SQL或者NoSQL数据库。尽管数据库架构有很强的优势，但是也面对数据分布式管理的挑战。第一个挑战就是如何在多服务之间维护业务交易一致性；第二个挑战是如何从多服务环境中获取一致性数据。最佳解决办法是采用事件驱动架构。其中碰到的一个挑战是如何原子性的更新状态和发布事件。有几种方法可以解决此问题，包括将数据库视为消息队列、交易日志挖掘和事件源。</p>
 <p>Christian Posta认为微服务的价值在于自治，在于每一个系统都能够独立的变化，为了在实现自治的同时又保证业务需求，“事件机制”是非常好的选择。事件是不可变的数据结构，它会及时捕获与某个动作相关的信息，并被广播到其他节点，其他节点会监听它们感兴趣的事件，并根据事件的数据做出决策（存储数据、更新数据等）。</p>
-<h3 id="账户系统"><a href="#账户系统" class="headerlink" title="账户系统"></a>账户系统</h3><p>基本所有面向用户的系统都会涉及账户系统，在学校做项目的时候，只会注意注册、登录、登出功能。在工作之后才发现账户系统是有套路可寻的。现在的账户系统都会涉及第三方登录，所以这部分会两个话题讲。使用手机或邮箱注册登录，最初的办法是将登录信息写入服务器端的session、客户端的cookie，在用户访问网页时才能记住这个用户。后面发现更加简单的方法–使用token，JWT的声明一般被用来在身份提供者和服务提供者间传递被认证的用户身份信息，以便于从资源服务器获取资源。OAuth技术同样也可以用在自建账户系统中,值得特别注意的是refresh_token的设计，很多认证系统虽然使用了jwt作为认证的技术，但是并没有建立完整的鉴权系统。另外保存access-token的策略，简单做法直接使用user_id作为key，使用jwt-token作为value，而使用OAuth标准的系统来说，则需要考虑存储完整信息，使用token做key，而将所有与用户鉴权信息作为value。<br><img src="jwt.jpg"></p>
+<h3 id="账户系统"><a href="#账户系统" class="headerlink" title="账户系统"></a>账户系统</h3><p>基本所有面向用户的系统都会涉及账户系统，在学校做项目的时候，只会注意注册、登录、登出功能。在工作之后才发现账户系统是有套路可寻的。现在的账户系统都会涉及第三方登录，所以这部分会两个话题讲。使用手机或邮箱注册登录，最初的办法是将登录信息写入服务器端的session、客户端的cookie，在用户访问网页时才能记住这个用户。后面发现更加简单的方法–使用token，JWT的声明一般被用来在身份提供者和服务提供者间传递被认证的用户身份信息，以便于从资源服务器获取资源。OAuth技术同样也可以用在自建账户系统中,值得特别注意的是refresh_token的设计，很多认证系统虽然使用了jwt作为认证的技术，但是并没有建立完整的鉴权系统。另外保存access-token的策略，简单做法直接使用user_id作为key，使用jwt-token作为value，而使用OAuth标准的系统来说，则需要考虑存储完整信息，使用token做key，而将所有与用户鉴权信息作为value。<br><img src="jwt.png"></p>
 <p>微信登录流程</p>
 <ol>
 <li>用户点击微信登录，调用第三方接口，进入授权页面，与后台无交互</li>
 <li>用户点击授权，回调后台，将code参数传入后台</li>
 <li>后台根据code、AppID和AppSecret 换取access_token</li>
 <li>access_token的有效期是2小时，refresh_token的有效期是30天</li>
-<li>通过access_token获取用户头像、昵称等信息<br><img src="/img/OAuth.jpg"></li>
+<li>通过access_token获取用户头像、昵称等信息<br><img src="OAuth.jpg"></li>
 </ol>
 <h3 id="支付系统"><a href="#支付系统" class="headerlink" title="支付系统"></a>支付系统</h3><p>一般支付流程</p>
 <ol>
@@ -241,7 +241,7 @@
 <li>应用收到后台的sign签名，调起第三方支付页面</li>
 <li>用户与第三方支付交互，支付失败或成功返回应用</li>
 <li>调用query_order查询支付结果，后台与第三方交互</li>
-<li>第三方回调notify，支付成功或失败<br><img src="/img/pay.png"></li>
+<li>第三方回调notify，支付成功或失败<br><img src="pay.png"></li>
 </ol>
 <h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
 <li><a href="http://microservices.io/patterns/index.html" target="_blank" rel="external">microservices官网</a></li>
