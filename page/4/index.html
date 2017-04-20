@@ -90,14 +90,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -184,23 +184,32 @@
 
 <div class="post-preview">
 
-    <a href="/2015/09/29/study_rpc/">
+    <a href="/2016/01/24/life_xiexiongmao/">
         <h2 class="post-title">
-            RPC远程过程调用
+            生活-美食(知乎谢雄猫君
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            如果说把一个网站分为三个部分，经典的MVC设计模式，后台分布式实现就是控制层，模块的服务化全都依赖于rpc框架，从阿里的dubbo、Hadoop等，这些大数据框架都有了广泛的应用，本文是个人学习rpc过程中的一些资料积累和个人想法。 
-RPC调用分类
-同步调用客户方等待调用执行完成并返回结果。
-异步调用客户方调用后不用等待执行结果返回，但依然可以通过回调通知等方式获取返回结果。 若客户方不关......
+            谢熊猫君记录意大利面
+牛肉碎
+有西餐holy trinity之称的洋葱、胡萝卜和西芹
+番茄酱（切记要用tomato puree或者tomato paste，
+Tagliatelle或者Fettucine这种宽的意面
+奶酪（mozzarella或者parmesan），牛奶，橄榄油
+
+酱：
+
+胡萝卜，西芹切丁，洋葱切碎，
+放橄榄油，先炒洋葱至透明
+放胡萝卜和西芹，炒热，下牛肉碎，变色
+下番茄酱，......
         </div>
     </a>
     <p class="post-meta">
         Posted by YueLng Chen on
-        2015-09-29
+        2016-01-24
     </p>
 
 </div>
@@ -208,23 +217,26 @@ RPC调用分类
 
 <div class="post-preview">
 
-    <a href="/2015/09/28/study_algorithm/">
+    <a href="/2016/01/24/think_master_performance/">
         <h2 class="post-title">
-            相似距离算法
+            编程之路—性能与优化
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            相似距离算法是推荐算法的一部分。
-一、EuclideanDistanceSimilarity: 欧氏距离相似度原理：利用欧式距离d定义的相似度s，s=1 / (1+d)。
-范围：[0,1]，值越大，说明d越小，也就是距离越近，则相似度越大。
-说明：同皮尔森相似度一样，该相似度也没有考虑重叠数对结果的影响，同样地，Mahout通过增加一个枚举类型（Weighting）的参数来使得重叠数也成为计......
+            编程之路
+编程规范
+函数式编程
+性能与优化
+单元测试
+
+概念定义...
         </div>
     </a>
     <p class="post-meta">
         Posted by YueLng Chen on
-        2015-09-28
+        2016-01-24
     </p>
 
 </div>
@@ -232,26 +244,29 @@ RPC调用分类
 
 <div class="post-preview">
 
-    <a href="/2015/09/28/study_arch/">
+    <a href="/2016/01/24/think_master_unittest/">
         <h2 class="post-title">
-            项目架构的初略了解
+            编程之路-单元测试
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            没有银弹构建灵活且有韧性的系统分解与组合、总线（控制、数据）、路由（解决数据的流向问题）、队列（对于那些并非需要立即处理的数据，可以使用队列。队列也有把生产者和消费者分离的功效。）、消息系统（请求/响应，Pub/Sub），协议，周边（高可用、代谢、安全、透支保护）
-通信
-request/response
-thrift
-pub/sub
+            编程之路
+编程规范
+函数式编程
+性能与优化
+单元测试
 
-pub/subpub/sub是种事件驱动模型，消息发布者......
+概念定义
+在计算机编程中，单元测试（又称为模块测试, Unit Testing）是针对程序模块（软件设计的最小单位）来进行正确性检验的测试工作。程序单元是应用的最小可测试部件。在过程化编程中，一个单元就是单个程序、函数、过程等；对于面向对象编程，最小单元就是方法，包括基类（超类）、抽象类、或者派生类（子类）中的方法。
+
+了解项目背景，选......
         </div>
     </a>
     <p class="post-meta">
         Posted by YueLng Chen on
-        2015-09-28
+        2016-01-24
     </p>
 
 </div>
@@ -259,21 +274,27 @@ pub/subpub/sub是种事件驱动模型，消息发布者......
 
 <div class="post-preview">
 
-    <a href="/2015/09/16/project_zhongtui/">
+    <a href="/2016/01/24/think_master_function/">
         <h2 class="post-title">
-            众推（先记录下 待整理）
+            编程之路—函数式编程
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            zhongtui_python系统基于开源项目众推，功能形式上类似今日头条
-概述在开源中国闲逛时发现了这个项目-众推，是一个以Hadoop分布思想为基础类今日头条的开源项目。虽然该项目将去重过滤、文本分类单独出来，但是我认为这都属于数据处理部分。所以我将整个项目的核心划分为三个部分：分布式爬虫、数据清洗与处理、web工程。分别也对应了数据的采集、处理和展示。该项目没有继续下去，可能是因为这个......
+            编程之路
+编程规范
+函数式编程
+性能与优化
+单元测试
+
+概念定义
+In computer science, functional programming is a programming paradigm that treats computation as the evaluation of mathematical functions and avoids state and mutab......
         </div>
     </a>
     <p class="post-meta">
         Posted by YueLng Chen on
-        2015-09-16
+        2016-01-24
     </p>
 
 </div>
@@ -281,35 +302,27 @@ pub/subpub/sub是种事件驱动模型，消息发布者......
 
 <div class="post-preview">
 
-    <a href="/2015/09/16/study_git/">
+    <a href="/2016/01/24/think_master_program/">
         <h2 class="post-title">
-            Git速查表/参考手册
+            编程之路—编程规范
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            索引
-创建
-本地修改
-搜索
-提交历史
-分支与标签
-更新与发布
-合并与重置
-撤销
+            编程之路
+编程规范
+函数式编程
+性能与优化
+单元测试
 
-
-
-创建12$ git clone ssh://user@domain.com/repo.git #复制一个已创建的仓库$ git init #创建一个新的本地仓库
-
-
-本地修改123456789101112131415161718192021$ git status        #显示工作路径下已修改的文件......
+####宏观编程规范编程规范应该是编程活动中的精华所在，虽然与其他几种同列，但是我认为这不仅仅是规范
+规范体现了一个程序员的基本素养，武林高手一般会有他自己的独有风格，但是也会有大多数高手都有的气质。编程规范是能够体现出程序员水准的标准，通常在达到一定的境界的时候，大家都会不约而同形成一套体系，而这套体系是前人不断总结出来的，在我看来这......
         </div>
     </a>
     <p class="post-meta">
         Posted by YueLng Chen on
-        2015-09-16
+        2016-01-24
     </p>
 
 </div>
@@ -317,20 +330,35 @@ pub/subpub/sub是种事件驱动模型，消息发布者......
 
 <div class="post-preview">
 
-    <a href="/2015/09/16/study_software/">
+    <a href="/2016/01/16/think_work/">
         <h2 class="post-title">
-            团队项目开发与规范
+            软件工程与自我修养
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            个人理解团队是因为有相同的目标才聚集在一起，所有在做一个项目的开始，要让所有成员认同项目的前景。团队的大小个人认为最多20个人。虽然说很有必要保证规范化，但是我认为按部就班只能扼杀人的创造力，但是一些的必要的流程规范还是要的，也就是下面说的开发流程规范，有些人认为这样不会有很好的技术文化积累。我想的是技术文档和团队文化并不和小而美的团队相冲突，文档取决于个人的工作习惯，而文化取决于每个人以及......
+            
+不以赚钱为目的选择学习的内容
+以自己是否能造出轮子来衡量学习的效果
+坚持每天写自己的代码，前十年每天至少6个小时，不包括学习和工作时间
+
+
+
+对所做的事情的理解越深，你就会做的越好。
+服务：将单页面单请求拆分为多个请求，拆分服务
+代码级别的文档，只写别人经常看的文档
+Component-Driven dev 模块驱动开发
+测试驱动开发
+数据驱动开发
+
+软件工程师的基本素养
+计算机程序的构造......
         </div>
     </a>
     <p class="post-meta">
         Posted by YueLng Chen on
-        2015-09-16
+        2016-01-16
     </p>
 
 </div>
@@ -338,21 +366,24 @@ pub/subpub/sub是种事件驱动模型，消息发布者......
 
 <div class="post-preview">
 
-    <a href="/2015/09/16/study_shell/">
+    <a href="/2015/12/07/python_dev_env/">
         <h2 class="post-title">
-            python的装饰器与JavaScript中的闭包
+            python开发环境搭建
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            1.摘要这里记录关于Python装饰器和JavaScript闭包的学习笔记
-2.1Python中的装饰器12345678910111213def makebold(fn):    def wrapped():        return "&lt;b&gt;" + fn() + "&lt;/b&gt;"    return wrappeddef makeitalic(fn):    def ......
+            homebrew安装与基本使用1，homebrew简介
+homebrew是Mac OSX上的包管理工具，类似于linux中的apt，yum等等，能在mac中方便地安装软件或者卸载软件。
+2，homebrew安装
+1ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)
+3......
         </div>
     </a>
     <p class="post-meta">
         Posted by YueLng Chen on
-        2015-09-16
+        2015-12-07
     </p>
 
 </div>
@@ -360,20 +391,23 @@ pub/subpub/sub是种事件驱动模型，消息发布者......
 
 <div class="post-preview">
 
-    <a href="/2015/09/16/source_all/">
+    <a href="/2015/11/27/project_network/">
         <h2 class="post-title">
-            一些有用的链接（持续更新）
+            网络监控系统
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            计算机科学1.谷歌推荐的技术能力提升指南CS课程入门、了解其他语言、测试代码、培养逻辑推理和学习数学离散知识、深刻理解操作系统、学习UX设计、学习人工智能、学习如何构建编译器、了解密码学、并行编程、与其他程序员一起开发项目。2.hackr.ioShare and discover the best programming tutorials and courses online.3.图说设计......
+            项目截图
+简介网络监控系统是在学校的外包项目，老师的课题。由于项目属于外包项目，软件代码的所有权自然不在我，所以只能大概讲讲结构，不能开源代码。
+这个项目如果细分的话可以分为安全准入系统和网络监控系统，两个项目都是属于网络相关的项目，下面分两部分来介绍这个项目
+安全准入系统安全准入系统是基于C/S/B模式的管理系统，准入的意思是用户必须通过登录才能访问内网和外网资源，同时还具备监控系统的一些......
         </div>
     </a>
     <p class="post-meta">
         Posted by YueLng Chen on
-        2015-09-16
+        2015-11-27
     </p>
 
 </div>
@@ -381,21 +415,21 @@ pub/subpub/sub是种事件驱动模型，消息发布者......
 
 <div class="post-preview">
 
-    <a href="/2015/09/15/study_coding/">
+    <a href="/2015/11/27/project_remote/">
         <h2 class="post-title">
-            勿在浮沙聚高塔
+            web远程登录系统
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            1.摘要今天看了新浪新兵训练营的一些资料，整理下关于程序员最基础的知识————关于编码主要内容包括，什么是烂代码，什么是好代码，好代码需要注意什么，如何做出优雅的设计，如何规划合理的架构编码主要是给人看的，其次才是给机器看的。
-2.关于烂代码写出烂代码很容易，入行时很容易被鼓吹要把主要精力放在ABCD（需求文档/功能设计/架构设计/理解原理）上，写代码只是实现想法的工具。在这样的指导思想下，......
+            项目截图
+web远程登录系统文档简要说明web远程登录系统总体上分为两部分，web工程与web远程登录系统，本文档将会从系统的功能架构和技术架构对本系统进行说明，web工程主要是针对FPGA实验仿真平台的配套设置，用户通过web工程了解FPGA实验仿真平台的基本信息，主要的功能模块有信息首页、公告新闻、文件下载、实验平台等。web远程登录系统则是基于guacamole-一款基于HTML5的w......
         </div>
     </a>
     <p class="post-meta">
         Posted by YueLng Chen on
-        2015-09-15
+        2015-11-27
     </p>
 
 </div>
@@ -403,25 +437,21 @@ pub/subpub/sub是种事件驱动模型，消息发布者......
 
 <div class="post-preview">
 
-    <a href="/2015/09/12/study_environment/">
+    <a href="/2015/11/27/project_volunteer/">
         <h2 class="post-title">
-            基础服务环境搭建
+            义工平台说明
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            这篇文章主要是针对大数据平台的搭建，主要包括的内容有
-
-vagrant虚拟机环境搭建
-Hadoop集群搭建
-memcached集群搭建
-storm集群搭建一些架构可行的架构：Flume + Kafka + Strom + Hbase 使用vagrant搭建系统安装上 http://www.vagrantbox.es/ 找下载需要的 box ， 譬如 Ubuntu 14.10（based on......
+            项目截图
+项目介绍义工系统是类似于豆瓣同城的一个项目，都是基于活动信息。用户可以在义工系统中查看学院所发布的义工信息，同时义工系统包含了用户中心，用户中心包括了关注、私信、日志、相册等基本功能。在技术上是基于Struts+spring+hibernate+ehcache框架，后台数据库采用mysql，前后台数据交互全部采用ajax+json模式，个人中心采用了bootstrap UI框架，所......
         </div>
     </a>
     <p class="post-meta">
         Posted by YueLng Chen on
-        2015-09-12
+        2015-11-27
     </p>
 
 </div>
@@ -466,7 +496,7 @@ storm集群搭建一些架构可行的架构：Flume + Kafka + Strom + Hbase 使
                     <div class="tags">
                         
                             
-                            <a href="/tags/#后端开发" title="后端开发" rel="3">后端开发</a>
+                            <a href="/tags/#后端开发" title="后端开发" rel="4">后端开发</a>
                             
                         
                             
@@ -480,19 +510,17 @@ storm集群搭建一些架构可行的架构：Flume + Kafka + Strom + Hbase 使
                             
                         
                             
+                        
+                            
                             <a href="/tags/#美食" title="美食" rel="2">美食</a>
                             
                         
                             
-                        
-                            
-                            <a href="/tags/#学习" title="学习" rel="13">学习</a>
+                            <a href="/tags/#学习" title="学习" rel="22">学习</a>
                             
                         
                             
                             <a href="/tags/#项目" title="项目" rel="6">项目</a>
-                            
-                        
                             
                         
                             
@@ -504,23 +532,39 @@ storm集群搭建一些架构可行的架构：Flume + Kafka + Strom + Hbase 使
                             
                         
                             
-                        
-                            
-                            <a href="/tags/#随笔" title="随笔" rel="8">随笔</a>
+                            <a href="/tags/#algorithm" title="algorithm" rel="2">algorithm</a>
                             
                         
                             
-                            <a href="/tags/#分布式" title="分布式" rel="4">分布式</a>
+                            <a href="/tags/#architecture" title="architecture" rel="2">architecture</a>
                             
                         
                             
-                        
+                            <a href="/tags/#工程方法" title="工程方法" rel="2">工程方法</a>
                             
                         
                             
-                        
+                            <a href="/tags/#随笔" title="随笔" rel="10">随笔</a>
                             
                         
+                            
+                            <a href="/tags/#分布式" title="分布式" rel="8">分布式</a>
+                            
+                        
+                            
+                            <a href="/tags/#python" title="python" rel="2">python</a>
+                            
+                        
+                            
+                            <a href="/tags/#网络" title="网络" rel="2">网络</a>
+                            
+                        
+                            
+                            <a href="/tags/#工具" title="工具" rel="2">工具</a>
+                            
+                        
+                            
+                            <a href="/tags/#项目开发" title="项目开发" rel="2">项目开发</a>
                             
                         
                     </div>

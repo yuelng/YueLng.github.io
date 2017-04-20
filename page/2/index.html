@@ -90,14 +90,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -184,27 +184,29 @@
 
 <div class="post-preview">
 
-    <a href="/2016/01/24/think_master_program/">
+    <a href="/2017/04/20/study_monitor/">
         <h2 class="post-title">
-            编程之路—编程规范
+            数据驱动开发与产品
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            编程之路
-编程规范
-函数式编程
-性能与优化
-单元测试
+            不谋万世者，不足以谋一时；不谋全局者，不足以谋一隅
+Monitor your data作为程序员，我们开发一个后台服务，大家有没有测试过以下数据
 
-####宏观编程规范编程规范应该是编程活动中的精华所在，虽然与其他几种同列，但是我认为这不仅仅是规范
-规范体现了一个程序员的基本素养，武林高手一般会有他自己的独有风格，但是也会有大多数高手都有的气质。编程规范是能够体现出程序员水准的标准，通常在达到一定的境界的时候，大家都会不约而同形成一套体系，而这套体系是前人不断总结出来的，在我看来这......
+这个服务能够承受多少的 QPS（每秒访问量）？
+平均响应时间和 99% 的响应时间是多少？
+如果服务器压力增加，我们能不能通过简单的加机器来解决，需要加多少台机器？
+当前线上服务瓶颈在哪里？
+按当前的增长速度，多久我们得需要加机器？
+
+技术关注点......
         </div>
     </a>
     <p class="post-meta">
         Posted by YueLng Chen on
-        2016-01-24
+        2017-04-20
     </p>
 
 </div>
@@ -212,35 +214,21 @@
 
 <div class="post-preview">
 
-    <a href="/2016/01/16/think_work/">
+    <a href="/2017/04/20/study_python/">
         <h2 class="post-title">
-            软件工程与自我修养
+            python学习
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            
-不以赚钱为目的选择学习的内容
-以自己是否能造出轮子来衡量学习的效果
-坚持每天写自己的代码，前十年每天至少6个小时，不包括学习和工作时间
-
-
-
-对所做的事情的理解越深，你就会做的越好。
-服务：将单页面单请求拆分为多个请求，拆分服务
-代码级别的文档，只写别人经常看的文档
-Component-Driven dev 模块驱动开发
-测试驱动开发
-数据驱动开发
-
-软件工程师的基本素养
-计算机程序的构造......
+            Ubuntu下配置基本的Python开发环境安装Python发布版本和build依赖包
+/# 安装 Python 发布版本，dev包必须安装，很多用pip安装包都需要编译sudo apt-get install python2.7 python2.7-dev python3.4 python3.4-dev/#很多pip安装的包都需要libssl和libevent编译环境sudo apt-ge......
         </div>
     </a>
     <p class="post-meta">
         Posted by YueLng Chen on
-        2016-01-16
+        2017-04-20
     </p>
 
 </div>
@@ -248,24 +236,21 @@ Component-Driven dev 模块驱动开发
 
 <div class="post-preview">
 
-    <a href="/2015/12/07/python_dev_env/">
+    <a href="/2017/04/20/study_permission/">
         <h2 class="post-title">
-            python开发环境搭建
+            权限系统学习
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            homebrew安装与基本使用1，homebrew简介
-homebrew是Mac OSX上的包管理工具，类似于linux中的apt，yum等等，能在mac中方便地安装软件或者卸载软件。
-2，homebrew安装
-1ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)
-3......
+            基于角色的访问控制（Role-Based Access Control）基本概念RBAC认为权限授权实际上是Who、What、How的问题。在RBAC模型中，who、what、how构成了访问权限三元组,也就是“Who对What(Which)进行How的操作”。 　　
+简单理解简单理解就是把系统中所有的功能都作为一个权限（或者称呼为资源），将这些权限赋予不同的角色，这个角色就具有了诸多的功能......
         </div>
     </a>
     <p class="post-meta">
         Posted by YueLng Chen on
-        2015-12-07
+        2017-04-20
     </p>
 
 </div>
@@ -273,99 +258,7 @@ homebrew是Mac OSX上的包管理工具，类似于linux中的apt，yum等等，
 
 <div class="post-preview">
 
-    <a href="/2015/11/27/project_network/">
-        <h2 class="post-title">
-            网络监控系统
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            项目截图
-简介网络监控系统是在学校的外包项目，老师的课题。由于项目属于外包项目，软件代码的所有权自然不在我，所以只能大概讲讲结构，不能开源代码。
-这个项目如果细分的话可以分为安全准入系统和网络监控系统，两个项目都是属于网络相关的项目，下面分两部分来介绍这个项目
-安全准入系统安全准入系统是基于C/S/B模式的管理系统，准入的意思是用户必须通过登录才能访问内网和外网资源，同时还具备监控系统的一些......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2015-11-27
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2015/11/27/project_remote/">
-        <h2 class="post-title">
-            web远程登录系统
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            项目截图
-web远程登录系统文档简要说明web远程登录系统总体上分为两部分，web工程与web远程登录系统，本文档将会从系统的功能架构和技术架构对本系统进行说明，web工程主要是针对FPGA实验仿真平台的配套设置，用户通过web工程了解FPGA实验仿真平台的基本信息，主要的功能模块有信息首页、公告新闻、文件下载、实验平台等。web远程登录系统则是基于guacamole-一款基于HTML5的w......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2015-11-27
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2015/11/27/project_volunteer/">
-        <h2 class="post-title">
-            义工平台说明
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            项目截图
-项目介绍义工系统是类似于豆瓣同城的一个项目，都是基于活动信息。用户可以在义工系统中查看学院所发布的义工信息，同时义工系统包含了用户中心，用户中心包括了关注、私信、日志、相册等基本功能。在技术上是基于Struts+spring+hibernate+ehcache框架，后台数据库采用mysql，前后台数据交互全部采用ajax+json模式，个人中心采用了bootstrap UI框架，所......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2015-11-27
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2015/11/16/study_vim/">
-        <h2 class="post-title">
-            vim积累
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            这里记录vim的一些平常积累
-效果图
-安装参考github上关于vim配置及其插件安装simple_vim_setting
-基本操作1. Under normal mode123456789:wq             - save and quiti               - insertx VIM           - delete characterdd           ......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2015-11-16
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2015/11/13/study_linux/">
+    <a href="/2017/04/20/study_linux/">
         <h2 class="post-title">
             Linux基础知识与命令（Ubuntu14.10）
         </h2>
@@ -379,7 +272,7 @@ web远程登录系统文档简要说明web远程登录系统总体上分为两�
     </a>
     <p class="post-meta">
         Posted by YueLng Chen on
-        2015-11-13
+        2017-04-20
     </p>
 
 </div>
@@ -387,26 +280,23 @@ web远程登录系统文档简要说明web远程登录系统总体上分为两�
 
 <div class="post-preview">
 
-    <a href="/2015/11/13/note_category/">
+    <a href="/2017/04/20/study_info/">
         <h2 class="post-title">
-            操作技能目录
+            消息推送入门
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            
-“Any organization that design a system(defined broadly) will produce a design whose structure is a copy of the organization’s communication structureConway’s Law
+            实时消息推送的几种实现方式相较于手机端的消息推送（一般都是以socket方式实现），web端是基于http协议，很难像tcp一样保持长连接。但随着技术的发展，出现了websocket, comet等新的技术可以达到类似长连接的效果，这些技术大体可分为以下几类：
 
-
-Linux开发
-Python开发
-爬虫开发使用豆瓣的接口，使用爬......
+短轮询。页面端通过js定时异步刷新，这种方式实时效果较差。
+长轮询。页面端通过js异步请求服务端，服务端在接收到请求后，如果该次请......
         </div>
     </a>
     <p class="post-meta">
         Posted by YueLng Chen on
-        2015-11-13
+        2017-04-20
     </p>
 
 </div>
@@ -414,26 +304,131 @@ Python开发
 
 <div class="post-preview">
 
-    <a href="/2015/11/13/note_message_queue/">
+    <a href="/2017/04/20/study_git/">
         <h2 class="post-title">
-            消息队列
+            Git速查表/参考手册
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            话题参考资料
-董飞：2016年科技阅读列表
-教你如何迅速秒杀掉：99%的海量数据处理面试题
-highscalability
-新浪新兵训练营
+            索引
+创建
+本地修改
+搜索
+提交历史
+分支与标签
+更新与发布
+合并与重置
+撤销
 
-...
+
+
+创建12$ git clone ssh://user@domain.com/repo.git #复制一个已创建的仓库$ git init #创建一个新的本地仓库
+
+
+本地修改123456789101112131415161718192021$ git status        #显示工作路径下已修改的文件......
         </div>
     </a>
     <p class="post-meta">
         Posted by YueLng Chen on
-        2015-11-13
+        2017-04-20
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/04/20/study_environment/">
+        <h2 class="post-title">
+            基础服务环境搭建
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            这篇文章主要是针对大数据平台的搭建，主要包括的内容有
+
+vagrant虚拟机环境搭建
+Hadoop集群搭建
+memcached集群搭建
+storm集群搭建一些架构可行的架构：Flume + Kafka + Strom + Hbase 使用vagrant搭建系统安装上 http://www.vagrantbox.es/ 找下载需要的 box ， 譬如 Ubuntu 14.10（based on......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-04-20
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/04/20/study_distribute_item/">
+        <h2 class="post-title">
+            分布式中的要点记录
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            典型架构缓存、消息、搜索Nginx+Tornado+mysql+pythonNginx+rest.li+redis+mysql+python+RPC(Thrift)+Zookeeper+Notification Queue
+
+nginx负载均衡的标配
+rest.li一个restful服务框架，表示前端所有数据从这里交互
+redis可以缓存数据，分布式，mysql数据的持久化
+Python作为......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-04-20
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/04/20/study_distribute/">
+        <h2 class="post-title">
+            关于Log在分布式系统中的应用以及未来
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            The Log&emsp;&emsp;有一段时间被一篇称为学习笔记：The Log（我所读过的最好的一篇分布式技术文章）所刷屏，各大技术文章推荐APP和微信都推荐了这篇文章，来自于LinkedIn关于kafka的文章，核心如题—The Log。（你可以把这节看成对这篇文章的缩减）
+（一）log由来、重要性、应用&emsp;&emsp;对于任何一项新技术都会先抛出三个问题what？why？ho......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-04-20
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/04/20/study_coding/">
+        <h2 class="post-title">
+            勿在浮沙聚高塔
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            1.摘要今天看了新浪新兵训练营的一些资料，整理下关于程序员最基础的知识————关于编码主要内容包括，什么是烂代码，什么是好代码，好代码需要注意什么，如何做出优雅的设计，如何规划合理的架构编码主要是给人看的，其次才是给机器看的。
+2.关于烂代码写出烂代码很容易，入行时很容易被鼓吹要把主要精力放在ABCD（需求文档/功能设计/架构设计/理解原理）上，写代码只是实现想法的工具。在这样的指导思想下，......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-04-20
     </p>
 
 </div>
@@ -478,7 +473,7 @@ highscalability
                     <div class="tags">
                         
                             
-                            <a href="/tags/#后端开发" title="后端开发" rel="3">后端开发</a>
+                            <a href="/tags/#后端开发" title="后端开发" rel="4">后端开发</a>
                             
                         
                             
@@ -492,19 +487,17 @@ highscalability
                             
                         
                             
+                        
+                            
                             <a href="/tags/#美食" title="美食" rel="2">美食</a>
                             
                         
                             
-                        
-                            
-                            <a href="/tags/#学习" title="学习" rel="13">学习</a>
+                            <a href="/tags/#学习" title="学习" rel="22">学习</a>
                             
                         
                             
                             <a href="/tags/#项目" title="项目" rel="6">项目</a>
-                            
-                        
                             
                         
                             
@@ -516,23 +509,39 @@ highscalability
                             
                         
                             
-                        
-                            
-                            <a href="/tags/#随笔" title="随笔" rel="8">随笔</a>
+                            <a href="/tags/#algorithm" title="algorithm" rel="2">algorithm</a>
                             
                         
                             
-                            <a href="/tags/#分布式" title="分布式" rel="4">分布式</a>
+                            <a href="/tags/#architecture" title="architecture" rel="2">architecture</a>
                             
                         
                             
-                        
+                            <a href="/tags/#工程方法" title="工程方法" rel="2">工程方法</a>
                             
                         
                             
-                        
+                            <a href="/tags/#随笔" title="随笔" rel="10">随笔</a>
                             
                         
+                            
+                            <a href="/tags/#分布式" title="分布式" rel="8">分布式</a>
+                            
+                        
+                            
+                            <a href="/tags/#python" title="python" rel="2">python</a>
+                            
+                        
+                            
+                            <a href="/tags/#网络" title="网络" rel="2">网络</a>
+                            
+                        
+                            
+                            <a href="/tags/#工具" title="工具" rel="2">工具</a>
+                            
+                        
+                            
+                            <a href="/tags/#项目开发" title="项目开发" rel="2">项目开发</a>
                             
                         
                     </div>

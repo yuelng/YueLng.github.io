@@ -90,14 +90,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -184,22 +184,26 @@
 
 <div class="post-preview">
 
-    <a href="/2015/11/13/note_system_design_question/">
+    <a href="/2017/04/20/study_arch/">
         <h2 class="post-title">
-            笔记-系统设计
+            项目架构的初略了解
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            重点考察内容面向对象，接口设计，设计模式，数据库表，分布式
-关于高并发系统设计。主要有以下几个关键技术点：缓存，索引，数据分片，锁粒度尽可能小。
-常见分布式系统设计问题如何设计Twitter，短网址系统设计，如何设计Uber分布式系统1)Inverted index2)Anagram3) Word Count4) Distributed File System Design 设计实时位置系统......
+            没有银弹构建灵活且有韧性的系统分解与组合、总线（控制、数据）、路由（解决数据的流向问题）、队列（对于那些并非需要立即处理的数据，可以使用队列。队列也有把生产者和消费者分离的功效。）、消息系统（请求/响应，Pub/Sub），协议，周边（高可用、代谢、安全、透支保护）
+通信
+request/response
+thrift
+pub/sub
+
+pub/subpub/sub是种事件驱动模型，消息发布者......
         </div>
     </a>
     <p class="post-meta">
         Posted by YueLng Chen on
-        2015-11-13
+        2017-04-20
     </p>
 
 </div>
@@ -207,24 +211,23 @@
 
 <div class="post-preview">
 
-    <a href="/2015/11/13/note_system_design/">
+    <a href="/2017/04/20/study_algorithm/">
         <h2 class="post-title">
-            笔记-系统设计
+            相似距离算法
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            九章算法的系统设计班http://www.jiuzhang.com/course/2/
-网站系统架构，搜索引擎系统，数据库系统，分布式系统开源软件架构，
-重点考察内容面向对象，接口设计，设计模式，数据库表，分布式
-关于高并发系统设计。主要有以下几个关键技术点：缓存，索引，数据分片，锁粒度尽可能小。
-分布式系统分布式系统由独立的服务器通过网络松散耦合组成的特点：可扩展性核心理念：多台服务器协同......
+            相似距离算法是推荐算法的一部分。
+一、EuclideanDistanceSimilarity: 欧氏距离相似度原理：利用欧式距离d定义的相似度s，s=1 / (1+d)。
+范围：[0,1]，值越大，说明d越小，也就是距离越近，则相似度越大。
+说明：同皮尔森相似度一样，该相似度也没有考虑重叠数对结果的影响，同样地，Mahout通过增加一个枚举类型（Weighting）的参数来使得重叠数也成为计......
         </div>
     </a>
     <p class="post-meta">
         Posted by YueLng Chen on
-        2015-11-13
+        2017-04-20
     </p>
 
 </div>
@@ -232,21 +235,23 @@
 
 <div class="post-preview">
 
-    <a href="/2015/11/13/study_python/">
+    <a href="/2017/03/30/deploy_kubernetes/">
         <h2 class="post-title">
-            python学习
+            Golang微服务部署在kubernetes
         </h2>
         <h3 class="post-subtitle">
-            
+             "关于开发与部署流程"
         </h3>
         <div class="post-content-preview">
-            Ubuntu下配置基本的Python开发环境安装Python发布版本和build依赖包
-/# 安装 Python 发布版本，dev包必须安装，很多用pip安装包都需要编译sudo apt-get install python2.7 python2.7-dev python3.4 python3.4-dev/#很多pip安装的包都需要libssl和libevent编译环境sudo apt-ge......
+            
+“What I cannot create, I do not understand. – Richard Feynman”
+
+微服务部署是一个难题，包括了一系列开发中的实际问题。例如是否将所有微服务代码放在一个git仓库还是分git仓库，是否需要公共代码（这里的公共代码指的是与业务逻辑无关在任何项目中都可以即开即用的脚手架代码），部署方式是否使用jenkins自动化部署还是自己写个脚本，......
         </div>
     </a>
     <p class="post-meta">
-        Posted by YueLng Chen on
-        2015-11-13
+        Posted by yueLng on
+        2017-03-30
     </p>
 
 </div>
@@ -254,21 +259,38 @@
 
 <div class="post-preview">
 
-    <a href="/2015/11/12/study_shadowsocks/">
+    <a href="/2017/03/30/study/study_engineering/">
         <h2 class="post-title">
-            代理的反复折腾
+            后端代码工程
         </h2>
         <h3 class="post-subtitle">
-            
+             "配置"
         </h3>
         <div class="post-content-preview">
-            这篇文章主要记录在翻墙和寝室上网的各种折腾，亲测可行，从此再也不用担心交网费了！
-代理访问与vpn访问被封禁的网站，基本通过两种方式访问-VPN或者代理。VPN简单直接，在各大国外在华的办事处都是标配，连接VPN的最直接的好处是，你电脑的流量将完全走VPN线路，通过VPN服务器进行访问，所以这个方法是比较成熟可靠，省力的，但最重要的前提是你得选择一家好的VPN服务提供商，而好的服务质量通常意......
+            
+“Yeah It’s on. ”
+
+
+关于配置
+程序内内置配置项的初始默认值
+配置文件中的配置项值可以覆盖(override)程序内配置项的默认值。
+命令行选项和参数值具有最高优先级，可以override前两层的配置项值。
+
+TODO
+关于缓存
+理解需求、服务拆分与组合
+关于通信
+关于存储
+关于命名（没有好名字的项目不开发~）
+
+参考
+Golang程序配置方案小结
+the blog of ......
         </div>
     </a>
     <p class="post-meta">
-        Posted by YueLng Chen on
-        2015-11-12
+        Posted by yueLng on
+        2017-03-30
     </p>
 
 </div>
@@ -276,29 +298,38 @@
 
 <div class="post-preview">
 
-    <a href="/2015/11/07/study_monitor/">
+    <a href="/2017/03/30/study_engineering/">
         <h2 class="post-title">
-            数据驱动开发与产品
+            后端代码工程
         </h2>
         <h3 class="post-subtitle">
-            
+             "配置"
         </h3>
         <div class="post-content-preview">
-            不谋万世者，不足以谋一时；不谋全局者，不足以谋一隅
-Monitor your data作为程序员，我们开发一个后台服务，大家有没有测试过以下数据
+            
+“Yeah It’s on. ”
 
-这个服务能够承受多少的 QPS（每秒访问量）？
-平均响应时间和 99% 的响应时间是多少？
-如果服务器压力增加，我们能不能通过简单的加机器来解决，需要加多少台机器？
-当前线上服务瓶颈在哪里？
-按当前的增长速度，多久我们得需要加机器？
 
-技术关注点......
+关于配置
+程序内内置配置项的初始默认值
+配置文件中的配置项值可以覆盖(override)程序内配置项的默认值。
+命令行选项和参数值具有最高优先级，可以override前两层的配置项值。
+
+TODO
+关于缓存
+理解需求、服务拆分与组合
+关于通信
+关于存储
+关于命名（没有好名字的项目不开发~）
+
+参考
+Golang程序配置方案小结
+the blog of ......
         </div>
     </a>
     <p class="post-meta">
-        Posted by YueLng Chen on
-        2015-11-07
+        Posted by yueLng on
+        2017-03-30
     </p>
 
 </div>
@@ -306,23 +337,23 @@ Monitor your data作为程序员，我们开发一个后台服务，大家有没
 
 <div class="post-preview">
 
-    <a href="/2015/11/07/study_info/">
+    <a href="/2017/03/28/business/">
         <h2 class="post-title">
-            消息推送入门
+            常用业务模型-基本套路
         </h2>
         <h3 class="post-subtitle">
-            
+             "记录常用的模型，账户系统、支付系统"
         </h3>
         <div class="post-content-preview">
-            实时消息推送的几种实现方式相较于手机端的消息推送（一般都是以socket方式实现），web端是基于http协议，很难像tcp一样保持长连接。但随着技术的发展，出现了websocket, comet等新的技术可以达到类似长连接的效果，这些技术大体可分为以下几类：
+            
+“Yeah It’s on. ”
 
-短轮询。页面端通过js定时异步刷新，这种方式实时效果较差。
-长轮询。页面端通过js异步请求服务端，服务端在接收到请求后，如果该次请......
+微服务代码结构微服务是大的趋势。无论后台架构怎么改变，都不能脱离它是业务架构具体实现的本质。无论是前期发展而来的单体架构，遵循着严格的代码分层风格，还是现在大家认同的微服务。微服务是后端开发的绝对趋势，外部用户需求增强直接导致了应用复杂度增加，只有将应用分解再分解才能利用更小的成本干更多的事。微服务的另一种表现是后端“侵占”系统工程、运维部署、DBA的工......
         </div>
     </a>
     <p class="post-meta">
-        Posted by YueLng Chen on
-        2015-11-07
+        Posted by yueLng on
+        2017-03-28
     </p>
 
 </div>
@@ -330,20 +361,21 @@ Monitor your data作为程序员，我们开发一个后台服务，大家有没
 
 <div class="post-preview">
 
-    <a href="/2015/10/30/study_thrift/">
+    <a href="/2016/02/03/quant-life/">
         <h2 class="post-title">
-            thrift入门
+            一些关于量化投资的资料
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            介绍Thrift 最初由Facebook开发，而后捐献给Apache，目前已广泛应用于业界。Thrift 正如其官方主页介绍的，“是一种可扩展、跨语言的服务开发框架”。简而言之，它主要用于各个服务之间的RPC通信，其服务端和客户端可以用不同的语言来开发。只需要依照IDL（Interface Description Language）定义一次接口，Thrift工具就能自动生成 C++, Jav......
+            为了使整个股票组合的风险-收益平衡而生成的。它的核心是风险收益平衡，原理是以美国著名经济学家 J. L. Kelly 的 Volatility Pumping（波动抽利）的经济学理论为基础进行设计的。J. L. Kelly 与他同期的 Harry Markowitz、William Sharpe 等学者被公认为现代量化投资科学的鼻祖
+...
         </div>
     </a>
     <p class="post-meta">
         Posted by YueLng Chen on
-        2015-10-30
+        2016-02-03
     </p>
 
 </div>
@@ -351,32 +383,22 @@ Monitor your data作为程序员，我们开发一个后台服务，大家有没
 
 <div class="post-preview">
 
-    <a href="/2015/10/29/project_victor/">
+    <a href="/2016/01/31/study-the-future-of-code/">
         <h2 class="post-title">
-            毕设题目-基于社交网络的推荐系统（众推）
+            读书笔记——《代码的未来》
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            简介项目主要分为web工程、后台业务逻辑、数据库缓存、推荐系统、分布式爬虫
-项目开发流程记录基础部分
-maven框架搭建、多模块、私服
-域名、免费空间，腾讯云
-
-web部分记录
-restful风格设计（json数据优化）
-mvc框架spring mvc或者spring boot
-第三方认证OAUTH
-comment长连接
-session处理
-python tornado实现web工程
-bla......
+            云计算时代的编程大量数据的查找在一堆数中找到目标数，最直接的做法是将目标数与一堆数逐一比较，但是这样做的效率极低，例如google这样的数量级。
+二分查找在某些特定的条件下的查找，可以大大改善查找计算量。线性查找是从头开始找的，而二分查找则是从中间开始，有三种可能，查找对象较大，查找对象较小，两者相等。算法本身逻辑是简单的，需要注意的是在不同编程语言下，数值的边界范围。
+散列表散列表表示的是......
         </div>
     </a>
     <p class="post-meta">
         Posted by YueLng Chen on
-        2015-10-29
+        2016-01-31
     </p>
 
 </div>
@@ -384,21 +406,22 @@ bla......
 
 <div class="post-preview">
 
-    <a href="/2015/10/16/study_model/">
+    <a href="/2016/01/31/study/study-the-future-of-code/">
         <h2 class="post-title">
-            设计模式简要介绍
+            读书笔记——《代码的未来》
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            创建型模式简单工厂模式简单工厂模式的要点在于：当你需要什么，只需要传入一个正确的参数，就可以获取你所需要的对象，而无须知道其创建细节。1KeyGenerator keyGen=KeyGenerator.getInstance("DESede");//获取不同加密算法的密钥生成器
-工厂方法模式工厂父类负责定义创建产品对象的公共接口，而工厂子类则负责生成具体的产品对象，这样做的目的是将产品类的实......
+            云计算时代的编程大量数据的查找在一堆数中找到目标数，最直接的做法是将目标数与一堆数逐一比较，但是这样做的效率极低，例如google这样的数量级。
+二分查找在某些特定的条件下的查找，可以大大改善查找计算量。线性查找是从头开始找的，而二分查找则是从中间开始，有三种可能，查找对象较大，查找对象较小，两者相等。算法本身逻辑是简单的，需要注意的是在不同编程语言下，数值的边界范围。
+散列表散列表表示的是......
         </div>
     </a>
     <p class="post-meta">
         Posted by YueLng Chen on
-        2015-10-16
+        2016-01-31
     </p>
 
 </div>
@@ -406,27 +429,24 @@ bla......
 
 <div class="post-preview">
 
-    <a href="/2015/10/08/study_server/">
+    <a href="/2016/01/24/life_food/">
         <h2 class="post-title">
-            服务器端编程基础积累
+            生活-美食
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            UNIX I/O模型
-阻塞IO
-非阻塞IO
-IO多路复用
-信号驱动IO
-异步IO
+            
+“唯美食，好姑娘，梦想不可辜负.”
 
-nginx模型...
+写在记录之前总觉得一句话讲的非常好，唯美食和好姑娘不可辜负，现在好姑娘都没有，谈不上辜负，现在只是谈谈不辜负这美食。这里会搜罗世界各地，风情各异的美酒美食，也尽量给出美食的做法，以防自己老了，记录在这，不管怎么样，记得都要好好生活。（真想再开一篇记录国内各大菜系的特色和各种歪果仁的各种黑暗料理，不要漏掉酱料这个大头，各种菜系都要试一试的呀
+汤类最近一直......
         </div>
     </a>
     <p class="post-meta">
         Posted by YueLng Chen on
-        2015-10-08
+        2016-01-24
     </p>
 
 </div>
@@ -471,7 +491,7 @@ nginx模型...
                     <div class="tags">
                         
                             
-                            <a href="/tags/#后端开发" title="后端开发" rel="3">后端开发</a>
+                            <a href="/tags/#后端开发" title="后端开发" rel="4">后端开发</a>
                             
                         
                             
@@ -485,19 +505,17 @@ nginx模型...
                             
                         
                             
+                        
+                            
                             <a href="/tags/#美食" title="美食" rel="2">美食</a>
                             
                         
                             
-                        
-                            
-                            <a href="/tags/#学习" title="学习" rel="13">学习</a>
+                            <a href="/tags/#学习" title="学习" rel="22">学习</a>
                             
                         
                             
                             <a href="/tags/#项目" title="项目" rel="6">项目</a>
-                            
-                        
                             
                         
                             
@@ -509,23 +527,39 @@ nginx模型...
                             
                         
                             
-                        
-                            
-                            <a href="/tags/#随笔" title="随笔" rel="8">随笔</a>
+                            <a href="/tags/#algorithm" title="algorithm" rel="2">algorithm</a>
                             
                         
                             
-                            <a href="/tags/#分布式" title="分布式" rel="4">分布式</a>
+                            <a href="/tags/#architecture" title="architecture" rel="2">architecture</a>
                             
                         
                             
-                        
+                            <a href="/tags/#工程方法" title="工程方法" rel="2">工程方法</a>
                             
                         
                             
-                        
+                            <a href="/tags/#随笔" title="随笔" rel="10">随笔</a>
                             
                         
+                            
+                            <a href="/tags/#分布式" title="分布式" rel="8">分布式</a>
+                            
+                        
+                            
+                            <a href="/tags/#python" title="python" rel="2">python</a>
+                            
+                        
+                            
+                            <a href="/tags/#网络" title="网络" rel="2">网络</a>
+                            
+                        
+                            
+                            <a href="/tags/#工具" title="工具" rel="2">工具</a>
+                            
+                        
+                            
+                            <a href="/tags/#项目开发" title="项目开发" rel="2">项目开发</a>
                             
                         
                     </div>

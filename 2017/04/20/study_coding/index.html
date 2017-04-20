@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+          勿在浮沙聚高塔 - YueLng的博客 | YueLng&#39;s Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://yuelng.github.io/2017/04/20/study_coding/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">YueLng&#39;s Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archives/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    
+<!-- Image to hack wechat -->
+<!-- <img src="http://yuelng.github.io/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('/img/home-bg.jpg')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/tags/#随笔" title="随笔">随笔</a>
+                        
+                    </div>
+                    <h1>勿在浮沙聚高塔</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by YueLng Chen on
+                        2017-04-20
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <h2 id="1-摘要"><a href="#1-摘要" class="headerlink" title="1.摘要"></a>1.摘要</h2><p>今天看了新浪新兵训练营的一些资料，整理下关于程序员最基础的知识————关于编码<br>主要内容包括，什么是烂代码，什么是好代码，好代码需要注意什么，如何做出优雅的设计，如何规划合理的架构<br>编码主要是给人看的，其次才是给机器看的。</p>
+<h2 id="2-关于烂代码"><a href="#2-关于烂代码" class="headerlink" title="2.关于烂代码"></a>2.关于烂代码</h2><p>写出烂代码很容易，入行时很容易被鼓吹要把主要精力放在ABCD（需求文档/功能设计/架构设计/理解原理）上，写代码只是实现想法的工具。在这样的指导思想下，也随着语言的特性，层层封装，不需要了解技术细节，只要逐行翻译出来就可以了，这往往就是写出烂代码的根本原因。<br>常见的烂代码的原因包括</p>
+<ul>
+<li>意义不明（写出没有必要的代码）</li>
+<li>不说人话（写出别人看不懂的代码，又缺乏注释）</li>
+<li>不恰当的组织（写过了一些代码，但是不会分离逻辑，经常说“分离出逻辑就会增加类”）</li>
+<li>考虑不周和缺乏抽象（码代码最重要的技能之一就是对代码的抽象能力，对情况的考虑不全也会造成不断修改代码）</li>
+<li>明知道写着烂代码，但是想着以后重构来解决。重构不是万能药，<br>写好代码很难</li>
+</ul>
+<blockquote>
+<ul>
+<li>理解要开发的功能需求</li>
+<li>了解程序的运行原理</li>
+<li>做出合理的抽象</li>
+<li>组织复杂的逻辑</li>
+<li>对自己开发效率的正确估算</li>
+<li>持续不断的练习</li>
+</ul>
+</blockquote>
+<a id="more"></a>
+<h2 id="3-什么是好代码"><a href="#3-什么是好代码" class="headerlink" title="3.什么是好代码"></a>3.什么是好代码</h2><p>Bjarne Stroustrup，C++之父：</p>
+<blockquote>
+<ul>
+<li>逻辑应该是清晰的，bug难以隐藏；</li>
+<li>依赖最少，易于维护；</li>
+<li>错误处理完全根据一个明确的策略；</li>
+<li>性能接近最佳化，避免代码混乱和无原则的优化；</li>
+<li>整洁的代码只做一件事。</li>
+</ul>
+</blockquote>
+<p>Grady Booch，《面向对象分析与设计》作者：</p>
+<blockquote>
+<ul>
+<li>整洁的代码是简单、直接的；</li>
+<li>整洁的代码，读起来像是一篇写得很好的散文；</li>
+<li>整洁的代码永远不会掩盖设计者的意图，而是具有少量的抽象和清晰的控制行。</li>
+</ul>
+</blockquote>
+<p>Michael Feathers，《修改代码的艺术》作者：</p>
+<blockquote>
+<ul>
+<li>整洁的代码看起来总是像很在乎代码质量的人写的；</li>
+<li>没有明显的需要改善的地方；</li>
+<li>代码的作者似乎考虑到了所有的事情。</li>
+</ul>
+</blockquote>
+<p>代码质量的评价标准某种意义上有点类似于文学作品，比如对小说的质量的评价主要来自于它的读者，由个体主观评价形成一个相对客观的评价。并不是依靠字数，或者作者使用了哪些修辞手法之类的看似完全客观但实际没有什么意义的评价手段。<br>可读的代码</p>
+<ul>
+<li>逐字翻译，将你的代码思路给小黄鸭或者给没有看过你代码的人表述一遍</li>
+<li>遵循约定，包括代码和文档如何组织，注释如何编写，编码风格。可以参考<a href="https://github.com/google/styleguide" target="_blank" rel="external">google code style</a>，这里有<a href="https://github.com/zh-google-styleguide/zh-google-styleguide" target="_blank" rel="external">中文版</a></li>
+<li>文档与注释，文档主要有三类</li>
+</ul>
+<blockquote>
+<p>1、对于项目的介绍，包括项目功能、作者、目录结构等，读者应该能3分钟内大致理解这个工程是做什么的。<br>2、针对新人的QuickStart，读者按照文档说明应该能在1小时内完成代码构建和简单使用。<br>3、针对使用者的详细说明文档，比如接口定义、参数含义、设计等，读者能通过文档了解这些功能（或接口）的使用方法。</p>
+</blockquote>
+<ul>
+<li>可发布的代码，对于线上出现的问题能够快速定位问题，并解决</li>
+</ul>
+<h2 id="3-好代码应该注意哪些"><a href="#3-好代码应该注意哪些" class="headerlink" title="3.好代码应该注意哪些"></a>3.好代码应该注意哪些</h2><ul>
+<li>异常处理，单元测试的覆盖率，一定要尽可能地模拟线上环境地测试</li>
+<li>处理并发，具有对共享资源调用的敏感度。</li>
+<li>日志，评判日志的标准</li>
+</ul>
+<blockquote>
+<ul>
+<li>日志是否足够，所有异常、外部调用都需要有日志，而一条调用链路上的入口、出口和路径关键点上也需要有日志。</li>
+<li>日志的表达是否清晰，包括是否能读懂，风格是否统一等。这个的评价标准跟代码的可读性一样，不重复了。</li>
+<li>日志是否包含了足够的信息，这里包括了调用的上下文、外部的返回值，用于查询的关键字等，便于分析信息。</li>
+</ul>
+</blockquote>
+<ul>
+<li>避免重复</li>
+<li>模块划分</li>
+<li>简介与抽象</li>
+</ul>
+<h2 id="4-如何做出优雅的设计"><a href="#4-如何做出优雅的设计" class="headerlink" title="4.如何做出优雅的设计"></a>4.如何做出优雅的设计</h2><p>参考设计模式</p>
+<ul>
+<li>创建型模 式主要用于创建对象 式主要用于创建对象 。  </li>
+<li>结构型模式主要用于处理类或对象的组合。  </li>
+<li>行为型模式主要用于描述对类或对象怎样交互和怎样分配职责。<br>编写单元测试<br>几个比较常见的单元测试的几个典型场景： </li>
+</ul>
+<ol>
+<li>开发前写单元测试，通过测试描述需求，由测试驱动开发。 </li>
+<li>在开发过程中及时得到反馈，提前发现问题。 </li>
+<li>应用于自动化构建或持续集成流程，对每次代码修改做回归测试。 </li>
+<li>作为重构的基础，验证重构是否可靠。<br>单元测试测的三分是代码，七分是设计，能写出单元测试的代码基本上可以说明这段代码的设计是比较合理的。能写出和写不出单元测试之间体现了编程能力上的巨大的鸿沟，无论是什么样的程序员，坚持编写一段时间的单元测试之后，都会明显感受到代码设计能力的巨大提升。</li>
+</ol>
+<h2 id="5-如何规划合理的架构"><a href="#5-如何规划合理的架构" class="headerlink" title="5.如何规划合理的架构"></a>5.如何规划合理的架构</h2><p>常见的架构模式</p>
+<h3 id="5-1分层架构"><a href="#5-1分层架构" class="headerlink" title="5.1分层架构"></a>5.1分层架构</h3><p><img src="/img/layer.png" style="margin:0 auto;"><br>在现实的场景中，层数不是定值，需要根据业务的复杂度而定。在分层模型中一般来说不能跨层、同层、或反向调用，否则会让层次模型由单一的树形结构变为网状结构，失去分层的意义。<br>如果要严格按照分层模型逐级调用，会产生许多无用的空层，作用只是传递请求，因此可以对每个层次规定“开放”或“关闭”属性，对于“开放”的层次，上层可以越过这层，直接访问下层，确保团队成员对分层架构的“开放”规则有相应的了解。</p>
+<h3 id="5-2事件驱动架构"><a href="#5-2事件驱动架构" class="headerlink" title="5.2事件驱动架构"></a>5.2事件驱动架构</h3><p>事件驱动架构能比较好的解耦请求方和处理方，经常被用在写入请求量变化较大，或者是请求方不关心处理逻辑的场景中，它有两种主要的实现方式：<br>Mediator<br>在mediator方式中，存在一个中介者角色，它接收写入方的请求，并把事件分配到对应的处理方（图中的channel），每个处理方只需要关心自己的channel，而不需要与写入方直接通信。<br><img src="/img/mediator.png" style="margin:0 auto;"><br>Broker<br>在broker方式中不存在中介者的角色，取而代之的是消息流在轻量的processor中流转，形成一个消息处理的链路，如图：<br><img src="/img/broker.png" style="margin:0 auto;"><br>前一段时间开始推广的storm流式处理属于这种模式，对于较长的处理流程，用broker方式可以避免实现Mediator的复杂性，相对的，管理整个流程变得复杂了。</p>
+<h3 id="5-3微内核架构（Microkernel）"><a href="#5-3微内核架构（Microkernel）" class="headerlink" title="5.3微内核架构（Microkernel）"></a>5.3微内核架构（Microkernel）</h3><p>微内核架构相对于普通架构最主要的区别是多了“内核”的概念，在编写程序时把基础功能和扩展功能分离：内核中不再实现具体功能，而是定义“扩展点”，增加功能时不再修改主逻辑，而是通过“扩展点”挂接到内核中，如图：<br><img src="/img/Microkernel.png"><br>之前介绍的motan RPC框架应用了这种设计，这让motan可以通过不同的插件支持更多的功能，比如增加传输协议、定义新的服务发现规则等。</p>
+<h3 id="5-3微服务架构"><a href="#5-3微服务架构" class="headerlink" title="5.3微服务架构"></a>5.3微服务架构</h3><p>近年来微服务架构的概念一直比较火，它可以解决服务逐渐增长之后造成的难以测试及部署、资源浪费等问题，但也带来了服务调度和服务发现层面的复杂度，如图：<br><img src="/img/server.png"><br>微服务隔离了各服务之间的耦合，能够有效提升开发效率</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>1.<a href="http://blog.2baxb.me/archives/1343" target="_blank" rel="external">关于烂代码的那些事(上)</a><br>2.<a href="http://blog.2baxb.me/archives/1378" target="_blank" rel="external">关于烂代码的那些事（中）</a><br>3.<a href="http://weibo.com/p/1001643877361430185536" target="_blank" rel="external">新兵训练营系列课程–编写优雅代码</a></p>
+
+
+                <hr>
+
+                
+
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2017/04/20/study_distribute/" data-toggle="tooltip" data-placement="top" title="关于Log在分布式系统中的应用以及未来">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/2017/04/20/study_arch/" data-toggle="tooltip" data-placement="top" title="项目架构的初略了解">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                
+
+                
+                <!-- disqus 评论框 start -->
+                <div class="comment">
+                    <div id="disqus_thread" class="disqus-thread"></div>
+                </div>
+                <!-- disqus 评论框 end -->
+                
+
+            </div>
+    <!-- Side Catalog Container -->
+        
+
+    <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#随笔" title="随笔">随笔</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="http://blog.kaijun.rocks" target="_blank">Kaijun&#39;s Blog</a></li>
+                    
+                </ul>
+                
+            </div>
+
+        </div>
+    </div>
+</article>
+
+
+
+
+<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "tamchen";
+    var disqus_identifier = "http://yuelng.github.io/2017/04/20/study_coding/";
+    var disqus_url = "http://yuelng.github.io/2017/04/20/study_coding/";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus 公共JS代码 end -->
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/tam7_penicillus">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/tamchen">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://www.facebook.com/chen.penicillus">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/YueLng">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; YueLng&#39;s Blog 2017 
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    Ported by <a href="http://blog.kaijun.rocks">Kaijun</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=kaijun&repo=hexo-theme-huxblog&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://yuelng.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-67304654-1';
+    var _gaDomain = 'yuelng.github.io';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- Side Catalog -->
+
+
+
+
+
+<!-- Image to hack wechat -->
+<img src="http://yuelng.github.io/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>
