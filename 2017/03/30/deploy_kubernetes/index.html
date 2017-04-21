@@ -90,14 +90,14 @@
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
@@ -155,7 +155,7 @@
 <!-- Post Header -->
 <style type="text/css">
     header.intro-header{
-        background-image: url('ellie-pritts-228786.jpg')
+        background-image: url('http://i4.buimg.com/567571/3f28adbd82bdd36f.jpg')
     }
 </style>
 <header class="intro-header" >
@@ -200,6 +200,7 @@
 <p>目前我比较同意一种方式部署方式，并不排除后面会改用更加高效的方式。方式是这样的，使用git管理整个项目，包括所有微服务。如何编译部署？在之前的单体架构中，一般流程是这样的，用户提交代码到github，触发jenkins hook，jenkins进行构建操作。但是现在代码都放在一个仓库中，我们需要build不同服务的代码，因此不能在github那层做文章，比方说可以在commit message指定要build的服务？我选择的方法是自己触发不同的jenkins job，编写push服务包含git push，并在push之后触发jenkins构建。push服务指定分支，指定服务即可。</p>
 <p>服务已经build出来，可以直接把bin文件丢到目标服务器，也可以将bin文件编入docker image，然后把image发布到docker register，在远程服务器上执行upgrade svr操作。从整个流程可以划分为编码、编译打包、部署这么几个步骤。</p>
 <p>kubernetes是服务编排工具，现在大部分是拿kubernetes编排docker容器。kubernetes的优势在于负载均衡、横向扩容、资源分配、服务自动发现，减少了运维人员的心智负担。针对开发人员来说，kubernetes的部署配置也是需要去了解的，kubernetes需要根据配置拉取不同版本的docker image去运行，一般的做法是使用代码的commit版本作为image版本，如果把config文件和代码放在同一个git仓库，则会出现鸡生蛋、蛋生鸡的问题，因此最好的办法是将config放到另外的git仓库，在jenkins 部署中更新config，并将最新的config替换服务器端的config，如此便可走通整个kubernetes部署。</p>
+<p><a href="http://siddontang.com/" target="_blank" rel="external">http://siddontang.com/</a><br><a href="http://www.cs.cmu.edu/~srini/15-440/" target="_blank" rel="external">http://www.cs.cmu.edu/~srini/15-440/</a> Distributed Systems<br><a href="http://15721.courses.cs.cmu.edu/spring2016/" target="_blank" rel="external">http://15721.courses.cs.cmu.edu/spring2016/</a> Database Systems</p>
 <h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
 <li><a href="http://tonybai.com/" target="_blank" rel="external">Tony Bai的博客</a></li>
 <li><a href="https://zhuanlan.zhihu.com/p/21563604" target="_blank" rel="external">微服务架构下的开发部署实践</a></li>
@@ -214,7 +215,7 @@
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/2017/04/20/study_algorithm/" data-toggle="tooltip" data-placement="top" title="相似距离算法">&larr; Previous Post</a>
+                            <a href="/2017/04/20/study/xxx/" data-toggle="tooltip" data-placement="top" title="">&larr; Previous Post</a>
                         </li>
                     
                     
