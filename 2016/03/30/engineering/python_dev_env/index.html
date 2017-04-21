@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+          python开发环境搭建 - YueLng的博客 | YueLng&#39;s Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://yuelng.github.io/2016/03/30/engineering/python_dev_env/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">YueLng&#39;s Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archives/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    
+<!-- Image to hack wechat -->
+<!-- <img src="http://yuelng.github.io/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('/img/home-bg.jpg')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/tags/#开发" title="开发">开发</a>
+                        
+                    </div>
+                    <h1>python开发环境搭建</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by YueLng Chen on
+                        2016-03-30
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <h4 id="homebrew安装与基本使用"><a href="#homebrew安装与基本使用" class="headerlink" title="homebrew安装与基本使用"></a>homebrew安装与基本使用</h4><p>1，homebrew简介</p>
+<p>homebrew是Mac OSX上的包管理工具，类似于linux中的apt，yum等等，能在mac中方便地安装软件或者卸载软件。</p>
+<p>2，homebrew安装</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ruby <span class="_">-e</span> <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span></span></div></pre></td></tr></table></figure>
+<p>3，homebrew的使用</p>
+<p>​    brew search wget  －查找软件包</p>
+<p>​    brew install wget   － 安装软件包</p>
+<p>​    brew list                  － 列出已安装软件包</p>
+<p>​    brew remove          － 删除软件包</p>
+<p>​    更多操作请移步官网<a href="http://brew.sh/" target="_blank" rel="external">http://brew.sh/</a></p>
+<p>4，参考链接：</p>
+<p>​    homebrew官网:<a href="http://brew.sh/" target="_blank" rel="external">http://brew.sh/</a></p>
+<p>​    homebrew in github:<a href="https://github.com/Homebrew/homebrew" target="_blank" rel="external">https://github.com/Homebrew/homebrew</a></p>
+<p>注意：在安装homebrew时会先下载xcode开发工具包，如果之前没有下载。</p>
+<a id="more"></a>
+<h4 id="开发中的一般配置"><a href="#开发中的一般配置" class="headerlink" title="开发中的一般配置"></a>开发中的一般配置</h4><p>1，git的安装和基本操作</p>
+<p>使用homebrew安装git，命令如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install git</div></pre></td></tr></table></figure>
+<p>定义全局git信息（与你在github使用的用户名和邮箱一致）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git config --global user.name &quot;Your Name Here&quot;</div><div class="line">$ git config --global user.email &quot;your_email@youremail.com&quot;</div></pre></td></tr></table></figure>
+<p>配置信息会添加到～/.gitconfig文件中</p>
+<p>如果不想每次在推送代码到Github上时都输入用户名和密码，运行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git config --global credential.helper osxkeychain</div></pre></td></tr></table></figure>
+<p>如果想在不同的项目中配置不同的Github账号，可以通过以下命令实现</p>
+<p>1.取消global</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git config --global --unset user.name</div><div class="line">git config --global --unset user.email</div></pre></td></tr></table></figure>
+<p>2.设置每个项目repo的自己的user.email</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git config  user.email &quot;xxxx@xx.com&quot;</div><div class="line">git config  user.name &quot;suzie&quot;中添加不同的Github账号</div></pre></td></tr></table></figure>
+<p>创建~/.gitignore,并将以下内容加入，这样全部git仓库将忽略以下内容所提及的文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"># Folder view configuration files</div><div class="line">.DS_Store</div><div class="line">Desktop.ini</div><div class="line"># Thumbnail cache files</div><div class="line">._*</div><div class="line">Thumbs.db</div><div class="line"># Files that might appear on external disks</div><div class="line">.Spotlight-V100</div><div class="line">.Trashes</div><div class="line"># Compiled Python files</div><div class="line">*.pyc</div><div class="line"># Compiled C++ files</div><div class="line">*.out</div><div class="line"># Application specific files</div><div class="line">venv</div><div class="line">node_modules</div><div class="line">.sass-cache</div></pre></td></tr></table></figure>
+<p>Git简易指南:<a href="http://rogerdudler.github.io/git-guide/index.zh.html" target="_blank" rel="external">http://rogerdudler.github.io/git-guide/index.zh.html</a></p>
+<p>Git参考手册:<a href="http://gitref.justjavac.com/creating/#init" target="_blank" rel="external">http://gitref.justjavac.com/creating/#init</a></p>
+<p>Pro Git中文版:<a href="http://git.oschina.net/progit" target="_blank" rel="external">http://git.oschina.net/progit</a></p>
+<p>成功的git项目分支：<a href="http://nvie.com/posts/a-successful-git-branching-model/" target="_blank" rel="external">http://nvie.com/posts/a-successful-git-branching-model/</a></p>
+<p>2，pip的安装与基本操作</p>
+<p>pip是python包管理工具，类似于home-brew ，pip的下载安装命令如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># wget &quot;https://pypi.python.org/packages/source/p/pip/pip-1.5.4.tar.gz ##最新版的pip可能不是1.5.4，可以从官网获得最新安装包</div><div class="line"># tar -xzvf pip-1.5.4.tar.gz</div><div class="line"># cd pip-1.5.4</div><div class="line"># python setup.py install</div></pre></td></tr></table></figure>
+<p>同样也可以使用以下命令进行安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo easy_install pip</div></pre></td></tr></table></figure>
+<p>pip使用实例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">pip install somepackage  ##安装包</div><div class="line">pip install --upgrade somepackage ##升级包</div></pre></td></tr></table></figure>
+<p>更多命令请访问 pip项目首页 <a href="http://pypi.python.org/pypi/pip" target="_blank" rel="external">http://pypi.python.org/pypi/pip</a></p>
+<p>3，virtualenv安装与基本操作</p>
+<p>当开发多个应用程序，不同的程序依赖的第三方包的版本不同，例如当应用A需要jinja2.7，而应用B需要jinjia2.6，此时每个应用都需要拥有一套“独立”的python运行环境，vitualenv就是用来为一个应用创建一套“隔离”的python运行环境。</p>
+<p>pip安装virtualenv</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install virtualenv</div></pre></td></tr></table></figure>
+<p>创建虚拟环境 ENV</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">virtualenv ENV</div></pre></td></tr></table></figure>
+<p>默认情况下，虚拟环境会依赖系统环境中的site packages，系统中安装的第三方依赖也会安装在虚拟环境中，如果不需要依赖这些package，可以加上参数–no-site-packages</p>
+<p>启动虚拟环境</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd ENV</div><div class="line">source ./bin/activate</div></pre></td></tr></table></figure>
+<p>退出虚拟环境</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">deactivate</div></pre></td></tr></table></figure>
+<p>virtualenv官方文档：<a href="https://virtualenv.pypa.io/en/latest/" target="_blank" rel="external">https://virtualenv.pypa.io/en/latest/</a></p>
+<p>virtualenv用户手册：<a href="https://virtualenv.pypa.io/en/latest/userguide.html" target="_blank" rel="external">https://virtualenv.pypa.io/en/latest/userguide.html</a></p>
+<p>4，iterm2的安装与基本配置</p>
+<p>iterm2是一个替代终端和iTerm的后继项目，它支持 OS 10.5 或者更新版本。在 Finder 中，将 iTerm 拖拽进入 Application 文件夹中。然后，你可以在 Launchpad 中启动 iTerm。</p>
+<p>iterm官网下载地址：<a href="https://www.iterm2.com/downloads.html" target="_blank" rel="external">https://www.iterm2.com/downloads.html</a></p>
+<p>iterm中文网：<a href="http://www.iterm2.cn/" target="_blank" rel="external">http://www.iterm2.cn/</a></p>
+<p>iterm使用手册：<a href="http://www.iterm2.cn/guide" target="_blank" rel="external">http://www.iterm2.cn/guide</a></p>
+<p>5，zsh和oh-my-zsh</p>
+<p>unix/linux系统下存在很多不同的shell，最常见的就有bash,csh,ash,zsh等等，这里使用的是功能更加强大的zsh，可以通过homebrew下载安装zsh</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install zsh</div></pre></td></tr></table></figure>
+<p>将zsh设置为系统默认shell，编辑/etc/shells，末尾添加/usr/local/bin/zsh，保存关闭，在终端执行以下命令</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chsh <span class="_">-s</span> /usr/<span class="built_in">local</span>/bin/zsh</div></pre></td></tr></table></figure>
+<p>此时的zsh功能比较简单，如果需要进一步配置则需要安装oh-my-zsh</p>
+<p>oh-my-zsh在github的发布页面<a href="https://github.com/robbyrussell/oh-my-zsh" target="_blank" rel="external">https://github.com/robbyrussell/oh-my-zsh</a></p>
+<p>oh-my-zsh支持自动和手动安装，建议优先使用自动安装。</p>
+<p>自动安装：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">curl -L http://install.ohmyz.sh | sh ##使用curl</div><div class="line">wget --no-check-certificate http://install.ohmyz.sh -O - | sh ##使用wget</div></pre></td></tr></table></figure>
+<p>手动安装：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh</div><div class="line">cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc</div></pre></td></tr></table></figure>
+<p>安装完就开始配置，zsh的配置几乎都在~/.zshrc下面，使用vi打开.zshrc进行编辑</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">ZSH_THEME=pygmalion</div><div class="line"> alias zshconfig=&quot;vi ~/.zshrc&quot;</div><div class="line"> alias envconfig=&quot;vi ~/Projects/config/env.sh&quot;</div><div class="line"> plugins=(git colored-man colorize github jira vagrant virtualenv pip python brew osx zsh-syntax-highlighting)</div></pre></td></tr></table></figure>
+<p>用文本编辑器或 vi 打开 ~/Projects/config/env.sh 进行以下编辑: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">#!/bin/zsh</div><div class="line"> # PATH</div><div class="line"> export PATH=&quot;/usr/local/share/python:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin&quot;</div><div class="line"> export EDITOR=&apos;vi -w&apos;</div><div class="line"> # export PYTHONPATH=$PYTHONPATH</div><div class="line"> # export MANPATH=&quot;/usr/local/man:$MANPATH&quot;</div><div class="line"> # Virtual Environment</div><div class="line"> export WORKON_HOME=$HOME/.virtualenvs</div><div class="line"> export PROJECT_HOME=$HOME/Projects</div><div class="line"> source /usr/local/bin/virtualenvwrapper.sh</div><div class="line"> # Owner</div><div class="line"> export USER_NAME=&quot;YOUR NAME&quot;</div><div class="line"> eval &quot;$(rbenv init -)&quot;</div><div class="line"> # FileSearch</div><div class="line"> function f() &#123; find . -iname &quot;*$1*&quot; $&#123;@:2&#125; &#125;</div><div class="line"> function r() &#123; grep &quot;$1&quot; $&#123;@:2&#125; -R . &#125;</div><div class="line"> #mkdir and cd</div><div class="line"> function mkcd() &#123; mkdir -p &quot;$@&quot; &amp;&amp; cd &quot;$_&quot;; &#125;</div><div class="line"> # Aliases</div><div class="line"> alias cppcompile=&apos;c++ -std=c++11 -stdlib=libc++&apos;</div></pre></td></tr></table></figure>
+<p>在~/.oh-my-zsh/themes存在各式各样的主题文件，每个主题可以进入这个<a href="https://github.com/robbyrussell/oh-my-zsh/wiki/Themes" target="_blank" rel="external">网址</a>查看</p>
+<p>注意：新增或修改环境变量需要使用source命令使其生效。</p>
+<p>5，pycharm的安装与基本操作</p>
+<p>pycharm是一种python ide.带有一整套可以帮助用户在使用python语言开发时提高其效率的工具，比如调试，语法高亮，project管理等等。</p>
+<p>pycharm官网：<a href="https://www.jetbrains.com/pycharm/" target="_blank" rel="external">https://www.jetbrains.com/pycharm/</a></p>
+<h4 id="数据库redis安装"><a href="#数据库redis安装" class="headerlink" title="数据库redis安装"></a>数据库redis安装</h4><p>1，redis安装与编译</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">curl -O http://redis.googlecode.com/files/redis-2.8.7.tar.gz   <span class="comment">##下载redis源码</span></div><div class="line">sudo tar -zxf redis-2.8.7.tar.gz                               <span class="comment">##解压redis文件</span></div><div class="line">mv redis-2.8.7 redis                                           <span class="comment">##重命名redis文件夹</span></div><div class="line"><span class="built_in">cd</span> redis/ </div><div class="line">sudo make                                                      <span class="comment">##编译  </span></div><div class="line">sudo make <span class="built_in">test</span></div><div class="line">sudo make install</div></pre></td></tr></table></figure>
+<p>2，修改数据存储路径</p>
+<p>修改redis目录下的redis.conf文件，找到dir这一行配置，dir配置的是数据文件存放的地方。</p>
+<p>例如 dir /opt/redis/     ##注意opt和redis文件夹都是新创的，注意权限问题，修改后保存</p>
+<p>3，将配置文件移动到/etc目录下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo mv redis.conf /etc</div></pre></td></tr></table></figure>
+<p>4，启动redis</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/local/bin/redis-server /etc/redis.conf</div></pre></td></tr></table></figure>
+<p>5，参考链接</p>
+<p><a href="http://yijiebuyi.com/blog/d8ab4b444c16f42cefe30df738a42518.html" target="_blank" rel="external">redis的安装</a></p>
+<p><a href="http://yijiebuyi.com/blog/bc2b3d3e010bf87ba55267f95ab3aa71.html" target="_blank" rel="external">Redis 配置文件 redis.conf 项目详解</a></p>
+<h4 id="mongodb的安装"><a href="#mongodb的安装" class="headerlink" title="mongodb的安装"></a>mongodb的安装</h4><p>1，安装mongodb</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install mongodb</div></pre></td></tr></table></figure>
+<p>2，修改数据存放位置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"># Store data in /usr/local/var/mongodb instead of the default /data/db</div><div class="line">dbpath = /data/db    ##这个路径如果没有，可能需要自己创建</div><div class="line"># Append logs to /usr/local/var/log/mongodb/mongo.log</div><div class="line">logpath = /usr/local/var/log/mongodb/mongo.log</div><div class="line">logappend = true</div><div class="line"># Only accept local connections</div><div class="line">bind_ip = 127.0.0.1</div></pre></td></tr></table></figure>
+<p>第二行修改成数据库文件写入目录地址,如果准备连接非本地环境的mongodb数据库时,bind_ip = 0.0.0.0 即可</p>
+<p>3，将mongodb添加到环境变量</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//添加mongodb安装目录到环境变量中</div><div class="line"><span class="built_in">export</span> PATH=/usr/<span class="built_in">local</span>/Cellar/mongodb/2.4.9/bin:<span class="variable">$&#123;PATH&#125;</span>&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">source</span> ~/.bash_profile</div></pre></td></tr></table></figure>
+<p>4，启动mongodb</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mogod</div><div class="line">sudo mongod</div></pre></td></tr></table></figure>
+<p>5，参考链接</p>
+<p><a href="http://www.mongodb.org/downloads" target="_blank" rel="external">mongodb官方网站</a></p>
+<p><a href="http://yijiebuyi.com/blog/b6a3f4a726b9c0454e28156dcc96c342.html" target="_blank" rel="external">mac 下用 brew 安装mongodb</a></p>
+
+
+                <hr>
+
+                
+
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2016/03/30/life/life_xiexiongmao/" data-toggle="tooltip" data-placement="top" title="生活-美食(知乎谢雄猫君">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/2016/03/30/note/note_category/" data-toggle="tooltip" data-placement="top" title="操作技能目录">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                
+
+                
+                <!-- disqus 评论框 start -->
+                <div class="comment">
+                    <div id="disqus_thread" class="disqus-thread"></div>
+                </div>
+                <!-- disqus 评论框 end -->
+                
+
+            </div>
+    <!-- Side Catalog Container -->
+        
+
+    <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#开发" title="开发">开发</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="http://blog.kaijun.rocks" target="_blank">Kaijun&#39;s Blog</a></li>
+                    
+                </ul>
+                
+            </div>
+
+        </div>
+    </div>
+</article>
+
+
+
+
+<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "tamchen";
+    var disqus_identifier = "http://yuelng.github.io/2016/03/30/engineering/python_dev_env/";
+    var disqus_url = "http://yuelng.github.io/2016/03/30/engineering/python_dev_env/";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus 公共JS代码 end -->
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/tam7_penicillus">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/tamchen">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://www.facebook.com/chen.penicillus">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/YueLng">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; YueLng&#39;s Blog 2017 
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    Ported by <a href="http://blog.kaijun.rocks">Kaijun</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=kaijun&repo=hexo-theme-huxblog&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://yuelng.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-67304654-1';
+    var _gaDomain = 'yuelng.github.io';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- Side Catalog -->
+
+
+
+
+
+<!-- Image to hack wechat -->
+<img src="http://yuelng.github.io/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>
