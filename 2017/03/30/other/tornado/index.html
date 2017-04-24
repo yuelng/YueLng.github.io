@@ -13,11 +13,11 @@
 
     <title>
         
-          数据驱动开发与产品 - YueLng的博客 | YueLng&#39;s Blog
+          Tornado Pyhton web框架介绍 - YueLng的博客 | YueLng&#39;s Blog
         
     </title>
 
-    <link rel="canonical" href="http://yuelng.github.io/2015/11/07/study/study_monitor/">
+    <link rel="canonical" href="http://yuelng.github.io/2017/03/30/other/tornado/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -155,7 +155,7 @@
 <!-- Post Header -->
 <style type="text/css">
     header.intro-header{
-        background-image: url('http://i1.piimg.com/567571/fd261c501bd1a382.jpg')
+        background-image: url('http://ogcxtlv6r.bkt.clouddn.com/17-4-24/51032129-file_1493037135428_2033.jpg')
     }
 </style>
 <header class="intro-header" >
@@ -165,14 +165,16 @@
                 <div class="post-heading">
                     <div class="tags">
                         
-                          <a class="tag" href="/tags/#学习" title="学习">学习</a>
+                          <a class="tag" href="/tags/#后端开发" title="后端开发">后端开发</a>
+                        
+                          <a class="tag" href="/tags/#工程方法" title="工程方法">工程方法</a>
                         
                     </div>
-                    <h1>数据驱动开发与产品</h1>
-                    <h2 class="subheading"></h2>
+                    <h1>Tornado Pyhton web框架介绍</h1>
+                    <h2 class="subheading"> &quot;tornado为何这么快&quot;</h2>
                     <span class="meta">
-                        Posted by YueLng Chen on
-                        2015-11-07
+                        Posted by yueLng on
+                        2017-03-30
                     </span>
                 </div>
             </div>
@@ -191,38 +193,56 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>不谋万世者，不足以谋一时；不谋全局者，不足以谋一隅</p>
-<h2 id="Monitor-your-data"><a href="#Monitor-your-data" class="headerlink" title="Monitor your data"></a>Monitor your data</h2><p>作为程序员，我们开发一个后台服务，大家有没有测试过以下数据</p>
-<ul>
-<li>这个服务能够承受多少的 QPS（每秒访问量）？</li>
-<li>平均响应时间和 99% 的响应时间是多少？</li>
-<li>如果服务器压力增加，我们能不能通过简单的加机器来解决，需要加多少台机器？</li>
-<li>当前线上服务瓶颈在哪里？</li>
-<li>按当前的增长速度，多久我们得需要加机器？</li>
+                <p>##Tornado<br>直接读代码</p>
+<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>FriendFeed使用了一款使用Python编写的，相对简单的非阻塞式Web服务器。它的特点在于非阻塞服务器和epoll的运用，这个Web框架还包含了一些相关的有用工具和优化。</p>
+<p>以下是经典的“Hello, world”示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">import tornado.ioloop</div><div class="line">import tornado.web</div><div class="line"></div><div class="line">class MainHandler(tornado.web.RequestHandler):</div><div class="line">    def get(self):</div><div class="line">        self.write(&quot;Hello, world&quot;)</div><div class="line"></div><div class="line">application = tornado.web.Application([</div><div class="line">    (r&quot;/&quot;, MainHandler),</div><div class="line">])</div><div class="line"></div><div class="line">if __name__ == &quot;__main__&quot;:</div><div class="line">    application.listen(8888)</div><div class="line">    tornado.ioloop.IOLoop.instance().start()</div></pre></td></tr></table></figure>
+<p>Tornado各模块的相互依存关系较少，所以理论上讲，可以在自己的项目中独立地使用任何模块，而不需要使用整个包。</p>
+<p>###主要模块</p>
+<h6 id="核心Web框架"><a href="#核心Web框架" class="headerlink" title="核心Web框架"></a>核心Web框架</h6><ul>
+<li>tornado.web - RequestHandler 和 Application 类</li>
+<li>tornado.httpserver - 非阻塞式HTTP服务器</li>
+<li>tornado.template - 灵活的输出生成器</li>
+<li>tornado.escape - 转义和字符串处理</li>
+<li>tornado.locale - 国际化支持</li>
 </ul>
-<p>技术关注点在于系统 QPS 和 TPS 以及特殊日期的 PV 倍数对系统的挑战，压测模型的建立和全链路压测等，数据驱动的一种做法便是在开发阶段编写的代码中放入很多小的探针，从而使你更加了解你的代码到底行不行。<a href="http://newrelic.com/" target="_blank" rel="external">New Relic</a>这家公司便是这么做的。</p>
-<a id="more"></a>
-<h2 id="数据指导产品"><a href="#数据指导产品" class="headerlink" title="数据指导产品"></a>数据指导产品</h2><ul>
-<li>验证想法<br>新的互联网产品，不是靠用户调研或数据分析。很多产品的第一版在于创始人的想法，如果创始人经验丰富，那么很可能产品对了7分，错了3分。另外那3分的错误假设，可以在产品上线后迅速通过数据来验证，从而迭代修正这些假设。</li>
-<li>数据直觉<br>从日志系统清洗过后得到数据相当于一张张报表，首先必须知道你想知道些什么信息，例如使用该产品的用户年龄段，培养数据直觉，发现这些数据中的规律，把握好产品对用户的迎合度。所以产品人经常关注的是PV/UV/GMV等商业指数以及留存率，活跃时长等细粒度指标。</li>
+<h6 id="异步网络"><a href="#异步网络" class="headerlink" title="异步网络"></a>异步网络</h6><ul>
+<li>tornado.ioloop - 核心的事件循环</li>
+<li>tornado.iostream - 对非阻塞式的socket的简单封装，以方便常用读写操作</li>
+<li>tornado.httpclient - 非阻塞式HTTP客户端</li>
+<li>tornado.netutil - 各种网络工具</li>
 </ul>
-<h2 id="性能分析与监控"><a href="#性能分析与监控" class="headerlink" title="性能分析与监控"></a>性能分析与监控</h2><p>页面加载性能分析，首先需要拿到数据，拿到数据需要我们在程序内部打点，对于统计脚本需要满足两个条件</p>
-<ul>
-<li>避免对业务代码的入侵；</li>
-<li>不影响被测量的页面的性能；<br>针对第 1 个要求，需要开发独立的统计脚本，避免其与现有的框架耦合，方便移植到其他项目；而针对第 2 个要求，需要在主文档加载完毕之后，再注入统计脚本收集数据，并且尽可能的合并数据请求，减少带宽消耗。</li>
+<h6 id="其他服务的集成"><a href="#其他服务的集成" class="headerlink" title="其他服务的集成"></a>其他服务的集成</h6><ul>
+<li>tornado.auth - OpenID和OAuth的第三方认证登录</li>
+<li>tornado.database - 简单的MySQL客户端封装</li>
+<li>tornado.platform.twisted - Tornado上的Twisted运行代码</li>
+<li>tornado.websocket - 和浏览器的双向通信</li>
+<li>tornado.wsgi - 和其他Python框架和服务器的协作</li>
 </ul>
-<p>确定了数据统计脚本的约束条件之后，我们从哪里得到这些数据呢？目前使用的主要途径有：</p>
-<ul>
-<li>主文档加载速度，利用 Navigation Timing API 取得；</li>
-<li>静态资源加载速度，利用 Resource Timing API 取得；</li>
-<li>首次渲染速度，IE 下用 msFirstPaint 取得，Chrome 下利用 loadTimes 取得，我们的 Chrome 浏览器用户占比超过 70%；</li>
-<li>文档生成速度，则是在后端应用内打点来获得；</li>
+<h6 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h6><ul>
+<li>tornado.autoreload - 在开发中自动检测代码更改</li>
+<li>tornado.gen - 简单的异步代码</li>
+<li>tornado.httputil - 处理HTTP头和URL</li>
+<li>tornado.options - 命令行解析</li>
+<li>tornado.process - 多进程工具</li>
+<li>tornado.stack_context - 异步回调中的异常处理</li>
+<li>tornado.testing - 异步代码的单元测试支持</li>
 </ul>
-<p>最终形成一站式的性能数据收集、计算、存储和展示服务，如下图来自美团性能监控基础架构<br><img src="/img/platform-architecture.png"></p>
-<h2 id="参考内容"><a href="#参考内容" class="headerlink" title="参考内容"></a>参考内容</h2><ol>
-<li><a href="http://blog.devtang.com/blog/2015/09/02/why-we-need-monitor-data/" target="_blank" rel="external">数据的秘密（上）- 为什么要关注数据</a></li>
-<li><a href="http://tech.meituan.com/performance-framework-and-platform.html" target="_blank" rel="external">美团性能分析框架和性能监控平台</a></li>
-</ol>
+<p>具体使用场景和基本操作，请查看文档<a href="http://www.tornadoweb.cn/documentation" target="_blank" rel="external">tornado中文文档</a></p>
+<h3 id="深入理解Tornado"><a href="#深入理解Tornado" class="headerlink" title="深入理解Tornado"></a>深入理解Tornado</h3><p>要读哪些内容？<br>你可以参看这篇文章来了解需要读哪些文件：Tornado源码必须要读的几个核心文件</p>
+<p>Core web framework 部分，tornado.web 包含web框架的大部分主要功能，这个需要重点看，它包含RequestHandler和Application两个重要的类。Application 是个单例，总揽全局路由，创建服务器负责监听，并把服务器传回来的请求进行转发（<strong>call</strong>）。RequestHandler 是个功能很丰富的类，基本上 web 开发需要的它都具备了，比如redirect，flush，close，header，cookie，render（模板），xsrf，etag等等。关于这个模块的解析，可以参看以下三篇文章：</p>
+<p>Tornado RequestHandler和Application类<br>Application对象的接口与起到的作用<br>RequestHandler的分析<br>接下来是 tornado.httpserver，一个无阻塞HTTP服务器的实现。从 web 跟踪到 httpserver.py 和 tcpserver.py。这两个文件主要是实现 http 协议，解析 header 和 body， 生成request，回调给 appliaction，一个经典意义上的 http 服务器（written in python）。众所周知，这是个很考究性能的一块（IO），所以它和其它很多块都连接到了一起，比如 IOLoop，IOStream，HTTPConnection 等等。这里 HTTPConnection 是实现了 http 协议的部分，它关注 Connection 嘛，这是 http 才有的。至于监听端口，IO事件，读写缓冲区，建立连接之类都是在它的下层–tcp里需要考虑的，所以，tcpserver 才是和它们打交道的地方。关键部分是 HTTP 层与 TCP 层的工作原理：</p>
+<p>HTTP层：HTTPRequest,HTTPServer与HTTPConnection<br>Tornado在TCP层里的工作机制<br>剩下的 tornado.template，tornado.escape 之类的可以先不阅读，会使用就行。</p>
+<p>接下来是 Asynchronous networking 底层模块，特别是底层的网络模块。</p>
+<p>tornado.ioloop 是核心的I/O循环，需要重点看。如果你用过 select/poll/epoll/libevent 的话，对它的处理模型应该相当熟悉。简言之，就是一个大大的循环，循环里等待事件，然后处理事件。这是开发高性能服务器的常见模型，tornado 的异步能力就是在这个类里得到保证的：</p>
+<p>Tornado高性能的秘密：ioloop对象分析<br>Tornado IOLoop instance()方法的讲解<br>Tornado IOLoop start()里的核心调度<br>Tornado IOLoop与Configurable类<br>然后是tornado.iostream，对非阻塞式的 socket 的简单封装，以方便常用读写操作。这个也是重要模块。IOStream。顾名思义，就是负责IO的。说到IO，就得提缓冲区和IO事件。缓冲区的处理都在它自个儿类里，IO事件的异步处理就要靠 IOLoop 了：</p>
+<p>对socket封装的IOStream机制概览<br>IOStream实现读写的一些细节<br>如果有兴趣，可以阅读更多源码，比如epoll.py。其实这个文件也没干啥，就是声明了一下服务器使用 epoll。选择 select/poll/epoll/kqueue 其中的一种作为事件分发模型，是在 tornado 里自动根据操作系统的类型而做的选择，所以这几种接口是一样的（当然效率不一样）：</p>
+<p>预备知识：我读过的对epoll最好的讲解<br>epoll与select/poll性能，CPU/内存开销对比</p>
+<h5 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h5><ul>
+<li><a href="http://tornadoweb.org" target="_blank" rel="external">Tornado官方文档</a></li>
+<li><a href="http://www.tornadoweb.cn/documentation" target="_blank" rel="external">tornado中文文档</a></li>
+<li><a href="http://golubenco.org/understanding-the-code-inside-tornado-the-asynchronous-web-server-powering-friendfeed.html" target="_blank" rel="external">深入理解Tornado-一个异步web服务器</a></li>
+</ul>
 
 
                 <hr>
@@ -232,12 +252,12 @@
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/2015/11/12/study/study_shadowsocks/" data-toggle="tooltip" data-placement="top" title="代理的反复折腾">&larr; Previous Post</a>
+                            <a href="/2017/03/30/other/plan/" data-toggle="tooltip" data-placement="top" title="头脑风暴">&larr; Previous Post</a>
                         </li>
                     
                     
                         <li class="next">
-                            <a href="/2015/11/07/study/study_info/" data-toggle="tooltip" data-placement="top" title="消息推送入门">Next Post &rarr;</a>
+                            <a href="/2017/03/30/engineering/engineering/" data-toggle="tooltip" data-placement="top" title="后端代码工程">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -270,7 +290,9 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#学习" title="学习">学习</a>
+                          <a class="tag" href="/tags/#后端开发" title="后端开发">后端开发</a>
+                        
+                          <a class="tag" href="/tags/#工程方法" title="工程方法">工程方法</a>
                         
                     </div>
                 </section>
@@ -300,8 +322,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "tamchen";
-    var disqus_identifier = "http://yuelng.github.io/2015/11/07/study/study_monitor/";
-    var disqus_url = "http://yuelng.github.io/2015/11/07/study/study_monitor/";
+    var disqus_identifier = "http://yuelng.github.io/2017/03/30/other/tornado/";
+    var disqus_url = "http://yuelng.github.io/2017/03/30/other/tornado/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

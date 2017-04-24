@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+          记录常用的配置 - YueLng的博客 | YueLng&#39;s Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://yuelng.github.io/2017/03/30/other/basic_oprate/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">YueLng&#39;s Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archives/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    
+<!-- Image to hack wechat -->
+<!-- <img src="http://yuelng.github.io/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('http://ogcxtlv6r.bkt.clouddn.com/17-4-24/51032129-file_1493037135428_2033.jpg')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/tags/#后端开发" title="后端开发">后端开发</a>
+                        
+                          <a class="tag" href="/tags/#工程方法" title="工程方法">工程方法</a>
+                        
+                    </div>
+                    <h1>记录常用的配置</h1>
+                    <h2 class="subheading"> &quot;配置&quot;</h2>
+                    <span class="meta">
+                        Posted by yueLng on
+                        2017-03-30
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <p>####项目部署执行<br>openplay_backend requirement.txt 中却少raven</p>
+<p>在跑run.py时，debug配置文件下却少sentry，将product环境下的sentry添加即可</p>
+<p>####项目基础架构</p>
+<ul>
+<li>总共分为球员版player，管理员admin，用户user，统计stats，网页web，五个部分</li>
+<li>项目之间的关系：五个部分全都是基于tornado API项目开发，在一场球赛中统计员录入数据存储到mongodb，数据在其他端显示。</li>
+<li>项目的技术有tornado，mongodb，redis保存token，推送信息使用leancloud服务，云存储使用青云。</li>
+</ul>
+<p>####项目bug修复流程<br>1，查看phabricator的bug</p>
+<p>git remote add origin git@github.com:michaelliao/learngit.git<br>git push origin –delete serverfix</p>
+<p>添加远程仓库</p>
+<p>2，git下开始修复bug，改代码，写readme，并提交</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">git checkout dev</div><div class="line">git stash                    ##将现场保存起来</div><div class="line">git checkout staging         ##切换到staging暂存分支，一般在这个分支上做bugfix</div><div class="line">git checkout -b issue-101    ##新建bug分支在staging分支上</div><div class="line">git add xxx xxxx             ##添加</div><div class="line">git commit -m &quot;fix bug 101&quot;  ##提交</div><div class="line">git checkout staging         ##切换到staging分支</div><div class="line">git merge --mo-ff -m &quot;merged bug fix 101&quot; issue-101f ##合并bug分支</div><div class="line">git branch -d issue-101      ##删除分支</div><div class="line">git push origin staging       ##推送</div><div class="line">git checkout dev</div><div class="line">git stash list               ##查看保存的现场内容</div><div class="line">git stash apply              ##恢复现场，或者使用git stash pop</div><div class="line">git log -p                   ##查看commit历史</div><div class="line">git log -p xxx.js            ##查看文件提价历史</div><div class="line">git blame app.js             ##查看文件最后被谁修改了</div></pre></td></tr></table></figure>
+<p>3，在phabricator更改状态，将bug改为closed</p>
+<p>####基本知识<br>修改文件所有者，chown -R tamchen:staff xxxx<br>修改文件所属用户组，chgrp users xxxxx<br>修改文件权限，chmod -R xyz xxxx<br>读r:4 写w:2 执行x:1  xyz代表 用户，用户组，其他的权限表示</p>
+<p>在vim下强制写入root权限的解决办法<br>:w !sudo tee %</p>
+<p>:n,$s/vivian/sky/g 从第n行开始，将所有的vivian替换为sky<br>:%s/^/TAB/ 每行行首添加一个tab 字符   s代表每一行，^代表行首，$代表行尾</p>
+<p>:10,20s/^/#/g<br>表示将10-20行添加注释，同理取消注释为：<br>:10,20s/^#//g</p>
+<p>vim 格式化代码操作，gg跳到件首行，＝格式化  G到最后一行<br>tar -xzf tmp/etc.tar.gz 解压<br>tar -zxvf /tmp/etc.tar.gz</p>
+<p>tar -zcvf xx.tar.gz /hello<br>scp tamchen@staging:/home/xxx.tar 本地目录</p>
+<p>scp Dalaran@192.168.240.74:~/Development/go/src/xx.zip . // 下载</p>
+<p>scp /home/lnmp0.4.tar.gz root@www.vpser.net:/root/lnmp0.4.tar.gz</p>
+<p>mongorestore /dump</p>
+<p>配置virtualenvwrapper</p>
+<p>export WORKON_HOME=$HOME/code/.virtualenvs<br>export PROJECT_HOME=$HOME/code<br>export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python<br>export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv<br>export VIRTUALENVWRAPPER_VIRTUALENV_ARGS=’–no-site-packages’</p>
+<p>source /usr/local/bin/virtualenvwrapper.sh</p>
+<p>nohup ./xxxx.sh &amp; 后台运行脚本</p>
+<p>git log –pretty=oneline -p base.py 显示某个文件的修改历史</p>
+<p>lsof -p 29293 查看某个进程的具体信息<br>sudo strace -p 29293 追踪某个进程</p>
+<p>http openplay-test:89/admin/auth/profile/ Cookie=sessionid=”2|1:0|10:1453458280|9:sessionid|44:NGNlYmQwZjFmZGY2NDcyYjllMDg1NGM0ZGIzZTIzZDY=|5d3bcbdaf84c545ec7c92ede9043f86efa5b8af3fac25fa67c5449beb8345ea7”</p>
+<p>vagrant virtualbox precise64.box<br>更换sources.list<br><a href="http://mirrors.163.com/.help/ubuntu.html" target="_blank" rel="external">http://mirrors.163.com/.help/ubuntu.html</a><br>安装vim，安装Python，pip<br>更换pip源 安装 fabric<br>~/.pip/pip.conf<br>[global]<br>index-url = <a href="http://pypi.douban.com/simple" target="_blank" rel="external">http://pypi.douban.com/simple</a><br>virtualenv virtualenvwrapper<br>git</p>
+<p>安装thrift<br>sudo apt-get install libboost-dev libboost-test-dev libboost-program-options-dev libevent-dev automake libtool flex bison pkg-config g++ libssl-dev</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"># 修改mysql的远程访问权限</div><div class="line">mysql -u root -p</div><div class="line">use mysql;</div><div class="line">select host,user,password from user;</div><div class="line"></div><div class="line">Grant all privileges on *.* to &apos;root&apos;@&apos;10.129.250.242&apos; identified by &apos;123456&apos; with grant option;</div><div class="line">flush privileges;</div></pre></td></tr></table></figure>
+<p> Start Jenkins: sudo launchctl load /Library/LaunchDaemons/org.jenkins-ci.plist</p>
+<p>Stop Jenkins: sudo launchctl unload /Library/LaunchDaemons/org.jenkins-ci.plist</p>
+<h4 id="断开postgresql客户端连接"><a href="#断开postgresql客户端连接" class="headerlink" title="断开postgresql客户端连接"></a>断开postgresql客户端连接</h4><p>drop database go_web_dev ;<br>ERROR:  cannot drop the currently open database<br>go_web_dev=# SELECT pg_terminate_backend(pg_stat_activity.pid)<br>FROM pg_stat_activity<br>WHERE pg_stat_activity.datname = ‘go_web_dev’<br>AND pid &lt;&gt; pg_backend_pid();</p>
+<p>kubectl get pods –all-namespaces<br>kubectl get pods –show-all –all-namespaces   –show-labels</p>
+<p>kubectl get rc –all-namespaces<br>kubectl delete rc  kubernetes-dashboard-v1.1.1 –namespace=kube-system</p>
+<p>// 检查配置争取<br>kubectl cluster-info</p>
+<p>// 创建replication controller<br>kubectl create -f examples/guestbook/all-in-one/guestbook-all-in-one.yaml<br>kubectl create -f examples/guestbook-go/redis-master-controller.json</p>
+<p>// 查询rc if you don’t specify a –namespace, the default namespace will be used.<br>kubectl get rc</p>
+<p>// 查询pods rc会创建pod<br>kubectl get pods  -o wide</p>
+<p>kubectl logs <pod-name></pod-name></p>
+<p>kubectl get services<br>kubectl get deployments</p>
+<p>kubectl delete deployments,services -l “app in (redis, guestbook)”</p>
+<p>// 如果pods卡在terminating状态<br>kubectl delete pod redis-slave-q6f8q –grace-period=0</p>
+<p>kubectl get rc,services,pods,deployments</p>
+<p>svc is short for services<br>kubectl get svc</p>
+<p>// 新建docker image 别名</p>
+<p>docker tag ist0ne/$imageName gcr.io/google_containers/$imageName</p>
+<p>kubernetes网络设置，容器之间的通信借助于flannel，容器在同一个pod内是共享网络空间的，所以互相访问可以直接使用localhost，每个pod都有一个IP地址，pod-IP node-IP cluster-IP（service的IP）</p>
+<p><img src="/Users/tamchen/Documents/project/material/packet-01.png" alt="packet-01">参考 <a href="https://github.com/coreos/flannel" target="_blank" rel="external">https://github.com/coreos/flannel</a></p>
+<p>// 查询日志记录（非常有用）<br>kubectl describe po POD_NAME<br>kubectl logs elasticsearch-attiy -p</p>
+<p>// 解决授权问题（启动kubernetes_dashboard的时候）<br><a href="https://github.com/kubernetes/dashboard/issues/374" target="_blank" rel="external">https://github.com/kubernetes/dashboard/issues/374</a></p>
+<p>// 当docker主进程起不来时候<br>An error occurred trying to connect<br>sudo rm /var/lib/docker/network/files/local-kv.db</p>
+<p>// vagrant VBoxGuestAdditions 问题<br>$ # For vagrant &lt; 1.1.5:<br>$ # vagrant gem install vagrant-vbguest</p>
+<p>$ # For vagrant 1.1.5+ (thanks Lars Haugseth):<br>$ vagrant plugin install vagrant-vbguest</p>
+<p>// 查看endpoint<br>kubectl get ep my-nginx</p>
+<p>一个pod内包含多个container，一个Pod内的Container共享同样的网络地址空间</p>
+<p>一个是pause容器，一个是busybox容器。其中pause容器为主网络容器，其他容器都共享pause容器的网络模式</p>
+<p>vagrant 设置局域网内 IP<br>config.vm.network “public_network”, ip: “192.168.1.120”<br>公有网络中还可以设置桥接的网卡，语法如下<br>config.vm.network “public_network”, :bridge =&gt; ‘en1: Wi-Fi (AirPort)’</p>
+<p>deb <a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="external">http://mirrors.aliyun.com/ubuntu/</a> trusty main restricted universe multiverse<br>deb <a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="external">http://mirrors.aliyun.com/ubuntu/</a> trusty-security main restricted universe multiverse<br>deb <a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="external">http://mirrors.aliyun.com/ubuntu/</a> trusty-updates main restricted universe multiverse<br>deb <a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="external">http://mirrors.aliyun.com/ubuntu/</a> trusty-proposed main restricted universe multiverse<br>deb <a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="external">http://mirrors.aliyun.com/ubuntu/</a> trusty-backports main restricted universe multiverse<br>deb-src <a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="external">http://mirrors.aliyun.com/ubuntu/</a> trusty main restricted universe multiverse<br>deb-src <a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="external">http://mirrors.aliyun.com/ubuntu/</a> trusty-security main restricted universe multiverse<br>deb-src <a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="external">http://mirrors.aliyun.com/ubuntu/</a> trusty-updates main restricted universe multiverse<br>deb-src <a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="external">http://mirrors.aliyun.com/ubuntu/</a> trusty-proposed main restricted universe multiverse<br>deb-src <a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="external">http://mirrors.aliyun.com/ubuntu/</a> trusty-backports main restricted universe multiverse</p>
+<p>$ sudo apt-get update<br>$ sudo apt-get install linux-image-generic-lts-raring linux-headers-generic-lts-raring<br>$ sudo reboot</p>
+<p>// 查看端口占用<br>netstat –apn | grep 8080</p>
+<p><a href="http://kubernetes.io/docs/user-guide/connecting-applications/" target="_blank" rel="external">http://kubernetes.io/docs/user-guide/connecting-applications/</a></p>
+<p>vagrant 的安装，配置两个虚拟机，并配置免除ssh密码登录</p>
+<p><a href="http://www.ruanyifeng.com/blog/2011/12/ssh_remote_login.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2011/12/ssh_remote_login.html</a><br>// vagrant VBoxGuestAdditions 问题<br>$ # For vagrant &lt; 1.1.5:<br>$ # vagrant gem install vagrant-vbguest</p>
+<p>$ # For vagrant 1.1.5+ (thanks Lars Haugseth):<br>$ vagrant plugin install vagrant-vbguest</p>
+<p>更新 souce.list /etc/apt/souces.list,安装vim</p>
+<p>安装docker，docker info 验证</p>
+<p>下载kubernetes最新文件，按照/cluster/ubuntu/download-release.sh<br>提前下好etcd，flannel.tar.gz  kubernetes.tar.gz ，修改下download-release.sh<br>修改config-default.sh 配置<br>这时就差不多可以</p>
+<p>// 解决授权问题（启动kubernetes_dashboard的时候）<br><a href="https://github.com/kubernetes/dashboard/issues/374" target="_blank" rel="external">https://github.com/kubernetes/dashboard/issues/374</a></p>
+<p>通过nodeport暴露服务，最直接的办法</p>
+<p>配置服务发现，使用kube-dns，用/cluster/ubuntu  skydns-rc.yaml skydns-svc.yaml<br>注意配置在skydns-svc中设置kube-dns的cluster ip， 修改所有控制机器的/etc/default/kubelet cluster ip地址</p>
+<p>时刻注意日志文件，当时遇到的是kube-proxy没有起来，不能通过service IP访问pod IP<br>kube-proxy kubele<br>/etc/defalut 配置文件<br>/opt/bin 运行文件<br>/var/log/upstart 日志文件</p>
+<p>关于configmap</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">// 创建configmap</div><div class="line">kubectl create configmap game-config --from-file=docs/user-guide/configmap/kubectl</div><div class="line">kubectl describe configmaps game-config</div></pre></td></tr></table></figure>
+<p>kubectl get componentstatuses // 查看所有所有组件的状态</p>
+<p>查看registry的私有</p>
+<p>docker run  -d -p 3000:3000 192.168.1.10:5000/guestbook:v29</p>
+<p>curl <a href="http://192.168.1.10:5000/v2/_catalog" target="_blank" rel="external">http://192.168.1.10:5000/v2/_catalog</a></p>
+<p>参考链接</p>
+<p>kubernetes 在 ubuntu 上的部署实践<br><a href="https://testerhome.com/topics/5030" target="_blank" rel="external">https://testerhome.com/topics/5030</a></p>
+<p>kubeadm 搭建 kubernetes 集群<br><a href="https://mritd.me/2016/10/29/set-up-kubernetes-cluster-by-kubeadm/" target="_blank" rel="external">https://mritd.me/2016/10/29/set-up-kubernetes-cluster-by-kubeadm/</a><br>通过docker hub生成google的image，再直接docker pull，tag 这招很6</p>
+<p>Services in Kubernetes<br><a href="https://segmentfault.com/a/1190000002892825" target="_blank" rel="external">https://segmentfault.com/a/1190000002892825</a></p>
+<p>kube-dns原理介绍<br><a href="http://blog.tenxcloud.com/?p=1726" target="_blank" rel="external">http://blog.tenxcloud.com/?p=1726</a><br><a href="http://blog.tenxcloud.com/?p=1776#respond" target="_blank" rel="external">http://blog.tenxcloud.com/?p=1776#respond</a><br><a href="http://blog.csdn.net/xts_huangxin/article/details/52027036" target="_blank" rel="external">http://blog.csdn.net/xts_huangxin/article/details/52027036</a><br><a href="http://blog.csdn.net/carter115/article/details/51133688" target="_blank" rel="external">http://blog.csdn.net/carter115/article/details/51133688</a></p>
+<p><a href="http://insights.thoughtworkers.org/how-to-play-with-new-technology-2/" target="_blank" rel="external">http://insights.thoughtworkers.org/how-to-play-with-new-technology-2/</a></p>
+<p>kubectl exec busybox – nslookup redis-master</p>
+<p>// kubernetes ubuntu installation<br><a href="http://blog.guthnur.net/kubernetes-ubuntu-installation/" target="_blank" rel="external">http://blog.guthnur.net/kubernetes-ubuntu-installation/</a></p>
+<p>// hexo到自身主机</p>
+<p><a href="http://ghui.me/post/2016/07/host-hexo-vps/" target="_blank" rel="external">http://ghui.me/post/2016/07/host-hexo-vps/</a></p>
+<p>8804 shipyard</p>
+<p>8800 gitlab</p>
+<p>8080 kubernetes</p>
+<p>3000 <a href="https://prometheus.io/docs/visualization/grafana/" target="_blank" rel="external">Grafana</a></p>
+<p>15672 rabbitmq</p>
+<p>docker run -d \<br>  –name grafana \<br>  -p 3001:3001 \<br>  grafana/grafana:2.6.0</p>
+<p>删除无用的停止的docker</p>
+<ol>
+<li><code>docker rm $(docker ps -qa)</code></li>
+<li><code>docker ps -qa | xargs -n 1 docker rm</code></li>
+</ol>
+<p>Start Jenkins: sudo launchctl load /Library/LaunchDaemons/org.jenkins-ci.plist</p>
+<p>Stop Jenkins: sudo launchctl unload /Library/LaunchDaemons/org.jenkins-ci.plist</p>
+<p>rabbitmq grpc</p>
+<p>kubectl create -f busybox.yml // 创建busybox</p>
+<p>kubectl exec -i -t busybox sh  // 进入busybox执行sh</p>
+<p>nslookup guestbook</p>
+<p>guestbook.default.svc.cluster.local // 得到域名解析</p>
+<p>sudo gitlab-ctl restart # 重启gitlab<br>sudo gitlab-ctl tail # 查看所有日志</p>
+<p>sudo systemctl start rabbitmq-server // 启动rabbitmq</p>
+<p> sudo invoke-rc.d rabbitmq-server restart</p>
+<p>docker rmi $(docker images | grep “none” | awk ‘{print $3}’)</p>
+<p>vim 替换%s/four/4/g</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">docker-squash</div><div class="line">https://github.com/goldmann/docker-squash  master 分支的</div></pre></td></tr></table></figure>
+<p>启动memcache</p>
+<p>memcached -d -m 128 -p 11211 -u root</p>
+<p>0.0.0.0可以表示所有可以访问的地址，也就是本机的所有IPv4地址</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">export lastWednesday=`date -d&quot;last wednesday&quot;  +%Y%m%d`</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">find . -name &quot;*.py&quot; | xargs grep -v &quot;^$&quot; | wc -l</div></pre></td></tr></table></figure>
+<p>•运行交互式容器–rm标志，以避免之后将其删除。<br>•删除所有停止容器：<br>docker rm ＄(docker ps -a | grep Exited | awk ‘{print ＄1}’)<br>•清理未标记的图像docker：<br>docker rmi ＄(docker images -q –filter “dangling=true”)<br>•停止并删除所有容器（包括运行容器！）<br>docker rm -f ＄(docker ps -a -q)</p>
+<p>jenkins 启动与停止</p>
+<p>Start Jenkins: sudo launchctl load /Library/LaunchDaemons/org.jenkins-ci.plist</p>
+<p>Stop Jenkins: sudo launchctl unload /Library/LaunchDaemons/org.jenkins-ci.plist</p>
+<p><a href="http://mirror.xmission.com/jenkins/updates/current/update-center.json" target="_blank" rel="external">http://mirror.xmission.com/jenkins/updates/current/update-center.json</a> jenkin 插件镜像</p>
+
+
+                <hr>
+
+                
+
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2017/03/30/engineering/deploy_kubernetes/" data-toggle="tooltip" data-placement="top" title="Golang微服务部署在kubernetes">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/2017/03/30/other/plan/" data-toggle="tooltip" data-placement="top" title="头脑风暴">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                
+
+                
+                <!-- disqus 评论框 start -->
+                <div class="comment">
+                    <div id="disqus_thread" class="disqus-thread"></div>
+                </div>
+                <!-- disqus 评论框 end -->
+                
+
+            </div>
+    <!-- Side Catalog Container -->
+        
+
+    <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#后端开发" title="后端开发">后端开发</a>
+                        
+                          <a class="tag" href="/tags/#工程方法" title="工程方法">工程方法</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="http://blog.kaijun.rocks" target="_blank">Kaijun&#39;s Blog</a></li>
+                    
+                </ul>
+                
+            </div>
+
+        </div>
+    </div>
+</article>
+
+
+
+
+<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "tamchen";
+    var disqus_identifier = "http://yuelng.github.io/2017/03/30/other/basic_oprate/";
+    var disqus_url = "http://yuelng.github.io/2017/03/30/other/basic_oprate/";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus 公共JS代码 end -->
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/tam7_penicillus">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/tamchen">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://www.facebook.com/chen.penicillus">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/YueLng">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; YueLng&#39;s Blog 2017 
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    Ported by <a href="http://blog.kaijun.rocks">Kaijun</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=kaijun&repo=hexo-theme-huxblog&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://yuelng.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-67304654-1';
+    var _gaDomain = 'yuelng.github.io';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- Side Catalog -->
+
+
+
+
+
+<!-- Image to hack wechat -->
+<img src="http://yuelng.github.io/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>
