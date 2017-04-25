@@ -48,7 +48,7 @@
 .sidebar-container .short-about .list-inline > li {
   padding-left: 0px;
 }
-.iconfont,html{
+html{
   -webkit-font-smoothing:antialiased;
 }
 
