@@ -48,6 +48,10 @@
 .sidebar-container .short-about .list-inline > li {
   padding-left: 0px;
 }
+.iconfont,html{
+  -webkit-font-smoothing:antialiased;
+}
+
 body {
   /* Hux learn from
      *     TypeIsBeautiful,
@@ -61,6 +65,7 @@ body {
   color: #404040;
   overflow-x: hidden;
 }
+
 p {
   margin: 30px 0;
 }
