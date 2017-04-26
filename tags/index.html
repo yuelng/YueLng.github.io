@@ -100,14 +100,14 @@
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
@@ -173,7 +173,11 @@
             <!-- 标签云 -->
             <div id='tag_cloud' class="tags">
                 
+                    <a href="#开发" title="开发" rel="1">开发</a>
+                
                     <a href="#后端开发" title="后端开发" rel="6">后端开发</a>
+                
+                    <a href="#工程方法" title="工程方法" rel="4">工程方法</a>
                 
                     <a href="#账户系统" title="账户系统" rel="1">账户系统</a>
                 
@@ -181,37 +185,33 @@
                 
                     <a href="#项目部署" title="项目部署" rel="1">项目部署</a>
                 
-                    <a href="#工程方法" title="工程方法" rel="4">工程方法</a>
-                
-                    <a href="#开发" title="开发" rel="1">开发</a>
-                
-                    <a href="#resource" title="resource" rel="3">resource</a>
-                
                     <a href="#美食" title="美食" rel="2">美食</a>
                 
-                    <a href="#学习" title="学习" rel="13">学习</a>
-                
-                    <a href="#项目" title="项目" rel="6">项目</a>
+                    <a href="#resource" title="resource" rel="3">resource</a>
                 
                     <a href="#interview" title="interview" rel="2">interview</a>
                 
                     <a href="#随笔" title="随笔" rel="8">随笔</a>
                 
+                    <a href="#学习" title="学习" rel="13">学习</a>
+                
+                    <a href="#项目" title="项目" rel="6">项目</a>
+                
                     <a href="#基础" title="基础" rel="1">基础</a>
                 
                     <a href="#algorithm" title="algorithm" rel="1">algorithm</a>
                 
-                    <a href="#architecture" title="architecture" rel="1">architecture</a>
-                
                     <a href="#分布式" title="分布式" rel="4">分布式</a>
+                
+                    <a href="#architecture" title="architecture" rel="1">architecture</a>
                 
                     <a href="#网络" title="网络" rel="1">网络</a>
                 
                     <a href="#python" title="python" rel="1">python</a>
                 
-                    <a href="#项目开发" title="项目开发" rel="1">项目开发</a>
-                
                     <a href="#工具" title="工具" rel="1">工具</a>
+                
+                    <a href="#项目开发" title="项目开发" rel="1">项目开发</a>
                 
             </div>
 
@@ -219,9 +219,50 @@
 
             
             <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="开发">
+                    <span class="tag-text">开发</span>
+                </span>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/2016/03/30/engineering/python_dev_env/">
+                        <h2 class="post-title">
+                            python开发环境搭建
+                        </h2>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+            </div>
+            
+            <div class="one-tag-list">
                 <span class="fa fa-tag listing-seperator" id="后端开发">
                     <span class="tag-text">后端开发</span>
                 </span>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/2017/03/30/engineering/engineering/">
+                        <h2 class="post-title">
+                            后端代码工程
+                        </h2>
+                        
+                            <h3 class="post-subtitle">
+                                 "配置"
+                            </h3>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
                 
                   <!-- <li class="listing-item">
                   <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
@@ -266,13 +307,32 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/2017/03/30/engineering/engineering/">
+                     <a href="/2017/03/30/other/plan/">
                         <h2 class="post-title">
-                            后端代码工程
+                            头脑风暴
                         </h2>
                         
                             <h3 class="post-subtitle">
-                                 "配置"
+                                 "来不及整理的就放在这吧"
+                            </h3>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/2017/03/30/other/tornado/">
+                        <h2 class="post-title">
+                            Tornado Pyhton web框架介绍
+                        </h2>
+                        
+                            <h3 class="post-subtitle">
+                                 "tornado为何这么快"
                             </h3>
                         
                     </a>
@@ -288,6 +348,32 @@
                      <a href="/2017/03/30/other/basic_oprate/">
                         <h2 class="post-title">
                             记录常用的配置
+                        </h2>
+                        
+                            <h3 class="post-subtitle">
+                                 "配置"
+                            </h3>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+            </div>
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="工程方法">
+                    <span class="tag-text">工程方法</span>
+                </span>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/2017/03/30/engineering/engineering/">
+                        <h2 class="post-title">
+                            后端代码工程
                         </h2>
                         
                             <h3 class="post-subtitle">
@@ -330,6 +416,25 @@
                         
                             <h3 class="post-subtitle">
                                  "tornado为何这么快"
+                            </h3>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/2017/03/30/other/basic_oprate/">
+                        <h2 class="post-title">
+                            记录常用的配置
+                        </h2>
+                        
+                            <h3 class="post-subtitle">
+                                 "配置"
                             </h3>
                         
                     </a>
@@ -418,8 +523,8 @@
             </div>
             
             <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="工程方法">
-                    <span class="tag-text">工程方法</span>
+                <span class="fa fa-tag listing-seperator" id="美食">
+                    <span class="tag-text">美食</span>
                 </span>
                 
                   <!-- <li class="listing-item">
@@ -427,14 +532,10 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/2017/03/30/engineering/engineering/">
+                     <a href="/2016/03/30/life/life_food/">
                         <h2 class="post-title">
-                            后端代码工程
+                            生活-美食
                         </h2>
-                        
-                            <h3 class="post-subtitle">
-                                 "配置"
-                            </h3>
                         
                     </a>
                     <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
@@ -446,73 +547,9 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/2017/03/30/other/basic_oprate/">
+                     <a href="/2016/03/30/life/life_xiexiongmao/">
                         <h2 class="post-title">
-                            记录常用的配置
-                        </h2>
-                        
-                            <h3 class="post-subtitle">
-                                 "配置"
-                            </h3>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/2017/03/30/other/plan/">
-                        <h2 class="post-title">
-                            头脑风暴
-                        </h2>
-                        
-                            <h3 class="post-subtitle">
-                                 "来不及整理的就放在这吧"
-                            </h3>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/2017/03/30/other/tornado/">
-                        <h2 class="post-title">
-                            Tornado Pyhton web框架介绍
-                        </h2>
-                        
-                            <h3 class="post-subtitle">
-                                 "tornado为何这么快"
-                            </h3>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-            </div>
-            
-            <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="开发">
-                    <span class="tag-text">开发</span>
-                </span>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/2016/03/30/engineering/python_dev_env/">
-                        <h2 class="post-title">
-                            python开发环境搭建
+                            生活-美食(知乎谢雄猫君
                         </h2>
                         
                     </a>
@@ -575,8 +612,8 @@
             </div>
             
             <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="美食">
-                    <span class="tag-text">美食</span>
+                <span class="fa fa-tag listing-seperator" id="interview">
+                    <span class="tag-text">interview</span>
                 </span>
                 
                   <!-- <li class="listing-item">
@@ -584,9 +621,9 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/2016/03/30/life/life_xiexiongmao/">
+                     <a href="/2015/09/09/source/information/">
                         <h2 class="post-title">
-                            生活-美食(知乎谢雄猫君
+                            知识拾遗
                         </h2>
                         
                     </a>
@@ -599,9 +636,136 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/2016/03/30/life/life_food/">
+                     <a href="/2015/09/09/source/interview/">
                         <h2 class="post-title">
-                            生活-美食
+                            面试题目
+                        </h2>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+            </div>
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="随笔">
+                    <span class="tag-text">随笔</span>
+                </span>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/2015/09/09/think/think_first/">
+                        <h2 class="post-title">
+                            把思维好好捋一捋
+                        </h2>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/2016/01/24/think/think_master_performance/">
+                        <h2 class="post-title">
+                            编程之路—性能与优化
+                        </h2>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/2016/01/24/think/think_master_function/">
+                        <h2 class="post-title">
+                            编程之路—函数式编程
+                        </h2>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/2016/01/24/think/think_master_program/">
+                        <h2 class="post-title">
+                            编程之路—编程规范
+                        </h2>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/2016/01/16/think/think_work/">
+                        <h2 class="post-title">
+                            软件工程与自我修养
+                        </h2>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/2016/01/24/think/think_master_unittest/">
+                        <h2 class="post-title">
+                            编程之路-单元测试
+                        </h2>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/2017/04/21/study/study_coding/">
+                        <h2 class="post-title">
+                            勿在浮沙聚高塔
+                        </h2>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/2015/09/16/study/study_shell/">
+                        <h2 class="post-title">
+                            python的装饰器与JavaScript中的闭包
                         </h2>
                         
                     </a>
@@ -681,9 +845,9 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/2015/09/16/study/study_git/">
+                     <a href="/2015/11/07/study/study_info/">
                         <h2 class="post-title">
-                            Git速查表/参考手册
+                            消息推送入门
                         </h2>
                         
                     </a>
@@ -711,9 +875,9 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/2015/11/07/study/study_info/">
+                     <a href="/2015/09/16/study/study_git/">
                         <h2 class="post-title">
-                            消息推送入门
+                            Git速查表/参考手册
                         </h2>
                         
                     </a>
@@ -729,21 +893,6 @@
                      <a href="/2015/10/16/study/study_model/">
                         <h2 class="post-title">
                             设计模式简要介绍
-                        </h2>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/2015/11/13/study/study_linux/">
-                        <h2 class="post-title">
-                            Linux基础知识与命令（Ubuntu14.10）
                         </h2>
                         
                     </a>
@@ -786,9 +935,9 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/2015/10/08/study/study_server/">
+                     <a href="/2015/11/13/study/study_linux/">
                         <h2 class="post-title">
-                            服务器端编程基础积累
+                            Linux基础知识与命令（Ubuntu14.10）
                         </h2>
                         
                     </a>
@@ -804,6 +953,21 @@
                      <a href="/2015/11/12/study/study_shadowsocks/">
                         <h2 class="post-title">
                             代理的反复折腾
+                        </h2>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/2015/10/08/study/study_server/">
+                        <h2 class="post-title">
+                            服务器端编程基础积累
                         </h2>
                         
                     </a>
@@ -883,21 +1047,6 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/2015/11/27/project/project_volunteer/">
-                        <h2 class="post-title">
-                            义工平台说明
-                        </h2>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
                      <a href="/2015/09/16/project/project_zhongtui/">
                         <h2 class="post-title">
                             众推（先记录下 待整理）
@@ -908,163 +1057,14 @@
                 </div>
                 <hr>
                 
-            </div>
-            
-            <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="interview">
-                    <span class="tag-text">interview</span>
-                </span>
-                
                   <!-- <li class="listing-item">
                   <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/2015/09/09/source/information/">
+                     <a href="/2015/11/27/project/project_volunteer/">
                         <h2 class="post-title">
-                            知识拾遗
-                        </h2>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/2015/09/09/source/interview/">
-                        <h2 class="post-title">
-                            面试题目
-                        </h2>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-            </div>
-            
-            <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="随笔">
-                    <span class="tag-text">随笔</span>
-                </span>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/2015/09/09/think/think_first/">
-                        <h2 class="post-title">
-                            把思维好好捋一捋
-                        </h2>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/2016/01/24/think/think_master_function/">
-                        <h2 class="post-title">
-                            编程之路—函数式编程
-                        </h2>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/2016/01/24/think/think_master_performance/">
-                        <h2 class="post-title">
-                            编程之路—性能与优化
-                        </h2>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/2016/01/24/think/think_master_program/">
-                        <h2 class="post-title">
-                            编程之路—编程规范
-                        </h2>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/2016/01/24/think/think_master_unittest/">
-                        <h2 class="post-title">
-                            编程之路-单元测试
-                        </h2>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/2016/01/16/think/think_work/">
-                        <h2 class="post-title">
-                            软件工程与自我修养
-                        </h2>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/2017/04/21/study/study_coding/">
-                        <h2 class="post-title">
-                            勿在浮沙聚高塔
-                        </h2>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/2015/09/16/study/study_shell/">
-                        <h2 class="post-title">
-                            python的装饰器与JavaScript中的闭包
+                            义工平台说明
                         </h2>
                         
                     </a>
@@ -1119,28 +1119,6 @@
             </div>
             
             <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="architecture">
-                    <span class="tag-text">architecture</span>
-                </span>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/2015/09/28/study/study_arch/">
-                        <h2 class="post-title">
-                            项目架构的初略了解
-                        </h2>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-            </div>
-            
-            <div class="one-tag-list">
                 <span class="fa fa-tag listing-seperator" id="分布式">
                     <span class="tag-text">分布式</span>
                 </span>
@@ -1165,9 +1143,9 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/2015/09/29/study/study_rpc/">
+                     <a href="/2015/09/12/study/study_distribute_item/">
                         <h2 class="post-title">
-                            RPC远程过程调用
+                            分布式中的要点记录
                         </h2>
                         
                     </a>
@@ -1195,9 +1173,31 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/2015/09/12/study/study_distribute_item/">
+                     <a href="/2015/09/29/study/study_rpc/">
                         <h2 class="post-title">
-                            分布式中的要点记录
+                            RPC远程过程调用
+                        </h2>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+            </div>
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="architecture">
+                    <span class="tag-text">architecture</span>
+                </span>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/2015/09/28/study/study_arch/">
+                        <h2 class="post-title">
+                            项目架构的初略了解
                         </h2>
                         
                     </a>
@@ -1252,28 +1252,6 @@
             </div>
             
             <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="项目开发">
-                    <span class="tag-text">项目开发</span>
-                </span>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/2015/09/16/study/study_software/">
-                        <h2 class="post-title">
-                            团队项目开发与规范
-                        </h2>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-            </div>
-            
-            <div class="one-tag-list">
                 <span class="fa fa-tag listing-seperator" id="工具">
                     <span class="tag-text">工具</span>
                 </span>
@@ -1286,6 +1264,28 @@
                      <a href="/2015/11/16/study/study_vim/">
                         <h2 class="post-title">
                             vim积累
+                        </h2>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+            </div>
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="项目开发">
+                    <span class="tag-text">项目开发</span>
+                </span>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/2015/09/16/study/study_software/">
+                        <h2 class="post-title">
+                            团队项目开发与规范
                         </h2>
                         
                     </a>
@@ -1359,13 +1359,13 @@
 
                 </ul>
                 <p class="copyright text-muted">
-                    Copyright &copy; YueLng&#39;s Blog 2017 
+                    Copyright &copy; YueLng&#39;s Blog 2017
                     <br>
-                    Theme by <a href="http://huangxuan.me">Hux</a> 
+                    Theme by <a href="http://huangxuan.me">Hux</a>
                     <span style="display: inline-block; margin: 0 5px;">
                         <i class="fa fa-heart"></i>
-                    </span> 
-                    Ported by <a href="http://blog.kaijun.rocks">Kaijun</a> | 
+                    </span>
+                    Ported by <a href="http://blog.kaijun.rocks">Kaijun</a> |
                     <iframe
                         style="margin-left: 2px; margin-bottom:-5px;"
                         frameborder="0" scrolling="0" width="91px" height="20px"
@@ -1399,14 +1399,14 @@
     }
 </script>
 
-<!-- 
-     Because of the native support for backtick-style fenced code blocks 
-     right within the Markdown is landed in Github Pages, 
-     From V1.6, There is no need for Highlight.js, 
+<!--
+     Because of the native support for backtick-style fenced code blocks
+     right within the Markdown is landed in Github Pages,
+     From V1.6, There is no need for Highlight.js,
      so Huxblog drops it officially.
 
-     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
-     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/
 -->
 <!--
     <script>
@@ -1467,6 +1467,49 @@
 
 <!-- Side Catalog -->
 
+<script type="text/javascript">
+    function generateCatalog (selector) {
+        var P = $('div.post-container'),a,n,t,l,i,c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#"+$(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="'+i+'" rel="nofollow">'+t+'</a>');
+            l = $('<li class="'+n+'_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    // toggle side catalog
+    $(".catalog-toggle").click((function(e){
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    /*
+     * Doc: https://github.com/davist11/jQuery-One-Page-Nav
+     * Fork by Hux to support padding
+     */
+    async("/js/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
 
 
 
