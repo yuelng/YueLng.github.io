@@ -93,13 +93,6 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
                             <a href="/tags/">Tags</a>
                         </li>
                         
@@ -108,6 +101,13 @@
                         
                         <li>
                             <a href="/archives/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -205,8 +205,9 @@
 <li>Step 2: Create a Bootable USB with UniBeast</li>
 <li>Step 3: Recommended BIOS Settings</li>
 <li>Step 4: Install macOS Sier</li>
-<li>Step 5: Post Installation with MultiBeast<br>前面3个步骤都不是很难，主要是利用unibeast将下载好的系统安装到U盘中，然后设置好硬件基本的BIOS环境。对于大多数情况来说，卡住的是第4步，使用U盘进入macos的安装界面，这里有必要说明下使用U盘安装我们使用的是clover引导，clover的作用是欺骗macos，让它以为自己安装在原装的苹果硬件上，而clover的核心部件是config.plist，不同的硬件需要配置不同的config.plist，这也是安装黑苹果中最耗时间的一部分。这里我给出我的config.plist 配置<a href="http://ooy4j2kxh.bkt.clouddn.com/content/config.plist" target="_blank" rel="external">config.plist</a>。如果顺利到达安装界面的话，基本上成功了大半，如果根据这个config没有出现安装界面，可能还要去上述的几个论坛逛一逛，看看是否有符合自己硬件标准的config配置。值得注意的另外一个大头就是安装驱动，我使用的显卡是集显HD4600，根据指南使用mutibeast安装相应的4600驱动即可正常驱动显卡，但是针对GTX、英伟达这些需要好好看看论坛帖子怎么配置。</li>
+<li>Step 5: Post Installation with MultiBeast</li>
 </ul>
+<p>前面3个步骤都不是很难，主要是利用unibeast将下载好的系统安装到U盘中，然后设置好硬件基本的BIOS环境。对于大多数情况来说，卡住的是第4步，使用U盘进入macos的安装界面，这里有必要说明下使用U盘安装我们使用的是clover引导，clover的作用是欺骗macos，让它以为自己安装在原装的苹果硬件上，而clover的核心部件是config.plist，不同的硬件需要配置不同的config.plist，这也是安装黑苹果中最耗时间的一部分。这里我给出我的config.plist 配置<a href="http://ooy4j2kxh.bkt.clouddn.com/content/config.plist" target="_blank" rel="external">config.plist</a>。如果顺利到达安装界面的话，基本上成功了大半，如果根据这个config没有出现安装界面，可能还要去上述的几个论坛逛一逛，看看是否有符合自己硬件标准的config配置。值得注意的另外一个大头就是安装驱动，我使用的显卡是集显HD4600，根据指南使用mutibeast安装相应的4600驱动即可正常驱动显卡，但是针对GTX、英伟达这些需要好好看看论坛帖子怎么配置。</p>
 <h3 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h3><p>相对来说，这是一次很顺畅的黑苹果的安装经历。如果我这台mbp退役了，很有可能再去动手去配置一个性能更强劲的黑苹果。黑苹果关于硬件的知识很多，自己运气好安装比较顺利，但是并不保证后面系统不出问题，我的声卡驱动还没有完全装好，我也会在后面时不时更新这篇文章。</p>
 <h3 id="参考内容"><a href="#参考内容" class="headerlink" title="参考内容"></a>参考内容</h3><ul>
 <li><a href="http://www.hackintosh.com/" target="_blank" rel="external">hackintosh</a></li>
