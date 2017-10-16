@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+          使用商业画布分析WeGame商业模式设计 - YueLng的博客 | YueLng&#39;s Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://yuelng.github.io/2017/10/16/puduct/wegame/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <!-- Font CSS -->
+    <link rel="stylesheet" href="/css/font.min.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">YueLng&#39;s Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archives/">Archives</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    
+<!-- Image to hack wechat -->
+<!-- <img src="http://yuelng.github.io/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('http://ogcxtlv6r.bkt.clouddn.com/17-10-16/11839414.jpg')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/tags/#product" title="product">product</a>
+                        
+                    </div>
+                    <h1>使用商业画布分析WeGame商业模式设计</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by 任寒韬 on
+                        2017-10-16
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <blockquote>
+<p>“来自人人都是产品经理”<br>作为WeGame团队的一颗螺丝钉，在WeGame全量上线之际，和大家分享分享在这大半年时间里我们都在做一个什么样的WeGame，WeGame在一个UI开发同学眼中又是什么样子呢？<br>我们爬山，除了兴趣、健身、社交，可能更多的是为了登高而望远，看得远了，见得多了，我们的掌握的信息和优势自然而然就会更丰富和明显。<br>　　山底站久了，那我们就快快爬到山顶看看WeGame到底都在做什么？</p>
+</blockquote>
+<h3 id="一、关于WeGame"><a href="#一、关于WeGame" class="headerlink" title="一、关于WeGame"></a>一、关于WeGame</h3><p>WeGame并不是一个从零慢慢起步的小宝宝，而由一个已经积累了2亿多注册玩家、日活3000万的TGP产品（腾讯游戏平台）转型升级而来。<br>　　TGP为什么要转型为WeGame？为什么要升级为WeGame？这可能是我们最想知道的。<br>　　当年TGP对标的是多玩游戏盒子，如今两者已经不是一个级别，如今WeGame对标Steam，以后它将会以什么样的量级和口碑存在，这个需要时间来证明。<br>　　TGP最初的定位就是专注为腾讯头部游戏LOL/DNF/CF提供游戏助手辅助功能，顺带为其他内部和外部游戏提供游戏视频、直播、资讯、社交、社区等相关的服务。当2016年网易游戏异军突起之时，便成了腾讯游戏在风口浪尖之日，迫于外部各种舆论压力和内部各种担忧，腾讯游戏平台转型升级迫在眉睫，腾讯游戏在玩家和开发商心目中的口碑需要重新进行塑造，为腾讯游戏接下来的发展做好铺垫。<br>　　了解了WeGame的由来，清楚了TGP的定位，明白了腾讯游戏未来的使命，产品和服务的重构便如火如荼的开始了。<br>　　在了解TGP和WeGame商业模式之前，我们需要大概了解一下什么是商业画布，文中三张图手绘图均使用商业画布进行梳理。</p>
+<h3 id="二、什么是商业画布"><a href="#二、什么是商业画布" class="headerlink" title="二、什么是商业画布"></a>二、什么是商业画布</h3><p>那什么是商业画布呢？<br>　　商业画布是企业组织或者个人用来分析创造价值、传递价值、获得价值的一套分析工具和思维方法。<br>　　它能够帮助自己和团队进行创意型的思考和探讨，避免团队或者个人走更多的找不着边际的弯路，它能够帮助我们多人使用统一化的语言进行系统性的分析和思考问题，进而帮助我们降低猜测，提升思考深度，完善思考纬度，最终输出成熟的解决方案帮助我们解决遇到的问题。<br>　　商业画布看似是分析商业分析模式的，但它最核心的作用就是帮助我们去的系统性的分析问题和解决问题的。<br><img src="http://ogcxtlv6r.bkt.clouddn.com/17-10-16/72850181.jpg" alt=""><br>商业画布九宫格<br>　　商业画布主要包括九个模块：价值主张：我能给别人提供什么服务？核心资源：我是谁？我拥有什么？客户细分：我能帮助谁？关键活动：我需要做什么？渠道通路：我怎么传播自己和自己的服务客户关系：我需要和我帮助的人保持什么关系？合作伙伴：谁可以帮我？固定成本：我要付出什么？收入来源：我将获得什么？</p>
+<h3 id="三、TGP商业模式"><a href="#三、TGP商业模式" class="headerlink" title="三、TGP商业模式"></a>三、TGP商业模式</h3><p>　　在了解WeGame商业模式之前，我们有必要一起使用商业画布来分析一下TGP的商业模式，这样我们就能够清晰地看到为什么在2016这么一个关键的节点，TGP需要进行转型和升级。<br><img src="http://ogcxtlv6r.bkt.clouddn.com/17-10-16/92397656.jpg" alt=""><br>TGP商业模式画布主要包括以下九个模块：</p>
+<p>　　1. 价值主张：为用户提供什么产品和服务，创造什么价值？为玩家提供LOL、DNF、CF以及其他腾讯游戏和外部游戏的数据统计、辅助功能、视频、直播、资讯相关优质内容<br>　　2. 核心资源：我是谁？我拥有什么？腾讯内部流量资源TGP团队优质头部游戏游戏数据接口对外商务谈判稳定的运维能力QQ用户关系链微信用户关系链<br>　　3. 客户细分：我能帮助谁？LOL、CF、DNF重度玩家腾讯主流网游玩家大型网游、页游、手游玩家游戏主播意见领袖游戏媒体、自媒体游戏厂商内部兄弟部门网吧直播平台<br>　　4. 关键活动：我需要做什么？研发平台、助手头部游戏合作推广宣传主流游戏引入商务谈判合作<br>　　5. 渠道通路：我怎么传播自己和自己的服务？腾讯内部流量官网游戏媒体公众号平台本身网吧用户口碑直播平台视频网站发布会游戏内广告位<br>　　6. 客户关系：我需要和我帮助的人保持什么关系？低价折扣用户成长体系特权系统合作分成：游戏厂商资源互换：网吧、直播平台、视频平台<br>　　7. 合作伙伴：谁可以帮我？游戏内部合作部门游戏厂商直播平台视频网站QQ、微信网吧<br>　　8. 固定成本：我要付出什么？人力、运维、推广宣传、游戏分成<br>　　9. 收入来源：我将获得什么？显性：木有隐形：用户量、游戏数据、用户口碑、品牌价值<br>罗列梳理完TGP的商业模式，我们明显的发现，TGP基本上是没有显性收入的，原因就在于客户关系模块里边，基本上没有一个客户关系类型是和收入有关系的，不过这个也许并不太重要，TGP的定位就是服务头部游戏，积累用户量，打造产品品牌价值和用户口碑，几年下来2个亿的用户注册量和3000W的日活算是最有价值的收入了。<br>　　从TGP商业画布中可以看到，TGP是一个拥有强大资源的团队，包括腾讯流量、LOL/DNF/CF的合作机会、QQ用户关系链和登陆体系、包括团队本身，这足以支撑TGP发展到目前的量级。<br>　　但是TGP也有比较被动的一面，即是它强烈依赖于LOL游戏，当LOL整体的活跃由于受到王者荣耀的影响趋于下降的同时，也同时影响到了依赖于它的TGP平台，再加上上文所说，迫于外部各种舆论压力和内部各种担忧，腾讯游戏平台转型升级迫在眉睫，腾讯游戏在玩家和开发商心目中的口碑需要重新进行塑造，为腾讯游戏接下来的发展做好铺垫。<br>　　于是，WeGame便应运而生。</p>
+<h3 id="四、WeGame商业模式"><a href="#四、WeGame商业模式" class="headerlink" title="四、WeGame商业模式"></a>四、WeGame商业模式</h3><p><img src="http://ogcxtlv6r.bkt.clouddn.com/17-10-16/1182926.jpg" alt=""><br>　　WeGame商业模式画布<br>　　WeGame商业模式画布主要包括以下九个模块：<br>　　1. 价值主张：为用户提供什么产品和服务，创造什么价值？针对玩家：帮助玩家轻松快速地找到好玩优质的单机游戏和网络游戏针对厂商：帮助游戏厂商更容易发行游戏<br>　　为玩家和游戏厂商搭建一个互相交流互相反馈互动的游戏体验环境<br>　　2. 核心资源：我是谁？我拥有什么？腾讯内部流量资源WeGame团队优质头部游戏游戏数据接口TGP用户数据TGP游戏数据TGP品牌QQ用户关系链微信用户关系链<br>　　3. 客户细分：我能帮助谁？LOL、CF、DNF重度玩家腾讯主流网游玩家单机游戏重度玩家游戏独立制作人意见领袖游戏爱好者游戏主播视游戏频制作者直播平台游戏厂商内部兄弟部门网吧<br>　　4. 关键活动：我需要做什么？研发平台、商城、助手头部游戏合作主流游戏引入商务谈判合作品牌建设置顶游戏售价策略媒体推广宣传<br>　　5. 渠道通路：我怎么传播自己和自己的服务？腾讯内部流量官网游戏媒体公众号平台本身网吧用户口碑直播平台视频网站发布会游戏内广告位<br>　　6. 客户关系：我需要和我帮助的人保持什么关系？游戏买卖会员增值合作分成资源互换<br>　　7. 合作伙伴：谁可以帮我？游戏内部合作部门游戏厂商直播平台视频网站QQ、微信网吧<br>　　8. 固定成本：我要付出什么？人力、运维、推广宣传、游戏分成<br>　　9. 收入来源：我将获得什么？显性：游戏售卖隐形：用户量、游戏数据、用户口碑、品牌价值<br>　　相比于TGP商业模式，WeGame商业模式最大的区别在于帮助玩家和众多优质游戏厂商搭建良好的沟通桥梁和环境，以及帮助游戏厂商更容易进驻WeGame平台提供更完善的孵化机制，帮助游戏厂商更快速的获得游戏发行前期的种子玩家积累以及良好的玩家反馈评测机制，帮助玩家更快速地地从商城找到好玩高品质的单机（联机）游戏，同时反过来帮助游戏厂商进行更精准更针对性的游戏策略调整。<br>　　所以WeGame的整体策略调整主要是偏向于优质游戏厂商，通过专业的专家评审团帮助游戏厂商和独立制作人快速审核游戏，快速上线，使得优质的游戏制作团队能够通过平台快速成长和曝光。除了帮助游戏厂商，WeGame将会不惜重金投资超牛逼超牛逼有潜力的游戏开发团队，这个可能是最值得业内期待的。<br>　　重点我们再看一下WeGame商业模式画布中九个模块彼此之间的关系以及相互作用。<br>　　一个商业模式当中包含四大块：资源、渠道、成本、收入。<br>　　判断一个商业模式成与不成的最基本的标准就是：成本和收入彼此之间的关系。<br>　　成本&gt;收入，模式不成立<br>　　成本&lt;收入，模式成立<br>　　成本和收入里边都包含显性成本和隐形成本，比如收入、分成就是显性收入，用户量、品牌价值、用户口碑、游戏数量、游戏数据是隐性收入。产品在不同的发展阶段，面对的收入类型是不太一样的，尤其对于互联网产品来说，前期过于商业化注重金钱的收入，就会严重影响到用户体验，所以前期一般都是打造高品质的产品用户体验和服务，积累用户数量和产品口碑，等用户到了一定的量级，逐步去设计增值服务，通过增值服务实现产品的商业化发展，最终实现团队的终极目标，财务上达到平衡甚至拥有较强的盈利能力。<br>　　从WeGame商业模式画布图中可以看到，九个模块彼此时间的关系是：影响固定成本的模块包括：合作伙伴、核心资源、关键活动、渠道通路影响收入来源的模块包括：客户关系、客户细分、渠道通路<br>　　价值主张通过渠道通路触达给客户细分，进而通过客户关系帮助平台和用户进行利益捆绑，提高留存和活跃。<br>　　通过核心资源和合作伙伴帮助团队执行关键活动，最终服务于价值主张。<br>　　商业画布建议阅读顺序为：<br>　　Step1、价值主张——利他<br>　　我们的明白我们存在的价值和意义<br>　　Step2、核心资源——定位<br>　　（我们得知道我们有几斤几两）<br>　　Step3、客户细分——他人<br>　　（我们能帮助哪些人解决问题）<br>　　Step4、关键活动——执行<br>　　（我们需要执行什么）<br>　　Step5、渠道通路——传播<br>　　（我们需要通过什么方式传播我们的价值）<br>　　Step6、客户关系——维系<br>　　（我们需要和我们帮助个人维持什么关系）<br>　　Step7、合作伙伴——共赢<br>　　（在整个过程当中谁可以帮助我们）<br>　　Step8、固定成本——付出<br>　　（我们需要付出什么）<br>　　Step9、收入来源——收获<br>　　（我们可以获得什么）<br>　　这恰恰比较符合我们常规的做一件事情之前分析问题的先后逻辑顺序，加上九个模块彼此之间的关联和影响，这样就可以帮助我们轻轻松松读懂这张看起来密密麻麻的WeGame商业模式画布图了。</p>
+<h3 id="五、Steam商业模式"><a href="#五、Steam商业模式" class="headerlink" title="五、Steam商业模式"></a>五、Steam商业模式</h3><p><img src="http://ogcxtlv6r.bkt.clouddn.com/17-10-16/60152107.jpg" alt=""><br>　　Steam商业模式<br>　　Steam商业模式画布主要包括以下九个模块：<br>　　1. 价值主张：为用户提供什么产品和服务，创造什么价值？针对玩家：为玩家提供优质单机游戏以及有游戏辅助功能、硬件设备、软件、直播、社区针对厂商：帮助游戏厂商快速发行游戏，微游戏昌盛提供发行前预热、发行中促销、发行后收集玩家反馈整套服务。<br>　　为玩家和游戏厂商搭建一个互相交流互相反馈互动的游戏体验环境<br>　　2. 核心资源：我是谁？我拥有什么？牛逼闪闪的核心团队海量优质重度游戏玩家上万套优质游戏资源强大跨国运营能力商务谈判能力<br>　　3. 客户细分：我能帮助谁？单机游戏玩家游戏厂商Facebookyoutube<br>　　4. 关键活动：我需要做什么？研发平台、商城、助手主流游戏引入<br>　　5. 渠道通路：我怎么传播自己和自己的服务？平台本身游戏媒体用户口碑facebookyoutube<br>　　6. 客户关系：我需要和我帮助的人保持什么关系？低价折扣用户成长体系合作分成<br>　　7. 合作伙伴：谁可以帮我？游戏厂商Facebookyoutube<br>　　8. 固定成本：我要付出什么？人力、运维、推广宣传、游戏分成<br>　　9. 收入来源：我将获得什么？显性：游戏售卖隐形：用户量、游戏数据、用户口碑、品牌价值<br>　　从Steam商业模式画布和WeGame商业模式画布的两张图比较来看，基本上两个平台的定位和设计重合度很高，这也就意味着未来将会面临激烈的竞争。</p>
+<h3 id="六、WeGame和Steam商业模式对比"><a href="#六、WeGame和Steam商业模式对比" class="headerlink" title="六、WeGame和Steam商业模式对比"></a>六、WeGame和Steam商业模式对比</h3><p>　　为了对比明显，我们就Steam和WeGame的商业模式进行相同纬度的对比，可能会更容易看出他们的优势和劣势在哪里。<br><img src="http://ogcxtlv6r.bkt.clouddn.com/17-10-16/77386540.jpg" alt=""><br>　　Steam和WeGame的商业模式对比图<br>　　两者最大的区别就在于游戏数量和流量资源的对比上，Steam的游戏数量高达16000多款，WeGame只有87款，流量上腾讯有叠加起来十几亿的稳定的用户流量和对WeGame开放的QQ和微信用户关系链，这是Steam所无法企及的。<br>　　除此之外，WeGame将会为玩家提供更加稳定的游戏服务器、更优惠的游戏售价折扣、优质直播视频内容、玩家专属个人主页（类似Qzone空间）、给意见领袖/主播/媒体更多的曝光机会（Feeds）、更符合国内玩家的UI设计和流程交互操作体验等等。<br>　　整体来看，两者各有所长，至于将来鹿死谁手，那我们就只能翘首期盼了。</p>
+<h3 id="七、敲代码去了"><a href="#七、敲代码去了" class="headerlink" title="七、敲代码去了"></a>七、敲代码去了</h3><p>　　知道怎么做很重要，知道为什么做也同样重要。<br>　　记得2016年年会上，老大跟我们说：<br>　　作为团队当中的一员，我们要学会在团队努力拼搏的过程中学会思考，跟着团队一起成长。<br>　　以上内容纯属绿贼瞎扯，如有不合理，还求指正和吐槽。</p>
+
+
+                <hr>
+
+                
+
+                <ul class="pager">
+                    
+                    
+                        <li class="next">
+                            <a href="/2017/04/28/learning_by_doing/hackintosh/" data-toggle="tooltip" data-placement="top" title="安装Hackintosh">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                
+
+                
+                <!-- disqus 评论框 start -->
+                <div class="comment">
+                    <div id="disqus_thread" class="disqus-thread"></div>
+                </div>
+                <!-- disqus 评论框 end -->
+                
+
+            </div>
+    <!-- Side Catalog Container -->
+        
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+        
+
+    <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#product" title="product">product</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="http://blog.kaijun.rocks" target="_blank">Kaijun&#39;s Blog</a></li>
+                    
+                </ul>
+                
+            </div>
+
+        </div>
+    </div>
+</article>
+
+
+
+
+<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "tamchen";
+    var disqus_identifier = "http://yuelng.github.io/2017/10/16/puduct/wegame/";
+    var disqus_url = "http://yuelng.github.io/2017/10/16/puduct/wegame/";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus 公共JS代码 end -->
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/tam7_penicillus">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/tamchen">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://www.facebook.com/chen.penicillus">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/YueLng">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; YueLng&#39;s Blog 2017
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a>
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span>
+                    Ported by <a href="http://blog.kaijun.rocks">Kaijun</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=kaijun&repo=hexo-theme-huxblog&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--
+     Because of the native support for backtick-style fenced code blocks
+     right within the Markdown is landed in Github Pages,
+     From V1.6, There is no need for Highlight.js,
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://yuelng.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-67304654-1';
+    var _gaDomain = 'yuelng.github.io';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- Side Catalog -->
+
+<script type="text/javascript">
+    function generateCatalog (selector) {
+        var P = $('div.post-container'),a,n,t,l,i,c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#"+$(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="'+i+'" rel="nofollow">'+t+'</a>');
+            l = $('<li class="'+n+'_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    // toggle side catalog
+    $(".catalog-toggle").click((function(e){
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    /*
+     * Doc: https://github.com/davist11/jQuery-One-Page-Nav
+     * Fork by Hux to support padding
+     */
+    async("/js/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+
+
+<!-- Image to hack wechat -->
+<img src="http://yuelng.github.io/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>
