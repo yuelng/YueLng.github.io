@@ -187,30 +187,17 @@
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/surrounding/study_git/">
+    <a href="/2017/11/30/system_design/system_design_question/">
         <h2 class="post-title">
-            Git速查表/参考手册
+            笔记-系统设计
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            索引
-创建
-本地修改
-搜索
-提交历史
-分支与标签
-更新与发布
-合并与重置
-撤销
-
-
-
-创建12$ git clone ssh://user@domain.com/repo.git #复制一个已创建的仓库$ git init #创建一个新的本地仓库
-
-
-本地修改123456789101112131415161718192021$ git status        #显示工作路径下已修改的文件......
+            重点考察内容面向对象，接口设计，设计模式，数据库表，分布式
+关于高并发系统设计。主要有以下几个关键技术点：缓存，索引，数据分片，锁粒度尽可能小。
+常见分布式系统设计问题如何设计Twitter，短网址系统设计，如何设计Uber分布式系统1)Inverted index2)Anagram3) Word Count4) Distributed File System Design 设计实时位置系统......
         </div>
     </a>
     <p class="post-meta">
@@ -244,39 +231,16 @@
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/system_design/system_design_question/">
+    <a href="/2017/11/30/surrounding/study_permission/">
         <h2 class="post-title">
-            笔记-系统设计
+            权限系统学习
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            重点考察内容面向对象，接口设计，设计模式，数据库表，分布式
-关于高并发系统设计。主要有以下几个关键技术点：缓存，索引，数据分片，锁粒度尽可能小。
-常见分布式系统设计问题如何设计Twitter，短网址系统设计，如何设计Uber分布式系统1)Inverted index2)Anagram3) Word Count4) Distributed File System Design 设计实时位置系统......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/system_design/study_model/">
-        <h2 class="post-title">
-            设计模式简要介绍
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            创建型模式简单工厂模式简单工厂模式的要点在于：当你需要什么，只需要传入一个正确的参数，就可以获取你所需要的对象，而无须知道其创建细节。1KeyGenerator keyGen=KeyGenerator.getInstance("DESede");//获取不同加密算法的密钥生成器
-工厂方法模式工厂父类负责定义创建产品对象的公共接口，而工厂子类则负责生成具体的产品对象，这样做的目的是将产品类的实......
+            基于角色的访问控制（Role-Based Access Control）基本概念RBAC认为权限授权实际上是Who、What、How的问题。在RBAC模型中，who、what、how构成了访问权限三元组,也就是“Who对What(Which)进行How的操作”。 　　
+简单理解简单理解就是把系统中所有的功能都作为一个权限（或者称呼为资源），将这些权限赋予不同的角色，这个角色就具有了诸多的功能......
         </div>
     </a>
     <p class="post-meta">
@@ -431,6 +395,28 @@ bla......
 </div>
 <hr>
 
+<div class="post-preview">
+
+    <a href="/2017/11/30/project/study_shadowsocks/">
+        <h2 class="post-title">
+            shadowrocket
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            这篇文章主要记录在翻墙和寝室上网的各种折腾，亲测可行，从此再也不用担心交网费了！
+代理访问与vpn访问被封禁的网站，基本通过两种方式访问-VPN或者代理。VPN简单直接，在各大国外在华的办事处都是标配，连接VPN的最直接的好处是，你电脑的流量将完全走VPN线路，通过VPN服务器进行访问，所以这个方法是比较成熟可靠，省力的，但最重要的前提是你得选择一家好的VPN服务提供商，而好的服务质量通常意......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
 
 
 <!-- Pager -->
@@ -470,47 +456,35 @@ bla......
                     <div class="tags">
                         
                             
-                            <a href="/tags/#随笔" title="随笔" rel="6">随笔</a>
+                        
+                            
+                            <a href="/tags/#collection" title="collection" rel="5">collection</a>
+                            
+                        
+                            
+                            <a href="/tags/#computer_science" title="computer_science" rel="5">computer_science</a>
                             
                         
                             
                         
                             
-                            <a href="/tags/#学习" title="学习" rel="6">学习</a>
+                            <a href="/tags/#devops" title="devops" rel="2">devops</a>
                             
                         
                             
-                            <a href="/tags/#resource" title="resource" rel="2">resource</a>
+                            <a href="/tags/#distribution_system" title="distribution_system" rel="7">distribution_system</a>
                             
                         
                             
-                        
+                            <a href="/tags/#framework" title="framework" rel="2">framework</a>
                             
                         
                             
-                            <a href="/tags/#computer_science" title="computer_science" rel="2">computer_science</a>
+                            <a href="/tags/#language" title="language" rel="4">language</a>
                             
                         
                             
-                        
-                            
-                        
-                            
-                        
-                            
-                            <a href="/tags/#distribution_system" title="distribution_system" rel="3">distribution_system</a>
-                            
-                        
-                            
-                            <a href="/tags/#分布式" title="分布式" rel="4">分布式</a>
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
+                            <a href="/tags/#life_is_short" title="life_is_short" rel="2">life_is_short</a>
                             
                         
                             
@@ -518,19 +492,15 @@ bla......
                             
                         
                             
-                            <a href="/tags/#美食" title="美食" rel="2">美食</a>
+                            <a href="/tags/#project" title="project" rel="7">project</a>
                             
                         
                             
-                            <a href="/tags/#项目" title="项目" rel="6">项目</a>
+                            <a href="/tags/#product" title="product" rel="2">product</a>
                             
                         
                             
-                        
-                            
-                        
-                            
-                            <a href="/tags/#surrounding" title="surrounding" rel="4">surrounding</a>
+                            <a href="/tags/#surrounding" title="surrounding" rel="5">surrounding</a>
                             
                         
                             
@@ -538,7 +508,7 @@ bla......
                             
                         
                             
-                            <a href="/tags/#thinking" title="thinking" rel="3">thinking</a>
+                            <a href="/tags/#thinking" title="thinking" rel="7">thinking</a>
                             
                         
                     </div>

@@ -237,6 +237,32 @@ highscalability
 
 <div class="post-preview">
 
+    <a href="/2017/11/30/distribution_system/study_distribute_item/">
+        <h2 class="post-title">
+            分布式中的要点记录
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            典型架构缓存、消息、搜索Nginx+Tornado+mysql+pythonNginx+rest.li+redis+mysql+python+RPC(Thrift)+Zookeeper+Notification Queue
+
+nginx负载均衡的标配
+rest.li一个restful服务框架，表示前端所有数据从这里交互
+redis可以缓存数据，分布式，mysql数据的持久化
+Python作为......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/2017/11/30/distribution_system/study_distribute/">
         <h2 class="post-title">
             关于Log在分布式系统中的应用以及未来
@@ -259,20 +285,16 @@ highscalability
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/distribution_system/study_distribute_item/">
+    <a href="/2017/11/30/surrounding/study_linux/">
         <h2 class="post-title">
-            分布式中的要点记录
+            Linux基础知识与命令（Ubuntu14.10）
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            典型架构缓存、消息、搜索Nginx+Tornado+mysql+pythonNginx+rest.li+redis+mysql+python+RPC(Thrift)+Zookeeper+Notification Queue
-
-nginx负载均衡的标配
-rest.li一个restful服务框架，表示前端所有数据从这里交互
-redis可以缓存数据，分布式，mysql数据的持久化
-Python作为......
+            这里记录常用的一些linux命令，以备不时之需。 
+常用的命令1234567sudo cp xxxx /xxxx #移动文件sudo mv xxxx xxxxx #为文件改名sudo tar zxvf xxx.tar #解压文件夹sudo unrar xxxx.rar #解压文件夹 sudo chmod 775 xxxx #给文件或文件夹加权限sudo chown -R hadoop:had......
         </div>
     </a>
     <p class="post-meta">
@@ -309,16 +331,15 @@ RPC调用分类
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/surrounding/study_linux/">
+    <a href="/2017/11/30/framework/study_thrift/">
         <h2 class="post-title">
-            Linux基础知识与命令（Ubuntu14.10）
+            thrift入门
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            这里记录常用的一些linux命令，以备不时之需。 
-常用的命令1234567sudo cp xxxx /xxxx #移动文件sudo mv xxxx xxxxx #为文件改名sudo tar zxvf xxx.tar #解压文件夹sudo unrar xxxx.rar #解压文件夹 sudo chmod 775 xxxx #给文件或文件夹加权限sudo chown -R hadoop:had......
+            介绍Thrift 最初由Facebook开发，而后捐献给Apache，目前已广泛应用于业界。Thrift 正如其官方主页介绍的，“是一种可扩展、跨语言的服务开发框架”。简而言之，它主要用于各个服务之间的RPC通信，其服务端和客户端可以用不同的语言来开发。只需要依照IDL（Interface Description Language）定义一次接口，Thrift工具就能自动生成 C++, Jav......
         </div>
     </a>
     <p class="post-meta">
@@ -331,15 +352,15 @@ RPC调用分类
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/framework/study_thrift/">
+    <a href="/2017/11/30/thinking/study_software/">
         <h2 class="post-title">
-            thrift入门
+            团队项目开发与规范
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            介绍Thrift 最初由Facebook开发，而后捐献给Apache，目前已广泛应用于业界。Thrift 正如其官方主页介绍的，“是一种可扩展、跨语言的服务开发框架”。简而言之，它主要用于各个服务之间的RPC通信，其服务端和客户端可以用不同的语言来开发。只需要依照IDL（Interface Description Language）定义一次接口，Thrift工具就能自动生成 C++, Jav......
+            个人理解团队是因为有相同的目标才聚集在一起，所有在做一个项目的开始，要让所有成员认同项目的前景。团队的大小个人认为最多20个人。虽然说很有必要保证规范化，但是我认为按部就班只能扼杀人的创造力，但是一些的必要的流程规范还是要的，也就是下面说的开发流程规范，有些人认为这样不会有很好的技术文化积累。我想的是技术文档和团队文化并不和小而美的团队相冲突，文档取决于个人的工作习惯，而文化取决于每个人以及......
         </div>
     </a>
     <p class="post-meta">
@@ -362,27 +383,6 @@ RPC调用分类
         <div class="post-content-preview">
             Ubuntu下配置基本的Python开发环境安装Python发布版本和build依赖包
 /# 安装 Python 发布版本，dev包必须安装，很多用pip安装包都需要编译sudo apt-get install python2.7 python2.7-dev python3.4 python3.4-dev/#很多pip安装的包都需要libssl和libevent编译环境sudo apt-ge......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/thinking/study_software/">
-        <h2 class="post-title">
-            团队项目开发与规范
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            个人理解团队是因为有相同的目标才聚集在一起，所有在做一个项目的开始，要让所有成员认同项目的前景。团队的大小个人认为最多20个人。虽然说很有必要保证规范化，但是我认为按部就班只能扼杀人的创造力，但是一些的必要的流程规范还是要的，也就是下面说的开发流程规范，有些人认为这样不会有很好的技术文化积累。我想的是技术文档和团队文化并不和小而美的团队相冲突，文档取决于个人的工作习惯，而文化取决于每个人以及......
         </div>
     </a>
     <p class="post-meta">
@@ -460,47 +460,35 @@ In computer science, functional programming is a programming paradigm that treat
                     <div class="tags">
                         
                             
-                            <a href="/tags/#随笔" title="随笔" rel="6">随笔</a>
+                        
+                            
+                            <a href="/tags/#collection" title="collection" rel="5">collection</a>
+                            
+                        
+                            
+                            <a href="/tags/#computer_science" title="computer_science" rel="5">computer_science</a>
                             
                         
                             
                         
                             
-                            <a href="/tags/#学习" title="学习" rel="6">学习</a>
+                            <a href="/tags/#devops" title="devops" rel="2">devops</a>
                             
                         
                             
-                            <a href="/tags/#resource" title="resource" rel="2">resource</a>
+                            <a href="/tags/#distribution_system" title="distribution_system" rel="7">distribution_system</a>
                             
                         
                             
-                        
+                            <a href="/tags/#framework" title="framework" rel="2">framework</a>
                             
                         
                             
-                            <a href="/tags/#computer_science" title="computer_science" rel="2">computer_science</a>
+                            <a href="/tags/#language" title="language" rel="4">language</a>
                             
                         
                             
-                        
-                            
-                        
-                            
-                        
-                            
-                            <a href="/tags/#distribution_system" title="distribution_system" rel="3">distribution_system</a>
-                            
-                        
-                            
-                            <a href="/tags/#分布式" title="分布式" rel="4">分布式</a>
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
+                            <a href="/tags/#life_is_short" title="life_is_short" rel="2">life_is_short</a>
                             
                         
                             
@@ -508,19 +496,15 @@ In computer science, functional programming is a programming paradigm that treat
                             
                         
                             
-                            <a href="/tags/#美食" title="美食" rel="2">美食</a>
+                            <a href="/tags/#project" title="project" rel="7">project</a>
                             
                         
                             
-                            <a href="/tags/#项目" title="项目" rel="6">项目</a>
+                            <a href="/tags/#product" title="product" rel="2">product</a>
                             
                         
                             
-                        
-                            
-                        
-                            
-                            <a href="/tags/#surrounding" title="surrounding" rel="4">surrounding</a>
+                            <a href="/tags/#surrounding" title="surrounding" rel="5">surrounding</a>
                             
                         
                             
@@ -528,7 +512,7 @@ In computer science, functional programming is a programming paradigm that treat
                             
                         
                             
-                            <a href="/tags/#thinking" title="thinking" rel="3">thinking</a>
+                            <a href="/tags/#thinking" title="thinking" rel="7">thinking</a>
                             
                         
                     </div>
