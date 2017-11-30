@@ -187,28 +187,23 @@
 
 <div class="post-preview">
 
-    <a href="/2016/07/07/engineering/snippet_op_source/">
+    <a href="/2017/03/28/distribution_sys/business/">
         <h2 class="post-title">
-            snippet operation
+            微服务的基本架构
         </h2>
         <h3 class="post-subtitle">
-            
+             "记录常用的模型，账户系统、支付系统"
         </h3>
         <div class="post-content-preview">
-            基本操作
-为linux添加新的用户，并添加sudo权限123# useradd -m -s /bin/bash deploy# adduser deploy sudo# passwd deploy
+            
+“Yeah It’s on. ”
 
-
-
-homebrew 的默认安装目录为 /usr/local，所有通过 brew 安装的程序都会默认安装到/usr/local/Cellars/程序名/版本号/ 目录下
-
-ruby开发环境
-Ma......
+微服务代码结构微服务是大的趋势。无论后台架构怎么改变，都不能脱离它是业务架构具体实现的本质。无论是前期发展而来的单体架构，遵循着严格的代码分层风格，还是现在大家认同的微服务。微服务是后端开发的绝对趋势，外部用户需求增强直接导致了应用复杂度增加，只有将应用分解再分解才能利用更小的成本干更多的事。微服务的另一种表现是后端“侵占”系统工程、运维部署、DBA的工......
         </div>
     </a>
     <p class="post-meta">
-        Posted by YueLng Chen on
-        2016-07-07
+        Posted by yueLng on
+        2017-03-28
     </p>
 
 </div>
@@ -216,7 +211,117 @@ Ma......
 
 <div class="post-preview">
 
-    <a href="/2016/07/06/source/somesource/">
+    <a href="/2016/11/23/surrounding/study_git/">
+        <h2 class="post-title">
+            Git速查表/参考手册
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            索引
+创建
+本地修改
+搜索
+提交历史
+分支与标签
+更新与发布
+合并与重置
+撤销
+
+
+
+创建12$ git clone ssh://user@domain.com/repo.git #复制一个已创建的仓库$ git init #创建一个新的本地仓库
+
+
+本地修改123456789101112131415161718192021$ git status        #显示工作路径下已修改的文件......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2016-11-23
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2016/11/17/computer_science/study_server/">
+        <h2 class="post-title">
+            服务器端编程基础积累
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            UNIX I/O模型
+阻塞IO
+非阻塞IO
+IO多路复用
+信号驱动IO
+异步IO
+
+nginx模型...
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2016-11-17
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2016/08/26/distribution_sys/study_rpc/">
+        <h2 class="post-title">
+            RPC远程过程调用
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            如果说把一个网站分为三个部分，经典的MVC设计模式，后台分布式实现就是控制层，模块的服务化全都依赖于rpc框架，从阿里的dubbo、Hadoop等，这些大数据框架都有了广泛的应用，本文是个人学习rpc过程中的一些资料积累和个人想法。 
+RPC调用分类
+同步调用客户方等待调用执行完成并返回结果。
+异步调用客户方调用后不用等待执行结果返回，但依然可以通过回调通知等方式获取返回结果。 若客户方不关......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2016-08-26
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2016/08/19/surrounding/study_permission/">
+        <h2 class="post-title">
+            权限系统学习
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            基于角色的访问控制（Role-Based Access Control）基本概念RBAC认为权限授权实际上是Who、What、How的问题。在RBAC模型中，who、what、how构成了访问权限三元组,也就是“Who对What(Which)进行How的操作”。 　　
+简单理解简单理解就是把系统中所有的功能都作为一个权限（或者称呼为资源），将这些权限赋予不同的角色，这个角色就具有了诸多的功能......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2016-08-19
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2016/07/06/collection/somesource/">
         <h2 class="post-title">
             一些有用的资源
         </h2>
@@ -254,7 +359,7 @@ tutorialspoint开发者应该去的十......
 
 <div class="post-preview">
 
-    <a href="/2016/04/15/note/note_message_queue/">
+    <a href="/2016/04/15/distribution_sys/note_message_queue/">
         <h2 class="post-title">
             消息队列
         </h2>
@@ -281,7 +386,7 @@ highscalability
 
 <div class="post-preview">
 
-    <a href="/2016/04/09/note/note_system_design_question/">
+    <a href="/2016/04/09/system_design/system_design_question/">
         <h2 class="post-title">
             笔记-系统设计
         </h2>
@@ -304,57 +409,7 @@ highscalability
 
 <div class="post-preview">
 
-    <a href="/2016/03/30/engineering/python_dev_env/">
-        <h2 class="post-title">
-            python开发环境搭建
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            homebrew安装与基本使用1，homebrew简介
-homebrew是Mac OSX上的包管理工具，类似于linux中的apt，yum等等，能在mac中方便地安装软件或者卸载软件。
-2，homebrew安装
-1ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)
-3......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2016-03-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2016/03/30/note/note_system_design/">
-        <h2 class="post-title">
-            笔记-系统设计
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            九章算法的系统设计班http://www.jiuzhang.com/course/2/
-网站系统架构，搜索引擎系统，数据库系统，分布式系统开源软件架构，
-重点考察内容面向对象，接口设计，设计模式，数据库表，分布式
-关于高并发系统设计。主要有以下几个关键技术点：缓存，索引，数据分片，锁粒度尽可能小。
-分布式系统分布式系统由独立的服务器通过网络松散耦合组成的特点：可扩展性核心理念：多台服务器协同......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2016-03-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2016/03/30/note/note_category/">
+    <a href="/2016/03/30/collection/note_category/">
         <h2 class="post-title">
             操作技能目录
         </h2>
@@ -381,79 +436,24 @@ Python开发
 
 <div class="post-preview">
 
-    <a href="/2016/03/30/life/life_xiexiongmao/">
+    <a href="/2016/03/30/system_design/system_design/">
         <h2 class="post-title">
-            生活-美食(知乎谢雄猫君
+            笔记-系统设计
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            谢熊猫君记录意大利面
-牛肉碎
-有西餐holy trinity之称的洋葱、胡萝卜和西芹
-番茄酱（切记要用tomato puree或者tomato paste，
-Tagliatelle或者Fettucine这种宽的意面
-奶酪（mozzarella或者parmesan），牛奶，橄榄油
-
-酱：
-
-胡萝卜，西芹切丁，洋葱切碎，
-放橄榄油，先炒洋葱至透明
-放胡萝卜和西芹，炒热，下牛肉碎，变色
-下番茄酱，......
+            九章算法的系统设计班http://www.jiuzhang.com/course/2/
+网站系统架构，搜索引擎系统，数据库系统，分布式系统开源软件架构，
+重点考察内容面向对象，接口设计，设计模式，数据库表，分布式
+关于高并发系统设计。主要有以下几个关键技术点：缓存，索引，数据分片，锁粒度尽可能小。
+分布式系统分布式系统由独立的服务器通过网络松散耦合组成的特点：可扩展性核心理念：多台服务器协同......
         </div>
     </a>
     <p class="post-meta">
         Posted by YueLng Chen on
         2016-03-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2016/03/30/life/life_food/">
-        <h2 class="post-title">
-            生活-美食
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            
-“唯美食，好姑娘，梦想不可辜负.”
-
-写在记录之前总觉得一句话讲的非常好，唯美食和好姑娘不可辜负，现在好姑娘都没有，谈不上辜负，现在只是谈谈不辜负这美食。这里会搜罗世界各地，风情各异的美酒美食，也尽量给出美食的做法，以防自己老了，记录在这，不管怎么样，记得都要好好生活。（真想再开一篇记录国内各大菜系的特色和各种歪果仁的各种黑暗料理，不要漏掉酱料这个大头，各种菜系都要试一试的呀
-汤类最近一直......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2016-03-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2016/02/03/project/quant-life/">
-        <h2 class="post-title">
-            一些关于量化投资的资料
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            为了使整个股票组合的风险-收益平衡而生成的。它的核心是风险收益平衡，原理是以美国著名经济学家 J. L. Kelly 的 Volatility Pumping（波动抽利）的经济学理论为基础进行设计的。J. L. Kelly 与他同期的 Harry Markowitz、William Sharpe 等学者被公认为现代量化投资科学的鼻祖
-...
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2016-02-03
     </p>
 
 </div>
@@ -498,13 +498,45 @@ Tagliatelle或者Fettucine这种宽的意面
                     <div class="tags">
                         
                             
-                            <a href="/tags/#后端开发" title="后端开发" rel="6">后端开发</a>
+                            <a href="/tags/#学习" title="学习" rel="13">学习</a>
                             
                         
                             
                         
                             
-                            <a href="/tags/#工程方法" title="工程方法" rel="4">工程方法</a>
+                            <a href="/tags/#resource" title="resource" rel="2">resource</a>
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                            <a href="/tags/#computer_science" title="computer_science" rel="2">computer_science</a>
+                            
+                        
+                            
+                        
+                            
+                            <a href="/tags/#database" title="database" rel="2">database</a>
+                            
+                        
+                            
+                        
+                            
+                            <a href="/tags/#随笔" title="随笔" rel="8">随笔</a>
+                            
+                        
+                            
+                        
+                            
+                            <a href="/tags/#microservice" title="microservice" rel="2">microservice</a>
+                            
+                        
+                            
+                            <a href="/tags/#分布式" title="分布式" rel="4">分布式</a>
+                            
+                        
                             
                         
                             
@@ -518,39 +550,13 @@ Tagliatelle或者Fettucine这种宽的意面
                             
                         
                             
-                            <a href="/tags/#resource" title="resource" rel="3">resource</a>
+                            <a href="/tags/#operation" title="operation" rel="2">operation</a>
                             
                         
-                            
-                        
-                            
-                            <a href="/tags/#学习" title="学习" rel="13">学习</a>
-                            
-                        
-                            
-                        
-                            
-                            <a href="/tags/#interview" title="interview" rel="2">interview</a>
                             
                         
                             
                             <a href="/tags/#项目" title="项目" rel="6">项目</a>
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                            <a href="/tags/#分布式" title="分布式" rel="4">分布式</a>
-                            
-                        
-                            
-                            <a href="/tags/#随笔" title="随笔" rel="8">随笔</a>
-                            
-                        
                             
                         
                             
