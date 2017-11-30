@@ -70,7 +70,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">Explore in every moment of the cudgel thinking</a>
+            <a class="navbar-brand" href="/">To Infinity And Beyond!</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -93,14 +93,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -156,9 +156,9 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
                 <div class="site-heading">
-                    <h1>Explore in every moment of the cudgel thinking</h1>
+                    <h1>To Infinity And Beyond!</h1>
                     <!--<hr class="small">-->
-                    <span class="subheading">To Infinity And Beyond!</span>
+                    <span class="subheading">Explore in every moment of the cudgel thinking!</span>
                 </div>
             </div>
         </div>
@@ -187,16 +187,18 @@
 
 <div class="post-preview">
 
-    <a href="/2017/03/30/computer_science/network/">
+    <a href="/2017/03/30/framework/tornado/">
         <h2 class="post-title">
-            计算机网络
+            Tornado Pyhton web框架介绍
         </h2>
         <h3 class="post-subtitle">
-             "计算机网络"
+             "tornado为何这么快"
         </h3>
         <div class="post-content-preview">
-            TCP四次挥手过程
-TCP是面向连接的服务；三次握手（建立连接）和四次挥手（关闭连接）；使用滑动窗口机制进行流量控制；TCP要保证在所有可能的情况下使得所有的数据都能够被投递，当你关闭一个socket时，主动关闭一端的socket将进入TIME_WAIT状态，而被动关闭一方则转入CLOSED状态，这的确能够保证所有的数据都被传输。1）首先A B端的TCP进程都处于established状态，......
+            ##Tornado直接读代码
+简介FriendFeed使用了一款使用Python编写的，相对简单的非阻塞式Web服务器。它的特点在于非阻塞服务器和epoll的运用，这个Web框架还包含了一些相关的有用工具和优化。
+以下是经典的“Hello, world”示例：
+123456789101112131415import tornado.ioloopimport tornado.webclass ......
         </div>
     </a>
     <p class="post-meta">
@@ -232,24 +234,20 @@ TCP是面向连接的服务；三次握手（建立连接）和四次挥手（�
 
 <div class="post-preview">
 
-    <a href="/2017/03/30/distribution_sys/engineering/">
+    <a href="/2017/03/30/operation/basic_oprate/">
         <h2 class="post-title">
-            后端代码工程
+            记录常用的配置
         </h2>
         <h3 class="post-subtitle">
              "配置"
         </h3>
         <div class="post-content-preview">
-            
-“Yeah It’s on. ”
+            ####项目部署执行openplay_backend requirement.txt 中却少raven
+在跑run.py时，debug配置文件下却少sentry，将product环境下的sentry添加即可
+####项目基础架构
 
-
-配置文件
-程序内内置配置项的初始默认值
-配置文件中的配置项值可以覆盖(override)程序内配置项的默认值。
-命令行选项和参数值具有最高优先级，可以override前两层的配置项值。
-
-错误处理golang内置两种错误处理方式，error与panic，error是逻辑上程序可控制可预见的错误，而panic则相对于error是比较严重的错误。在通常的项......
+总共分为球员版player，管理员admin，用户user，统计stats，网页web，五个部分
+项目之间的关系：五个部分全都是基于tornado API项目开发......
         </div>
     </a>
     <p class="post-meta">
@@ -491,7 +489,15 @@ In computer science, functional programming is a programming paradigm that treat
                     <div class="tags">
                         
                             
+                            <a href="/tags/#随笔" title="随笔" rel="8">随笔</a>
+                            
+                        
+                            
+                        
+                            
                             <a href="/tags/#学习" title="学习" rel="13">学习</a>
+                            
+                        
                             
                         
                             
@@ -501,23 +507,15 @@ In computer science, functional programming is a programming paradigm that treat
                             
                         
                             
-                        
-                            
-                        
-                            
                             <a href="/tags/#computer_science" title="computer_science" rel="2">computer_science</a>
                             
                         
                             
                         
                             
+                        
+                            
                             <a href="/tags/#database" title="database" rel="2">database</a>
-                            
-                        
-                            
-                        
-                            
-                            <a href="/tags/#随笔" title="随笔" rel="8">随笔</a>
                             
                         
                             
@@ -547,9 +545,9 @@ In computer science, functional programming is a programming paradigm that treat
                             
                         
                             
-                        
-                            
                             <a href="/tags/#项目" title="项目" rel="6">项目</a>
+                            
+                        
                             
                         
                             
@@ -703,7 +701,7 @@ In computer science, functional programming is a programming paradigm that treat
 
                 </ul>
                 <p class="copyright text-muted">
-                    Copyright &copy; Explore in every moment of the cudgel thinking 2017
+                    Copyright &copy; To Infinity And Beyond! 2017
                     <br>
                     Theme by <a href="http://huangxuan.me">Hux</a>
                     <span style="display: inline-block; margin: 0 5px;">
