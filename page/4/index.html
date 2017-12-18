@@ -256,30 +256,16 @@
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/surrounding/study_git/">
+    <a href="/2017/11/30/surrounding/study_linux/">
         <h2 class="post-title">
-            Git速查表/参考手册
+            Linux基础知识与命令（Ubuntu14.10）
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            索引
-创建
-本地修改
-搜索
-提交历史
-分支与标签
-更新与发布
-合并与重置
-撤销
-
-
-
-创建12$ git clone ssh://user@domain.com/repo.git #复制一个已创建的仓库$ git init #创建一个新的本地仓库
-
-
-本地修改123456789101112131415161718192021$ git status        #显示工作路径下已修改的文件......
+            这里记录常用的一些linux命令，以备不时之需。 
+常用的命令1234567sudo cp xxxx /xxxx #移动文件sudo mv xxxx xxxxx #为文件改名sudo tar zxvf xxx.tar #解压文件夹sudo unrar xxxx.rar #解压文件夹 sudo chmod 775 xxxx #给文件或文件夹加权限sudo chown -R hadoop:had......
         </div>
     </a>
     <p class="post-meta">
@@ -322,27 +308,54 @@ Monitor your data作为程序员，我们开发一个后台服务，大家有没
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/surrounding/markdown/">
+    <a href="/2017/11/30/surrounding/study_git/">
         <h2 class="post-title">
-            markdown基本操作
+            Git速查表/参考手册
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            基本符号
-*,-,+ 3个符号效果都一样，这3个符号被称为 Markdown符号
-空白行表示另起一个段落
-`是表示inline代码，tab是用来标记 代码段，分别对应html的code，pre标签
+            索引
+创建
+本地修改
+搜索
+提交历史
+分支与标签
+更新与发布
+合并与重置
+撤销
 
-换行
-单一段落( \) 用一个空白行
-连续两个空格 会变成一个 
-连续3个符号，然后是空行，表示 hr横线
 
-标题
-生成h1–h6,在文字前面加上 1–6个# 来实现
-文字加粗是通过 文字左右各......
+
+创建12$ git clone ssh://user@domain.com/repo.git #复制一个已创建的仓库$ git init #创建一个新的本地仓库
+
+
+本地修改123456789101112131415161718192021$ git status        #显示工作路径下已修改的文件......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/30/system_design/study_info/">
+        <h2 class="post-title">
+            消息推送入门
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            实时消息推送的几种实现方式相较于手机端的消息推送（一般都是以socket方式实现），web端是基于http协议，很难像tcp一样保持长连接。但随着技术的发展，出现了websocket, comet等新的技术可以达到类似长连接的效果，这些技术大体可分为以下几类：
+
+短轮询。页面端通过js定时异步刷新，这种方式实时效果较差。
+长轮询。页面端通过js异步请求服务端，服务端在接收到请求后，如果该次请......
         </div>
     </a>
     <p class="post-meta">
@@ -376,34 +389,6 @@ mysql悲观锁详解
     <p class="post-meta">
         Posted by yueLng on
         2017-11-28
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/27/distribution_system/trace/">
-        <h2 class="post-title">
-            分布式系统追踪
-        </h2>
-        <h3 class="post-subtitle">
-             "分布式系统调用链追踪、监控"
-        </h3>
-        <div class="post-content-preview">
-            Distributed Tracing System需求
-入库消息的结构组成，traceID、层级表示、调用方法、调用时间、返回时间
-
-参考
-jaegertracing/jaeger
-jaegertracing/jaeger
-
-...
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2017-11-27
     </p>
 
 </div>
@@ -494,9 +479,9 @@ jaegertracing/jaeger
                     <div class="tags">
                         
                             
-                        
-                            
                             <a href="/tags/#collection" title="collection" rel="5">collection</a>
+                            
+                        
                             
                         
                             
@@ -504,13 +489,13 @@ jaegertracing/jaeger
                             
                         
                             
+                            <a href="/tags/#devops" title="devops" rel="2">devops</a>
+                            
                         
                             
                             <a href="/tags/#distribution_system" title="distribution_system" rel="10">distribution_system</a>
                             
                         
-                            
-                            <a href="/tags/#devops" title="devops" rel="2">devops</a>
                             
                         
                             
@@ -522,10 +507,6 @@ jaegertracing/jaeger
                             
                         
                             
-                            <a href="/tags/#operation" title="operation" rel="2">operation</a>
-                            
-                        
-                            
                             <a href="/tags/#life_is_short" title="life_is_short" rel="2">life_is_short</a>
                             
                         
@@ -534,15 +515,19 @@ jaegertracing/jaeger
                             
                         
                             
+                            <a href="/tags/#operation" title="operation" rel="2">operation</a>
+                            
+                        
+                            
                             <a href="/tags/#product" title="product" rel="3">product</a>
                             
                         
                             
-                            <a href="/tags/#system_design" title="system_design" rel="4">system_design</a>
+                            <a href="/tags/#surrounding" title="surrounding" rel="5">surrounding</a>
                             
                         
                             
-                            <a href="/tags/#surrounding" title="surrounding" rel="5">surrounding</a>
+                            <a href="/tags/#system_design" title="system_design" rel="4">system_design</a>
                             
                         
                             

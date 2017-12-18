@@ -190,16 +190,20 @@
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/surrounding/study_linux/">
+    <a href="/2017/11/30/devops/study_environment/">
         <h2 class="post-title">
-            Linux基础知识与命令（Ubuntu14.10）
+            基础服务环境搭建
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            这里记录常用的一些linux命令，以备不时之需。 
-常用的命令1234567sudo cp xxxx /xxxx #移动文件sudo mv xxxx xxxxx #为文件改名sudo tar zxvf xxx.tar #解压文件夹sudo unrar xxxx.rar #解压文件夹 sudo chmod 775 xxxx #给文件或文件夹加权限sudo chown -R hadoop:had......
+            这篇文章主要是针对大数据平台的搭建，主要包括的内容有
+
+vagrant虚拟机环境搭建
+Hadoop集群搭建
+memcached集群搭建
+storm集群搭建一些架构可行的架构：Flume + Kafka + Strom + Hbase 使用vagrant搭建系统安装上 http://www.vagrantbox.es/ 找下载需要的 box ， 譬如 Ubuntu 14.10（based on......
         </div>
     </a>
     <p class="post-meta">
@@ -212,21 +216,99 @@
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/distribution_system/mq/">
+    <a href="/2017/11/30/computer_science/study_server/">
         <h2 class="post-title">
-            消息队列
+            服务器端编程基础积累
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            话题参考资料
-董飞：2016年科技阅读列表
-教你如何迅速秒杀掉：99%的海量数据处理面试题
-highscalability
-新浪新兵训练营
+            UNIX I/O模型
+阻塞IO
+非阻塞IO
+IO多路复用
+信号驱动IO
+异步IO
 
-...
+nginx模型...
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/30/surrounding/markdown/">
+        <h2 class="post-title">
+            markdown基本操作
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            基本符号
+*,-,+ 3个符号效果都一样，这3个符号被称为 Markdown符号
+空白行表示另起一个段落
+`是表示inline代码，tab是用来标记 代码段，分别对应html的code，pre标签
+
+换行
+单一段落( \) 用一个空白行
+连续两个空格 会变成一个 
+连续3个符号，然后是空行，表示 hr横线
+
+标题
+生成h1–h6,在文字前面加上 1–6个# 来实现
+文字加粗是通过 文字左右各......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/30/language/study_python/">
+        <h2 class="post-title">
+            python学习
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            Ubuntu下配置基本的Python开发环境安装Python发布版本和build依赖包
+/# 安装 Python 发布版本，dev包必须安装，很多用pip安装包都需要编译sudo apt-get install python2.7 python2.7-dev python3.4 python3.4-dev/#很多pip安装的包都需要libssl和libevent编译环境sudo apt-ge......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/30/distribution_system/study_distribute/">
+        <h2 class="post-title">
+            关于Log在分布式系统中的应用以及未来
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            The Log&emsp;&emsp;有一段时间被一篇称为学习笔记：The Log（我所读过的最好的一篇分布式技术文章）所刷屏，各大技术文章推荐APP和微信都推荐了这篇文章，来自于LinkedIn关于kafka的文章，核心如题—The Log。（你可以把这节看成对这篇文章的缩减）
+（一）log由来、重要性、应用&emsp;&emsp;对于任何一项新技术都会先抛出三个问题what？why？ho......
         </div>
     </a>
     <p class="post-meta">
@@ -277,28 +359,6 @@ tutorialspoint开发者应该去的十......
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/distribution_system/study_distribute/">
-        <h2 class="post-title">
-            关于Log在分布式系统中的应用以及未来
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            The Log&emsp;&emsp;有一段时间被一篇称为学习笔记：The Log（我所读过的最好的一篇分布式技术文章）所刷屏，各大技术文章推荐APP和微信都推荐了这篇文章，来自于LinkedIn关于kafka的文章，核心如题—The Log。（你可以把这节看成对这篇文章的缩减）
-（一）log由来、重要性、应用&emsp;&emsp;对于任何一项新技术都会先抛出三个问题what？why？ho......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
     <a href="/2017/11/30/distribution_system/study_rpc/">
         <h2 class="post-title">
             RPC远程过程调用
@@ -323,16 +383,18 @@ RPC调用分类
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/system_design/study_model/">
+    <a href="/2017/11/30/surrounding/study_vim/">
         <h2 class="post-title">
-            设计模式简要介绍
+            vim积累
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            创建型模式简单工厂模式简单工厂模式的要点在于：当你需要什么，只需要传入一个正确的参数，就可以获取你所需要的对象，而无须知道其创建细节。1KeyGenerator keyGen=KeyGenerator.getInstance("DESede");//获取不同加密算法的密钥生成器
-工厂方法模式工厂父类负责定义创建产品对象的公共接口，而工厂子类则负责生成具体的产品对象，这样做的目的是将产品类的实......
+            这里记录vim的一些平常积累
+效果图
+安装参考github上关于vim配置及其插件安装simple_vim_setting
+基本操作1. Under normal mode123456789:wq             - save and quiti               - insertx VIM           - delete characterdd           ......
         </div>
     </a>
     <p class="post-meta">
@@ -345,44 +407,15 @@ RPC调用分类
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/system_design/study_info/">
+    <a href="/2017/11/30/collection/source_all/">
         <h2 class="post-title">
-            消息推送入门
+            一些有用的链接（持续更新）
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            实时消息推送的几种实现方式相较于手机端的消息推送（一般都是以socket方式实现），web端是基于http协议，很难像tcp一样保持长连接。但随着技术的发展，出现了websocket, comet等新的技术可以达到类似长连接的效果，这些技术大体可分为以下几类：
-
-短轮询。页面端通过js定时异步刷新，这种方式实时效果较差。
-长轮询。页面端通过js异步请求服务端，服务端在接收到请求后，如果该次请......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/devops/study_environment/">
-        <h2 class="post-title">
-            基础服务环境搭建
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            这篇文章主要是针对大数据平台的搭建，主要包括的内容有
-
-vagrant虚拟机环境搭建
-Hadoop集群搭建
-memcached集群搭建
-storm集群搭建一些架构可行的架构：Flume + Kafka + Strom + Hbase 使用vagrant搭建系统安装上 http://www.vagrantbox.es/ 找下载需要的 box ， 譬如 Ubuntu 14.10（based on......
+            计算机科学1.谷歌推荐的技术能力提升指南CS课程入门、了解其他语言、测试代码、培养逻辑推理和学习数学离散知识、深刻理解操作系统、学习UX设计、学习人工智能、学习如何构建编译器、了解密码学、并行编程、与其他程序员一起开发项目。2.hackr.ioShare and discover the best programming tutorials and courses online.3.图说设计......
         </div>
     </a>
     <p class="post-meta">
@@ -404,27 +437,6 @@ storm集群搭建一些架构可行的架构：Flume + Kafka + Strom + Hbase 使
         </h3>
         <div class="post-content-preview">
             介绍Thrift 最初由Facebook开发，而后捐献给Apache，目前已广泛应用于业界。Thrift 正如其官方主页介绍的，“是一种可扩展、跨语言的服务开发框架”。简而言之，它主要用于各个服务之间的RPC通信，其服务端和客户端可以用不同的语言来开发。只需要依照IDL（Interface Description Language）定义一次接口，Thrift工具就能自动生成 C++, Jav......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/thinking/study_software/">
-        <h2 class="post-title">
-            团队项目开发与规范
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            个人理解团队是因为有相同的目标才聚集在一起，所有在做一个项目的开始，要让所有成员认同项目的前景。团队的大小个人认为最多20个人。虽然说很有必要保证规范化，但是我认为按部就班只能扼杀人的创造力，但是一些的必要的流程规范还是要的，也就是下面说的开发流程规范，有些人认为这样不会有很好的技术文化积累。我想的是技术文档和团队文化并不和小而美的团队相冲突，文档取决于个人的工作习惯，而文化取决于每个人以及......
         </div>
     </a>
     <p class="post-meta">
@@ -474,9 +486,9 @@ storm集群搭建一些架构可行的架构：Flume + Kafka + Strom + Hbase 使
                     <div class="tags">
                         
                             
-                        
-                            
                             <a href="/tags/#collection" title="collection" rel="5">collection</a>
+                            
+                        
                             
                         
                             
@@ -484,13 +496,13 @@ storm集群搭建一些架构可行的架构：Flume + Kafka + Strom + Hbase 使
                             
                         
                             
+                            <a href="/tags/#devops" title="devops" rel="2">devops</a>
+                            
                         
                             
                             <a href="/tags/#distribution_system" title="distribution_system" rel="10">distribution_system</a>
                             
                         
-                            
-                            <a href="/tags/#devops" title="devops" rel="2">devops</a>
                             
                         
                             
@@ -502,10 +514,6 @@ storm集群搭建一些架构可行的架构：Flume + Kafka + Strom + Hbase 使
                             
                         
                             
-                            <a href="/tags/#operation" title="operation" rel="2">operation</a>
-                            
-                        
-                            
                             <a href="/tags/#life_is_short" title="life_is_short" rel="2">life_is_short</a>
                             
                         
@@ -514,15 +522,19 @@ storm集群搭建一些架构可行的架构：Flume + Kafka + Strom + Hbase 使
                             
                         
                             
+                            <a href="/tags/#operation" title="operation" rel="2">operation</a>
+                            
+                        
+                            
                             <a href="/tags/#product" title="product" rel="3">product</a>
                             
                         
                             
-                            <a href="/tags/#system_design" title="system_design" rel="4">system_design</a>
+                            <a href="/tags/#surrounding" title="surrounding" rel="5">surrounding</a>
                             
                         
                             
-                            <a href="/tags/#surrounding" title="surrounding" rel="5">surrounding</a>
+                            <a href="/tags/#system_design" title="system_design" rel="4">system_design</a>
                             
                         
                             

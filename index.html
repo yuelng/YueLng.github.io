@@ -190,42 +190,27 @@
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/distribution_system/raft/">
+    <a href="/2017/12/12/distribution_system/trace/">
         <h2 class="post-title">
-            分布式系统的一致性算法
+            分布式系统追踪
         </h2>
         <h3 class="post-subtitle">
-             "如何解决集群内共识的问题"
+             "分布式系统调用链追踪、监控"
         </h3>
         <div class="post-content-preview">
-            ...
+            Distributed Tracing System需求
+入库消息的结构组成，traceID、层级表示、调用方法、调用时间、返回时间custom opentracing 
+
+参考
+jaegertracing/jaeger
+jaegertracing/jaeger
+
+...
         </div>
     </a>
     <p class="post-meta">
         Posted by yueLng on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/distribution_system/study_distribute_item/">
-        <h2 class="post-title">
-            分布式系统要点记录
-        </h2>
-        <h3 class="post-subtitle">
-             "微服务的惯用架构"
-        </h3>
-        <div class="post-content-preview">
-            The Twelve Factor AppThe Twelve Factor App网关聚合服务 提供restful接口grpc 内网调用服务发现，使用etcd自动服务注册服务配置，使用etcd存储配置服务快速部署服务logging记录服务调用链的追踪服务质量的监控，响应时间缓存的应用
-典型架构缓存、消息、搜索Nginx+Tornado+mysql+pythonNginx+rest.li+r......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2017-11-30
+        2017-12-12
     </p>
 
 </div>
@@ -263,6 +248,49 @@
 
 <div class="post-preview">
 
+    <a href="/2017/11/30/distribution_system/study_distribute_item/">
+        <h2 class="post-title">
+            分布式系统要点记录
+        </h2>
+        <h3 class="post-subtitle">
+             "微服务的惯用架构"
+        </h3>
+        <div class="post-content-preview">
+            The Twelve Factor AppThe Twelve Factor App网关聚合服务 提供restful接口grpc 内网调用服务发现，使用etcd自动服务注册服务配置，使用etcd存储配置服务快速部署服务logging记录服务调用链的追踪服务质量的监控，响应时间缓存的应用
+典型架构缓存、消息、搜索Nginx+Tornado+mysql+pythonNginx+rest.li+r......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/30/distribution_system/raft/">
+        <h2 class="post-title">
+            分布式系统的一致性算法
+        </h2>
+        <h3 class="post-subtitle">
+             "如何解决集群内共识的问题"
+        </h3>
+        <div class="post-content-preview">
+            ...
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/2017/11/30/language/study_shell/">
         <h2 class="post-title">
             python的装饰器与JavaScript中的闭包
@@ -273,6 +301,27 @@
         <div class="post-content-preview">
             1.摘要这里记录关于Python装饰器和JavaScript闭包的学习笔记
 2.1Python中的装饰器12345678910111213def makebold(fn):    def wrapped():        return "&lt;b&gt;" + fn() + "&lt;/b&gt;"    return wrappeddef makeitalic(fn):    def ......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/30/computer_science/study_flooding/">
+        <h2 class="post-title">
+            SYN洪泛攻击的原理与实现
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            设计原理SYN-Flood是目前最流行的DDoS攻击手段，DDoS只是洪水攻击的一个种类。其实还有其它种类的洪水攻击。以前的DoS手段在向分布式这一阶段发展的过程中也经历了逐步淘汰的过程。SYN-Flood的攻击效果最好，故众黑客不约而同选择它。以下了解一下SYN-Flood的详细情况。Syn Flood利用了TCP/IP协议的固有漏洞。面向连接的TCP三次握手是Syn Flood存在的基础......
         </div>
     </a>
     <p class="post-meta">
@@ -309,22 +358,16 @@
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/computer_science/study_server/">
+    <a href="/2017/11/30/system_design/study_model/">
         <h2 class="post-title">
-            服务器端编程基础积累
+            设计模式简要介绍
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            UNIX I/O模型
-阻塞IO
-非阻塞IO
-IO多路复用
-信号驱动IO
-异步IO
-
-nginx模型...
+            创建型模式简单工厂模式简单工厂模式的要点在于：当你需要什么，只需要传入一个正确的参数，就可以获取你所需要的对象，而无须知道其创建细节。1KeyGenerator keyGen=KeyGenerator.getInstance("DESede");//获取不同加密算法的密钥生成器
+工厂方法模式工厂父类负责定义创建产品对象的公共接口，而工厂子类则负责生成具体的产品对象，这样做的目的是将产品类的实......
         </div>
     </a>
     <p class="post-meta">
@@ -337,17 +380,22 @@ nginx模型...
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/system_design/system_design_question/">
+    <a href="/2017/11/30/thinking/think_master_function/">
         <h2 class="post-title">
-            笔记-系统设计
+            编程之路—函数式编程
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            重点考察内容面向对象，接口设计，设计模式，数据库表，分布式
-关于高并发系统设计。主要有以下几个关键技术点：缓存，索引，数据分片，锁粒度尽可能小。
-常见分布式系统设计问题如何设计Twitter，短网址系统设计，如何设计Uber分布式系统1)Inverted index2)Anagram3) Word Count4) Distributed File System Design 设计实时位置系统......
+            编程之路
+编程规范
+函数式编程
+性能与优化
+单元测试
+
+概念定义
+In computer science, functional programming is a programming paradigm that treats computation as the evaluation of mathematical functions and avoids state and mutab......
         </div>
     </a>
     <p class="post-meta">
@@ -360,60 +408,21 @@ nginx模型...
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/computer_science/study_flooding/">
+    <a href="/2017/11/30/distribution_system/mq/">
         <h2 class="post-title">
-            SYN洪泛攻击的原理与实现
+            消息队列
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            设计原理SYN-Flood是目前最流行的DDoS攻击手段，DDoS只是洪水攻击的一个种类。其实还有其它种类的洪水攻击。以前的DoS手段在向分布式这一阶段发展的过程中也经历了逐步淘汰的过程。SYN-Flood的攻击效果最好，故众黑客不约而同选择它。以下了解一下SYN-Flood的详细情况。Syn Flood利用了TCP/IP协议的固有漏洞。面向连接的TCP三次握手是Syn Flood存在的基础......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
-    </p>
+            话题参考资料
+董飞：2016年科技阅读列表
+教你如何迅速秒杀掉：99%的海量数据处理面试题
+highscalability
+新浪新兵训练营
 
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/thinking/think_first/">
-        <h2 class="post-title">
-            把思维好好捋一捋
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            骐骥一跃，不能十步；驽马十驾，功在不舍。
-胡乱扯扯1研究：研究东西，有足够洞察力，研究水准不错2研发：Hack Idea自己有魄力实现，不懂研发的黑客如同不会游泳的海盗3工程：研发出来的需要实战、需要工程化，否则只是玩具，而不能成为真的武器
-关于就业和能力就业实习，还是有压力的。听过学长学姐们的经历，他们有进大公司也有初创企业的，前天还在群里争论是去哪种好，引得一个在初创公司的学长，把月薪都......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/codeing/study_coding/">
-        <h2 class="post-title">
-            勿在浮沙聚高塔
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            1.摘要今天看了新浪新兵训练营的一些资料，整理下关于程序员最基础的知识————关于编码主要内容包括，什么是烂代码，什么是好代码，好代码需要注意什么，如何做出优雅的设计，如何规划合理的架构编码主要是给人看的，其次才是给机器看的。
-2.关于烂代码写出烂代码很容易，入行时很容易被鼓吹要把主要精力放在ABCD（需求文档/功能设计/架构设计/理解原理）上，写代码只是实现想法的工具。在这样的指导思想下，......
+...
         </div>
     </a>
     <p class="post-meta">
@@ -459,9 +468,9 @@ nginx模型...
                     <div class="tags">
                         
                             
-                        
-                            
                             <a href="/tags/#collection" title="collection" rel="5">collection</a>
+                            
+                        
                             
                         
                             
@@ -469,13 +478,13 @@ nginx模型...
                             
                         
                             
+                            <a href="/tags/#devops" title="devops" rel="2">devops</a>
+                            
                         
                             
                             <a href="/tags/#distribution_system" title="distribution_system" rel="10">distribution_system</a>
                             
                         
-                            
-                            <a href="/tags/#devops" title="devops" rel="2">devops</a>
                             
                         
                             
@@ -487,10 +496,6 @@ nginx模型...
                             
                         
                             
-                            <a href="/tags/#operation" title="operation" rel="2">operation</a>
-                            
-                        
-                            
                             <a href="/tags/#life_is_short" title="life_is_short" rel="2">life_is_short</a>
                             
                         
@@ -499,15 +504,19 @@ nginx模型...
                             
                         
                             
+                            <a href="/tags/#operation" title="operation" rel="2">operation</a>
+                            
+                        
+                            
                             <a href="/tags/#product" title="product" rel="3">product</a>
                             
                         
                             
-                            <a href="/tags/#system_design" title="system_design" rel="4">system_design</a>
+                            <a href="/tags/#surrounding" title="surrounding" rel="5">surrounding</a>
                             
                         
                             
-                            <a href="/tags/#surrounding" title="surrounding" rel="5">surrounding</a>
+                            <a href="/tags/#system_design" title="system_design" rel="4">system_design</a>
                             
                         
                             
