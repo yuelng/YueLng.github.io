@@ -103,14 +103,14 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -248,6 +248,27 @@ jaegertracing/jaeger
 
 <div class="post-preview">
 
+    <a href="/2017/11/30/distribution_system/raft/">
+        <h2 class="post-title">
+            分布式系统的一致性算法
+        </h2>
+        <h3 class="post-subtitle">
+             "如何解决集群内共识的问题"
+        </h3>
+        <div class="post-content-preview">
+            ...
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/2017/11/30/distribution_system/study_distribute_item/">
         <h2 class="post-title">
             分布式系统要点记录
@@ -270,37 +291,16 @@ jaegertracing/jaeger
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/distribution_system/raft/">
+    <a href="/2017/11/30/codeing/study_coding/">
         <h2 class="post-title">
-            分布式系统的一致性算法
-        </h2>
-        <h3 class="post-subtitle">
-             "如何解决集群内共识的问题"
-        </h3>
-        <div class="post-content-preview">
-            ...
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/language/study_shell/">
-        <h2 class="post-title">
-            python的装饰器与JavaScript中的闭包
+            勿在浮沙聚高塔
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            1.摘要这里记录关于Python装饰器和JavaScript闭包的学习笔记
-2.1Python中的装饰器12345678910111213def makebold(fn):    def wrapped():        return "&lt;b&gt;" + fn() + "&lt;/b&gt;"    return wrappeddef makeitalic(fn):    def ......
+            1.摘要今天看了新浪新兵训练营的一些资料，整理下关于程序员最基础的知识————关于编码主要内容包括，什么是烂代码，什么是好代码，好代码需要注意什么，如何做出优雅的设计，如何规划合理的架构编码主要是给人看的，其次才是给机器看的。
+2.关于烂代码写出烂代码很容易，入行时很容易被鼓吹要把主要精力放在ABCD（需求文档/功能设计/架构设计/理解原理）上，写代码只是实现想法的工具。在这样的指导思想下，......
         </div>
     </a>
     <p class="post-meta">
@@ -313,15 +313,17 @@ jaegertracing/jaeger
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/computer_science/study_flooding/">
+    <a href="/2017/11/30/system_design/system_design_question/">
         <h2 class="post-title">
-            SYN洪泛攻击的原理与实现
+            笔记-系统设计
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            设计原理SYN-Flood是目前最流行的DDoS攻击手段，DDoS只是洪水攻击的一个种类。其实还有其它种类的洪水攻击。以前的DoS手段在向分布式这一阶段发展的过程中也经历了逐步淘汰的过程。SYN-Flood的攻击效果最好，故众黑客不约而同选择它。以下了解一下SYN-Flood的详细情况。Syn Flood利用了TCP/IP协议的固有漏洞。面向连接的TCP三次握手是Syn Flood存在的基础......
+            重点考察内容面向对象，接口设计，设计模式，数据库表，分布式
+关于高并发系统设计。主要有以下几个关键技术点：缓存，索引，数据分片，锁粒度尽可能小。
+常见分布式系统设计问题如何设计Twitter，短网址系统设计，如何设计Uber分布式系统1)Inverted index2)Anagram3) Word Count4) Distributed File System Design 设计实时位置系统......
         </div>
     </a>
     <p class="post-meta">
@@ -334,40 +336,15 @@ jaegertracing/jaeger
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/computer_science/study_algorithm/">
+    <a href="/2017/11/30/collection/source_all/">
         <h2 class="post-title">
-            相似距离算法
+            一些有用的链接（持续更新）
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            相似距离算法是推荐算法的一部分。
-一、EuclideanDistanceSimilarity: 欧氏距离相似度原理：利用欧式距离d定义的相似度s，s=1 / (1+d)。
-范围：[0,1]，值越大，说明d越小，也就是距离越近，则相似度越大。
-说明：同皮尔森相似度一样，该相似度也没有考虑重叠数对结果的影响，同样地，Mahout通过增加一个枚举类型（Weighting）的参数来使得重叠数也成为计......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/system_design/study_model/">
-        <h2 class="post-title">
-            设计模式简要介绍
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            创建型模式简单工厂模式简单工厂模式的要点在于：当你需要什么，只需要传入一个正确的参数，就可以获取你所需要的对象，而无须知道其创建细节。1KeyGenerator keyGen=KeyGenerator.getInstance("DESede");//获取不同加密算法的密钥生成器
-工厂方法模式工厂父类负责定义创建产品对象的公共接口，而工厂子类则负责生成具体的产品对象，这样做的目的是将产品类的实......
+            计算机科学1.谷歌推荐的技术能力提升指南CS课程入门、了解其他语言、测试代码、培养逻辑推理和学习数学离散知识、深刻理解操作系统、学习UX设计、学习人工智能、学习如何构建编译器、了解密码学、并行编程、与其他程序员一起开发项目。2.hackr.ioShare and discover the best programming tutorials and courses online.3.图说设计......
         </div>
     </a>
     <p class="post-meta">
@@ -408,21 +385,39 @@ In computer science, functional programming is a programming paradigm that treat
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/distribution_system/mq/">
+    <a href="/2017/11/30/computer_science/study_algorithm/">
         <h2 class="post-title">
-            消息队列
+            相似距离算法
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            话题参考资料
-董飞：2016年科技阅读列表
-教你如何迅速秒杀掉：99%的海量数据处理面试题
-highscalability
-新浪新兵训练营
+            相似距离算法是推荐算法的一部分。
+一、EuclideanDistanceSimilarity: 欧氏距离相似度原理：利用欧式距离d定义的相似度s，s=1 / (1+d)。
+范围：[0,1]，值越大，说明d越小，也就是距离越近，则相似度越大。
+说明：同皮尔森相似度一样，该相似度也没有考虑重叠数对结果的影响，同样地，Mahout通过增加一个枚举类型（Weighting）的参数来使得重叠数也成为计......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-11-30
+    </p>
 
-...
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/30/computer_science/study_flooding/">
+        <h2 class="post-title">
+            SYN洪泛攻击的原理与实现
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            设计原理SYN-Flood是目前最流行的DDoS攻击手段，DDoS只是洪水攻击的一个种类。其实还有其它种类的洪水攻击。以前的DoS手段在向分布式这一阶段发展的过程中也经历了逐步淘汰的过程。SYN-Flood的攻击效果最好，故众黑客不约而同选择它。以下了解一下SYN-Flood的详细情况。Syn Flood利用了TCP/IP协议的固有漏洞。面向连接的TCP三次握手是Syn Flood存在的基础......
         </div>
     </a>
     <p class="post-meta">
@@ -468,13 +463,15 @@ highscalability
                     <div class="tags">
                         
                             
+                        
+                            
                             <a href="/tags/#collection" title="collection" rel="5">collection</a>
                             
                         
                             
-                        
-                            
                             <a href="/tags/#computer_science" title="computer_science" rel="5">computer_science</a>
+                            
+                        
                             
                         
                             
@@ -483,8 +480,6 @@ highscalability
                         
                             
                             <a href="/tags/#distribution_system" title="distribution_system" rel="10">distribution_system</a>
-                            
-                        
                             
                         
                             
@@ -500,11 +495,11 @@ highscalability
                             
                         
                             
-                            <a href="/tags/#project" title="project" rel="7">project</a>
+                            <a href="/tags/#operation" title="operation" rel="2">operation</a>
                             
                         
                             
-                            <a href="/tags/#operation" title="operation" rel="2">operation</a>
+                            <a href="/tags/#project" title="project" rel="7">project</a>
                             
                         
                             
@@ -516,11 +511,11 @@ highscalability
                             
                         
                             
-                            <a href="/tags/#system_design" title="system_design" rel="4">system_design</a>
+                            <a href="/tags/#thinking" title="thinking" rel="7">thinking</a>
                             
                         
                             
-                            <a href="/tags/#thinking" title="thinking" rel="7">thinking</a>
+                            <a href="/tags/#system_design" title="system_design" rel="4">system_design</a>
                             
                         
                     </div>
