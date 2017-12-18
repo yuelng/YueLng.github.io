@@ -13,11 +13,11 @@
 
     <title>
         
-          生活-美食 - YueLng的博客 | YueLng&#39;s Blog
+          消息队列 - YueLng的博客 | YueLng&#39;s Blog
         
     </title>
 
-    <link rel="canonical" href="http://yuelng.github.io/2016/03/30/life_is_short/life_food/">
+    <link rel="canonical" href="http://yuelng.github.io/2017/12/12/distribution_system/mq/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -161,7 +161,7 @@
 <!-- Post Header -->
 <style type="text/css">
     header.intro-header{
-        background-image: url('http://ogcxtlv6r.bkt.clouddn.com/17-12-16/89744702.jpg')
+        background-image: url('http://ogcxtlv6r.bkt.clouddn.com/17-12-18/75653475.jpg')
     }
 </style>
 <header class="intro-header" >
@@ -171,14 +171,14 @@
                 <div class="post-heading">
                     <div class="tags">
                         
-                          <a class="tag" href="/tags/#life_is_short" title="life_is_short">life_is_short</a>
+                          <a class="tag" href="/tags/#distribution_system" title="distribution_system">distribution_system</a>
                         
                     </div>
-                    <h1>生活-美食</h1>
-                    <h2 class="subheading"></h2>
+                    <h1>消息队列</h1>
+                    <h2 class="subheading"> &quot;消息队列&quot;</h2>
                     <span class="meta">
-                        Posted by YueLng Chen on
-                        2016-03-30
+                        Posted by yueLng on
+                        2017-12-12
                     </span>
                 </div>
             </div>
@@ -197,34 +197,17 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <blockquote>
-<p>“唯美食，好姑娘，梦想不可辜负.”</p>
-</blockquote>
-<h3 id="写在记录之前"><a href="#写在记录之前" class="headerlink" title="写在记录之前"></a>写在记录之前</h3><p>总觉得一句话讲的非常好，唯美食和好姑娘不可辜负，现在好姑娘都没有，谈不上辜负，现在只是谈谈不辜负这美食。这里会搜罗世界各地，风情各异的美酒美食，也尽量给出美食的做法，以防自己老了，记录在这，不管怎么样，记得都要好好生活。（真想再开一篇记录国内各大菜系的特色和各种歪果仁的各种黑暗料理，不要漏掉酱料这个大头，各种菜系都要试一试的呀</p>
-<h3 id="汤类"><a href="#汤类" class="headerlink" title="汤类"></a>汤类</h3><p>最近一直生活在广州，广州有个习惯，在吃饭前会先喝点汤，例如有花生煲鸡脚、青红萝卜煲排骨汤、党参煲猪脚。这些都是家常，主要特点就是养生，而我主要想去了解我们平常没怎么喝过的汤。<br>-胡辣汤<br>罗宋排骨汤<br>韩式大酱汤<br>海带牛肉汤<br>意大利蔬菜汤</p>
-<p>一、 裙带菜味增汤配料：裙带菜（有那种可以直接泡发的）、金针菇、豆腐（盒装的嫩豆腐）、味增（看个人口味选白味增还是赤味增，白味增口味偏淡偏甜，赤味增则稍微浓郁且咸一些）</p>
-<p>步骤：</p>
-<ol>
-<li>烧一锅水，里面可以放两瓣蒜、一点姜和几棵葱白。</li>
-<li>水烧开以后先放金针菇，多烧一会儿（PS：金针菇最好切的稍微短一点，喝起来口感更好</li>
-<li>准备豆腐，切成1cm<em>1cm</em>1cm大小为宜，放到汤里，再放适量的盐，如果掌握不好可以少放一点，味增本身也有咸味</li>
-<li>过2-3分钟倒入适量的裙带菜，然后就可以调味增了，用勺子挖一点味增到汤勺里，再用汤勺捞一点汤，用筷子搅匀，然后倒入汤中，搅一搅</li>
-<li>味增放完就可以关锅了，味增不宜煮太久，味道就散了，最后撒上一点葱花PS：我平时做味增汤的时候不会放油，看个人口味了。其实味增汤里的料是可以随意放的，也可以放一些海鲜：虾啊，北极贝啊什么的。</li>
+                <h3 id="kafka"><a href="#kafka" class="headerlink" title="kafka"></a>kafka</h3><p>问题描述：kafka 重复消费的问题，每次重启服务，都从broker拉取offset，拉到旧的消息<br>解决：消费者每次从broker拉取数据，消费之后都会自动commit，自动commit有一个定时机制，但是并不保证一定提交成功，例如在commit的时候，程序崩溃（例如重启的情况<br>在重启后，消费者会拉取最新的offset作为消费的起点，sarama默认的initial offset 为OffsetNewest，这个参数表示，每次从broker拉取最新的消息消费，而OffsetOldest则会拉取最旧的消息进行消费，而我们的业务代码中配置的是拉取最旧的消息，并且没有做幂等处理，所以导致重复消息消费。</p>
+<p>cfg.Consumer.Offsets.Initial = sarama.OffsetOldest<br>sarama kafka producer and comsumer lib</p>
+<ul>
+<li><a href="http://blog.csdn.net/huangxia73/article/details/48317997" target="_blank" rel="external">kafka关键问题解释</a></li>
+</ul>
+<h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><ol>
+<li><a href="https://zhuanlan.zhihu.com/donglaoshi/20472545" target="_blank" rel="external">董飞：2016年科技阅读列表</a></li>
+<li><a href="http://blog.csdn.net/v_july_v/article/details/7382693" target="_blank" rel="external">教你如何迅速秒杀掉：99%的海量数据处理面试题</a></li>
+<li><a href="http://highscalability.com/" target="_blank" rel="external">highscalability</a></li>
+<li><a href="http://www.kancloud.cn/kancloud/sina-boot-camp/64000" target="_blank" rel="external">新浪新兵训练营</a></li>
 </ol>
-<p>二、味增肉汤配料：新鲜的猪肉薄片（肥瘦相间的那种）、白萝卜、胡萝卜、洋葱些许、香菇等（白萝卜和胡萝卜切薄片，洋葱切丝，香菇切丁，配料的量不宜过多，否则就宣兵夺主了，主要是喝汤）</p>
-<p>步骤：</p>
-<ol>
-<li>热锅，倒一些油，然后把肉片倒进去翻炒一下</li>
-<li>把切好的配料倒进去放点盐再翻炒一会儿，倒冷水</li>
-<li>水烧开以后差不多就可以调味增了，方法同上<br>有条件和时间的话可以事先熬一些高汤，这样烧出来的味增汤更鲜美。<br>方法如下：<br>【昆布高汤】</li>
-<li>昆布剪成小条，放入锅中，加入适量清水，浸泡4h以上。（也可以前一天晚上泡，泡一夜）</li>
-<li>将浸泡好的昆布连同水一起放到炉子上用小火缓慢加热，在水快开前将昆布取出，然后将昆布汤煮沸。</li>
-<li>加入一些酱油调味。（建议买龟甲万的酱油，相对而言口味较好）</li>
-<li>加入一把柴鱼片，微微搅拌让柴鱼片浸透后，做最后的咸淡调整。关火，然后用网筛过滤汤汁备用。</li>
-</ol>
-<h3 id="主食"><a href="#主食" class="headerlink" title="主食"></a>主食</h3><p>咖喱饭</p>
-<h3 id="肉"><a href="#肉" class="headerlink" title="肉"></a>肉</h3><h3 id="酒类"><a href="#酒类" class="headerlink" title="酒类"></a>酒类</h3><p>德国黑啤，百威</p>
-<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p>好豆菜谱<a href="http://www.haodou.com/recipe/all/304?p=4" target="_blank" rel="external">http://www.haodou.com/recipe/all/304?p=4</a><br>下厨房<a href="http://www.xiachufang.com/" target="_blank" rel="external">http://www.xiachufang.com/</a><br>知乎-谢熊猫君<br>味增汤<br>著作权归作者所有。<br>商业转载请联系作者获得授权，非商业转载请注明出处。<br>作者：刘思勰<br>链接：<a href="https://www.zhihu.com/question/23600730/answer/28101426" target="_blank" rel="external">https://www.zhihu.com/question/23600730/answer/28101426</a><br>来源：知乎</p>
 
 
                 <hr>
@@ -233,13 +216,9 @@
 
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/2016/03/30/language/python_dev_env/" data-toggle="tooltip" data-placement="top" title="python开发环境搭建">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/2016/03/30/life_is_short/life_xiexiongmao/" data-toggle="tooltip" data-placement="top" title="生活-美食(知乎谢雄猫君">Next Post &rarr;</a>
+                            <a href="/2017/12/12/distribution_system/trace/" data-toggle="tooltip" data-placement="top" title="分布式系统追踪">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -286,7 +265,7 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#life_is_short" title="life_is_short">life_is_short</a>
+                          <a class="tag" href="/tags/#distribution_system" title="distribution_system">distribution_system</a>
                         
                     </div>
                 </section>
@@ -316,8 +295,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "tamchen";
-    var disqus_identifier = "http://yuelng.github.io/2016/03/30/life_is_short/life_food/";
-    var disqus_url = "http://yuelng.github.io/2016/03/30/life_is_short/life_food/";
+    var disqus_identifier = "http://yuelng.github.io/2017/12/12/distribution_system/mq/";
+    var disqus_url = "http://yuelng.github.io/2017/12/12/distribution_system/mq/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

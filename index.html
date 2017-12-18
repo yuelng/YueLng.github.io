@@ -103,14 +103,14 @@
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
@@ -190,6 +190,27 @@
 
 <div class="post-preview">
 
+    <a href="/2017/12/12/distribution_system/mq/">
+        <h2 class="post-title">
+            消息队列
+        </h2>
+        <h3 class="post-subtitle">
+             "消息队列"
+        </h3>
+        <div class="post-content-preview">
+            kafka问题描述：kafka 重复消费的问题，每次重启服务，都从broker拉取offset，拉到旧的消息解决：消费者每次从broker拉取数据，消费之后都会自动commit，自动commit有一个定时机制，但是并不保证一定提交成功，例如在commit的时候，程序崩溃（例如重启的情况在重启后，消费者会拉取最新的offset作为消费的起点，sarama默认的initial offset 为O......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2017-12-12
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/2017/12/12/distribution_system/trace/">
         <h2 class="post-title">
             分布式系统追踪
@@ -211,36 +232,6 @@ jaegertracing/jaeger
     <p class="post-meta">
         Posted by yueLng on
         2017-12-12
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/system_design/cache/">
-        <h2 class="post-title">
-            缓存系统的设计
-        </h2>
-        <h3 class="post-subtitle">
-             "缓存系统的设计"
-        </h3>
-        <div class="post-content-preview">
-            memcache、redis 深入理解
-
-缓存模块从无到有，要如何设计？
-要考虑哪些因素？
-如何方式设计不足？
-如何防止设计过度？
-如何满足实际需求？
-要明确哪些问题，才能逐步的完善出一套实现方案？
-
-如何用redis/memcache做Mysql缓存层?面对缓存，有哪些问题需要思考？[缓存方案如何设计才能切合业务需求？]{https://www.zhihu.com/question/377......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2017-11-30
     </p>
 
 </div>
@@ -291,6 +282,102 @@ jaegertracing/jaeger
 
 <div class="post-preview">
 
+    <a href="/2017/11/30/system_design/cache/">
+        <h2 class="post-title">
+            缓存系统的设计
+        </h2>
+        <h3 class="post-subtitle">
+             "缓存系统的设计"
+        </h3>
+        <div class="post-content-preview">
+            memcache、redis 深入理解
+
+缓存模块从无到有，要如何设计？
+要考虑哪些因素？
+如何方式设计不足？
+如何防止设计过度？
+如何满足实际需求？
+要明确哪些问题，才能逐步的完善出一套实现方案？
+
+如何用redis/memcache做Mysql缓存层?面对缓存，有哪些问题需要思考？[缓存方案如何设计才能切合业务需求？]{https://www.zhihu.com/question/377......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/30/collection/interview/">
+        <h2 class="post-title">
+            面试题目
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            1.Java相关2.Python相关3.算法与数据结构链表、递归、栈、队列（拓扑排序、括号匹配、逆波兰表达式）字符串（全排列、LCS、Huffman编码)数组（局部最大值、荷兰国旗、子集和数、最大间距）树（遍历、AVL等)图（深度搜索、隐式图、单词变换、N-皇后、数独）查找排序（排序大综合、Top10、排序与Hash、桶排序）贪心动态规划（动态规划本质论、回文划分、LIS、矩阵连乘、Cata......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/30/project/project_remote/">
+        <h2 class="post-title">
+            web远程登录系统
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            项目截图
+web远程登录系统文档简要说明web远程登录系统总体上分为两部分，web工程与web远程登录系统，本文档将会从系统的功能架构和技术架构对本系统进行说明，web工程主要是针对FPGA实验仿真平台的配套设置，用户通过web工程了解FPGA实验仿真平台的基本信息，主要的功能模块有信息首页、公告新闻、文件下载、实验平台等。web远程登录系统则是基于guacamole-一款基于HTML5的w......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/30/thinking/think_first/">
+        <h2 class="post-title">
+            把思维好好捋一捋
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            骐骥一跃，不能十步；驽马十驾，功在不舍。
+胡乱扯扯1研究：研究东西，有足够洞察力，研究水准不错2研发：Hack Idea自己有魄力实现，不懂研发的黑客如同不会游泳的海盗3工程：研发出来的需要实战、需要工程化，否则只是玩具，而不能成为真的武器
+关于就业和能力就业实习，还是有压力的。听过学长学姐们的经历，他们有进大公司也有初创企业的，前天还在群里争论是去哪种好，引得一个在初创公司的学长，把月薪都......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/2017/11/30/codeing/study_coding/">
         <h2 class="post-title">
             勿在浮沙聚高塔
@@ -301,78 +388,6 @@ jaegertracing/jaeger
         <div class="post-content-preview">
             1.摘要今天看了新浪新兵训练营的一些资料，整理下关于程序员最基础的知识————关于编码主要内容包括，什么是烂代码，什么是好代码，好代码需要注意什么，如何做出优雅的设计，如何规划合理的架构编码主要是给人看的，其次才是给机器看的。
 2.关于烂代码写出烂代码很容易，入行时很容易被鼓吹要把主要精力放在ABCD（需求文档/功能设计/架构设计/理解原理）上，写代码只是实现想法的工具。在这样的指导思想下，......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/system_design/system_design_question/">
-        <h2 class="post-title">
-            笔记-系统设计
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            重点考察内容面向对象，接口设计，设计模式，数据库表，分布式
-关于高并发系统设计。主要有以下几个关键技术点：缓存，索引，数据分片，锁粒度尽可能小。
-常见分布式系统设计问题如何设计Twitter，短网址系统设计，如何设计Uber分布式系统1)Inverted index2)Anagram3) Word Count4) Distributed File System Design 设计实时位置系统......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/collection/source_all/">
-        <h2 class="post-title">
-            一些有用的链接（持续更新）
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            计算机科学1.谷歌推荐的技术能力提升指南CS课程入门、了解其他语言、测试代码、培养逻辑推理和学习数学离散知识、深刻理解操作系统、学习UX设计、学习人工智能、学习如何构建编译器、了解密码学、并行编程、与其他程序员一起开发项目。2.hackr.ioShare and discover the best programming tutorials and courses online.3.图说设计......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/thinking/think_master_function/">
-        <h2 class="post-title">
-            编程之路—函数式编程
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            编程之路
-编程规范
-函数式编程
-性能与优化
-单元测试
-
-概念定义
-In computer science, functional programming is a programming paradigm that treats computation as the evaluation of mathematical functions and avoids state and mutab......
         </div>
     </a>
     <p class="post-meta">
@@ -397,27 +412,6 @@ In computer science, functional programming is a programming paradigm that treat
 一、EuclideanDistanceSimilarity: 欧氏距离相似度原理：利用欧式距离d定义的相似度s，s=1 / (1+d)。
 范围：[0,1]，值越大，说明d越小，也就是距离越近，则相似度越大。
 说明：同皮尔森相似度一样，该相似度也没有考虑重叠数对结果的影响，同样地，Mahout通过增加一个枚举类型（Weighting）的参数来使得重叠数也成为计......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/computer_science/study_flooding/">
-        <h2 class="post-title">
-            SYN洪泛攻击的原理与实现
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            设计原理SYN-Flood是目前最流行的DDoS攻击手段，DDoS只是洪水攻击的一个种类。其实还有其它种类的洪水攻击。以前的DoS手段在向分布式这一阶段发展的过程中也经历了逐步淘汰的过程。SYN-Flood的攻击效果最好，故众黑客不约而同选择它。以下了解一下SYN-Flood的详细情况。Syn Flood利用了TCP/IP协议的固有漏洞。面向连接的TCP三次握手是Syn Flood存在的基础......
         </div>
     </a>
     <p class="post-meta">
@@ -463,15 +457,7 @@ In computer science, functional programming is a programming paradigm that treat
                     <div class="tags">
                         
                             
-                        
-                            
-                            <a href="/tags/#collection" title="collection" rel="5">collection</a>
-                            
-                        
-                            
                             <a href="/tags/#computer_science" title="computer_science" rel="5">computer_science</a>
-                            
-                        
                             
                         
                             
@@ -479,11 +465,9 @@ In computer science, functional programming is a programming paradigm that treat
                             
                         
                             
-                            <a href="/tags/#distribution_system" title="distribution_system" rel="10">distribution_system</a>
-                            
                         
                             
-                            <a href="/tags/#framework" title="framework" rel="2">framework</a>
+                            <a href="/tags/#distribution_system" title="distribution_system" rel="10">distribution_system</a>
                             
                         
                             
@@ -495,7 +479,7 @@ In computer science, functional programming is a programming paradigm that treat
                             
                         
                             
-                            <a href="/tags/#operation" title="operation" rel="2">operation</a>
+                            <a href="/tags/#collection" title="collection" rel="5">collection</a>
                             
                         
                             
@@ -503,7 +487,7 @@ In computer science, functional programming is a programming paradigm that treat
                             
                         
                             
-                            <a href="/tags/#product" title="product" rel="3">product</a>
+                            <a href="/tags/#operation" title="operation" rel="2">operation</a>
                             
                         
                             
@@ -511,11 +495,21 @@ In computer science, functional programming is a programming paradigm that treat
                             
                         
                             
+                            <a href="/tags/#product" title="product" rel="3">product</a>
+                            
+                        
+                            
                             <a href="/tags/#thinking" title="thinking" rel="7">thinking</a>
                             
                         
                             
+                            <a href="/tags/#framework" title="framework" rel="2">framework</a>
+                            
+                        
+                            
                             <a href="/tags/#system_design" title="system_design" rel="4">system_design</a>
+                            
+                        
                             
                         
                     </div>
