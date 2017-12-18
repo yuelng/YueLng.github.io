@@ -190,17 +190,22 @@
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/thinking/think_first/">
+    <a href="/2017/11/30/computer_science/study_server/">
         <h2 class="post-title">
-            把思维好好捋一捋
+            服务器端编程基础积累
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            骐骥一跃，不能十步；驽马十驾，功在不舍。
-胡乱扯扯1研究：研究东西，有足够洞察力，研究水准不错2研发：Hack Idea自己有魄力实现，不懂研发的黑客如同不会游泳的海盗3工程：研发出来的需要实战、需要工程化，否则只是玩具，而不能成为真的武器
-关于就业和能力就业实习，还是有压力的。听过学长学姐们的经历，他们有进大公司也有初创企业的，前天还在群里争论是去哪种好，引得一个在初创公司的学长，把月薪都......
+            UNIX I/O模型
+阻塞IO
+非阻塞IO
+IO多路复用
+信号驱动IO
+异步IO
+
+nginx模型...
         </div>
     </a>
     <p class="post-meta">
@@ -213,16 +218,39 @@
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/codeing/study_coding/">
+    <a href="/2017/11/30/system_design/system_design_question/">
         <h2 class="post-title">
-            勿在浮沙聚高塔
+            笔记-系统设计
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            1.摘要今天看了新浪新兵训练营的一些资料，整理下关于程序员最基础的知识————关于编码主要内容包括，什么是烂代码，什么是好代码，好代码需要注意什么，如何做出优雅的设计，如何规划合理的架构编码主要是给人看的，其次才是给机器看的。
-2.关于烂代码写出烂代码很容易，入行时很容易被鼓吹要把主要精力放在ABCD（需求文档/功能设计/架构设计/理解原理）上，写代码只是实现想法的工具。在这样的指导思想下，......
+            重点考察内容面向对象，接口设计，设计模式，数据库表，分布式
+关于高并发系统设计。主要有以下几个关键技术点：缓存，索引，数据分片，锁粒度尽可能小。
+常见分布式系统设计问题如何设计Twitter，短网址系统设计，如何设计Uber分布式系统1)Inverted index2)Anagram3) Word Count4) Distributed File System Design 设计实时位置系统......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/30/system_design/study_model/">
+        <h2 class="post-title">
+            设计模式简要介绍
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            创建型模式简单工厂模式简单工厂模式的要点在于：当你需要什么，只需要传入一个正确的参数，就可以获取你所需要的对象，而无须知道其创建细节。1KeyGenerator keyGen=KeyGenerator.getInstance("DESede");//获取不同加密算法的密钥生成器
+工厂方法模式工厂父类负责定义创建产品对象的公共接口，而工厂子类则负责生成具体的产品对象，这样做的目的是将产品类的实......
         </div>
     </a>
     <p class="post-meta">
@@ -261,16 +289,18 @@ storm集群搭建一些架构可行的架构：Flume + Kafka + Strom + Hbase 使
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/surrounding/study_permission/">
+    <a href="/2017/11/30/system_design/study_info/">
         <h2 class="post-title">
-            权限系统学习
+            消息推送入门
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            基于角色的访问控制（Role-Based Access Control）基本概念RBAC认为权限授权实际上是Who、What、How的问题。在RBAC模型中，who、what、how构成了访问权限三元组,也就是“Who对What(Which)进行How的操作”。 　　
-简单理解简单理解就是把系统中所有的功能都作为一个权限（或者称呼为资源），将这些权限赋予不同的角色，这个角色就具有了诸多的功能......
+            实时消息推送的几种实现方式相较于手机端的消息推送（一般都是以socket方式实现），web端是基于http协议，很难像tcp一样保持长连接。但随着技术的发展，出现了websocket, comet等新的技术可以达到类似长连接的效果，这些技术大体可分为以下几类：
+
+短轮询。页面端通过js定时异步刷新，这种方式实时效果较差。
+长轮询。页面端通过js异步请求服务端，服务端在接收到请求后，如果该次请......
         </div>
     </a>
     <p class="post-meta">
@@ -283,22 +313,16 @@ storm集群搭建一些架构可行的架构：Flume + Kafka + Strom + Hbase 使
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/thinking/think_master_function/">
+    <a href="/2017/11/30/codeing/study_coding/">
         <h2 class="post-title">
-            编程之路—函数式编程
+            勿在浮沙聚高塔
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            编程之路
-编程规范
-函数式编程
-性能与优化
-单元测试
-
-概念定义
-In computer science, functional programming is a programming paradigm that treats computation as the evaluation of mathematical functions and avoids state and mutab......
+            1.摘要今天看了新浪新兵训练营的一些资料，整理下关于程序员最基础的知识————关于编码主要内容包括，什么是烂代码，什么是好代码，好代码需要注意什么，如何做出优雅的设计，如何规划合理的架构编码主要是给人看的，其次才是给机器看的。
+2.关于烂代码写出烂代码很容易，入行时很容易被鼓吹要把主要精力放在ABCD（需求文档/功能设计/架构设计/理解原理）上，写代码只是实现想法的工具。在这样的指导思想下，......
         </div>
     </a>
     <p class="post-meta">
@@ -311,32 +335,41 @@ In computer science, functional programming is a programming paradigm that treat
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/collection/somesource/">
+    <a href="/2017/11/30/collection/plan/">
         <h2 class="post-title">
-            一些有用的资源
+            TODO集合
+        </h2>
+        <h3 class="post-subtitle">
+             "来不及整理的就放在这吧"
+        </h3>
+        <div class="post-content-preview">
+            大纲数据库系统、分布式系统、数据科学
+优质资源(个人向)dirtysalt’s homepagedigests dylanninin
+基础教育The Architecture of Open Source Applicationsaosabook-500linesabout-unicode-and-character-setswhat-cs-majors-should-know/must-s......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/30/surrounding/study_vim/">
+        <h2 class="post-title">
+            vim积累
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            平时在网上闲逛，看到一些可能会有用的一些资源记录在此
-常去的网站
-湾区日报
-开发者头条
-好东西传送门
-蟒周刊
-国内hackernews
-quora
-hackernews ycombinator
-github
-medium
-ruby-china
-geeksforgeeks
-面试题目
-algorithmist
-noexcuselist
-tryruby
-tutorialspoint开发者应该去的十......
+            这里记录vim的一些平常积累
+效果图
+安装参考github上关于vim配置及其插件安装simple_vim_setting
+基本操作1. Under normal mode123456789:wq             - save and quiti               - insertx VIM           - delete characterdd           ......
         </div>
     </a>
     <p class="post-meta">
@@ -349,15 +382,17 @@ tutorialspoint开发者应该去的十......
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/collection/source_all/">
+    <a href="/2017/11/30/thinking/think_first/">
         <h2 class="post-title">
-            一些有用的链接（持续更新）
+            把思维好好捋一捋
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            计算机科学1.谷歌推荐的技术能力提升指南CS课程入门、了解其他语言、测试代码、培养逻辑推理和学习数学离散知识、深刻理解操作系统、学习UX设计、学习人工智能、学习如何构建编译器、了解密码学、并行编程、与其他程序员一起开发项目。2.hackr.ioShare and discover the best programming tutorials and courses online.3.图说设计......
+            骐骥一跃，不能十步；驽马十驾，功在不舍。
+胡乱扯扯1研究：研究东西，有足够洞察力，研究水准不错2研发：Hack Idea自己有魄力实现，不懂研发的黑客如同不会游泳的海盗3工程：研发出来的需要实战、需要工程化，否则只是玩具，而不能成为真的武器
+关于就业和能力就业实习，还是有压力的。听过学长学姐们的经历，他们有进大公司也有初创企业的，前天还在群里争论是去哪种好，引得一个在初创公司的学长，把月薪都......
         </div>
     </a>
     <p class="post-meta">
@@ -370,60 +405,16 @@ tutorialspoint开发者应该去的十......
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/framework/study_thrift/">
+    <a href="/2017/11/30/distribution_system/study_distribute/">
         <h2 class="post-title">
-            thrift入门
+            关于Log在分布式系统中的应用以及未来
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            介绍Thrift 最初由Facebook开发，而后捐献给Apache，目前已广泛应用于业界。Thrift 正如其官方主页介绍的，“是一种可扩展、跨语言的服务开发框架”。简而言之，它主要用于各个服务之间的RPC通信，其服务端和客户端可以用不同的语言来开发。只需要依照IDL（Interface Description Language）定义一次接口，Thrift工具就能自动生成 C++, Jav......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/thinking/study_software/">
-        <h2 class="post-title">
-            团队项目开发与规范
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            个人理解团队是因为有相同的目标才聚集在一起，所有在做一个项目的开始，要让所有成员认同项目的前景。团队的大小个人认为最多20个人。虽然说很有必要保证规范化，但是我认为按部就班只能扼杀人的创造力，但是一些的必要的流程规范还是要的，也就是下面说的开发流程规范，有些人认为这样不会有很好的技术文化积累。我想的是技术文档和团队文化并不和小而美的团队相冲突，文档取决于个人的工作习惯，而文化取决于每个人以及......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/distribution_system/study_rpc/">
-        <h2 class="post-title">
-            RPC远程过程调用
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            如果说把一个网站分为三个部分，经典的MVC设计模式，后台分布式实现就是控制层，模块的服务化全都依赖于rpc框架，从阿里的dubbo、Hadoop等，这些大数据框架都有了广泛的应用，本文是个人学习rpc过程中的一些资料积累和个人想法。 
-RPC调用分类
-同步调用客户方等待调用执行完成并返回结果。
-异步调用客户方调用后不用等待执行结果返回，但依然可以通过回调通知等方式获取返回结果。 若客户方不关......
+            The Log&emsp;&emsp;有一段时间被一篇称为学习笔记：The Log（我所读过的最好的一篇分布式技术文章）所刷屏，各大技术文章推荐APP和微信都推荐了这篇文章，来自于LinkedIn关于kafka的文章，核心如题—The Log。（你可以把这节看成对这篇文章的缩减）
+（一）log由来、重要性、应用&emsp;&emsp;对于任何一项新技术都会先抛出三个问题what？why？ho......
         </div>
     </a>
     <p class="post-meta">
@@ -493,6 +484,8 @@ RPC调用分类
                             
                         
                             
+                        
+                            
                             <a href="/tags/#framework" title="framework" rel="2">framework</a>
                             
                         
@@ -501,7 +494,7 @@ RPC调用分类
                             
                         
                             
-                            <a href="/tags/#life_is_short" title="life_is_short" rel="2">life_is_short</a>
+                            <a href="/tags/#life_is_short" title="life_is_short" rel="3">life_is_short</a>
                             
                         
                             
