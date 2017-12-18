@@ -154,7 +154,7 @@
 
     <!-- Main Content -->
     <!-- Page Header -->
-<header class="intro-header" style="background-image: url('http://i1.piimg.com/567571/fd261c501bd1a382.jpg')">
+<header class="intro-header" style="background-image: url('http://ogcxtlv6r.bkt.clouddn.com/17-12-16/89744702.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
@@ -190,22 +190,16 @@
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/thinking/think_master_function/">
+    <a href="/2017/11/30/surrounding/study_permission/">
         <h2 class="post-title">
-            编程之路—函数式编程
+            权限系统学习
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            编程之路
-编程规范
-函数式编程
-性能与优化
-单元测试
-
-概念定义
-In computer science, functional programming is a programming paradigm that treats computation as the evaluation of mathematical functions and avoids state and mutab......
+            基于角色的访问控制（Role-Based Access Control）基本概念RBAC认为权限授权实际上是Who、What、How的问题。在RBAC模型中，who、what、how构成了访问权限三元组,也就是“Who对What(Which)进行How的操作”。 　　
+简单理解简单理解就是把系统中所有的功能都作为一个权限（或者称呼为资源），将这些权限赋予不同的角色，这个角色就具有了诸多的功能......
         </div>
     </a>
     <p class="post-meta">
@@ -218,18 +212,20 @@ In computer science, functional programming is a programming paradigm that treat
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/system_design/study_info/">
+    <a href="/2017/11/30/devops/study_environment/">
         <h2 class="post-title">
-            消息推送入门
+            基础服务环境搭建
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            实时消息推送的几种实现方式相较于手机端的消息推送（一般都是以socket方式实现），web端是基于http协议，很难像tcp一样保持长连接。但随着技术的发展，出现了websocket, comet等新的技术可以达到类似长连接的效果，这些技术大体可分为以下几类：
+            这篇文章主要是针对大数据平台的搭建，主要包括的内容有
 
-短轮询。页面端通过js定时异步刷新，这种方式实时效果较差。
-长轮询。页面端通过js异步请求服务端，服务端在接收到请求后，如果该次请......
+vagrant虚拟机环境搭建
+Hadoop集群搭建
+memcached集群搭建
+storm集群搭建一些架构可行的架构：Flume + Kafka + Strom + Hbase 使用vagrant搭建系统安装上 http://www.vagrantbox.es/ 找下载需要的 box ， 譬如 Ubuntu 14.10（based on......
         </div>
     </a>
     <p class="post-meta">
@@ -242,18 +238,16 @@ In computer science, functional programming is a programming paradigm that treat
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/surrounding/study_vim/">
+    <a href="/2017/11/30/distribution_system/study_distribute/">
         <h2 class="post-title">
-            vim积累
+            关于Log在分布式系统中的应用以及未来
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            这里记录vim的一些平常积累
-效果图
-安装参考github上关于vim配置及其插件安装simple_vim_setting
-基本操作1. Under normal mode123456789:wq             - save and quiti               - insertx VIM           - delete characterdd           ......
+            The Log&emsp;&emsp;有一段时间被一篇称为学习笔记：The Log（我所读过的最好的一篇分布式技术文章）所刷屏，各大技术文章推荐APP和微信都推荐了这篇文章，来自于LinkedIn关于kafka的文章，核心如题—The Log。（你可以把这节看成对这篇文章的缩减）
+（一）log由来、重要性、应用&emsp;&emsp;对于任何一项新技术都会先抛出三个问题what？why？ho......
         </div>
     </a>
     <p class="post-meta">
@@ -293,16 +287,18 @@ highscalability
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/surrounding/study_permission/">
+    <a href="/2017/11/30/distribution_system/study_rpc/">
         <h2 class="post-title">
-            权限系统学习
+            RPC远程过程调用
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            基于角色的访问控制（Role-Based Access Control）基本概念RBAC认为权限授权实际上是Who、What、How的问题。在RBAC模型中，who、what、how构成了访问权限三元组,也就是“Who对What(Which)进行How的操作”。 　　
-简单理解简单理解就是把系统中所有的功能都作为一个权限（或者称呼为资源），将这些权限赋予不同的角色，这个角色就具有了诸多的功能......
+            如果说把一个网站分为三个部分，经典的MVC设计模式，后台分布式实现就是控制层，模块的服务化全都依赖于rpc框架，从阿里的dubbo、Hadoop等，这些大数据框架都有了广泛的应用，本文是个人学习rpc过程中的一些资料积累和个人想法。 
+RPC调用分类
+同步调用客户方等待调用执行完成并返回结果。
+异步调用客户方调用后不用等待执行结果返回，但依然可以通过回调通知等方式获取返回结果。 若客户方不关......
         </div>
     </a>
     <p class="post-meta">
@@ -315,16 +311,27 @@ highscalability
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/distribution_system/study_distribute/">
+    <a href="/2017/11/30/surrounding/markdown/">
         <h2 class="post-title">
-            关于Log在分布式系统中的应用以及未来
+            markdown基本操作
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            The Log&emsp;&emsp;有一段时间被一篇称为学习笔记：The Log（我所读过的最好的一篇分布式技术文章）所刷屏，各大技术文章推荐APP和微信都推荐了这篇文章，来自于LinkedIn关于kafka的文章，核心如题—The Log。（你可以把这节看成对这篇文章的缩减）
-（一）log由来、重要性、应用&emsp;&emsp;对于任何一项新技术都会先抛出三个问题what？why？ho......
+            基本符号
+*,-,+ 3个符号效果都一样，这3个符号被称为 Markdown符号
+空白行表示另起一个段落
+`是表示inline代码，tab是用来标记 代码段，分别对应html的code，pre标签
+
+换行
+单一段落( \) 用一个空白行
+连续两个空格 会变成一个 
+连续3个符号，然后是空行，表示 hr横线
+
+标题
+生成h1–h6,在文字前面加上 1–6个# 来实现
+文字加粗是通过 文字左右各......
         </div>
     </a>
     <p class="post-meta">
@@ -337,20 +344,18 @@ highscalability
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/devops/study_environment/">
+    <a href="/2017/11/30/system_design/study_info/">
         <h2 class="post-title">
-            基础服务环境搭建
+            消息推送入门
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            这篇文章主要是针对大数据平台的搭建，主要包括的内容有
+            实时消息推送的几种实现方式相较于手机端的消息推送（一般都是以socket方式实现），web端是基于http协议，很难像tcp一样保持长连接。但随着技术的发展，出现了websocket, comet等新的技术可以达到类似长连接的效果，这些技术大体可分为以下几类：
 
-vagrant虚拟机环境搭建
-Hadoop集群搭建
-memcached集群搭建
-storm集群搭建一些架构可行的架构：Flume + Kafka + Strom + Hbase 使用vagrant搭建系统安装上 http://www.vagrantbox.es/ 找下载需要的 box ， 譬如 Ubuntu 14.10（based on......
+短轮询。页面端通过js定时异步刷新，这种方式实时效果较差。
+长轮询。页面端通过js异步请求服务端，服务端在接收到请求后，如果该次请......
         </div>
     </a>
     <p class="post-meta">
@@ -384,18 +389,32 @@ storm集群搭建一些架构可行的架构：Flume + Kafka + Strom + Hbase 使
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/distribution_system/study_rpc/">
+    <a href="/2017/11/30/collection/somesource/">
         <h2 class="post-title">
-            RPC远程过程调用
+            一些有用的资源
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            如果说把一个网站分为三个部分，经典的MVC设计模式，后台分布式实现就是控制层，模块的服务化全都依赖于rpc框架，从阿里的dubbo、Hadoop等，这些大数据框架都有了广泛的应用，本文是个人学习rpc过程中的一些资料积累和个人想法。 
-RPC调用分类
-同步调用客户方等待调用执行完成并返回结果。
-异步调用客户方调用后不用等待执行结果返回，但依然可以通过回调通知等方式获取返回结果。 若客户方不关......
+            平时在网上闲逛，看到一些可能会有用的一些资源记录在此
+常去的网站
+湾区日报
+开发者头条
+好东西传送门
+蟒周刊
+国内hackernews
+quora
+hackernews ycombinator
+github
+medium
+ruby-china
+geeksforgeeks
+面试题目
+algorithmist
+noexcuselist
+tryruby
+tutorialspoint开发者应该去的十......
         </div>
     </a>
     <p class="post-meta">
@@ -408,16 +427,17 @@ RPC调用分类
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/surrounding/study_linux/">
+    <a href="/2017/11/30/thinking/think_first/">
         <h2 class="post-title">
-            Linux基础知识与命令（Ubuntu14.10）
+            把思维好好捋一捋
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            这里记录常用的一些linux命令，以备不时之需。 
-常用的命令1234567sudo cp xxxx /xxxx #移动文件sudo mv xxxx xxxxx #为文件改名sudo tar zxvf xxx.tar #解压文件夹sudo unrar xxxx.rar #解压文件夹 sudo chmod 775 xxxx #给文件或文件夹加权限sudo chown -R hadoop:had......
+            骐骥一跃，不能十步；驽马十驾，功在不舍。
+胡乱扯扯1研究：研究东西，有足够洞察力，研究水准不错2研发：Hack Idea自己有魄力实现，不懂研发的黑客如同不会游泳的海盗3工程：研发出来的需要实战、需要工程化，否则只是玩具，而不能成为真的武器
+关于就业和能力就业实习，还是有压力的。听过学长学姐们的经历，他们有进大公司也有初创企业的，前天还在群里争论是去哪种好，引得一个在初创公司的学长，把月薪都......
         </div>
     </a>
     <p class="post-meta">
@@ -471,9 +491,11 @@ RPC调用分类
                             
                         
                             
+                            <a href="/tags/#computer_science" title="computer_science" rel="5">computer_science</a>
+                            
                         
                             
-                            <a href="/tags/#computer_science" title="computer_science" rel="5">computer_science</a>
+                        
                             
                         
                             
@@ -482,8 +504,6 @@ RPC调用分类
                         
                             
                             <a href="/tags/#devops" title="devops" rel="2">devops</a>
-                            
-                        
                             
                         
                             
