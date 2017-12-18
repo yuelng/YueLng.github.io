@@ -96,14 +96,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -190,20 +190,19 @@
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/codeing/study_coding/">
+    <a href="/2017/11/30/distribution_system/raft/">
         <h2 class="post-title">
-            勿在浮沙聚高塔
+            分布式系统的一致性算法
         </h2>
         <h3 class="post-subtitle">
-            
+             "如何解决集群内共识的问题"
         </h3>
         <div class="post-content-preview">
-            1.摘要今天看了新浪新兵训练营的一些资料，整理下关于程序员最基础的知识————关于编码主要内容包括，什么是烂代码，什么是好代码，好代码需要注意什么，如何做出优雅的设计，如何规划合理的架构编码主要是给人看的，其次才是给机器看的。
-2.关于烂代码写出烂代码很容易，入行时很容易被鼓吹要把主要精力放在ABCD（需求文档/功能设计/架构设计/理解原理）上，写代码只是实现想法的工具。在这样的指导思想下，......
+            ...
         </div>
     </a>
     <p class="post-meta">
-        Posted by YueLng Chen on
+        Posted by yueLng on
         2017-11-30
     </p>
 
@@ -212,20 +211,28 @@
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/system_design/study_model/">
+    <a href="/2017/11/30/system_design/cache/">
         <h2 class="post-title">
-            设计模式简要介绍
+            缓存系统的设计
         </h2>
         <h3 class="post-subtitle">
-            
+             "缓存系统的设计"
         </h3>
         <div class="post-content-preview">
-            创建型模式简单工厂模式简单工厂模式的要点在于：当你需要什么，只需要传入一个正确的参数，就可以获取你所需要的对象，而无须知道其创建细节。1KeyGenerator keyGen=KeyGenerator.getInstance("DESede");//获取不同加密算法的密钥生成器
-工厂方法模式工厂父类负责定义创建产品对象的公共接口，而工厂子类则负责生成具体的产品对象，这样做的目的是将产品类的实......
+            memcache、redis 深入理解
+
+缓存模块从无到有，要如何设计？
+要考虑哪些因素？
+如何方式设计不足？
+如何防止设计过度？
+如何满足实际需求？
+要明确哪些问题，才能逐步的完善出一套实现方案？
+
+如何用redis/memcache做Mysql缓存层?面对缓存，有哪些问题需要思考？[缓存方案如何设计才能切合业务需求？]{https://www.zhihu.com/question/377......
         </div>
     </a>
     <p class="post-meta">
-        Posted by YueLng Chen on
+        Posted by yueLng on
         2017-11-30
     </p>
 
@@ -234,22 +241,20 @@
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/system_design/study_info/">
+    <a href="/2017/11/30/distribution_system/study_distribute_item/">
         <h2 class="post-title">
-            消息推送入门
+            分布式系统要点记录
         </h2>
         <h3 class="post-subtitle">
-            
+             "微服务的惯用架构"
         </h3>
         <div class="post-content-preview">
-            实时消息推送的几种实现方式相较于手机端的消息推送（一般都是以socket方式实现），web端是基于http协议，很难像tcp一样保持长连接。但随着技术的发展，出现了websocket, comet等新的技术可以达到类似长连接的效果，这些技术大体可分为以下几类：
-
-短轮询。页面端通过js定时异步刷新，这种方式实时效果较差。
-长轮询。页面端通过js异步请求服务端，服务端在接收到请求后，如果该次请......
+            The Twelve Factor AppThe Twelve Factor App网关聚合服务 提供restful接口grpc 内网调用服务发现，使用etcd自动服务注册服务配置，使用etcd存储配置服务快速部署服务logging记录服务调用链的追踪服务质量的监控，响应时间缓存的应用
+典型架构缓存、消息、搜索Nginx+Tornado+mysql+pythonNginx+rest.li+r......
         </div>
     </a>
     <p class="post-meta">
-        Posted by YueLng Chen on
+        Posted by yueLng on
         2017-11-30
     </p>
 
@@ -258,32 +263,16 @@
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/collection/somesource/">
+    <a href="/2017/11/30/language/study_python/">
         <h2 class="post-title">
-            一些有用的资源
+            python学习
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            平时在网上闲逛，看到一些可能会有用的一些资源记录在此
-常去的网站
-湾区日报
-开发者头条
-好东西传送门
-蟒周刊
-国内hackernews
-quora
-hackernews ycombinator
-github
-medium
-ruby-china
-geeksforgeeks
-面试题目
-algorithmist
-noexcuselist
-tryruby
-tutorialspoint开发者应该去的十......
+            Ubuntu下配置基本的Python开发环境安装Python发布版本和build依赖包
+/# 安装 Python 发布版本，dev包必须安装，很多用pip安装包都需要编译sudo apt-get install python2.7 python2.7-dev python3.4 python3.4-dev/#很多pip安装的包都需要libssl和libevent编译环境sudo apt-ge......
         </div>
     </a>
     <p class="post-meta">
@@ -305,52 +294,6 @@ tutorialspoint开发者应该去的十......
         </h3>
         <div class="post-content-preview">
             计算机科学1.谷歌推荐的技术能力提升指南CS课程入门、了解其他语言、测试代码、培养逻辑推理和学习数学离散知识、深刻理解操作系统、学习UX设计、学习人工智能、学习如何构建编译器、了解密码学、并行编程、与其他程序员一起开发项目。2.hackr.ioShare and discover the best programming tutorials and courses online.3.图说设计......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/surrounding/study_vim/">
-        <h2 class="post-title">
-            vim积累
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            这里记录vim的一些平常积累
-效果图
-安装参考github上关于vim配置及其插件安装simple_vim_setting
-基本操作1. Under normal mode123456789:wq             - save and quiti               - insertx VIM           - delete characterdd           ......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/surrounding/study_permission/">
-        <h2 class="post-title">
-            权限系统学习
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            基于角色的访问控制（Role-Based Access Control）基本概念RBAC认为权限授权实际上是Who、What、How的问题。在RBAC模型中，who、what、how构成了访问权限三元组,也就是“Who对What(Which)进行How的操作”。 　　
-简单理解简单理解就是把系统中所有的功能都作为一个权限（或者称呼为资源），将这些权限赋予不同的角色，这个角色就具有了诸多的功能......
         </div>
     </a>
     <p class="post-meta">
@@ -434,6 +377,52 @@ nginx模型...
 </div>
 <hr>
 
+<div class="post-preview">
+
+    <a href="/2017/11/30/surrounding/study_vim/">
+        <h2 class="post-title">
+            vim积累
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            这里记录vim的一些平常积累
+效果图
+安装参考github上关于vim配置及其插件安装simple_vim_setting
+基本操作1. Under normal mode123456789:wq             - save and quiti               - insertx VIM           - delete characterdd           ......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/30/surrounding/study_permission/">
+        <h2 class="post-title">
+            权限系统学习
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            基于角色的访问控制（Role-Based Access Control）基本概念RBAC认为权限授权实际上是Who、What、How的问题。在RBAC模型中，who、what、how构成了访问权限三元组,也就是“Who对What(Which)进行How的操作”。 　　
+简单理解简单理解就是把系统中所有的功能都作为一个权限（或者称呼为资源），将这些权限赋予不同的角色，这个角色就具有了诸多的功能......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
 
 
 <!-- Pager -->
@@ -479,13 +468,13 @@ nginx模型...
                             
                         
                             
-                        
-                            
                             <a href="/tags/#devops" title="devops" rel="2">devops</a>
                             
                         
                             
-                            <a href="/tags/#distribution_system" title="distribution_system" rel="7">distribution_system</a>
+                        
+                            
+                            <a href="/tags/#distribution_system" title="distribution_system" rel="10">distribution_system</a>
                             
                         
                             
@@ -509,7 +498,7 @@ nginx模型...
                             
                         
                             
-                            <a href="/tags/#product" title="product" rel="2">product</a>
+                            <a href="/tags/#product" title="product" rel="3">product</a>
                             
                         
                             
@@ -580,7 +569,7 @@ nginx模型...
 
                             
                                 <li>
-                                    <a target="_blank"  href="https://github.com/YueLng">
+                                    <a target="_blank"  href="https://github.com/yuelng">
                                         <span class="fa-stack fa-lg">
                                             <i class="fa fa-circle fa-stack-2x"></i>
                                             <i class="fa fa-github fa-stack-1x fa-inverse"></i>
@@ -656,7 +645,7 @@ nginx模型...
 
                 
                     <li>
-                        <a target="_blank"  href="https://github.com/YueLng">
+                        <a target="_blank"  href="https://github.com/yuelng">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa fa-github fa-stack-1x fa-inverse"></i>

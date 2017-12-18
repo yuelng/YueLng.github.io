@@ -96,14 +96,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -190,15 +190,16 @@
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/framework/study_thrift/">
+    <a href="/2017/11/30/project/study_shadowsocks/">
         <h2 class="post-title">
-            thrift入门
+            shadowrocket
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            介绍Thrift 最初由Facebook开发，而后捐献给Apache，目前已广泛应用于业界。Thrift 正如其官方主页介绍的，“是一种可扩展、跨语言的服务开发框架”。简而言之，它主要用于各个服务之间的RPC通信，其服务端和客户端可以用不同的语言来开发。只需要依照IDL（Interface Description Language）定义一次接口，Thrift工具就能自动生成 C++, Jav......
+            这篇文章主要记录在翻墙和寝室上网的各种折腾，亲测可行，从此再也不用担心交网费了！
+代理访问与vpn访问被封禁的网站，基本通过两种方式访问-VPN或者代理。VPN简单直接，在各大国外在华的办事处都是标配，连接VPN的最直接的好处是，你电脑的流量将完全走VPN线路，通过VPN服务器进行访问，所以这个方法是比较成熟可靠，省力的，但最重要的前提是你得选择一家好的VPN服务提供商，而好的服务质量通常意......
         </div>
     </a>
     <p class="post-meta">
@@ -211,16 +212,85 @@
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/project/study_shadowsocks/">
+    <a href="/2017/11/30/thinking/think_first/">
         <h2 class="post-title">
-            shadowrocket
+            把思维好好捋一捋
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            这篇文章主要记录在翻墙和寝室上网的各种折腾，亲测可行，从此再也不用担心交网费了！
-代理访问与vpn访问被封禁的网站，基本通过两种方式访问-VPN或者代理。VPN简单直接，在各大国外在华的办事处都是标配，连接VPN的最直接的好处是，你电脑的流量将完全走VPN线路，通过VPN服务器进行访问，所以这个方法是比较成熟可靠，省力的，但最重要的前提是你得选择一家好的VPN服务提供商，而好的服务质量通常意......
+            骐骥一跃，不能十步；驽马十驾，功在不舍。
+胡乱扯扯1研究：研究东西，有足够洞察力，研究水准不错2研发：Hack Idea自己有魄力实现，不懂研发的黑客如同不会游泳的海盗3工程：研发出来的需要实战、需要工程化，否则只是玩具，而不能成为真的武器
+关于就业和能力就业实习，还是有压力的。听过学长学姐们的经历，他们有进大公司也有初创企业的，前天还在群里争论是去哪种好，引得一个在初创公司的学长，把月薪都......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/30/project/project_zhongtui/">
+        <h2 class="post-title">
+            众推（先记录下 待整理）
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            zhongtui_python系统基于开源项目众推，功能形式上类似今日头条
+概述在开源中国闲逛时发现了这个项目-众推，是一个以Hadoop分布思想为基础类今日头条的开源项目。虽然该项目将去重过滤、文本分类单独出来，但是我认为这都属于数据处理部分。所以我将整个项目的核心划分为三个部分：分布式爬虫、数据清洗与处理、web工程。分别也对应了数据的采集、处理和展示。该项目没有继续下去，可能是因为这个......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/30/language/study_shell/">
+        <h2 class="post-title">
+            python的装饰器与JavaScript中的闭包
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            1.摘要这里记录关于Python装饰器和JavaScript闭包的学习笔记
+2.1Python中的装饰器12345678910111213def makebold(fn):    def wrapped():        return "&lt;b&gt;" + fn() + "&lt;/b&gt;"    return wrappeddef makeitalic(fn):    def ......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/30/system_design/study_info/">
+        <h2 class="post-title">
+            消息推送入门
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            实时消息推送的几种实现方式相较于手机端的消息推送（一般都是以socket方式实现），web端是基于http协议，很难像tcp一样保持长连接。但随着技术的发展，出现了websocket, comet等新的技术可以达到类似长连接的效果，这些技术大体可分为以下几类：
+
+短轮询。页面端通过js定时异步刷新，这种方式实时效果较差。
+长轮询。页面端通过js异步请求服务端，服务端在接收到请求后，如果该次请......
         </div>
     </a>
     <p class="post-meta">
@@ -254,66 +324,24 @@
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/thinking/think_master_function/">
+    <a href="/2017/11/30/puduct/study_monitor/">
         <h2 class="post-title">
-            编程之路—函数式编程
+            数据驱动开发与产品
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            编程之路
-编程规范
-函数式编程
-性能与优化
-单元测试
+            不谋万世者，不足以谋一时；不谋全局者，不足以谋一隅
+Monitor your data作为程序员，我们开发一个后台服务，大家有没有测试过以下数据
 
-概念定义
-In computer science, functional programming is a programming paradigm that treats computation as the evaluation of mathematical functions and avoids state and mutab......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
-    </p>
+这个服务能够承受多少的 QPS（每秒访问量）？
+平均响应时间和 99% 的响应时间是多少？
+如果服务器压力增加，我们能不能通过简单的加机器来解决，需要加多少台机器？
+当前线上服务瓶颈在哪里？
+按当前的增长速度，多久我们得需要加机器？
 
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/language/study_python/">
-        <h2 class="post-title">
-            python学习
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            Ubuntu下配置基本的Python开发环境安装Python发布版本和build依赖包
-/# 安装 Python 发布版本，dev包必须安装，很多用pip安装包都需要编译sudo apt-get install python2.7 python2.7-dev python3.4 python3.4-dev/#很多pip安装的包都需要libssl和libevent编译环境sudo apt-ge......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/language/study_shell/">
-        <h2 class="post-title">
-            python的装饰器与JavaScript中的闭包
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            1.摘要这里记录关于Python装饰器和JavaScript闭包的学习笔记
-2.1Python中的装饰器12345678910111213def makebold(fn):    def wrapped():        return "&lt;b&gt;" + fn() + "&lt;/b&gt;"    return wrappeddef makeitalic(fn):    def ......
+技术关注点......
         </div>
     </a>
     <p class="post-meta">
@@ -349,6 +377,44 @@ In computer science, functional programming is a programming paradigm that treat
 
 <div class="post-preview">
 
+    <a href="/2017/11/30/collection/somesource/">
+        <h2 class="post-title">
+            一些有用的资源
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            平时在网上闲逛，看到一些可能会有用的一些资源记录在此
+常去的网站
+湾区日报
+开发者头条
+好东西传送门
+蟒周刊
+国内hackernews
+quora
+hackernews ycombinator
+github
+medium
+ruby-china
+geeksforgeeks
+面试题目
+algorithmist
+noexcuselist
+tryruby
+tutorialspoint开发者应该去的十......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/2017/11/30/collection/interview/">
         <h2 class="post-title">
             面试题目
@@ -358,50 +424,6 @@ In computer science, functional programming is a programming paradigm that treat
         </h3>
         <div class="post-content-preview">
             1.Java相关2.Python相关3.算法与数据结构链表、递归、栈、队列（拓扑排序、括号匹配、逆波兰表达式）字符串（全排列、LCS、Huffman编码)数组（局部最大值、荷兰国旗、子集和数、最大间距）树（遍历、AVL等)图（深度搜索、隐式图、单词变换、N-皇后、数独）查找排序（排序大综合、Top10、排序与Hash、桶排序）贪心动态规划（动态规划本质论、回文划分、LIS、矩阵连乘、Cata......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/project/project_zhongtui/">
-        <h2 class="post-title">
-            众推（先记录下 待整理）
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            zhongtui_python系统基于开源项目众推，功能形式上类似今日头条
-概述在开源中国闲逛时发现了这个项目-众推，是一个以Hadoop分布思想为基础类今日头条的开源项目。虽然该项目将去重过滤、文本分类单独出来，但是我认为这都属于数据处理部分。所以我将整个项目的核心划分为三个部分：分布式爬虫、数据清洗与处理、web工程。分别也对应了数据的采集、处理和展示。该项目没有继续下去，可能是因为这个......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/project/project_volunteer/">
-        <h2 class="post-title">
-            义工平台说明
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            项目截图
-项目介绍义工系统是类似于豆瓣同城的一个项目，都是基于活动信息。用户可以在义工系统中查看学院所发布的义工信息，同时义工系统包含了用户中心，用户中心包括了关注、私信、日志、相册等基本功能。在技术上是基于Struts+spring+hibernate+ehcache框架，后台数据库采用mysql，前后台数据交互全部采用ajax+json模式，个人中心采用了bootstrap UI框架，所......
         </div>
     </a>
     <p class="post-meta">
@@ -461,13 +483,13 @@ In computer science, functional programming is a programming paradigm that treat
                             
                         
                             
-                        
-                            
                             <a href="/tags/#devops" title="devops" rel="2">devops</a>
                             
                         
                             
-                            <a href="/tags/#distribution_system" title="distribution_system" rel="7">distribution_system</a>
+                        
+                            
+                            <a href="/tags/#distribution_system" title="distribution_system" rel="10">distribution_system</a>
                             
                         
                             
@@ -491,7 +513,7 @@ In computer science, functional programming is a programming paradigm that treat
                             
                         
                             
-                            <a href="/tags/#product" title="product" rel="2">product</a>
+                            <a href="/tags/#product" title="product" rel="3">product</a>
                             
                         
                             
@@ -562,7 +584,7 @@ In computer science, functional programming is a programming paradigm that treat
 
                             
                                 <li>
-                                    <a target="_blank"  href="https://github.com/YueLng">
+                                    <a target="_blank"  href="https://github.com/yuelng">
                                         <span class="fa-stack fa-lg">
                                             <i class="fa fa-circle fa-stack-2x"></i>
                                             <i class="fa fa-github fa-stack-1x fa-inverse"></i>
@@ -638,7 +660,7 @@ In computer science, functional programming is a programming paradigm that treat
 
                 
                     <li>
-                        <a target="_blank"  href="https://github.com/YueLng">
+                        <a target="_blank"  href="https://github.com/yuelng">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa fa-github fa-stack-1x fa-inverse"></i>

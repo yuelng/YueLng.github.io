@@ -96,14 +96,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -190,18 +190,16 @@
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/project/project_network/">
+    <a href="/2017/11/30/project/project_volunteer/">
         <h2 class="post-title">
-            网络监控系统
+            义工平台说明
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
             项目截图
-简介网络监控系统是在学校的外包项目，老师的课题。由于项目属于外包项目，软件代码的所有权自然不在我，所以只能大概讲讲结构，不能开源代码。
-这个项目如果细分的话可以分为安全准入系统和网络监控系统，两个项目都是属于网络相关的项目，下面分两部分来介绍这个项目
-安全准入系统安全准入系统是基于C/S/B模式的管理系统，准入的意思是用户必须通过登录才能访问内网和外网资源，同时还具备监控系统的一些......
+项目介绍义工系统是类似于豆瓣同城的一个项目，都是基于活动信息。用户可以在义工系统中查看学院所发布的义工信息，同时义工系统包含了用户中心，用户中心包括了关注、私信、日志、相册等基本功能。在技术上是基于Struts+spring+hibernate+ehcache框架，后台数据库采用mysql，前后台数据交互全部采用ajax+json模式，个人中心采用了bootstrap UI框架，所......
         </div>
     </a>
     <p class="post-meta">
@@ -223,6 +221,30 @@
         </h3>
         <div class="post-content-preview">
             概述在开源中国闲逛时发现了这个项目-众推，是一个以Hadoop分布思想为基础类今日头条的开源项目。虽然该项目将去重过滤、文本分类单独出来，但是我认为这都属于数据处理部分。所以我将整个项目的核心划分为三个部分：分布式爬虫、数据清洗与处理、web工程。分别也对应了数据的采集、处理和展示。该项目没有继续下去，可能是因为这个项目不够吸引人，创意不是很好，但是我认为这个项目是当前所有互联网项目技术架构......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/30/project/project_network/">
+        <h2 class="post-title">
+            网络监控系统
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            项目截图
+简介网络监控系统是在学校的外包项目，老师的课题。由于项目属于外包项目，软件代码的所有权自然不在我，所以只能大概讲讲结构，不能开源代码。
+这个项目如果细分的话可以分为安全准入系统和网络监控系统，两个项目都是属于网络相关的项目，下面分两部分来介绍这个项目
+安全准入系统安全准入系统是基于C/S/B模式的管理系统，准入的意思是用户必须通过登录才能访问内网和外网资源，同时还具备监控系统的一些......
         </div>
     </a>
     <p class="post-meta">
@@ -290,6 +312,28 @@ bla......
 
 <div class="post-preview">
 
+    <a href="/2017/11/30/system_design/study_model/">
+        <h2 class="post-title">
+            设计模式简要介绍
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            创建型模式简单工厂模式简单工厂模式的要点在于：当你需要什么，只需要传入一个正确的参数，就可以获取你所需要的对象，而无须知道其创建细节。1KeyGenerator keyGen=KeyGenerator.getInstance("DESede");//获取不同加密算法的密钥生成器
+工厂方法模式工厂父类负责定义创建产品对象的公共接口，而工厂子类则负责生成具体的产品对象，这样做的目的是将产品类的实......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/2017/11/28/database/database/">
         <h2 class="post-title">
             数据库原理、实践
@@ -298,7 +342,8 @@ bla......
              "数据库原理、实践"
         </h3>
         <div class="post-content-preview">
-            数据库实践
+            数据库实践数据库并发查询下 导致巨大时延？
+
 MySQL innodb中各种SQL语句加锁分析
 一次mysql死锁的排查过程
 mysql insert锁机制
@@ -317,15 +362,44 @@ mysql悲观锁详解
 
 <div class="post-preview">
 
+    <a href="/2017/11/27/distribution_system/service_discovery/">
+        <h2 class="post-title">
+            服务发现与配置
+        </h2>
+        <h3 class="post-subtitle">
+             "服务发现与配置"
+        </h3>
+        <div class="post-content-preview">
+            etcd
+...
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2017-11-27
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/2017/11/27/distribution_system/trace/">
         <h2 class="post-title">
             分布式系统追踪
         </h2>
         <h3 class="post-subtitle">
-             "分布式系统追踪"
+             "分布式系统调用链追踪、监控"
         </h3>
         <div class="post-content-preview">
-            Distributed Tracing System...
+            Distributed Tracing System需求
+入库消息的结构组成，traceID、层级表示、调用方法、调用时间、返回时间
+
+参考
+jaegertracing/jaeger
+jaegertracing/jaeger
+
+...
         </div>
     </a>
     <p class="post-meta">
@@ -355,84 +429,6 @@ mysql悲观锁详解
     <p class="post-meta">
         Posted by 任寒韬 on
         2017-10-16
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/04/28/operation/hackintosh/">
-        <h2 class="post-title">
-            安装Hackintosh
-        </h2>
-        <h3 class="post-subtitle">
-             "使用unibeast安装黑苹果"
-        </h3>
-        <div class="post-content-preview">
-            
-“硬件选好了，安装都是很容易的”
-
-Hackintosh简介与法律问题Hackintosh是在非苹果硬件上安装运行苹果系统MacOS。这个名字还有一个官方的名字-OSx86，Wikipedia是这样介绍的，OSx86是把苹果公司出品的macOS操作系统在x86架构的非苹果电脑上运行的黑客协作计划，OSx86名字源于macOS系统的原名“OS X”与英特尔处理器架构名“x86”。关于安装黑苹......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2017-04-28
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/03/30/devops/deploy_kubernetes/">
-        <h2 class="post-title">
-            Golang微服务部署在kubernetes
-        </h2>
-        <h3 class="post-subtitle">
-             "关于开发与部署流程"
-        </h3>
-        <div class="post-content-preview">
-            
-“What I cannot create, I do not understand. – Richard Feynman”
-
-微服务部署是一个难题，包括了一系列开发中的实际问题。例如是否将所有微服务代码放在一个git仓库还是分git仓库，是否需要公共代码（这里的公共代码指的是与业务逻辑无关在任何项目中都可以即开即用的脚手架代码），部署方式是否使用jenkins自动化部署还是自己写个脚本，......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2017-03-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/03/30/distribution_system/engineering/">
-        <h2 class="post-title">
-            后端代码工程
-        </h2>
-        <h3 class="post-subtitle">
-             "配置"
-        </h3>
-        <div class="post-content-preview">
-            
-“Yeah It’s on. ”
-
-
-配置文件
-程序内内置配置项的初始默认值
-配置文件中的配置项值可以覆盖(override)程序内配置项的默认值。
-命令行选项和参数值具有最高优先级，可以override前两层的配置项值。
-
-错误处理golang内置两种错误处理方式，error与panic，error是逻辑上程序可控制可预见的错误，而panic则相对于error是比较严重的错误。在通常的项......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2017-03-30
     </p>
 
 </div>
@@ -487,13 +483,13 @@ Hackintosh简介与法律问题Hackintosh是在非苹果硬件上安装运行苹
                             
                         
                             
-                        
-                            
                             <a href="/tags/#devops" title="devops" rel="2">devops</a>
                             
                         
                             
-                            <a href="/tags/#distribution_system" title="distribution_system" rel="7">distribution_system</a>
+                        
+                            
+                            <a href="/tags/#distribution_system" title="distribution_system" rel="10">distribution_system</a>
                             
                         
                             
@@ -517,7 +513,7 @@ Hackintosh简介与法律问题Hackintosh是在非苹果硬件上安装运行苹
                             
                         
                             
-                            <a href="/tags/#product" title="product" rel="2">product</a>
+                            <a href="/tags/#product" title="product" rel="3">product</a>
                             
                         
                             
@@ -588,7 +584,7 @@ Hackintosh简介与法律问题Hackintosh是在非苹果硬件上安装运行苹
 
                             
                                 <li>
-                                    <a target="_blank"  href="https://github.com/YueLng">
+                                    <a target="_blank"  href="https://github.com/yuelng">
                                         <span class="fa-stack fa-lg">
                                             <i class="fa fa-circle fa-stack-2x"></i>
                                             <i class="fa fa-github fa-stack-1x fa-inverse"></i>
@@ -664,7 +660,7 @@ Hackintosh简介与法律问题Hackintosh是在非苹果硬件上安装运行苹
 
                 
                     <li>
-                        <a target="_blank"  href="https://github.com/YueLng">
+                        <a target="_blank"  href="https://github.com/yuelng">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa fa-github fa-stack-1x fa-inverse"></i>
