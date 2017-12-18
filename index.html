@@ -263,16 +263,22 @@
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/language/study_shell/">
+    <a href="/2017/11/30/thinking/think_master_function/">
         <h2 class="post-title">
-            python的装饰器与JavaScript中的闭包
+            编程之路—函数式编程
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            1.摘要这里记录关于Python装饰器和JavaScript闭包的学习笔记
-2.1Python中的装饰器12345678910111213def makebold(fn):    def wrapped():        return "&lt;b&gt;" + fn() + "&lt;/b&gt;"    return wrappeddef makeitalic(fn):    def ......
+            编程之路
+编程规范
+函数式编程
+性能与优化
+单元测试
+
+概念定义
+In computer science, functional programming is a programming paradigm that treats computation as the evaluation of mathematical functions and avoids state and mutab......
         </div>
     </a>
     <p class="post-meta">
@@ -285,16 +291,16 @@
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/surrounding/study_linux/">
+    <a href="/2017/11/30/codeing/study_coding/">
         <h2 class="post-title">
-            Linux基础知识与命令（Ubuntu14.10）
+            勿在浮沙聚高塔
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            这里记录常用的一些linux命令，以备不时之需。 
-常用的命令1234567sudo cp xxxx /xxxx #移动文件sudo mv xxxx xxxxx #为文件改名sudo tar zxvf xxx.tar #解压文件夹sudo unrar xxxx.rar #解压文件夹 sudo chmod 775 xxxx #给文件或文件夹加权限sudo chown -R hadoop:had......
+            1.摘要今天看了新浪新兵训练营的一些资料，整理下关于程序员最基础的知识————关于编码主要内容包括，什么是烂代码，什么是好代码，好代码需要注意什么，如何做出优雅的设计，如何规划合理的架构编码主要是给人看的，其次才是给机器看的。
+2.关于烂代码写出烂代码很容易，入行时很容易被鼓吹要把主要精力放在ABCD（需求文档/功能设计/架构设计/理解原理）上，写代码只是实现想法的工具。在这样的指导思想下，......
         </div>
     </a>
     <p class="post-meta">
@@ -307,39 +313,15 @@
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/collection/source_all/">
+    <a href="/2017/11/30/collection/interview/">
         <h2 class="post-title">
-            一些有用的链接（持续更新）
+            面试题目
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            计算机科学1.谷歌推荐的技术能力提升指南CS课程入门、了解其他语言、测试代码、培养逻辑推理和学习数学离散知识、深刻理解操作系统、学习UX设计、学习人工智能、学习如何构建编译器、了解密码学、并行编程、与其他程序员一起开发项目。2.hackr.ioShare and discover the best programming tutorials and courses online.3.图说设计......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/surrounding/study_vim/">
-        <h2 class="post-title">
-            vim积累
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            这里记录vim的一些平常积累
-效果图
-安装参考github上关于vim配置及其插件安装simple_vim_setting
-基本操作1. Under normal mode123456789:wq             - save and quiti               - insertx VIM           - delete characterdd           ......
+            1.Java相关2.Python相关3.算法与数据结构链表、递归、栈、队列（拓扑排序、括号匹配、逆波兰表达式）字符串（全排列、LCS、Huffman编码)数组（局部最大值、荷兰国旗、子集和数、最大间距）树（遍历、AVL等)图（深度搜索、隐式图、单词变换、N-皇后、数独）查找排序（排序大综合、Top10、排序与Hash、桶排序）贪心动态规划（动态规划本质论、回文划分、LIS、矩阵连乘、Cata......
         </div>
     </a>
     <p class="post-meta">
@@ -376,22 +358,18 @@
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/computer_science/study_server/">
+    <a href="/2017/11/30/surrounding/study_vim/">
         <h2 class="post-title">
-            服务器端编程基础积累
+            vim积累
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            UNIX I/O模型
-阻塞IO
-非阻塞IO
-IO多路复用
-信号驱动IO
-异步IO
-
-nginx模型...
+            这里记录vim的一些平常积累
+效果图
+安装参考github上关于vim配置及其插件安装simple_vim_setting
+基本操作1. Under normal mode123456789:wq             - save and quiti               - insertx VIM           - delete characterdd           ......
         </div>
     </a>
     <p class="post-meta">
@@ -413,6 +391,34 @@ nginx模型...
         </h3>
         <div class="post-content-preview">
             设计原理SYN-Flood是目前最流行的DDoS攻击手段，DDoS只是洪水攻击的一个种类。其实还有其它种类的洪水攻击。以前的DoS手段在向分布式这一阶段发展的过程中也经历了逐步淘汰的过程。SYN-Flood的攻击效果最好，故众黑客不约而同选择它。以下了解一下SYN-Flood的详细情况。Syn Flood利用了TCP/IP协议的固有漏洞。面向连接的TCP三次握手是Syn Flood存在的基础......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/30/computer_science/study_server/">
+        <h2 class="post-title">
+            服务器端编程基础积累
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            UNIX I/O模型
+阻塞IO
+非阻塞IO
+IO多路复用
+信号驱动IO
+异步IO
+
+nginx模型...
         </div>
     </a>
     <p class="post-meta">
@@ -458,9 +464,9 @@ nginx模型...
                     <div class="tags">
                         
                             
-                        
-                            
                             <a href="/tags/#collection" title="collection" rel="5">collection</a>
+                            
+                        
                             
                         
                             
@@ -478,11 +484,11 @@ nginx模型...
                             
                         
                             
-                            <a href="/tags/#language" title="language" rel="4">language</a>
+                            <a href="/tags/#framework" title="framework" rel="2">framework</a>
                             
                         
                             
-                            <a href="/tags/#framework" title="framework" rel="2">framework</a>
+                            <a href="/tags/#language" title="language" rel="4">language</a>
                             
                         
                             
