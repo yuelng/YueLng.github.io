@@ -96,13 +96,6 @@
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
                             <a href="/about/">About</a>
                         </li>
                         
@@ -111,6 +104,13 @@
                         
                         <li>
                             <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
@@ -284,36 +284,6 @@ jaegertracing/jaeger
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/system_design/cache/">
-        <h2 class="post-title">
-            缓存系统的设计
-        </h2>
-        <h3 class="post-subtitle">
-             "缓存系统的设计"
-        </h3>
-        <div class="post-content-preview">
-            memcache、redis 深入理解
-
-缓存模块从无到有，要如何设计？
-要考虑哪些因素？
-如何方式设计不足？
-如何防止设计过度？
-如何满足实际需求？
-要明确哪些问题，才能逐步的完善出一套实现方案？
-
-如何用redis/memcache做Mysql缓存层?面对缓存，有哪些问题需要思考？[缓存方案如何设计才能切合业务需求？]{https://www.zhihu.com/question/377......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
     <a href="/2017/11/30/distribution_system/study_distribute_item/">
         <h2 class="post-title">
             分布式系统要点记录
@@ -357,50 +327,24 @@ jaegertracing/jaeger
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/surrounding/markdown/">
+    <a href="/2017/11/30/system_design/cache/">
         <h2 class="post-title">
-            markdown基本操作
+            缓存系统的设计
         </h2>
         <h3 class="post-subtitle">
-            
+             "缓存系统的设计"
         </h3>
         <div class="post-content-preview">
-            基本符号
-*,-,+ 3个符号效果都一样，这3个符号被称为 Markdown符号
-空白行表示另起一个段落
-`是表示inline代码，tab是用来标记 代码段，分别对应html的code，pre标签
+            memcache、redis 深入理解
 
-换行
-单一段落( \) 用一个空白行
-连续两个空格 会变成一个 
-连续3个符号，然后是空行，表示 hr横线
+缓存模块从无到有，要如何设计？
+要考虑哪些因素？
+如何方式设计不足？
+如何防止设计过度？
+如何满足实际需求？
+要明确哪些问题，才能逐步的完善出一套实现方案？
 
-标题
-生成h1–h6,在文字前面加上 1–6个# 来实现
-文字加粗是通过 文字左右各......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/collection/plan/">
-        <h2 class="post-title">
-            TODO集合
-        </h2>
-        <h3 class="post-subtitle">
-             "来不及整理的就放在这吧"
-        </h3>
-        <div class="post-content-preview">
-            大纲数据库系统、分布式系统、数据科学
-优质资源(个人向)dirtysalt’s homepagedigests dylanninin
-基础教育The Architecture of Open Source Applicationsaosabook-500linesabout-unicode-and-character-setswhat-cs-majors-should-know/must-s......
+如何用redis/memcache做Mysql缓存层?面对缓存，有哪些问题需要思考？[缓存方案如何设计才能切合业务需求？]{https://www.zhihu.com/question/377......
         </div>
     </a>
     <p class="post-meta">
@@ -413,22 +357,75 @@ jaegertracing/jaeger
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/computer_science/study_server/">
+    <a href="/2017/11/30/surrounding/study_linux/">
         <h2 class="post-title">
-            服务器端编程基础积累
+            Linux基础知识与命令（Ubuntu14.10）
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            UNIX I/O模型
-阻塞IO
-非阻塞IO
-IO多路复用
-信号驱动IO
-异步IO
+            这里记录常用的一些linux命令，以备不时之需。 
+常用的命令1234567sudo cp xxxx /xxxx #移动文件sudo mv xxxx xxxxx #为文件改名sudo tar zxvf xxx.tar #解压文件夹sudo unrar xxxx.rar #解压文件夹 sudo chmod 775 xxxx #给文件或文件夹加权限sudo chown -R hadoop:had......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-11-30
+    </p>
 
-nginx模型...
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/30/collection/interview/">
+        <h2 class="post-title">
+            面试题目
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            1.Java相关2.Python相关3.算法与数据结构链表、递归、栈、队列（拓扑排序、括号匹配、逆波兰表达式）字符串（全排列、LCS、Huffman编码)数组（局部最大值、荷兰国旗、子集和数、最大间距）树（遍历、AVL等)图（深度搜索、隐式图、单词变换、N-皇后、数独）查找排序（排序大综合、Top10、排序与Hash、桶排序）贪心动态规划（动态规划本质论、回文划分、LIS、矩阵连乘、Cata......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/30/collection/somesource/">
+        <h2 class="post-title">
+            一些有用的资源
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            平时在网上闲逛，看到一些可能会有用的一些资源记录在此
+常去的网站
+湾区日报
+开发者头条
+好东西传送门
+蟒周刊
+国内hackernews
+quora
+hackernews ycombinator
+github
+medium
+ruby-china
+geeksforgeeks
+面试题目
+algorithmist
+noexcuselist
+tryruby
+tutorialspoint开发者应该去的十......
         </div>
     </a>
     <p class="post-meta">
@@ -478,11 +475,11 @@ nginx模型...
                             
                         
                             
-                            <a href="/tags/#devops" title="devops" rel="2">devops</a>
+                            <a href="/tags/#computer_science" title="computer_science" rel="5">computer_science</a>
                             
                         
                             
-                            <a href="/tags/#computer_science" title="computer_science" rel="5">computer_science</a>
+                            <a href="/tags/#devops" title="devops" rel="2">devops</a>
                             
                         
                             
@@ -490,17 +487,17 @@ nginx模型...
                             
                         
                             
+                        
+                            
                             <a href="/tags/#language" title="language" rel="4">language</a>
                             
                         
                             
+                            <a href="/tags/#project" title="project" rel="7">project</a>
+                            
                         
                             
                             <a href="/tags/#operation" title="operation" rel="2">operation</a>
-                            
-                        
-                            
-                            <a href="/tags/#project" title="project" rel="7">project</a>
                             
                         
                             
@@ -512,9 +509,7 @@ nginx模型...
                             
                         
                             
-                            <a href="/tags/#life_is_short" title="life_is_short" rel="2">life_is_short</a>
-                            
-                        
+                            <a href="/tags/#system_design" title="system_design" rel="4">system_design</a>
                             
                         
                             
@@ -522,11 +517,13 @@ nginx模型...
                             
                         
                             
-                            <a href="/tags/#system_design" title="system_design" rel="4">system_design</a>
+                            <a href="/tags/#thinking" title="thinking" rel="7">thinking</a>
                             
                         
                             
-                            <a href="/tags/#thinking" title="thinking" rel="7">thinking</a>
+                            <a href="/tags/#life_is_short" title="life_is_short" rel="2">life_is_short</a>
+                            
+                        
                             
                         
                     </div>

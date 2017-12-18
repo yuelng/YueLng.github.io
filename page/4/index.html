@@ -96,13 +96,6 @@
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
                             <a href="/about/">About</a>
                         </li>
                         
@@ -111,6 +104,13 @@
                         
                         <li>
                             <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
@@ -190,18 +190,18 @@
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/distribution_system/study_rpc/">
+    <a href="/2017/11/30/computer_science/study_algorithm/">
         <h2 class="post-title">
-            RPC远程过程调用
+            相似距离算法
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            如果说把一个网站分为三个部分，经典的MVC设计模式，后台分布式实现就是控制层，模块的服务化全都依赖于rpc框架，从阿里的dubbo、Hadoop等，这些大数据框架都有了广泛的应用，本文是个人学习rpc过程中的一些资料积累和个人想法。 
-RPC调用分类
-同步调用客户方等待调用执行完成并返回结果。
-异步调用客户方调用后不用等待执行结果返回，但依然可以通过回调通知等方式获取返回结果。 若客户方不关......
+            相似距离算法是推荐算法的一部分。
+一、EuclideanDistanceSimilarity: 欧氏距离相似度原理：利用欧式距离d定义的相似度s，s=1 / (1+d)。
+范围：[0,1]，值越大，说明d越小，也就是距离越近，则相似度越大。
+说明：同皮尔森相似度一样，该相似度也没有考虑重叠数对结果的影响，同样地，Mahout通过增加一个枚举类型（Weighting）的参数来使得重叠数也成为计......
         </div>
     </a>
     <p class="post-meta">
@@ -214,74 +214,17 @@ RPC调用分类
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/collection/interview/">
+    <a href="/2017/11/30/system_design/system_design_question/">
         <h2 class="post-title">
-            面试题目
+            笔记-系统设计
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            1.Java相关2.Python相关3.算法与数据结构链表、递归、栈、队列（拓扑排序、括号匹配、逆波兰表达式）字符串（全排列、LCS、Huffman编码)数组（局部最大值、荷兰国旗、子集和数、最大间距）树（遍历、AVL等)图（深度搜索、隐式图、单词变换、N-皇后、数独）查找排序（排序大综合、Top10、排序与Hash、桶排序）贪心动态规划（动态规划本质论、回文划分、LIS、矩阵连乘、Cata......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/collection/somesource/">
-        <h2 class="post-title">
-            一些有用的资源
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            平时在网上闲逛，看到一些可能会有用的一些资源记录在此
-常去的网站
-湾区日报
-开发者头条
-好东西传送门
-蟒周刊
-国内hackernews
-quora
-hackernews ycombinator
-github
-medium
-ruby-china
-geeksforgeeks
-面试题目
-algorithmist
-noexcuselist
-tryruby
-tutorialspoint开发者应该去的十......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/collection/source_all/">
-        <h2 class="post-title">
-            一些有用的链接（持续更新）
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            计算机科学1.谷歌推荐的技术能力提升指南CS课程入门、了解其他语言、测试代码、培养逻辑推理和学习数学离散知识、深刻理解操作系统、学习UX设计、学习人工智能、学习如何构建编译器、了解密码学、并行编程、与其他程序员一起开发项目。2.hackr.ioShare and discover the best programming tutorials and courses online.3.图说设计......
+            重点考察内容面向对象，接口设计，设计模式，数据库表，分布式
+关于高并发系统设计。主要有以下几个关键技术点：缓存，索引，数据分片，锁粒度尽可能小。
+常见分布式系统设计问题如何设计Twitter，短网址系统设计，如何设计Uber分布式系统1)Inverted index2)Anagram3) Word Count4) Distributed File System Design 设计实时位置系统......
         </div>
     </a>
     <p class="post-meta">
@@ -318,28 +261,6 @@ tutorialspoint开发者应该去的十......
 
 
 本地修改123456789101112131415161718192021$ git status        #显示工作路径下已修改的文件......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/surrounding/study_linux/">
-        <h2 class="post-title">
-            Linux基础知识与命令（Ubuntu14.10）
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            这里记录常用的一些linux命令，以备不时之需。 
-常用的命令1234567sudo cp xxxx /xxxx #移动文件sudo mv xxxx xxxxx #为文件改名sudo tar zxvf xxx.tar #解压文件夹sudo unrar xxxx.rar #解压文件夹 sudo chmod 775 xxxx #给文件或文件夹加权限sudo chown -R hadoop:had......
         </div>
     </a>
     <p class="post-meta">
@@ -398,18 +319,73 @@ tutorialspoint开发者应该去的十......
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/computer_science/study_algorithm/">
+    <a href="/2017/11/30/surrounding/markdown/">
         <h2 class="post-title">
-            相似距离算法
+            markdown基本操作
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            相似距离算法是推荐算法的一部分。
-一、EuclideanDistanceSimilarity: 欧氏距离相似度原理：利用欧式距离d定义的相似度s，s=1 / (1+d)。
-范围：[0,1]，值越大，说明d越小，也就是距离越近，则相似度越大。
-说明：同皮尔森相似度一样，该相似度也没有考虑重叠数对结果的影响，同样地，Mahout通过增加一个枚举类型（Weighting）的参数来使得重叠数也成为计......
+            基本符号
+*,-,+ 3个符号效果都一样，这3个符号被称为 Markdown符号
+空白行表示另起一个段落
+`是表示inline代码，tab是用来标记 代码段，分别对应html的code，pre标签
+
+换行
+单一段落( \) 用一个空白行
+连续两个空格 会变成一个 
+连续3个符号，然后是空行，表示 hr横线
+
+标题
+生成h1–h6,在文字前面加上 1–6个# 来实现
+文字加粗是通过 文字左右各......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/30/system_design/study_info/">
+        <h2 class="post-title">
+            消息推送入门
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            实时消息推送的几种实现方式相较于手机端的消息推送（一般都是以socket方式实现），web端是基于http协议，很难像tcp一样保持长连接。但随着技术的发展，出现了websocket, comet等新的技术可以达到类似长连接的效果，这些技术大体可分为以下几类：
+
+短轮询。页面端通过js定时异步刷新，这种方式实时效果较差。
+长轮询。页面端通过js异步请求服务端，服务端在接收到请求后，如果该次请......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/30/system_design/study_model/">
+        <h2 class="post-title">
+            设计模式简要介绍
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            创建型模式简单工厂模式简单工厂模式的要点在于：当你需要什么，只需要传入一个正确的参数，就可以获取你所需要的对象，而无须知道其创建细节。1KeyGenerator keyGen=KeyGenerator.getInstance("DESede");//获取不同加密算法的密钥生成器
+工厂方法模式工厂父类负责定义创建产品对象的公共接口，而工厂子类则负责生成具体的产品对象，这样做的目的是将产品类的实......
         </div>
     </a>
     <p class="post-meta">
@@ -431,6 +407,34 @@ tutorialspoint开发者应该去的十......
         </h3>
         <div class="post-content-preview">
             设计原理SYN-Flood是目前最流行的DDoS攻击手段，DDoS只是洪水攻击的一个种类。其实还有其它种类的洪水攻击。以前的DoS手段在向分布式这一阶段发展的过程中也经历了逐步淘汰的过程。SYN-Flood的攻击效果最好，故众黑客不约而同选择它。以下了解一下SYN-Flood的详细情况。Syn Flood利用了TCP/IP协议的固有漏洞。面向连接的TCP三次握手是Syn Flood存在的基础......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/30/computer_science/study_server/">
+        <h2 class="post-title">
+            服务器端编程基础积累
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            UNIX I/O模型
+阻塞IO
+非阻塞IO
+IO多路复用
+信号驱动IO
+异步IO
+
+nginx模型...
         </div>
     </a>
     <p class="post-meta">
@@ -484,11 +488,11 @@ tutorialspoint开发者应该去的十......
                             
                         
                             
-                            <a href="/tags/#devops" title="devops" rel="2">devops</a>
+                            <a href="/tags/#computer_science" title="computer_science" rel="5">computer_science</a>
                             
                         
                             
-                            <a href="/tags/#computer_science" title="computer_science" rel="5">computer_science</a>
+                            <a href="/tags/#devops" title="devops" rel="2">devops</a>
                             
                         
                             
@@ -496,17 +500,17 @@ tutorialspoint开发者应该去的十......
                             
                         
                             
+                        
+                            
                             <a href="/tags/#language" title="language" rel="4">language</a>
                             
                         
                             
+                            <a href="/tags/#project" title="project" rel="7">project</a>
+                            
                         
                             
                             <a href="/tags/#operation" title="operation" rel="2">operation</a>
-                            
-                        
-                            
-                            <a href="/tags/#project" title="project" rel="7">project</a>
                             
                         
                             
@@ -518,9 +522,7 @@ tutorialspoint开发者应该去的十......
                             
                         
                             
-                            <a href="/tags/#life_is_short" title="life_is_short" rel="2">life_is_short</a>
-                            
-                        
+                            <a href="/tags/#system_design" title="system_design" rel="4">system_design</a>
                             
                         
                             
@@ -528,11 +530,13 @@ tutorialspoint开发者应该去的十......
                             
                         
                             
-                            <a href="/tags/#system_design" title="system_design" rel="4">system_design</a>
+                            <a href="/tags/#thinking" title="thinking" rel="7">thinking</a>
                             
                         
                             
-                            <a href="/tags/#thinking" title="thinking" rel="7">thinking</a>
+                            <a href="/tags/#life_is_short" title="life_is_short" rel="2">life_is_short</a>
+                            
+                        
                             
                         
                     </div>

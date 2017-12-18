@@ -96,13 +96,6 @@
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
                             <a href="/about/">About</a>
                         </li>
                         
@@ -111,6 +104,13 @@
                         
                         <li>
                             <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
@@ -269,16 +269,22 @@ bla......
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/language/study_shell/">
+    <a href="/2017/11/30/thinking/think_master_function/">
         <h2 class="post-title">
-            python的装饰器与JavaScript中的闭包
+            编程之路—函数式编程
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            1.摘要这里记录关于Python装饰器和JavaScript闭包的学习笔记
-2.1Python中的装饰器12345678910111213def makebold(fn):    def wrapped():        return "&lt;b&gt;" + fn() + "&lt;/b&gt;"    return wrappeddef makeitalic(fn):    def ......
+            编程之路
+编程规范
+函数式编程
+性能与优化
+单元测试
+
+概念定义
+In computer science, functional programming is a programming paradigm that treats computation as the evaluation of mathematical functions and avoids state and mutab......
         </div>
     </a>
     <p class="post-meta">
@@ -313,74 +319,17 @@ bla......
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/system_design/study_info/">
+    <a href="/2017/11/30/thinking/think_first/">
         <h2 class="post-title">
-            消息推送入门
+            把思维好好捋一捋
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            实时消息推送的几种实现方式相较于手机端的消息推送（一般都是以socket方式实现），web端是基于http协议，很难像tcp一样保持长连接。但随着技术的发展，出现了websocket, comet等新的技术可以达到类似长连接的效果，这些技术大体可分为以下几类：
-
-短轮询。页面端通过js定时异步刷新，这种方式实时效果较差。
-长轮询。页面端通过js异步请求服务端，服务端在接收到请求后，如果该次请......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/puduct/study_monitor/">
-        <h2 class="post-title">
-            数据驱动开发与产品
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            不谋万世者，不足以谋一时；不谋全局者，不足以谋一隅
-Monitor your data作为程序员，我们开发一个后台服务，大家有没有测试过以下数据
-
-这个服务能够承受多少的 QPS（每秒访问量）？
-平均响应时间和 99% 的响应时间是多少？
-如果服务器压力增加，我们能不能通过简单的加机器来解决，需要加多少台机器？
-当前线上服务瓶颈在哪里？
-按当前的增长速度，多久我们得需要加机器？
-
-技术关注点......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/devops/study_environment/">
-        <h2 class="post-title">
-            基础服务环境搭建
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            这篇文章主要是针对大数据平台的搭建，主要包括的内容有
-
-vagrant虚拟机环境搭建
-Hadoop集群搭建
-memcached集群搭建
-storm集群搭建一些架构可行的架构：Flume + Kafka + Strom + Hbase 使用vagrant搭建系统安装上 http://www.vagrantbox.es/ 找下载需要的 box ， 譬如 Ubuntu 14.10（based on......
+            骐骥一跃，不能十步；驽马十驾，功在不舍。
+胡乱扯扯1研究：研究东西，有足够洞察力，研究水准不错2研发：Hack Idea自己有魄力实现，不懂研发的黑客如同不会游泳的海盗3工程：研发出来的需要实战、需要工程化，否则只是玩具，而不能成为真的武器
+关于就业和能力就业实习，还是有压力的。听过学长学姐们的经历，他们有进大公司也有初创企业的，前天还在群里争论是去哪种好，引得一个在初创公司的学长，把月薪都......
         </div>
     </a>
     <p class="post-meta">
@@ -435,6 +384,57 @@ storm集群搭建一些架构可行的架构：Flume + Kafka + Strom + Hbase 使
 </div>
 <hr>
 
+<div class="post-preview">
+
+    <a href="/2017/11/30/puduct/study_monitor/">
+        <h2 class="post-title">
+            数据驱动开发与产品
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            不谋万世者，不足以谋一时；不谋全局者，不足以谋一隅
+Monitor your data作为程序员，我们开发一个后台服务，大家有没有测试过以下数据
+
+这个服务能够承受多少的 QPS（每秒访问量）？
+平均响应时间和 99% 的响应时间是多少？
+如果服务器压力增加，我们能不能通过简单的加机器来解决，需要加多少台机器？
+当前线上服务瓶颈在哪里？
+按当前的增长速度，多久我们得需要加机器？
+
+技术关注点......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/30/thinking/study_software/">
+        <h2 class="post-title">
+            团队项目开发与规范
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            个人理解团队是因为有相同的目标才聚集在一起，所有在做一个项目的开始，要让所有成员认同项目的前景。团队的大小个人认为最多20个人。虽然说很有必要保证规范化，但是我认为按部就班只能扼杀人的创造力，但是一些的必要的流程规范还是要的，也就是下面说的开发流程规范，有些人认为这样不会有很好的技术文化积累。我想的是技术文档和团队文化并不和小而美的团队相冲突，文档取决于个人的工作习惯，而文化取决于每个人以及......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
 
 
 <!-- Pager -->
@@ -478,11 +478,11 @@ storm集群搭建一些架构可行的架构：Flume + Kafka + Strom + Hbase 使
                             
                         
                             
-                            <a href="/tags/#devops" title="devops" rel="2">devops</a>
+                            <a href="/tags/#computer_science" title="computer_science" rel="5">computer_science</a>
                             
                         
                             
-                            <a href="/tags/#computer_science" title="computer_science" rel="5">computer_science</a>
+                            <a href="/tags/#devops" title="devops" rel="2">devops</a>
                             
                         
                             
@@ -490,17 +490,17 @@ storm集群搭建一些架构可行的架构：Flume + Kafka + Strom + Hbase 使
                             
                         
                             
+                        
+                            
                             <a href="/tags/#language" title="language" rel="4">language</a>
                             
                         
                             
+                            <a href="/tags/#project" title="project" rel="7">project</a>
+                            
                         
                             
                             <a href="/tags/#operation" title="operation" rel="2">operation</a>
-                            
-                        
-                            
-                            <a href="/tags/#project" title="project" rel="7">project</a>
                             
                         
                             
@@ -512,9 +512,7 @@ storm集群搭建一些架构可行的架构：Flume + Kafka + Strom + Hbase 使
                             
                         
                             
-                            <a href="/tags/#life_is_short" title="life_is_short" rel="2">life_is_short</a>
-                            
-                        
+                            <a href="/tags/#system_design" title="system_design" rel="4">system_design</a>
                             
                         
                             
@@ -522,11 +520,13 @@ storm集群搭建一些架构可行的架构：Flume + Kafka + Strom + Hbase 使
                             
                         
                             
-                            <a href="/tags/#system_design" title="system_design" rel="4">system_design</a>
+                            <a href="/tags/#thinking" title="thinking" rel="7">thinking</a>
                             
                         
                             
-                            <a href="/tags/#thinking" title="thinking" rel="7">thinking</a>
+                            <a href="/tags/#life_is_short" title="life_is_short" rel="2">life_is_short</a>
+                            
+                        
                             
                         
                     </div>
