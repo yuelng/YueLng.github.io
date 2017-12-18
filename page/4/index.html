@@ -96,14 +96,14 @@
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
@@ -212,6 +212,39 @@
 
 <div class="post-preview">
 
+    <a href="/2017/11/30/project/project_victor/">
+        <h2 class="post-title">
+            毕设题目-基于社交网络的推荐系统（众推）
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            简介项目主要分为web工程、后台业务逻辑、数据库缓存、推荐系统、分布式爬虫
+项目开发流程记录基础部分
+maven框架搭建、多模块、私服
+域名、免费空间，腾讯云
+
+web部分记录
+restful风格设计（json数据优化）
+mvc框架spring mvc或者spring boot
+第三方认证OAUTH
+comment长连接
+session处理
+python tornado实现web工程
+bla......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/2017/11/30/project/project_distribute/">
         <h2 class="post-title">
             基于开源项目众推的Python实现
@@ -279,49 +312,18 @@ web远程登录系统文档简要说明web远程登录系统总体上分为两�
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/project/project_victor/">
+    <a href="/2017/11/30/system_design/study_info/">
         <h2 class="post-title">
-            毕设题目-基于社交网络的推荐系统（众推）
+            消息推送入门
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            简介项目主要分为web工程、后台业务逻辑、数据库缓存、推荐系统、分布式爬虫
-项目开发流程记录基础部分
-maven框架搭建、多模块、私服
-域名、免费空间，腾讯云
+            实时消息推送的几种实现方式相较于手机端的消息推送（一般都是以socket方式实现），web端是基于http协议，很难像tcp一样保持长连接。但随着技术的发展，出现了websocket, comet等新的技术可以达到类似长连接的效果，这些技术大体可分为以下几类：
 
-web部分记录
-restful风格设计（json数据优化）
-mvc框架spring mvc或者spring boot
-第三方认证OAUTH
-comment长连接
-session处理
-python tornado实现web工程
-bla......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/system_design/study_model/">
-        <h2 class="post-title">
-            设计模式简要介绍
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            创建型模式简单工厂模式简单工厂模式的要点在于：当你需要什么，只需要传入一个正确的参数，就可以获取你所需要的对象，而无须知道其创建细节。1KeyGenerator keyGen=KeyGenerator.getInstance("DESede");//获取不同加密算法的密钥生成器
-工厂方法模式工厂父类负责定义创建产品对象的公共接口，而工厂子类则负责生成具体的产品对象，这样做的目的是将产品类的实......
+短轮询。页面端通过js定时异步刷新，这种方式实时效果较差。
+长轮询。页面端通过js异步请求服务端，服务端在接收到请求后，如果该次请......
         </div>
     </a>
     <p class="post-meta">
@@ -362,28 +364,6 @@ mysql悲观锁详解
 
 <div class="post-preview">
 
-    <a href="/2017/11/27/distribution_system/service_discovery/">
-        <h2 class="post-title">
-            服务发现与配置
-        </h2>
-        <h3 class="post-subtitle">
-             "服务发现与配置"
-        </h3>
-        <div class="post-content-preview">
-            etcd
-...
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2017-11-27
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
     <a href="/2017/11/27/distribution_system/trace/">
         <h2 class="post-title">
             分布式系统追踪
@@ -399,6 +379,28 @@ mysql悲观锁详解
 jaegertracing/jaeger
 jaegertracing/jaeger
 
+...
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2017-11-27
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/27/distribution_system/service_discovery/">
+        <h2 class="post-title">
+            服务发现与配置
+        </h2>
+        <h3 class="post-subtitle">
+             "服务发现与配置"
+        </h3>
+        <div class="post-content-preview">
+            etcd
 ...
         </div>
     </a>
@@ -483,9 +485,9 @@ jaegertracing/jaeger
                             
                         
                             
-                            <a href="/tags/#devops" title="devops" rel="2">devops</a>
-                            
                         
+                            
+                            <a href="/tags/#devops" title="devops" rel="2">devops</a>
                             
                         
                             
@@ -493,11 +495,11 @@ jaegertracing/jaeger
                             
                         
                             
-                            <a href="/tags/#framework" title="framework" rel="2">framework</a>
+                            <a href="/tags/#language" title="language" rel="4">language</a>
                             
                         
                             
-                            <a href="/tags/#language" title="language" rel="4">language</a>
+                            <a href="/tags/#framework" title="framework" rel="2">framework</a>
                             
                         
                             
