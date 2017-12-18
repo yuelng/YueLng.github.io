@@ -190,17 +190,16 @@
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/system_design/system_design_question/">
+    <a href="/2017/11/30/project/project_volunteer/">
         <h2 class="post-title">
-            笔记-系统设计
+            义工平台说明
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            重点考察内容面向对象，接口设计，设计模式，数据库表，分布式
-关于高并发系统设计。主要有以下几个关键技术点：缓存，索引，数据分片，锁粒度尽可能小。
-常见分布式系统设计问题如何设计Twitter，短网址系统设计，如何设计Uber分布式系统1)Inverted index2)Anagram3) Word Count4) Distributed File System Design 设计实时位置系统......
+            项目截图
+项目介绍义工系统是类似于豆瓣同城的一个项目，都是基于活动信息。用户可以在义工系统中查看学院所发布的义工信息，同时义工系统包含了用户中心，用户中心包括了关注、私信、日志、相册等基本功能。在技术上是基于Struts+spring+hibernate+ehcache框架，后台数据库采用mysql，前后台数据交互全部采用ajax+json模式，个人中心采用了bootstrap UI框架，所......
         </div>
     </a>
     <p class="post-meta">
@@ -243,16 +242,30 @@ Monitor your data作为程序员，我们开发一个后台服务，大家有没
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/surrounding/study_linux/">
+    <a href="/2017/11/30/surrounding/study_git/">
         <h2 class="post-title">
-            Linux基础知识与命令（Ubuntu14.10）
+            Git速查表/参考手册
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            这里记录常用的一些linux命令，以备不时之需。 
-常用的命令1234567sudo cp xxxx /xxxx #移动文件sudo mv xxxx xxxxx #为文件改名sudo tar zxvf xxx.tar #解压文件夹sudo unrar xxxx.rar #解压文件夹 sudo chmod 775 xxxx #给文件或文件夹加权限sudo chown -R hadoop:had......
+            索引
+创建
+本地修改
+搜索
+提交历史
+分支与标签
+更新与发布
+合并与重置
+撤销
+
+
+
+创建12$ git clone ssh://user@domain.com/repo.git #复制一个已创建的仓库$ git init #创建一个新的本地仓库
+
+
+本地修改123456789101112131415161718192021$ git status        #显示工作路径下已修改的文件......
         </div>
     </a>
     <p class="post-meta">
@@ -309,30 +322,17 @@ Monitor your data作为程序员，我们开发一个后台服务，大家有没
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/surrounding/study_git/">
+    <a href="/2017/11/30/system_design/system_design_question/">
         <h2 class="post-title">
-            Git速查表/参考手册
+            笔记-系统设计
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            索引
-创建
-本地修改
-搜索
-提交历史
-分支与标签
-更新与发布
-合并与重置
-撤销
-
-
-
-创建12$ git clone ssh://user@domain.com/repo.git #复制一个已创建的仓库$ git init #创建一个新的本地仓库
-
-
-本地修改123456789101112131415161718192021$ git status        #显示工作路径下已修改的文件......
+            重点考察内容面向对象，接口设计，设计模式，数据库表，分布式
+关于高并发系统设计。主要有以下几个关键技术点：缓存，索引，数据分片，锁粒度尽可能小。
+常见分布式系统设计问题如何设计Twitter，短网址系统设计，如何设计Uber分布式系统1)Inverted index2)Anagram3) Word Count4) Distributed File System Design 设计实时位置系统......
         </div>
     </a>
     <p class="post-meta">
@@ -373,28 +373,6 @@ mysql悲观锁详解
 
 <div class="post-preview">
 
-    <a href="/2017/11/27/distribution_system/service_discovery/">
-        <h2 class="post-title">
-            服务发现与配置
-        </h2>
-        <h3 class="post-subtitle">
-             "服务发现与配置"
-        </h3>
-        <div class="post-content-preview">
-            etcd
-...
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2017-11-27
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
     <a href="/2017/11/27/distribution_system/trace/">
         <h2 class="post-title">
             分布式系统追踪
@@ -410,6 +388,28 @@ mysql悲观锁详解
 jaegertracing/jaeger
 jaegertracing/jaeger
 
+...
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2017-11-27
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/27/distribution_system/service_discovery/">
+        <h2 class="post-title">
+            服务发现与配置
+        </h2>
+        <h3 class="post-subtitle">
+             "服务发现与配置"
+        </h3>
+        <div class="post-content-preview">
+            etcd
 ...
         </div>
     </a>
@@ -496,11 +496,11 @@ jaegertracing/jaeger
                             
                         
                             
-                            <a href="/tags/#distribution_system" title="distribution_system" rel="10">distribution_system</a>
+                            <a href="/tags/#devops" title="devops" rel="2">devops</a>
                             
                         
                             
-                            <a href="/tags/#devops" title="devops" rel="2">devops</a>
+                            <a href="/tags/#distribution_system" title="distribution_system" rel="10">distribution_system</a>
                             
                         
                             
