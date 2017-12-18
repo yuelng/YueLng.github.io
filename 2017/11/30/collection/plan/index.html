@@ -13,11 +13,11 @@
 
     <title>
         
-          Git速查表/参考手册 - YueLng的博客 | YueLng&#39;s Blog
+          TODO集合 - YueLng的博客 | YueLng&#39;s Blog
         
     </title>
 
-    <link rel="canonical" href="http://yuelng.github.io/2017/11/30/surrounding/study_git/">
+    <link rel="canonical" href="http://yuelng.github.io/2017/11/30/collection/plan/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -161,7 +161,7 @@
 <!-- Post Header -->
 <style type="text/css">
     header.intro-header{
-        background-image: url('http://ogcxtlv6r.bkt.clouddn.com/17-12-16/89744702.jpg')
+        background-image: url('http://ogcxtlv6r.bkt.clouddn.com/17-4-24/12629376-file_1493037486341_618b.jpg')
     }
 </style>
 <header class="intro-header" >
@@ -171,13 +171,13 @@
                 <div class="post-heading">
                     <div class="tags">
                         
-                          <a class="tag" href="/tags/#surrounding" title="surrounding">surrounding</a>
+                          <a class="tag" href="/tags/#collection" title="collection">collection</a>
                         
                     </div>
-                    <h1>Git速查表/参考手册</h1>
-                    <h2 class="subheading"></h2>
+                    <h1>TODO集合</h1>
+                    <h2 class="subheading"> &quot;来不及整理的就放在这吧&quot;</h2>
                     <span class="meta">
-                        Posted by YueLng Chen on
+                        Posted by yueLng on
                         2017-11-30
                     </span>
                 </div>
@@ -197,34 +197,119 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><ul>
-<li><a href="#1">创建</a></li>
-<li><a href="#2">本地修改</a></li>
-<li><a href="#3">搜索</a></li>
-<li><a href="#4">提交历史</a></li>
-<li><a href="#5">分支与标签</a></li>
-<li><a href="#6">更新与发布</a></li>
-<li><a href="#7">合并与重置</a></li>
-<li><a href="#8">撤销</a></li>
+                <h3 id="大纲"><a href="#大纲" class="headerlink" title="大纲"></a>大纲</h3><p>数据库系统、分布式系统、数据科学</p>
+<h3 id="优质资源-个人向"><a href="#优质资源-个人向" class="headerlink" title="优质资源(个人向)"></a>优质资源(个人向)</h3><p><a href="https://dirtysalt.github.io/html/index.html" target="_blank" rel="external">dirtysalt’s homepage</a><br><a href="https://digests.dylanninin.com/" target="_blank" rel="external">digests dylanninin</a></p>
+<h3 id="基础教育"><a href="#基础教育" class="headerlink" title="基础教育"></a>基础教育</h3><p><a href="http://www.aosabook.org/en/index.html" target="_blank" rel="external">The Architecture of Open Source Applications</a><br><a href="https://github.com/aosabook/500lines" target="_blank" rel="external">aosabook-500lines</a><br><a href="https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/" target="_blank" rel="external">about-unicode-and-character-sets</a><br><a href="http://matt.might.net/articles/what-cs-majors-should-know/" target="_blank" rel="external">what-cs-majors-should-know/</a><br><a href="https://www.ybrikman.com/writing/2014/05/29/must-see-tech-talks-for-every-programmer/" target="_blank" rel="external">must-see-tech-talks-for-every-programmer/</a><br><a href="https://github.com/mtdvio/every-programmer-should-know" target="_blank" rel="external">every-programmer-should-know</a><br><a href="https://zhuanlan.zhihu.com/donglaoshi/20472545" target="_blank" rel="external">2016年科技阅读列表</a><br><a href="http://36kr.com/p/5044102.html" target="_blank" rel="external">50家硅谷IT公司技术博客</a><br><a href="http://highscalability.com/" target="_blank" rel="external">http://highscalability.com/</a><br><a href="https://www.quora.com/What-are-some-actual-projects-that-data-scientists-have-worked-on-What-tools-and-analytical-techniques-were-used-and-what-mistakes-were-made" target="_blank" rel="external">about_data_science_demo</a></p>
+<h3 id="TO-DO"><a href="#TO-DO" class="headerlink" title="TO DO"></a>TO DO</h3><p>互联网广告、推荐系统、定向营销、电子商务、信息检索等方面的建模经验;<br>分布式计算平台的使用和并行算法开发经验;<br>严密的数学思维、突出的分析和归纳能力、优秀的沟通表达能力。</p>
+<h3 id="记录"><a href="#记录" class="headerlink" title="记录"></a>记录</h3><ul>
+<li>第三方登录，账户系统（token jwt）</li>
+<li>第三方支付</li>
+<li>微服务架构</li>
+<li>基础技术 golang、restful、web框架、gorm、protobuf、grpc、kafka、postgresql、mysql、redis、nginx、log记录、<br>工作<br>书籍<br>框架源码（设计模式思想）<br>算法题目<br>Golang深入了解<br>机器学习<br>看大厂的博客 看看看！！！！<br>使用golang的国外公司</li>
 </ul>
-<p><img src="/img/git.png" alt="git_model"></p>
-<p><span id="1"></span></p>
-<h2 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git clone ssh://user@domain.com/repo.git #复制一个已创建的仓库</div><div class="line">$ git init #创建一个新的本地仓库</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<p><span id="2"></span></p>
-<h2 id="本地修改"><a href="#本地修改" class="headerlink" title="本地修改"></a>本地修改</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">$ git status        #显示工作路径下已修改的文件</div><div class="line">$ git diff          #显示与上次提交版本文件的不同</div><div class="line">$ git add .         #把当前所有修改和新增的文件加入到下次提交中</div><div class="line">$ git add -u        #把当前所有手动删除的状态为Deleted的文件加入到下次提交中</div><div class="line">$ git add -A        #把当前所有修改、新增，删除的文件加入到下次提交中</div><div class="line">$ git add -p &lt;file&gt; #把对某个文件的修改添加到下次提交中</div><div class="line">$ git commit -a     #提交本地的所有修改</div><div class="line">$ git commit        #提交之前已标记的变化</div><div class="line">$ git commit -m &apos;message&apos; #附加消息提交</div><div class="line"></div><div class="line">#提交到之前的某个时间点:</div><div class="line">$ git commit --date=&quot;`date --date=&apos;n day ago&apos;`&quot; -am &quot;Message&quot;</div><div class="line"></div><div class="line">#修改上次提交 Don&apos;t amend published commits!</div><div class="line">$ git commit --amend</div><div class="line">把当前分支中未提交的修改移动到其他分支</div><div class="line"></div><div class="line">$ git stash</div><div class="line">$ git checkout branch2</div><div class="line">$ git stash pop</div><div class="line">&lt;span id=&quot;3&quot;&gt;&lt;/span&gt;</div></pre></td></tr></table></figure>
-<h2 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git grep &quot;Hello&quot;      #从当前目录的所有文件中查找文本内容</div><div class="line">$ git grep &quot;Hello&quot; v2.5 #在某一版本中搜索文本</div></pre></td></tr></table></figure>
-<p><span id="4"></span></p>
-<h2 id="提交历史"><a href="#提交历史" class="headerlink" title="提交历史"></a>提交历史</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ git log              #从最新提交开始，显示所有的提交记录（显示hash,作者信息,标题和时间）</div><div class="line">$ git log --oneline           #显示所有提交（仅显示提交的hash和message）</div><div class="line">$ git log --author=&quot;username&quot; #显示某个用户的所有提交</div><div class="line">$ git log -p &lt;file&gt;           #显示某个文件的所有修改</div><div class="line">$ git blame &lt;file&gt;            #谁，在什么时间，修改了文件的什么内容</div></pre></td></tr></table></figure>
-<p><span id="5"></span></p>
-<h2 id="分支与标签"><a href="#分支与标签" class="headerlink" title="分支与标签"></a>分支与标签</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ git branch               #列出所有的分支</div><div class="line">$ git checkout &lt;branch&gt;    #切换分支</div><div class="line">$ git branch &lt;new-branch&gt;  #基于当前分支创建新分支</div><div class="line">$ git branch --track &lt;new-branch&gt; &lt;remote-branch&gt; #基于远程分支创建新的可追溯的分支</div><div class="line">$ git branch -d &lt;branch&gt;   #删除本地分支</div><div class="line">$ git tag &lt;tag-name&gt;       #给当前版本打标签</div></pre></td></tr></table></figure>
-<p><span id="6"></span></p>
-<h2 id="更新与发布"><a href="#更新与发布" class="headerlink" title="更新与发布"></a>更新与发布</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">$ git remote -v                     #列出对当前远程端的操作</div><div class="line">$ git remote show &lt;remote&gt;          #显示远程端的信息</div><div class="line">$ git remote add &lt;remote&gt; &lt;url&gt;     #添加新的远程端</div><div class="line">$ git fetch &lt;remote&gt;                #下载远程端版本，但不合并到HEAD中</div><div class="line">$ git remote pull &lt;remote&gt; &lt;url&gt;    #下载远程端版本，并自动与HEAD版本合并</div><div class="line">$ git pull origin master            #将远程端版本合并到本地版本中</div><div class="line">$ git push remote &lt;remote&gt; &lt;branch&gt; #将本地版本发布到远程端</div><div class="line">$ git push --tags                   #发布标签</div><div class="line"></div><div class="line">#删除远程端分支</div><div class="line">$ git push &lt;remote&gt; :&lt;branch&gt;         #(since Git v1.5.0)</div><div class="line">$ git push &lt;remote&gt; --delete &lt;branch&gt; #(since Git v1.7.0)</div></pre></td></tr></table></figure>
-<p><span id="7"></span></p>
-<h2 id="合并与重置"><a href="#合并与重置" class="headerlink" title="合并与重置"></a>合并与重置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$ git merge &lt;branch&gt;    #将分支合并到当前HEAD中</div><div class="line">$ git rebase &lt;branch&gt;   #将当前HEAD版本重置到分支中</div><div class="line">$ git rebase --abort    #退出重置</div><div class="line">$ git rebase --continue #解决冲突后继续重置</div><div class="line">$ git mergetool         #使用配置好的merge tool 解决冲突</div><div class="line"></div><div class="line">#在编辑器中手动解决冲突后，标记文件为`已解决冲突`</div><div class="line">$ git add &lt;resolved-file&gt;;</div><div class="line">$ git rm &lt;resolved-file&gt;;</div></pre></td></tr></table></figure>
-<p><span id="8"></span></p>
-<h2 id="撤销"><a href="#撤销" class="headerlink" title="撤销"></a>撤销</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$ git reset --hard HEAD     #放弃工作目录下的所有修改</div><div class="line">$ git reset HEAD            #移除缓存区的所有文件（i.e. 撤销上次`git add`）:</div><div class="line">$ git checkout -- &lt;file&gt;    #放弃某个文件的当前本地修改</div><div class="line">$ git checkout HEAD &lt;file&gt;  #放弃某个文件的所有本地修改</div><div class="line">$ git revert &lt;commit&gt;       #重置一个提交（通过创建一个截然不同的新提交）</div><div class="line">$ git reset --hard &lt;commit&gt; #将HEAD重置到上一次提交的版本，并放弃之后的所有修改</div><div class="line">$ git reset &lt;commit&gt;        #将HEAD重置到上一次提交的版本，并将之后的修改标记为未添加到缓存区的修改</div><div class="line">$ git reset --keep &lt;commit&gt; #将HEAD重置到上一次提交的版本，并保留未提交的本地修改</div></pre></td></tr></table></figure>
-<h2 id="拓展教程"><a href="#拓展教程" class="headerlink" title="拓展教程"></a>拓展教程</h2><p>1.<a href="http://backlogtool.com/git-guide/cn/" target="_blank" rel="external">猴子都能懂的Git入门</a><br>2.<a href="http://igit.linuxtoy.org/contents.html" target="_blank" rel="external">沉浸式学 Git</a><br>3.<a href="http://rogerdudler.github.io/git-guide/index.zh.html" target="_blank" rel="external">Git简易指南</a><br>4.<a href="http://gitref.justjavac.com/creating/#init" target="_blank" rel="external">Git参考手册</a><br>5.<a href="http://git.oschina.net/progit" target="_blank" rel="external">Pro Git中文版</a></p>
+<p>如何验证创业想法<br>解决这些问题的方法就是在执行前先验证<br>在后台，我们把数据整合成图形进行分析。我们可以看到我们所说的各项选项的数据。点击“购买路径”和“安装软件”的用户百分比超过了我们预先设置的数值。<br>除此之外，通过首页的论坛留言功能，我们还获得了非常有建设性的用户评论。这些数据将对我们决定如何进行下一步裨益良多。</p>
+<p>独树一帜的才称得上是伟大的想法，伟大的头脑从不人云亦云。</p>
+<h3 id="设计思维过程"><a href="#设计思维过程" class="headerlink" title="设计思维过程"></a>设计思维过程</h3><p>共情（Empathize）定义(define)，出方案/头脑风暴（Ideate), 原型制作(prototype)，和测试 (Test)。<br>整个过程的最终目的是要创造出一个产品、服务或是体验。这个产品应该是人们想要的（desirability, 期许性），具有有用的潜质（viability, 生存能力），以及在技术方面能简单方便地实现（feasibility，可行性）。<br><a href="https://zhuanlan.zhihu.com/p/24891146" target="_blank" rel="external">https://zhuanlan.zhihu.com/p/24891146</a></p>
+<h2 id="程序员常用的技能"><a href="#程序员常用的技能" class="headerlink" title="程序员常用的技能"></a>程序员常用的技能</h2><ul>
+<li>重构是程序员的主力技能</li>
+<li>工作日志可以提高脑容量</li>
+<li>先有profiler调查，后有优化</li>
+<li>要写注释，要写注释，要写注释</li>
+<li>写单元测试总是不会错的</li>
+<li>从实现中提炼框架</li>
+<li>代码层次清晰，结构清楚</li>
+<li>管理行不行，就看工作流</li>
+<li>编码不要畏惧变化，要拥抱变化</li>
+<li>常充电，程序员只有一种死法，土死的</li>
+<li>把不靠谱的需求放到最后再做，很可能到时候需求就改了</li>
+<li>可维护性比性能更重要</li>
+<li>解决专业问题的时候，请找专业人士，不要自己瞎钻</li>
+<li>学习新技术，先过一遍文档，后看博客</li>
+<li>删代码，找bug</li>
+<li><p>搜索、debug、看书、多写代码、多思考、多学习新知识、多运动</p>
+</li>
+<li><p>闭环原则 做事要有头有尾</p>
+</li>
+<li>谁难受谁推进 积极主动去挑重担</li>
+<li><p>think bigger 尽量站在另一个高度看问题</p>
+</li>
+<li><p>选择一个可行的目标</p>
+</li>
+<li>设定目标的SMART原则</li>
+<li>挑选重要但是不紧急的事</li>
+<li>读书、写代码、英文，按计划生活，更加自律，更加有规律的生活</li>
+<li>建立生活习惯</li>
+<li>算法，循环队列</li>
+</ul>
+<p>做更少的事情，更好<br>决定哪些事情更重要<br>跟所有其它的事情说“不”<br>当一些琐碎的事情发生时，重读第2步</p>
+<p>眼前事立断立行，长远计日拱一卒<br>Vision/视野 Scope/边界 Schedule/务实 Rework/重来 Team Building/团队战力<br>做事的专注，做人的稳重<br>知止而后有定，定而后能静，静而后能安，安而后能虑，虑而后能得。   ——《大学》</p>
+<p>工作性质不能局限思维活动，体力活动的水平不应该限制脑力活动的水平</p>
+<h6 id="redis数据结构与对象"><a href="#redis数据结构与对象" class="headerlink" title="redis数据结构与对象"></a>redis数据结构与对象</h6><ul>
+<li>字符串对象</li>
+<li>列表对象（list object）</li>
+<li>哈希对象（hash object）</li>
+<li>集合对象（set object）</li>
+<li>有序集合对象（sorted set object）</li>
+</ul>
+<p>关于API</p>
+<p>A well defined pipeline to process requests</p>
+<p>REST API done right (methods, status code and headers)</p>
+<p>Validation made easy（validation应该简单，对不符合预期的一概拒绝）</p>
+<p>Security beared in mind （authorization，使用jwt、“Authorization”头，采用https保护token）</p>
+<p>Policy based request throttling （ACL有时候API有特殊的要求，例如指定国内7点到9点可以访问）</p>
+<p>Easy to add new APIs</p>
+<p>Easy to document and test（应该包含method、path、request、response）</p>
+<p>Introspection（API应该有基本的速度访问控制）</p>
+<p><a href="https://zhuanlan.zhihu.com/p/20691649?refer=prattle" target="_blank" rel="external">再谈API的撰写-架构</a></p>
+<p> <a href="https://github.com/papers-we-love/papers-we-love/blob/master/api_design/api-design.pdf" target="_blank" rel="external">Little Manual of API Design</a></p>
+<p>什么是真正的restful架构，什么是非典型restful架构</p>
+<p>“thin controllers, fat services” methodology</p>
+<p><em>Education is an admirable thing. But it is well to remember from time to time that *</em>nothing that is worth knowing can be taught</p>
+<ul>
+<li>查看文档，基本的运维说明</li>
+</ul>
+<ul>
+<li>配置环境，拉取源码，查看项目结构</li>
+<li>采用git源码管理，手动部署项目，使用简易脚本切换 机器，部署代码而不是敲命令。</li>
+</ul>
+<p>工程化</p>
+<p>如何配置golang开发环境</p>
+<p>如何建立基本的git源码管理（gitlab服务器）</p>
+<p>如何运维，更加方便快捷的连接到服务器，jump web data sandbox</p>
+<p>是否应该使用 jenkins或者其他的部署工具，</p>
+<p>使用微服务，如何处理订单或者处理服务间的事务</p>
+<p>微服务部署的最佳实践方式，单个服务的快捷部署。</p>
+<p>微服务的kubernetes运维</p>
+<p>一个微服务的基本结构</p>
+<p>kc：一个服务主要分为client，service</p>
+<ul>
+<li>service主要实现该服务的具体方法，直接与dao层数据库交互</li>
+<li>client抽象封装了grpc的调用过程，使得外界调用参数更加简化，基本是调用本身服务</li>
+<li>加载配置文件，根据配置文件生成连接客户端，mysql、ssdb、kafka</li>
+<li>所有的微服务都使用同一个 数据库，所以事务保证就可以很容易做了（使用不同的库？还是相同的库）</li>
+<li>统一使用protobuf作为序列化工具，从服务间调用到restful调用</li>
+</ul>
+<p> 微信登录原理与流程，grantToken，验证码，</p>
+<p>web框架的原理，tornado、beego、gin</p>
+<p>golang 正则表达式（regexp.MustCompile(“Bearer (\S+)”)） bearerTokenRegex.FindSubmatch</p>
+<p>base controller 基本信息设置，获取token，输出json</p>
+<p>日志级别与收集，</p>
+<p>缓存的利用</p>
+<p>代码级别的事务如何实现</p>
+<p>reportresult、getcouponlist</p>
+<h3 id="简历该怎么写"><a href="#简历该怎么写" class="headerlink" title="简历该怎么写"></a>简历该怎么写</h3><p>1.负责企业应用微服务架构的模块设计，承担核心功能模块的代码编写；<br>2.互联网新技术的预研和产品化的工作；<br>3.优化系统性能以及重构系统。</p>
+<p>实现了什么功能、选型、方案？遇到了哪些问题？</p>
+<h3 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h3><ul>
+<li><a href="https://www.zhihu.com/question/34074946" target="_blank" rel="external">HTTP/2.0 相比1.0有哪些重大改进？</a></li>
+<li><a href="http://www.liyaoli.com/2015-04-18/HTTP-2.0.html" target="_blank" rel="external">HTTP2.0的总结</a></li>
+<li><a href="http://io.upyun.com/2015/05/13/http2/" target="_blank" rel="external">HTTP/2 新特性浅析</a></li>
+<li><a href="https://imququ.com/post/http2-resource.html" target="_blank" rel="external">HTTP/2 资料汇总</a></li>
+<li><a href="http://www.alloyteam.com/2016/07/httphttp2-0spdyhttps-reading-this-is-enough/" target="_blank" rel="external">HTTP、HTTPS你需要知道的事</a></li>
+<li><p><a href="http://coolshell.cn/articles/11564.html" target="_blank" rel="external">TCP 的那些事儿</a></p>
+</li>
+<li><p><a href="http://wdxtub.com/2016/08/15/kafka-guide/" target="_blank" rel="external">Kafka 指南</a></p>
+</li>
+</ul>
 
 
                 <hr>
@@ -234,12 +319,12 @@
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/2017/11/30/collection/source_all/" data-toggle="tooltip" data-placement="top" title="一些有用的链接（持续更新）">&larr; Previous Post</a>
+                            <a href="/2017/11/30/surrounding/markdown/" data-toggle="tooltip" data-placement="top" title="markdown基本操作">&larr; Previous Post</a>
                         </li>
                     
                     
                         <li class="next">
-                            <a href="/2017/11/30/surrounding/study_linux/" data-toggle="tooltip" data-placement="top" title="Linux基础知识与命令（Ubuntu14.10）">Next Post &rarr;</a>
+                            <a href="/2017/11/30/computer_science/study_server/" data-toggle="tooltip" data-placement="top" title="服务器端编程基础积累">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -286,7 +371,7 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#surrounding" title="surrounding">surrounding</a>
+                          <a class="tag" href="/tags/#collection" title="collection">collection</a>
                         
                     </div>
                 </section>
@@ -316,8 +401,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "tamchen";
-    var disqus_identifier = "http://yuelng.github.io/2017/11/30/surrounding/study_git/";
-    var disqus_url = "http://yuelng.github.io/2017/11/30/surrounding/study_git/";
+    var disqus_identifier = "http://yuelng.github.io/2017/11/30/collection/plan/";
+    var disqus_url = "http://yuelng.github.io/2017/11/30/collection/plan/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
