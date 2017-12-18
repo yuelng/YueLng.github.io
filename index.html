@@ -96,14 +96,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -239,16 +239,24 @@ jaegertracing/jaeger
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/distribution_system/study_distribute_item/">
+    <a href="/2017/11/30/system_design/cache/">
         <h2 class="post-title">
-            分布式系统要点记录
+            缓存系统的设计
         </h2>
         <h3 class="post-subtitle">
-             "微服务的惯用架构"
+             "缓存系统的设计"
         </h3>
         <div class="post-content-preview">
-            The Twelve Factor AppThe Twelve Factor App网关聚合服务 提供restful接口grpc 内网调用服务发现，使用etcd自动服务注册服务配置，使用etcd存储配置服务快速部署服务logging记录服务调用链的追踪服务质量的监控，响应时间缓存的应用
-典型架构缓存、消息、搜索Nginx+Tornado+mysql+pythonNginx+rest.li+r......
+            memcache、redis 深入理解
+
+缓存模块从无到有，要如何设计？
+要考虑哪些因素？
+如何方式设计不足？
+如何防止设计过度？
+如何满足实际需求？
+要明确哪些问题，才能逐步的完善出一套实现方案？
+
+如何用redis/memcache做Mysql缓存层?面对缓存，有哪些问题需要思考？[缓存方案如何设计才能切合业务需求？]{https://www.zhihu.com/question/377......
         </div>
     </a>
     <p class="post-meta">
@@ -282,24 +290,16 @@ jaegertracing/jaeger
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/system_design/cache/">
+    <a href="/2017/11/30/distribution_system/study_distribute_item/">
         <h2 class="post-title">
-            缓存系统的设计
+            分布式系统要点记录
         </h2>
         <h3 class="post-subtitle">
-             "缓存系统的设计"
+             "微服务的惯用架构"
         </h3>
         <div class="post-content-preview">
-            memcache、redis 深入理解
-
-缓存模块从无到有，要如何设计？
-要考虑哪些因素？
-如何方式设计不足？
-如何防止设计过度？
-如何满足实际需求？
-要明确哪些问题，才能逐步的完善出一套实现方案？
-
-如何用redis/memcache做Mysql缓存层?面对缓存，有哪些问题需要思考？[缓存方案如何设计才能切合业务需求？]{https://www.zhihu.com/question/377......
+            The Twelve Factor AppThe Twelve Factor App网关聚合服务 提供restful接口grpc 内网调用服务发现，使用etcd自动服务注册服务配置，使用etcd存储配置服务快速部署服务logging记录服务调用链的追踪服务质量的监控，响应时间缓存的应用
+典型架构缓存、消息、搜索Nginx+Tornado+mysql+pythonNginx+rest.li+r......
         </div>
     </a>
     <p class="post-meta">
@@ -312,16 +312,16 @@ jaegertracing/jaeger
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/language/study_python/">
+    <a href="/2017/11/30/language/study_shell/">
         <h2 class="post-title">
-            python学习
+            python的装饰器与JavaScript中的闭包
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            Ubuntu下配置基本的Python开发环境安装Python发布版本和build依赖包
-/# 安装 Python 发布版本，dev包必须安装，很多用pip安装包都需要编译sudo apt-get install python2.7 python2.7-dev python3.4 python3.4-dev/#很多pip安装的包都需要libssl和libevent编译环境sudo apt-ge......
+            1.摘要这里记录关于Python装饰器和JavaScript闭包的学习笔记
+2.1Python中的装饰器12345678910111213def makebold(fn):    def wrapped():        return "&lt;b&gt;" + fn() + "&lt;/b&gt;"    return wrappeddef makeitalic(fn):    def ......
         </div>
     </a>
     <p class="post-meta">
@@ -334,15 +334,15 @@ jaegertracing/jaeger
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/computer_science/study_flooding/">
+    <a href="/2017/11/30/thinking/study_software/">
         <h2 class="post-title">
-            SYN洪泛攻击的原理与实现
+            团队项目开发与规范
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            设计原理SYN-Flood是目前最流行的DDoS攻击手段，DDoS只是洪水攻击的一个种类。其实还有其它种类的洪水攻击。以前的DoS手段在向分布式这一阶段发展的过程中也经历了逐步淘汰的过程。SYN-Flood的攻击效果最好，故众黑客不约而同选择它。以下了解一下SYN-Flood的详细情况。Syn Flood利用了TCP/IP协议的固有漏洞。面向连接的TCP三次握手是Syn Flood存在的基础......
+            个人理解团队是因为有相同的目标才聚集在一起，所有在做一个项目的开始，要让所有成员认同项目的前景。团队的大小个人认为最多20个人。虽然说很有必要保证规范化，但是我认为按部就班只能扼杀人的创造力，但是一些的必要的流程规范还是要的，也就是下面说的开发流程规范，有些人认为这样不会有很好的技术文化积累。我想的是技术文档和团队文化并不和小而美的团队相冲突，文档取决于个人的工作习惯，而文化取决于每个人以及......
         </div>
     </a>
     <p class="post-meta">
@@ -355,16 +355,17 @@ jaegertracing/jaeger
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/system_design/study_model/">
+    <a href="/2017/11/30/thinking/think_first/">
         <h2 class="post-title">
-            设计模式简要介绍
+            把思维好好捋一捋
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            创建型模式简单工厂模式简单工厂模式的要点在于：当你需要什么，只需要传入一个正确的参数，就可以获取你所需要的对象，而无须知道其创建细节。1KeyGenerator keyGen=KeyGenerator.getInstance("DESede");//获取不同加密算法的密钥生成器
-工厂方法模式工厂父类负责定义创建产品对象的公共接口，而工厂子类则负责生成具体的产品对象，这样做的目的是将产品类的实......
+            骐骥一跃，不能十步；驽马十驾，功在不舍。
+胡乱扯扯1研究：研究东西，有足够洞察力，研究水准不错2研发：Hack Idea自己有魄力实现，不懂研发的黑客如同不会游泳的海盗3工程：研发出来的需要实战、需要工程化，否则只是玩具，而不能成为真的武器
+关于就业和能力就业实习，还是有压力的。听过学长学姐们的经历，他们有进大公司也有初创企业的，前天还在群里争论是去哪种好，引得一个在初创公司的学长，把月薪都......
         </div>
     </a>
     <p class="post-meta">
@@ -401,20 +402,22 @@ jaegertracing/jaeger
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/devops/study_environment/">
+    <a href="/2017/11/30/computer_science/study_server/">
         <h2 class="post-title">
-            基础服务环境搭建
+            服务器端编程基础积累
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            这篇文章主要是针对大数据平台的搭建，主要包括的内容有
+            UNIX I/O模型
+阻塞IO
+非阻塞IO
+IO多路复用
+信号驱动IO
+异步IO
 
-vagrant虚拟机环境搭建
-Hadoop集群搭建
-memcached集群搭建
-storm集群搭建一些架构可行的架构：Flume + Kafka + Strom + Hbase 使用vagrant搭建系统安装上 http://www.vagrantbox.es/ 找下载需要的 box ， 譬如 Ubuntu 14.10（based on......
+nginx模型...
         </div>
     </a>
     <p class="post-meta">
@@ -470,6 +473,8 @@ storm集群搭建一些架构可行的架构：Flume + Kafka + Strom + Hbase 使
                             
                         
                             
+                        
+                            
                             <a href="/tags/#devops" title="devops" rel="2">devops</a>
                             
                         
@@ -482,21 +487,19 @@ storm集群搭建一些架构可行的架构：Flume + Kafka + Strom + Hbase 使
                             
                         
                             
+                            <a href="/tags/#life_is_short" title="life_is_short" rel="2">life_is_short</a>
+                            
                         
                             
                             <a href="/tags/#language" title="language" rel="4">language</a>
                             
                         
                             
-                            <a href="/tags/#life_is_short" title="life_is_short" rel="2">life_is_short</a>
+                            <a href="/tags/#operation" title="operation" rel="2">operation</a>
                             
                         
                             
                             <a href="/tags/#project" title="project" rel="7">project</a>
-                            
-                        
-                            
-                            <a href="/tags/#operation" title="operation" rel="2">operation</a>
                             
                         
                             
