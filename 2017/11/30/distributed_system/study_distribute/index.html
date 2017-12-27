@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+          关于Log在分布式系统中的应用以及未来 - YueLng的博客 | YueLng&#39;s Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://yuelng.github.io/2017/11/30/distributed_system/study_distribute/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <!-- Font CSS -->
+    <link rel="stylesheet" href="/css/font.min.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">To Infinity And Beyond!</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archives/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    
+<!-- Image to hack wechat -->
+<!-- <img src="http://yuelng.github.io/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('http://ogcxtlv6r.bkt.clouddn.com/17-12-16/89744702.jpg')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/tags/#distribution_system" title="distribution_system">distribution_system</a>
+                        
+                    </div>
+                    <h1>关于Log在分布式系统中的应用以及未来</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by YueLng Chen on
+                        2017-11-30
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <h2 id="The-Log"><a href="#The-Log" class="headerlink" title="The Log"></a>The Log</h2><p>&emsp;&emsp;有一段时间被一篇称为<a href="http://blog.jobbole.com/88301/" target="_blank" rel="external">学习笔记：The Log（我所读过的最好的一篇分布式技术文章）</a>所刷屏，各大技术文章推荐APP和微信都推荐了这篇文章，来自于LinkedIn关于kafka的文章，核心如题—The Log。（你可以把这节看成对这篇文章的缩减）</p>
+<h2 id="（一）log由来、重要性、应用"><a href="#（一）log由来、重要性、应用" class="headerlink" title="（一）log由来、重要性、应用"></a>（一）log由来、重要性、应用</h2><p>&emsp;&emsp;对于任何一项新技术都会先抛出三个问题what？why？how？。首先log是记录何时发生了什么，这里主要要与普通应用日志所区分开来，log是更大范围的数据记录。它是分布式数据系统和实时计算系统的核心，在数据库中log主要保证数据的ACID，面向机器的log同样也可以用在<br>– 消息系统<br>– 数据流（data flow）<br>– 实时计算<br>在分布式系统中主要解决两个很重要的分布式数据系统中的问题：1) 有序的数据变化，2) 数据分布式化，一般来讲日志会分为物理日志：实际内容发生的变化，逻辑日志：对数据所有操作的日志。在分布式中应用分为<br>1） State machine model（active – active）<br>2） Primary-back model (active – passive)<br>如下图所示<br><img src="/img/primary-backup.jpg" width="523px" height="240px"><br><a id="more"></a></p>
+<h2 id="（二）数据集成（log如何扮演中间人作用）"><a href="#（二）数据集成（log如何扮演中间人作用）" class="headerlink" title="（二）数据集成（log如何扮演中间人作用）"></a>（二）数据集成（log如何扮演中间人作用）</h2><p>&emsp;&emsp;所谓数据集成，就是将一个组织中的所有服务和系统的数据，变得可用。数据集成的主要问题在于如何集成事件数据或者说应用日志数据。日志是具有结构性的，这意味着log在数据源和订阅者之间充当管家的职能，看到这可能有人会问消息系统不也可以这样做吗，之所以分开来讨论，是因为它们之间保持的特性不同，消息系统更重要的是在系统间传递有效信息。而log则提供了持久性保证以及强有序的语义，这点在通讯系统中，称为原子广播。消息系统+log=kafka<br><img src="/img/kafka.jpg" width="523px" height="240px"></p>
+<h2 id="（三）事件与log有效应用（log的具体优势）"><a href="#（三）事件与log有效应用（log的具体优势）" class="headerlink" title="（三）事件与log有效应用（log的具体优势）"></a>（三）事件与log有效应用（log的具体优势）</h2><p>&emsp;&emsp;在众多事件响应中我们需要以log为核心的架构实现无耦合的、事件驱动的系统，通过离线处理事件，利用log的结构化数据，我们可以在这基础上构建搜索、实时监控、实时报警等等，因为从log出来的数据是干净和规范的。log在流处理方面主要有两方面目的<br>1） 保证了数据集可以支持多个订阅者模式，及有序。<br>2） 可以作为应用的缓冲区。这点很重要，在非同步的数据处理进程中，如果上游的生产者出数据的速度更快，消费者的速度跟不上，这种情况下，要么使处理进程阻塞，要么引入缓冲区，要么丢弃数据或阻塞处理。</p>
+<h2 id="（四）扩展性和log合并回收处理（log如何解决难点）"><a href="#（四）扩展性和log合并回收处理（log如何解决难点）" class="headerlink" title="（四）扩展性和log合并回收处理（log如何解决难点）"></a>（四）扩展性和log合并回收处理（log如何解决难点）</h2><p>&emsp;&emsp;扩展性主要通过下面三个方面来实现<br>1) 对log进行分割（partitioning the log）<br>2) 通过批量读写优化吞吐量（将小的读写log组成更大的、高吞吐量操作）<br>3) 避免不必要的数据拷贝 零拷贝数据传输技术（zero-copy data transfer）<br>Kafka使用了log合并或者log垃圾回收技术：<br>1）对于事件数据，kafka只保留一个时间窗口（可在时间上配置为几天，或者按空间来配置）<br>2）对于keyed update，kafka采用压缩技术。此类log，可以用来在另外的系统中通过重放技术来重建源系统的状态。</p>
+<h2 id="（五）从log角度如何看待分布式系统（系统构建）"><a href="#（五）从log角度如何看待分布式系统（系统构建）" class="headerlink" title="（五）从log角度如何看待分布式系统（系统构建）"></a>（五）从log角度如何看待分布式系统（系统构建）</h2><p>&emsp;&emsp;log在任何系统中都扮演着下列角色<br>1：抽象数据流，2：保持数据一致性，3：提供数据恢复能力<br>你可以将整个机构中的应用系统和数据流，看作是一个单独的分布式数据库。<br>将面向查询的独立系统，比如Redis , SOLR , Hive tables 等等，看作是一种特别的、数据之上的索引。<br>将Storm、Samza等流处理系统，看做一种精心设计过的触发器或者物化视图机制。<br>log的出现主要是解决以下问题<br>1) 处理数据一致性问题。无论是立即一致性还是最终一致性，都可以通过序列化对于节点的并发操作来达到。<br>2) 在节点间提供数据复制。<br>3) 提供“提交”的语义。比如，在你认为你的写操作不会丢失的情况下进行操作确认。<br>4) 提供外部系统可订阅的数据源（feeds）。<br>5) 当节点因失败而丢失数据时，提供恢复的能力，或者重新构建新的复制节点。<br>6) 处理节点间的负载均衡。<br><img src="/img/fullstack.jpg" width="523px" height="240px"><br>显然，一个以log为核心的分布式系统，其本身立即成为了可对其它系统提供数据装载支持及数据流处理的角色。同样的，一个流处理系统，也可以同时消费多个数据流，并通过对这些数据流进行索引然后输出的另一个系统，来对外提供服务。</p>
+<p>基于log层和服务层来构建系统，使得查询相关的因素与系统的可用性、一致性等因素解耦。</p>
+<h2 id="（六）总结"><a href="#（六）总结" class="headerlink" title="（六）总结"></a>（六）总结</h2><p>&emsp;&emsp;这篇文章主要讲了log在分布式系统的应用，kafka这个框架则是融合了消息系统和log。所有的这些我们可以看出分布式系统朝着数据基础设施被离散为一组服务，以及面向应用的系统API，从LinkedIn的Java技术栈可以看出<br>– ZooKeeper：解决分布式系统的同步、协作问题（也可能受益于更高抽象层次的组件如helix、curator）.<br>– Mesos、YARN：解决虚拟化和资源管理问题。<br>– 嵌入式的组件Lucene、LevelDB：解决索引问题。<br>– Netty、Jetty及更高抽象层次的Finagle、rest.li解决远程通讯问题。<br>– Avro、Protocol Buffers、Thrift及umpteen zlin：解决序列化问题。<br>– Kafka、bookeeper：提供backing log能力。</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>1.<a href="http://blog.jobbole.com/88301/" target="_blank" rel="external">学习笔记：The Log（我所读过的最好的一篇分布式技术文章）</a>kafka, log, 分布式, 数据库<br>2.<a href="http://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying" target="_blank" rel="external">log：每个工程师都应该知道实时数据的统一抽象</a>源文，出自LinkedIn</p>
+
+
+                <hr>
+
+                
+
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2017/11/30/thinking/think_master_function/" data-toggle="tooltip" data-placement="top" title="编程之路—函数式编程">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/2017/11/30/distributed_system/study_rpc/" data-toggle="tooltip" data-placement="top" title="RPC远程过程调用">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                
+
+                
+                <!-- disqus 评论框 start -->
+                <div class="comment">
+                    <div id="disqus_thread" class="disqus-thread"></div>
+                </div>
+                <!-- disqus 评论框 end -->
+                
+
+            </div>
+    <!-- Side Catalog Container -->
+        
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+        
+
+    <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#distribution_system" title="distribution_system">distribution_system</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="http://blog.kaijun.rocks" target="_blank">Kaijun&#39;s Blog</a></li>
+                    
+                </ul>
+                
+            </div>
+
+        </div>
+    </div>
+</article>
+
+
+
+
+<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "tamchen";
+    var disqus_identifier = "http://yuelng.github.io/2017/11/30/distributed_system/study_distribute/";
+    var disqus_url = "http://yuelng.github.io/2017/11/30/distributed_system/study_distribute/";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus 公共JS代码 end -->
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/tam7_penicillus">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/tamchen">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://www.facebook.com/chen.penicillus">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/yuelng">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; To Infinity And Beyond! 2017
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a>
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span>
+                    Ported by <a href="http://blog.kaijun.rocks">Kaijun</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=kaijun&repo=hexo-theme-huxblog&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--
+     Because of the native support for backtick-style fenced code blocks
+     right within the Markdown is landed in Github Pages,
+     From V1.6, There is no need for Highlight.js,
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://yuelng.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-67304654-1';
+    var _gaDomain = 'yuelng.github.io';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- Side Catalog -->
+
+<script type="text/javascript">
+    function generateCatalog (selector) {
+        var P = $('div.post-container'),a,n,t,l,i,c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#"+$(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="'+i+'" rel="nofollow">'+t+'</a>');
+            l = $('<li class="'+n+'_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    // toggle side catalog
+    $(".catalog-toggle").click((function(e){
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    /*
+     * Doc: https://github.com/davist11/jQuery-One-Page-Nav
+     * Fork by Hux to support padding
+     */
+    async("/js/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+
+
+<!-- Image to hack wechat -->
+<img src="http://yuelng.github.io/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>
