@@ -13,7 +13,7 @@
 
     <title>
         
-          分布式系统的一致性算法 - YueLng的博客 | YueLng&#39;s Blog
+          分布式系统的一致性算法-raft - YueLng的博客 | YueLng&#39;s Blog
         
     </title>
 
@@ -96,13 +96,6 @@
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
                             <a href="/about/">About</a>
                         </li>
                         
@@ -111,6 +104,13 @@
                         
                         <li>
                             <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
@@ -174,7 +174,7 @@
                           <a class="tag" href="/tags/#distribution_system" title="distribution_system">distribution_system</a>
                         
                     </div>
-                    <h1>分布式系统的一致性算法</h1>
+                    <h1>分布式系统的一致性算法-raft</h1>
                     <h2 class="subheading"> &quot;如何解决集群内共识的问题&quot;</h2>
                     <span class="meta">
                         Posted by yueLng on
@@ -197,7 +197,20 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p><a href="http://thesecretlivesofdata.com/raft/" target="_blank" rel="external">raft动画</a><br><a href="https://raft.github.io/" target="_blank" rel="external">The Raft Consensus Algorithm</a><br><a href="https://mp.weixin.qq.com/s/1rz-sV5tg97OuQ04rDwScQ" target="_blank" rel="external">深入浅出 Raft - Membership Change</a></p>
+                <ol>
+<li><p>Leader Election<br><img src="http://ogcxtlv6r.bkt.clouddn.com/17-12-27/68747776.jpg"></p>
+</li>
+<li><p>Log Replication<br><img src="http://ogcxtlv6r.bkt.clouddn.com/17-12-27/26365677.jpg"></p>
+</li>
+<li><p>Safety </p>
+</li>
+</ol>
+<p>大多数数据一致才会被提交<br>我们在写入数据的时候，一定会保证至少 quorum 的节点都成功被写入了数据，才会认为这次写入是成功的。</p>
+<p>Raft 使用的是 Log Replication + State Machine 的方式来处理分布式数据的一致性问题，这也是现在的通用做法</p>
+<p>三个节点允许一个节点失败<br>五个节点允许两个节点失败</p>
+<p>所有操作都是通过Leader节点，所以etcd可能会有单点问题？</p>
+<p>raft节点的状态转换</p>
+<p><a href="http://thesecretlivesofdata.com/raft/" target="_blank" rel="external">raft动画</a><br><a href="https://raft.github.io/" target="_blank" rel="external">The Raft Consensus Algorithm</a><br><a href="https://github.com/maemual/raft-zh_cn/blob/master/raft-zh_cn.md" target="_blank" rel="external">寻找一种易于理解的一致性算法(论文中文版)</a><br><a href="http://catkang.github.io/2017/06/30/raft-subproblem.html" target="_blank" rel="external">Raft和它的三个子问题</a><br><a href="https://mp.weixin.qq.com/s/1rz-sV5tg97OuQ04rDwScQ" target="_blank" rel="external">深入浅出 Raft - Membership Change</a><br><a href="https://mp.weixin.qq.com/s?__biz=MzI3NDIxNTQyOQ==&amp;mid=2247485387&amp;idx=2&amp;sn=dd8790a8a07b09cbe76e463931f839d9" target="_blank" rel="external">深入浅出 Raft - 基本概念</a><br><a href="https://mp.weixin.qq.com/s?__biz=MzI3NDIxNTQyOQ==&amp;mid=2247485422&amp;idx=2&amp;sn=21ac47e0010331412a31cc424cefbf13" target="_blank" rel="external">深入浅出 Raft - Optimization</a><br><a href="https://mp.weixin.qq.com/s?__biz=MzI3NDIxNTQyOQ==&amp;mid=2247485414&amp;idx=1&amp;sn=598e3e734b7a59bc0763f3e67c2602a7" target="_blank" rel="external">深入浅出 Raft - Leader 选举</a></p>
 
 
                 <hr>
@@ -207,7 +220,7 @@
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/2017/12/12/financial/snow_ball/" data-toggle="tooltip" data-placement="top" title="雪球2017嘉年华">&larr; Previous Post</a>
+                            <a href="/2017/11/30/distributed_system/study_distribute_item/" data-toggle="tooltip" data-placement="top" title="分布式系统要点记录">&larr; Previous Post</a>
                         </li>
                     
                     
