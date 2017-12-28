@@ -13,11 +13,11 @@
 
     <title>
         
-          编程之路—函数式编程 - YueLng的博客 | YueLng&#39;s Blog
+          服务容错 - YueLng的博客 | YueLng&#39;s Blog
         
     </title>
 
-    <link rel="canonical" href="http://yuelng.github.io/2017/11/30/thinking/think_master_function/">
+    <link rel="canonical" href="http://yuelng.github.io/2017/12/28/distributed_system/reliable/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -161,7 +161,7 @@
 <!-- Post Header -->
 <style type="text/css">
     header.intro-header{
-        background-image: url('http://ogcxtlv6r.bkt.clouddn.com/17-12-16/89744702.jpg')
+        background-image: url('http://ogcxtlv6r.bkt.clouddn.com/17-12-27/44498692.jpg')
     }
 </style>
 <header class="intro-header" >
@@ -171,14 +171,14 @@
                 <div class="post-heading">
                     <div class="tags">
                         
-                          <a class="tag" href="/tags/#thinking" title="thinking">thinking</a>
+                          <a class="tag" href="/tags/#coding" title="coding">coding</a>
                         
                     </div>
-                    <h1>编程之路—函数式编程</h1>
-                    <h2 class="subheading"></h2>
+                    <h1>服务容错</h1>
+                    <h2 class="subheading"> &quot;Fault tolerance/Reliable&quot;</h2>
                     <span class="meta">
-                        Posted by YueLng Chen on
-                        2017-11-30
+                        Posted by yueLng on
+                        2017-12-28
                     </span>
                 </div>
             </div>
@@ -197,51 +197,14 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h3 id="编程之路"><a href="#编程之路" class="headerlink" title="编程之路"></a>编程之路</h3><ul>
-<li>编程规范</li>
-<li>函数式编程</li>
-<li>性能与优化</li>
-<li>单元测试</li>
-</ul>
-<h4 id="概念定义"><a href="#概念定义" class="headerlink" title="概念定义"></a>概念定义</h4><blockquote>
-<p>In computer science, functional programming is a programming paradigm that treats computation as the evaluation of mathematical functions and avoids state and mutable data.函数式编程是一种编程模型，他将计算机运算看做是数学中函数的计算，并且避免了状态以及变量的概念</p>
-</blockquote>
-<h4 id="函数式编程"><a href="#函数式编程" class="headerlink" title="函数式编程"></a>函数式编程</h4><p>函数式编程的核心思想是避免副作用，也就是说，函数接受参数并生成输出而不保留任何状态或修改任何不反映在返回值中的内容，遵循这种理想方式的函数可以被看成纯函数式函数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">/# 一个非纯函数</div><div class="line">def remove_last_item(mylist):</div><div class="line">	mylist.pop(-1) # this modifiles mylist</div></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">/# 一个纯函数</div><div class="line">def butlast(mylist):</div><div class="line">	return mylist[:-1] # this returns a copy of mylist</div></pre></td></tr></table></figure>
-<h4 id="函数式编程实用特点"><a href="#函数式编程实用特点" class="headerlink" title="函数式编程实用特点"></a>函数式编程实用特点</h4><ul>
-<li>可行化证明，（数学理论）</li>
-<li>模块化，在一定程度上对问题进行分冶</li>
-<li>简洁语法</li>
-<li>并发</li>
-<li>可测性</li>
-</ul>
-<h4 id="Python中的函数式编程"><a href="#Python中的函数式编程" class="headerlink" title="Python中的函数式编程"></a>Python中的函数式编程</h4><blockquote>
-<p>代码是命令式的。一个函数式的版本应该是声明式的</p>
-</blockquote>
-<h5 id="Map-映射"><a href="#Map-映射" class="headerlink" title="Map(映射)"></a>Map(映射)</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">name_lengths = map(len, [<span class="string">"Mary"</span>, <span class="string">"Isla"</span>, <span class="string">"Sam"</span>])</div><div class="line">squares = map(<span class="keyword">lambda</span> x: x * x, [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>])</div></pre></td></tr></table></figure>
-<h5 id="Reduce-迭代"><a href="#Reduce-迭代" class="headerlink" title="Reduce(迭代)"></a>Reduce(迭代)</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sum = reduce(<span class="keyword">lambda</span> a, x: a + x, [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>])</div></pre></td></tr></table></figure>
-<h4 id="lambda表达式"><a href="#lambda表达式" class="headerlink" title="lambda表达式"></a>lambda表达式</h4><blockquote>
-<p>lambda包括一条变换规则（变量替换）和一条函数定义方式，Lambda演算之通用在于，任何一个可计算函数都能用这种形式来表达和求值。因而，它是等价于图灵机的.</p>
-</blockquote>
-<p>摘自wikipedia<br>在编程语言中，等价于匿名函数，被称为lambda表达式，作用是作为参数传入高阶函数，或者作为闭包返回<br>原本的lambda算子是只接收一个参数作为输入，在匿名函数中可以看到lambda是支持多个参数的，如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(x,y) -&gt; x*y</div></pre></td></tr></table></figure></p>
-<p>这种看似一个lambda表达式，其实是两个，而这种接受一个参数返回另一个接收第二个参数的函数叫柯里化</p>
-<h4 id="一些关于函数式编程的文章"><a href="#一些关于函数式编程的文章" class="headerlink" title="一些关于函数式编程的文章"></a>一些关于函数式编程的文章</h4><ul>
-<li><a href="http://www.cnblogs.com/kym/archive/2011/03/07/1976519.html" target="_blank" rel="external">函数式编程扫盲篇</a><br>飞林沙，推荐系统专家，这篇文章首先是说明了函数式编程在wiki上的概念，即本文定义，然后由erlang编程为例，高并发的使用更加轻量级的进程和函数不变性。接着说道函数式编程在现代编程中的意义，文章中特意对这一句话描红，是这样说的<blockquote>
-<p>多核并行程序设计就这样被推到了前线，而命令式编程天生的缺陷却使并行编程模型变得非常复杂，无论是信号量，还是锁的概念，都使程序员不堪其重。</p>
-</blockquote>
-</li>
-</ul>
-<p>函数式在数学上表示就是，对应特定的输入，经过一系列函数，结果应该是可预见的，在抽象层面来说，是使用函数为最小单位，构造高阶函数对现实的重新代码抽象，需要注意的一点是，函数式编程是通过函数参数来保持状态的，作为函数的附属品。<br>递归是函数式编程绕不开的话题，文章指出循环在于描述我们该如何解决问题，而递归在于描述这个问题<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">Fib</span><span class="params">(a)</span>:</span></div><div class="line">    <span class="keyword">if</span> a==<span class="number">0</span> <span class="keyword">or</span> a==<span class="number">1</span>:</div><div class="line">        <span class="keyword">return</span> <span class="number">1</span></div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        <span class="keyword">return</span> Fib(a<span class="number">-2</span>)+Fib(a<span class="number">-1</span>)</div></pre></td></tr></table></figure></p>
-<p>关于尾递归和伪递归，尾递归就是不要保持当前递归函数的状态，而把需要保持的东西全部用参数给传到下一个函数里，这样就可以自动清空本次调用的栈空间。斐波拉契数列尾递归的写法，下面是树形递归<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">Fib</span><span class="params">(a,b,n)</span>:</span></div><div class="line">    <span class="keyword">if</span> n==<span class="number">0</span>:</div><div class="line">       <span class="keyword">return</span> b</div><div class="line">    <span class="keyword">else</span>:</div><div class="line">       <span class="keyword">return</span> Fib(b,a+b,n<span class="number">-1</span>)</div></pre></td></tr></table></figure></p>
-<p>对于上述代码的解释，传入的a和b分别是前两个数，那么每次我都推进一位，那么b就变成了第一个数，而a+b就变成的第二个数。其实对于尾递归都可以转化为循环的写法，还是编译器是否支持的问题，转化为循环迭代就不会有堆栈溢出的问题了<br>惰性求值和并行,如以下代码，获取a和b的值并无直接关联，如果可以利用多核的优势，使得获取a和b值的总时间为获取其中一个值的最长时间<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">getResult</span><span class="params">()</span>:</span></div><div class="line">    a = getA()   //Take a long time</div><div class="line">    b = getB()   //Take a long time</div><div class="line">    c = a + b</div></pre></td></tr></table></figure></p>
-<ul>
-<li><p><a href="http://python.jobbole.com/82163/" target="_blank" rel="external">Python函数式编程指南</a></p>
-</li>
-<li><p><a href="http://www.yinwang.org/blog-cn/2013/03/31/purely-functional/" target="_blank" rel="external">对函数式语言的误解</a><br>来自王垠大神对于函数式编程的理解，主要说明了一些Haskell使用者标榜自己是“纯函数式”编程者，但是王大神举了一个产生随机函数的例子来说明，纯函数式编程是没有必要的，虽然在Haskell领域针对这个问题想到了一个解决办法Monad，但是大神又说引入后编程是杂乱的，根本完全没必要，就算最后的实现上产生的机器代码编译后的结果都是相同的，无论是否使用了局部变量来保存中间结果。可以参看Haskell Wiki 关于monad的文章<a href="https://wiki.haskell.org/Monad" target="_blank" rel="external">Monad Class</a>，总的来说大神这篇文章能够给初次接触函数式编程的同学一个总体的认识。</p>
-</li>
-<li><p><a href="https://blog.oyanglul.us/javascript/functional-javascript.html" target="_blank" rel="external">Functional JavaScript Mini Book</a></p>
-</li>
-</ul>
+                <h3 id="容错"><a href="#容错" class="headerlink" title="容错"></a>容错</h3><p>容错，这个词的理解，书面意思就是可以容下错误，不让错误再次扩张，让这个错误产生的影响在一个固定的边界之内<br>在工作中，降级、限流、熔断器、超时重试等都是常见的容错方法</p>
+<h3 id="抗量"><a href="#抗量" class="headerlink" title="抗量"></a>抗量</h3><ol>
+<li>使用并发<br>如何抗住大并发的场景，充分利用golang的goroutine并发性能，利用并发执行缩短总体服务响应时间，针对耗时严重的服务，使用消息队列进行缓冲。</li>
+<li>脱离DB<br>使用分库分表、读写分离，使用redis这样的银弹，优化业务逻辑，优惠sql查询时间</li>
+<li>多级缓存<br>只有一级缓存，直接存入redis，这里需要关注缓存的穿透率，比如1000次查询有多少次从数据库中查询，穿透率大就说明缓存没有设置好</li>
+</ol>
+<h3 id="超时与重试"><a href="#超时与重试" class="headerlink" title="超时与重试"></a>超时与重试</h3><p>每次连接服务，都需要指定相应的超时时间，例如数据库查询、rpc调用、第三方服务调用。对于资源强依赖的情况，需要有重试机制，</p>
+<h3 id="熔断"><a href="#熔断" class="headerlink" title="熔断"></a>熔断</h3><p>当调用满足失败次数，失败比例就会触发熔断器打开，有程序自动切断当前的RPC调用，来防止错误进一步扩大。实现一个熔断器主要是考虑三种模式：关闭、打开、半开。</p>
 
 
                 <hr>
@@ -250,13 +213,9 @@
 
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/2017/11/30/framework/study_thrift/" data-toggle="tooltip" data-placement="top" title="thrift入门">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/2017/11/30/language/study_python/" data-toggle="tooltip" data-placement="top" title="python学习">Next Post &rarr;</a>
+                            <a href="/2017/12/27/codeing/reverie/" data-toggle="tooltip" data-placement="top" title="如何写好代码">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -303,7 +262,7 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#thinking" title="thinking">thinking</a>
+                          <a class="tag" href="/tags/#coding" title="coding">coding</a>
                         
                     </div>
                 </section>
@@ -333,8 +292,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "tamchen";
-    var disqus_identifier = "http://yuelng.github.io/2017/11/30/thinking/think_master_function/";
-    var disqus_url = "http://yuelng.github.io/2017/11/30/thinking/think_master_function/";
+    var disqus_identifier = "http://yuelng.github.io/2017/12/28/distributed_system/reliable/";
+    var disqus_url = "http://yuelng.github.io/2017/12/28/distributed_system/reliable/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
