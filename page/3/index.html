@@ -70,7 +70,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">To Infinity And Beyond!</a>
+            <a class="navbar-brand" href="/">Less is more</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -103,14 +103,14 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -159,7 +159,7 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
                 <div class="site-heading">
-                    <h1>To Infinity And Beyond!</h1>
+                    <h1>Less is more</h1>
                     <!--<hr class="small">-->
                     <span class="subheading">Explore in every moment of the cudgel thinking!</span>
                 </div>
@@ -190,16 +190,27 @@
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/surrounding/study_linux/">
+    <a href="/2017/11/30/surrounding/markdown/">
         <h2 class="post-title">
-            Linux基础知识与命令（Ubuntu14.10）
+            markdown基本操作
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            这里记录常用的一些linux命令，以备不时之需。 
-常用的命令1234567sudo cp xxxx /xxxx #移动文件sudo mv xxxx xxxxx #为文件改名sudo tar zxvf xxx.tar #解压文件夹sudo unrar xxxx.rar #解压文件夹 sudo chmod 775 xxxx #给文件或文件夹加权限sudo chown -R hadoop:had......
+            基本符号
+*,-,+ 3个符号效果都一样，这3个符号被称为 Markdown符号
+空白行表示另起一个段落
+`是表示inline代码，tab是用来标记 代码段，分别对应html的code，pre标签
+
+换行
+单一段落( \) 用一个空白行
+连续两个空格 会变成一个 
+连续3个符号，然后是空行，表示 hr横线
+
+标题
+生成h1–h6,在文字前面加上 1–6个# 来实现
+文字加粗是通过 文字左右各......
         </div>
     </a>
     <p class="post-meta">
@@ -212,30 +223,18 @@
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/surrounding/study_git/">
+    <a href="/2017/11/30/computer_science/study_algorithm/">
         <h2 class="post-title">
-            Git速查表/参考手册
+            相似距离算法
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            索引
-创建
-本地修改
-搜索
-提交历史
-分支与标签
-更新与发布
-合并与重置
-撤销
-
-
-
-创建12$ git clone ssh://user@domain.com/repo.git #复制一个已创建的仓库$ git init #创建一个新的本地仓库
-
-
-本地修改123456789101112131415161718192021$ git status        #显示工作路径下已修改的文件......
+            相似距离算法是推荐算法的一部分。
+一、EuclideanDistanceSimilarity: 欧氏距离相似度原理：利用欧式距离d定义的相似度s，s=1 / (1+d)。
+范围：[0,1]，值越大，说明d越小，也就是距离越近，则相似度越大。
+说明：同皮尔森相似度一样，该相似度也没有考虑重叠数对结果的影响，同样地，Mahout通过增加一个枚举类型（Weighting）的参数来使得重叠数也成为计......
         </div>
     </a>
     <p class="post-meta">
@@ -248,18 +247,15 @@
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/system_design/study_info/">
+    <a href="/2017/11/30/collection/source_all/">
         <h2 class="post-title">
-            消息推送入门
+            一些有用的链接（持续更新）
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            实时消息推送的几种实现方式相较于手机端的消息推送（一般都是以socket方式实现），web端是基于http协议，很难像tcp一样保持长连接。但随着技术的发展，出现了websocket, comet等新的技术可以达到类似长连接的效果，这些技术大体可分为以下几类：
-
-短轮询。页面端通过js定时异步刷新，这种方式实时效果较差。
-长轮询。页面端通过js异步请求服务端，服务端在接收到请求后，如果该次请......
+            计算机科学1.谷歌推荐的技术能力提升指南CS课程入门、了解其他语言、测试代码、培养逻辑推理和学习数学离散知识、深刻理解操作系统、学习UX设计、学习人工智能、学习如何构建编译器、了解密码学、并行编程、与其他程序员一起开发项目。2.hackr.ioShare and discover the best programming tutorials and courses online.3.图说设计......
         </div>
     </a>
     <p class="post-meta">
@@ -272,18 +268,38 @@
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/distributed_system/study_rpc/">
+    <a href="/2017/11/30/collection/plan/">
         <h2 class="post-title">
-            RPC远程过程调用
+            TODO集合
+        </h2>
+        <h3 class="post-subtitle">
+             "来不及整理的就放在这吧"
+        </h3>
+        <div class="post-content-preview">
+            大纲数据库系统、分布式系统、数据科学
+优质资源(个人向)dirtysalt’s homepagedigests dylanninin
+基础教育The Architecture of Open Source Applicationsaosabook-500linesabout-unicode-and-character-setswhat-cs-majors-should-know/must-s......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/30/collection/interview/">
+        <h2 class="post-title">
+            面试题目
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            如果说把一个网站分为三个部分，经典的MVC设计模式，后台分布式实现就是控制层，模块的服务化全都依赖于rpc框架，从阿里的dubbo、Hadoop等，这些大数据框架都有了广泛的应用，本文是个人学习rpc过程中的一些资料积累和个人想法。 
-RPC调用分类
-同步调用客户方等待调用执行完成并返回结果。
-异步调用客户方调用后不用等待执行结果返回，但依然可以通过回调通知等方式获取返回结果。 若客户方不关......
+            1.Java相关2.Python相关3.算法与数据结构链表、递归、栈、队列（拓扑排序、括号匹配、逆波兰表达式）字符串（全排列、LCS、Huffman编码)数组（局部最大值、荷兰国旗、子集和数、最大间距）树（遍历、AVL等)图（深度搜索、隐式图、单词变换、N-皇后、数独）查找排序（排序大综合、Top10、排序与Hash、桶排序）贪心动态规划（动态规划本质论、回文划分、LIS、矩阵连乘、Cata......
         </div>
     </a>
     <p class="post-meta">
@@ -296,16 +312,15 @@ RPC调用分类
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/surrounding/study_permission/">
+    <a href="/2017/11/30/project/project_distribute/">
         <h2 class="post-title">
-            权限系统学习
+            基于开源项目众推的Python实现
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            基于角色的访问控制（Role-Based Access Control）基本概念RBAC认为权限授权实际上是Who、What、How的问题。在RBAC模型中，who、what、how构成了访问权限三元组,也就是“Who对What(Which)进行How的操作”。 　　
-简单理解简单理解就是把系统中所有的功能都作为一个权限（或者称呼为资源），将这些权限赋予不同的角色，这个角色就具有了诸多的功能......
+            概述在开源中国闲逛时发现了这个项目-众推，是一个以Hadoop分布思想为基础类今日头条的开源项目。虽然该项目将去重过滤、文本分类单独出来，但是我认为这都属于数据处理部分。所以我将整个项目的核心划分为三个部分：分布式爬虫、数据清洗与处理、web工程。分别也对应了数据的采集、处理和展示。该项目没有继续下去，可能是因为这个项目不够吸引人，创意不是很好，但是我认为这个项目是当前所有互联网项目技术架构......
         </div>
     </a>
     <p class="post-meta">
@@ -318,17 +333,18 @@ RPC调用分类
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/system_design/system_design_question/">
+    <a href="/2017/11/30/project/project_network/">
         <h2 class="post-title">
-            笔记-系统设计
+            网络监控系统
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            重点考察内容面向对象，接口设计，设计模式，数据库表，分布式
-关于高并发系统设计。主要有以下几个关键技术点：缓存，索引，数据分片，锁粒度尽可能小。
-常见分布式系统设计问题如何设计Twitter，短网址系统设计，如何设计Uber分布式系统1)Inverted index2)Anagram3) Word Count4) Distributed File System Design 设计实时位置系统......
+            项目截图
+简介网络监控系统是在学校的外包项目，老师的课题。由于项目属于外包项目，软件代码的所有权自然不在我，所以只能大概讲讲结构，不能开源代码。
+这个项目如果细分的话可以分为安全准入系统和网络监控系统，两个项目都是属于网络相关的项目，下面分两部分来介绍这个项目
+安全准入系统安全准入系统是基于C/S/B模式的管理系统，准入的意思是用户必须通过登录才能访问内网和外网资源，同时还具备监控系统的一些......
         </div>
     </a>
     <p class="post-meta">
@@ -341,15 +357,16 @@ RPC调用分类
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/framework/study_thrift/">
+    <a href="/2017/11/30/project/project_remote/">
         <h2 class="post-title">
-            thrift入门
+            web远程登录系统
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            介绍Thrift 最初由Facebook开发，而后捐献给Apache，目前已广泛应用于业界。Thrift 正如其官方主页介绍的，“是一种可扩展、跨语言的服务开发框架”。简而言之，它主要用于各个服务之间的RPC通信，其服务端和客户端可以用不同的语言来开发。只需要依照IDL（Interface Description Language）定义一次接口，Thrift工具就能自动生成 C++, Jav......
+            项目截图
+web远程登录系统文档简要说明web远程登录系统总体上分为两部分，web工程与web远程登录系统，本文档将会从系统的功能架构和技术架构对本系统进行说明，web工程主要是针对FPGA实验仿真平台的配套设置，用户通过web工程了解FPGA实验仿真平台的基本信息，主要的功能模块有信息首页、公告新闻、文件下载、实验平台等。web远程登录系统则是基于guacamole-一款基于HTML5的w......
         </div>
     </a>
     <p class="post-meta">
@@ -362,22 +379,27 @@ RPC调用分类
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/thinking/think_master_function/">
+    <a href="/2017/11/30/project/project_victor/">
         <h2 class="post-title">
-            编程之路—函数式编程
+            毕设题目-基于社交网络的推荐系统（众推）
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            编程之路
-编程规范
-函数式编程
-性能与优化
-单元测试
+            简介项目主要分为web工程、后台业务逻辑、数据库缓存、推荐系统、分布式爬虫
+项目开发流程记录基础部分
+maven框架搭建、多模块、私服
+域名、免费空间，腾讯云
 
-概念定义
-In computer science, functional programming is a programming paradigm that treats computation as the evaluation of mathematical functions and avoids state and mutab......
+web部分记录
+restful风格设计（json数据优化）
+mvc框架spring mvc或者spring boot
+第三方认证OAUTH
+comment长连接
+session处理
+python tornado实现web工程
+bla......
         </div>
     </a>
     <p class="post-meta">
@@ -390,38 +412,16 @@ In computer science, functional programming is a programming paradigm that treat
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/language/study_python/">
+    <a href="/2017/11/30/project/project_volunteer/">
         <h2 class="post-title">
-            python学习
+            义工平台说明
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            Ubuntu下配置基本的Python开发环境安装Python发布版本和build依赖包
-/# 安装 Python 发布版本，dev包必须安装，很多用pip安装包都需要编译sudo apt-get install python2.7 python2.7-dev python3.4 python3.4-dev/#很多pip安装的包都需要libssl和libevent编译环境sudo apt-ge......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/codeing/study_coding/">
-        <h2 class="post-title">
-            勿在浮沙聚高塔
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            1.摘要今天看了新浪新兵训练营的一些资料，整理下关于程序员最基础的知识————关于编码主要内容包括，什么是烂代码，什么是好代码，好代码需要注意什么，如何做出优雅的设计，如何规划合理的架构编码主要是给人看的，其次才是给机器看的。
-2.关于烂代码写出烂代码很容易，入行时很容易被鼓吹要把主要精力放在ABCD（需求文档/功能设计/架构设计/理解原理）上，写代码只是实现想法的工具。在这样的指导思想下，......
+            项目截图
+项目介绍义工系统是类似于豆瓣同城的一个项目，都是基于活动信息。用户可以在义工系统中查看学院所发布的义工信息，同时义工系统包含了用户中心，用户中心包括了关注、私信、日志、相册等基本功能。在技术上是基于Struts+spring+hibernate+ehcache框架，后台数据库采用mysql，前后台数据交互全部采用ajax+json模式，个人中心采用了bootstrap UI框架，所......
         </div>
     </a>
     <p class="post-meta">
@@ -471,10 +471,6 @@ In computer science, functional programming is a programming paradigm that treat
                     <div class="tags">
                         
                             
-                            <a href="/tags/#coding" title="coding" rel="3">coding</a>
-                            
-                        
-                            
                             <a href="/tags/#collection" title="collection" rel="5">collection</a>
                             
                         
@@ -483,19 +479,11 @@ In computer science, functional programming is a programming paradigm that treat
                             
                         
                             
-                            <a href="/tags/#database" title="database" rel="2">database</a>
-                            
-                        
-                            
-                            <a href="/tags/#distribution_system" title="distribution_system" rel="12">distribution_system</a>
+                            <a href="/tags/#coding" title="coding" rel="3">coding</a>
                             
                         
                             
                             <a href="/tags/#devops" title="devops" rel="2">devops</a>
-                            
-                        
-                            
-                        
                             
                         
                             
@@ -507,11 +495,9 @@ In computer science, functional programming is a programming paradigm that treat
                             
                         
                             
-                            <a href="/tags/#life_is_short" title="life_is_short" rel="4">life_is_short</a>
+                            <a href="/tags/#operation" title="operation" rel="2">operation</a>
                             
                         
-                            
-                            <a href="/tags/#operation" title="operation" rel="2">operation</a>
                             
                         
                             
@@ -531,7 +517,21 @@ In computer science, functional programming is a programming paradigm that treat
                             
                         
                             
+                            <a href="/tags/#distribution_system" title="distribution_system" rel="12">distribution_system</a>
+                            
+                        
+                            
                             <a href="/tags/#thinking" title="thinking" rel="7">thinking</a>
+                            
+                        
+                            
+                            <a href="/tags/#life_is_short" title="life_is_short" rel="4">life_is_short</a>
+                            
+                        
+                            
+                        
+                            
+                            <a href="/tags/#database" title="database" rel="2">database</a>
                             
                         
                     </div>
@@ -679,7 +679,7 @@ In computer science, functional programming is a programming paradigm that treat
 
                 </ul>
                 <p class="copyright text-muted">
-                    Copyright &copy; To Infinity And Beyond! 2017
+                    Copyright &copy; Less is more 2018
                     <br>
                     Theme by <a href="http://huangxuan.me">Hux</a>
                     <span style="display: inline-block; margin: 0 5px;">

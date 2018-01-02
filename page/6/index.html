@@ -70,7 +70,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">To Infinity And Beyond!</a>
+            <a class="navbar-brand" href="/">Less is more</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -103,14 +103,14 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -159,7 +159,7 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
                 <div class="site-heading">
-                    <h1>To Infinity And Beyond!</h1>
+                    <h1>Less is more</h1>
                     <!--<hr class="small">-->
                     <span class="subheading">Explore in every moment of the cudgel thinking!</span>
                 </div>
@@ -190,16 +190,22 @@
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/system_design/study_model/">
+    <a href="/2017/11/30/thinking/think_master_function/">
         <h2 class="post-title">
-            设计模式简要介绍
+            编程之路—函数式编程
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            创建型模式简单工厂模式简单工厂模式的要点在于：当你需要什么，只需要传入一个正确的参数，就可以获取你所需要的对象，而无须知道其创建细节。1KeyGenerator keyGen=KeyGenerator.getInstance("DESede");//获取不同加密算法的密钥生成器
-工厂方法模式工厂父类负责定义创建产品对象的公共接口，而工厂子类则负责生成具体的产品对象，这样做的目的是将产品类的实......
+            编程之路
+编程规范
+函数式编程
+性能与优化
+单元测试
+
+概念定义
+In computer science, functional programming is a programming paradigm that treats computation as the evaluation of mathematical functions and avoids state and mutab......
         </div>
     </a>
     <p class="post-meta">
@@ -212,27 +218,15 @@
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/surrounding/markdown/">
+    <a href="/2017/11/30/thinking/study_software/">
         <h2 class="post-title">
-            markdown基本操作
+            团队项目开发与规范
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            基本符号
-*,-,+ 3个符号效果都一样，这3个符号被称为 Markdown符号
-空白行表示另起一个段落
-`是表示inline代码，tab是用来标记 代码段，分别对应html的code，pre标签
-
-换行
-单一段落( \) 用一个空白行
-连续两个空格 会变成一个 
-连续3个符号，然后是空行，表示 hr横线
-
-标题
-生成h1–h6,在文字前面加上 1–6个# 来实现
-文字加粗是通过 文字左右各......
+            个人理解团队是因为有相同的目标才聚集在一起，所有在做一个项目的开始，要让所有成员认同项目的前景。团队的大小个人认为最多20个人。虽然说很有必要保证规范化，但是我认为按部就班只能扼杀人的创造力，但是一些的必要的流程规范还是要的，也就是下面说的开发流程规范，有些人认为这样不会有很好的技术文化积累。我想的是技术文档和团队文化并不和小而美的团队相冲突，文档取决于个人的工作习惯，而文化取决于每个人以及......
         </div>
     </a>
     <p class="post-meta">
@@ -245,16 +239,16 @@
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/language/study_shell/">
+    <a href="/2017/11/30/language/study_python/">
         <h2 class="post-title">
-            python的装饰器与JavaScript中的闭包
+            python学习
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            1.摘要这里记录关于Python装饰器和JavaScript闭包的学习笔记
-2.1Python中的装饰器12345678910111213def makebold(fn):    def wrapped():        return "&lt;b&gt;" + fn() + "&lt;/b&gt;"    return wrappeddef makeitalic(fn):    def ......
+            Ubuntu下配置基本的Python开发环境安装Python发布版本和build依赖包
+/# 安装 Python 发布版本，dev包必须安装，很多用pip安装包都需要编译sudo apt-get install python2.7 python2.7-dev python3.4 python3.4-dev/#很多pip安装的包都需要libssl和libevent编译环境sudo apt-ge......
         </div>
     </a>
     <p class="post-meta">
@@ -391,32 +385,6 @@ Hackintosh简介与法律问题Hackintosh是在非苹果硬件上安装运行苹
 
 <div class="post-preview">
 
-    <a href="/2017/03/30/operation/basic_oprate/">
-        <h2 class="post-title">
-            记录常用的配置
-        </h2>
-        <h3 class="post-subtitle">
-             "配置"
-        </h3>
-        <div class="post-content-preview">
-            ####项目部署执行openplay_backend requirement.txt 中却少raven
-在跑run.py时，debug配置文件下却少sentry，将product环境下的sentry添加即可
-####项目基础架构
-
-总共分为球员版player，管理员admin，用户user，统计stats，网页web，五个部分
-项目之间的关系：五个部分全都是基于tornado API项目开发......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2017-03-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
     <a href="/2017/03/30/language/ruby_dev_env/">
         <h2 class="post-title">
             ruby开发环境的搭建
@@ -430,6 +398,28 @@ Mac OS本身自带ruby在系统目录 /System/Library/Frameworks/Ruby.framework/
 
 
 ...
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2017-03-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/03/30/computer_science/network/">
+        <h2 class="post-title">
+            计算机网络
+        </h2>
+        <h3 class="post-subtitle">
+             "计算机网络"
+        </h3>
+        <div class="post-content-preview">
+            TCP四次挥手过程
+TCP是面向连接的服务；三次握手（建立连接）和四次挥手（关闭连接）；使用滑动窗口机制进行流量控制；TCP要保证在所有可能的情况下使得所有的数据都能够被投递，当你关闭一个socket时，主动关闭一端的socket将进入TIME_WAIT状态，而被动关闭一方则转入CLOSED状态，这的确能够保证所有的数据都被传输。1）首先A B端的TCP进程都处于established状态，......
         </div>
     </a>
     <p class="post-meta">
@@ -479,10 +469,6 @@ Mac OS本身自带ruby在系统目录 /System/Library/Frameworks/Ruby.framework/
                     <div class="tags">
                         
                             
-                            <a href="/tags/#coding" title="coding" rel="3">coding</a>
-                            
-                        
-                            
                             <a href="/tags/#collection" title="collection" rel="5">collection</a>
                             
                         
@@ -491,19 +477,11 @@ Mac OS本身自带ruby在系统目录 /System/Library/Frameworks/Ruby.framework/
                             
                         
                             
-                            <a href="/tags/#database" title="database" rel="2">database</a>
-                            
-                        
-                            
-                            <a href="/tags/#distribution_system" title="distribution_system" rel="12">distribution_system</a>
+                            <a href="/tags/#coding" title="coding" rel="3">coding</a>
                             
                         
                             
                             <a href="/tags/#devops" title="devops" rel="2">devops</a>
-                            
-                        
-                            
-                        
                             
                         
                             
@@ -515,11 +493,9 @@ Mac OS本身自带ruby在系统目录 /System/Library/Frameworks/Ruby.framework/
                             
                         
                             
-                            <a href="/tags/#life_is_short" title="life_is_short" rel="4">life_is_short</a>
+                            <a href="/tags/#operation" title="operation" rel="2">operation</a>
                             
                         
-                            
-                            <a href="/tags/#operation" title="operation" rel="2">operation</a>
                             
                         
                             
@@ -539,7 +515,21 @@ Mac OS本身自带ruby在系统目录 /System/Library/Frameworks/Ruby.framework/
                             
                         
                             
+                            <a href="/tags/#distribution_system" title="distribution_system" rel="12">distribution_system</a>
+                            
+                        
+                            
                             <a href="/tags/#thinking" title="thinking" rel="7">thinking</a>
+                            
+                        
+                            
+                            <a href="/tags/#life_is_short" title="life_is_short" rel="4">life_is_short</a>
+                            
+                        
+                            
+                        
+                            
+                            <a href="/tags/#database" title="database" rel="2">database</a>
                             
                         
                     </div>
@@ -687,7 +677,7 @@ Mac OS本身自带ruby在系统目录 /System/Library/Frameworks/Ruby.framework/
 
                 </ul>
                 <p class="copyright text-muted">
-                    Copyright &copy; To Infinity And Beyond! 2017
+                    Copyright &copy; Less is more 2018
                     <br>
                     Theme by <a href="http://huangxuan.me">Hux</a>
                     <span style="display: inline-block; margin: 0 5px;">

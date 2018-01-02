@@ -70,7 +70,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">To Infinity And Beyond!</a>
+            <a class="navbar-brand" href="/">Less is more</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -103,14 +103,14 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -159,7 +159,7 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
                 <div class="site-heading">
-                    <h1>To Infinity And Beyond!</h1>
+                    <h1>Less is more</h1>
                     <!--<hr class="small">-->
                     <span class="subheading">Explore in every moment of the cudgel thinking!</span>
                 </div>
@@ -187,6 +187,29 @@
             
                 <!-- Main Content -->
 
+
+<div class="post-preview">
+
+    <a href="/2017/03/30/computer_science/algorithm/">
+        <h2 class="post-title">
+            算法
+        </h2>
+        <h3 class="post-subtitle">
+             "算法"
+        </h3>
+        <div class="post-content-preview">
+            
+递归与分治策略一个直接或间接地调用自身的算法称为递归算法。分治算法的模式如下：
+12345678910Divide_and_Conquer(P)&#123;    if(|P|&lt;=n0)    Adhoc(P);//Adhoc(P)是基本子算法    divide P into smaller subinstances    P1,P2,...,Pk    for(i=1;i&lt;......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2017-03-30
+    </p>
+
+</div>
+<hr>
 
 <div class="post-preview">
 
@@ -244,39 +267,20 @@
 
 <div class="post-preview">
 
-    <a href="/2017/03/30/computer_science/network/">
+    <a href="/2017/03/30/operation/basic_oprate/">
         <h2 class="post-title">
-            计算机网络
+            记录常用的配置
         </h2>
         <h3 class="post-subtitle">
-             "计算机网络"
+             "配置"
         </h3>
         <div class="post-content-preview">
-            TCP四次挥手过程
-TCP是面向连接的服务；三次握手（建立连接）和四次挥手（关闭连接）；使用滑动窗口机制进行流量控制；TCP要保证在所有可能的情况下使得所有的数据都能够被投递，当你关闭一个socket时，主动关闭一端的socket将进入TIME_WAIT状态，而被动关闭一方则转入CLOSED状态，这的确能够保证所有的数据都被传输。1）首先A B端的TCP进程都处于established状态，......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2017-03-30
-    </p>
+            ####项目部署执行openplay_backend requirement.txt 中却少raven
+在跑run.py时，debug配置文件下却少sentry，将product环境下的sentry添加即可
+####项目基础架构
 
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/03/30/computer_science/algorithm/">
-        <h2 class="post-title">
-            算法
-        </h2>
-        <h3 class="post-subtitle">
-             "算法"
-        </h3>
-        <div class="post-content-preview">
-            
-递归与分治策略一个直接或间接地调用自身的算法称为递归算法。分治算法的模式如下：
-12345678910Divide_and_Conquer(P)&#123;    if(|P|&lt;=n0)    Adhoc(P);//Adhoc(P)是基本子算法    divide P into smaller subinstances    P1,P2,...,Pk    for(i=1;i&lt;......
+总共分为球员版player，管理员admin，用户user，统计stats，网页web，五个部分
+项目之间的关系：五个部分全都是基于tornado API项目开发......
         </div>
     </a>
     <p class="post-meta">
@@ -410,30 +414,6 @@ Component-Driven dev 模块驱动开发
 
 <div class="post-preview">
 
-    <a href="/2017/03/28/distributed_system/business/">
-        <h2 class="post-title">
-            微服务的基本架构
-        </h2>
-        <h3 class="post-subtitle">
-             "记录常用的模型，账户系统、支付系统"
-        </h3>
-        <div class="post-content-preview">
-            
-“Yeah It’s on. ”
-
-微服务代码结构微服务是大的趋势。无论后台架构怎么改变，都不能脱离它是业务架构具体实现的本质。无论是前期发展而来的单体架构，遵循着严格的代码分层风格，还是现在大家认同的微服务。微服务是后端开发的绝对趋势，外部用户需求增强直接导致了应用复杂度增加，只有将应用分解再分解才能利用更小的成本干更多的事。微服务的另一种表现是后端“侵占”系统工程、运维部署、DBA的工......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2017-03-28
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
     <a href="/2017/03/28/puduct/app_common/">
         <h2 class="post-title">
             基本APP产品配置
@@ -453,6 +433,30 @@ Component-Driven dev 模块驱动开发
 搜索功能 search
 
 ...
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2017-03-28
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/03/28/distributed_system/business/">
+        <h2 class="post-title">
+            微服务的基本架构
+        </h2>
+        <h3 class="post-subtitle">
+             "记录常用的模型，账户系统、支付系统"
+        </h3>
+        <div class="post-content-preview">
+            
+“Yeah It’s on. ”
+
+微服务代码结构微服务是大的趋势。无论后台架构怎么改变，都不能脱离它是业务架构具体实现的本质。无论是前期发展而来的单体架构，遵循着严格的代码分层风格，还是现在大家认同的微服务。微服务是后端开发的绝对趋势，外部用户需求增强直接导致了应用复杂度增加，只有将应用分解再分解才能利用更小的成本干更多的事。微服务的另一种表现是后端“侵占”系统工程、运维部署、DBA的工......
         </div>
     </a>
     <p class="post-meta">
@@ -502,10 +506,6 @@ Component-Driven dev 模块驱动开发
                     <div class="tags">
                         
                             
-                            <a href="/tags/#coding" title="coding" rel="3">coding</a>
-                            
-                        
-                            
                             <a href="/tags/#collection" title="collection" rel="5">collection</a>
                             
                         
@@ -514,19 +514,11 @@ Component-Driven dev 模块驱动开发
                             
                         
                             
-                            <a href="/tags/#database" title="database" rel="2">database</a>
-                            
-                        
-                            
-                            <a href="/tags/#distribution_system" title="distribution_system" rel="12">distribution_system</a>
+                            <a href="/tags/#coding" title="coding" rel="3">coding</a>
                             
                         
                             
                             <a href="/tags/#devops" title="devops" rel="2">devops</a>
-                            
-                        
-                            
-                        
                             
                         
                             
@@ -538,11 +530,9 @@ Component-Driven dev 模块驱动开发
                             
                         
                             
-                            <a href="/tags/#life_is_short" title="life_is_short" rel="4">life_is_short</a>
+                            <a href="/tags/#operation" title="operation" rel="2">operation</a>
                             
                         
-                            
-                            <a href="/tags/#operation" title="operation" rel="2">operation</a>
                             
                         
                             
@@ -562,7 +552,21 @@ Component-Driven dev 模块驱动开发
                             
                         
                             
+                            <a href="/tags/#distribution_system" title="distribution_system" rel="12">distribution_system</a>
+                            
+                        
+                            
                             <a href="/tags/#thinking" title="thinking" rel="7">thinking</a>
+                            
+                        
+                            
+                            <a href="/tags/#life_is_short" title="life_is_short" rel="4">life_is_short</a>
+                            
+                        
+                            
+                        
+                            
+                            <a href="/tags/#database" title="database" rel="2">database</a>
                             
                         
                     </div>
@@ -710,7 +714,7 @@ Component-Driven dev 模块驱动开发
 
                 </ul>
                 <p class="copyright text-muted">
-                    Copyright &copy; To Infinity And Beyond! 2017
+                    Copyright &copy; Less is more 2018
                     <br>
                     Theme by <a href="http://huangxuan.me">Hux</a>
                     <span style="display: inline-block; margin: 0 5px;">
