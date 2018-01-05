@@ -198,13 +198,19 @@
                 post-container">
 
                 <h2 id="数据库实践"><a href="#数据库实践" class="headerlink" title="数据库实践"></a>数据库实践</h2><p>数据库并发查询下 导致巨大时延？</p>
+<p>SHOW PROCESSLIST 查看数据库连接，看哪个连接导致锁表<br>kill id   //杀掉被锁的表</p>
+<p>如何使用online DDL 增加字段<br><a href="https://www.qcloud.com/community/article/655790" target="_blank" rel="external">MySQL Online DDL - 腾讯云社区 - 腾讯云</a><br>没有使用 online DDL选项<br>主库增加了字段，通过binlog 同步到从库<br>执行alter 操作 会导致锁表，锁表导致<br>set old_alter_table=1; 设置进入onlineDDL 操作<br>[file:AC8E0600-AAAC-448E-A6F0-AECF999D63C6-375-0000098E4BA9BEB8/architecture of a database system.pdf]<br>主从同步是通过binlog进行的，从库有两个线程，一个负责接受binlog日志，一个负责解析日志将数据写入库中。所以主从同步一般是有一定的延时的。</p>
+<p>Alter 锁表时 拿不到写锁 导致alter 语句执行时间过长，导致后面的同步失败<br>为什么alter拿不到锁，select 语句 慢调用 卡住了<br><a href="http://www.fordba.com/" target="_blank" rel="external">For DBA | For dbas</a></p>
+<p>至于读写锁的问题，写锁是排他的，读锁可以多次获得。在Innodb中，锁分为表锁、行锁和间隙锁，具体看你的操作，如果一个插入操作需要锁表，而这时有查询锁住了该表中的一行，自然是需要等待的。<br>？？查询操作是不锁表的</p>
+<p><img src="http://ogcxtlv6r.bkt.clouddn.com/18-1-5/62172389.jpg"></p>
+<p><a href="http://blog.csdn.net/woyantianyi/article/details/51689932" target="_blank" rel="external">Mysql新增字段到大数据表导致锁表 - CSDN博客</a><br><a href="http://seanlook.com/2016/05/24/mysql-online-ddl-concept/" target="_blank" rel="external">mysql 5.6 原生Online DDL解析 | Sean’s Notes</a><br><a href="http://www.cnblogs.com/cchust/p/4639397.html" target="_blank" rel="external">MySQL online ddl原理 - 天士梦 - 博客园</a><br><a href="http://www.cnblogs.com/LMySQL/p/4919559.html" target="_blank" rel="external">http://www.cnblogs.com/LMySQL/p/4919559.html</a><br><a href="https://www.awaimai.com/569.html" target="_blank" rel="external">26条MySQL性能优化的最佳经验 - 歪麦博客</a></p>
 <p>《<a href="http://dataintensive.net/" target="_blank" rel="external">Designing Data-Intensive Applications</a>》</p>
 <ul>
 <li><a href="https://www.youtube.com/playlist?list=PLSE8ODhjZXjYutVzTeAds8xUt1rcmyT7x" target="_blank" rel="external">CMU Database Systems</a></li>
 <li><a href="http://15445.courses.cs.cmu.edu/fall2017/schedule.html" target="_blank" rel="external">CMU 15-445/645</a></li>
 <li><a href="http://www.fordba.com/locks-set-by-different-sql-statements-in-innodb.html" target="_blank" rel="external">MySQL innodb中各种SQL语句加锁分析</a></li>
 <li><a href="http://yeshaoting.cn/article/database/mysql%20insert%E9%94%81%E6%9C%BA%E5%88%B6/" target="_blank" rel="external">mysql insert锁机制</a></li>
-<li><a href="https://www.36nu.com/post/162.html" target="_blank" rel="external">mysql悲观锁详解</a></li>
+<li><a href="https://www.36nu.com/post/162.html" target="_blank" rel="external">mysql悲观锁详解</a><br><a href="http://coding-geek.com/how-databases-work/" target="_blank" rel="external">How does a relational database work - Coding Geek</a><br>innoDB(MySQL数据库引擎)是如何实现索引的。<br><a href="https://blog.jcole.us/2013/01/07/the-physical-structure-of-innodb-index-pages/" target="_blank" rel="external">The physical structure of InnoDB index pages – Jeremy Cole</a></li>
 </ul>
 
 
@@ -215,7 +221,7 @@
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/2017/11/30/language/study_python/" data-toggle="tooltip" data-placement="top" title="python学习">&larr; Previous Post</a>
+                            <a href="/2017/11/30/distributed_system/study_rpc/" data-toggle="tooltip" data-placement="top" title="RPC远程过程调用">&larr; Previous Post</a>
                         </li>
                     
                     

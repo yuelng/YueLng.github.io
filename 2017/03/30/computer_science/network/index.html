@@ -199,7 +199,22 @@
 
                 <p>TCP四次挥手过程</p>
 <p>TCP是面向连接的服务；三次握手（建立连接）和四次挥手（关闭连接）；使用滑动窗口机制进行流量控制；TCP要保证在所有可能的情况下使得所有的数据都能够被投递，当你关闭一个socket时，主动关闭一端的socket将进入TIME_WAIT状态，而被动关闭一方则转入CLOSED状态，这的确能够保证所有的数据都被传输。<br>1）首先A B端的TCP进程都处于established状态， 当A的应用程序传送完报文段，就会去 主动关闭 连接。A 会停止发送报文段（但是还会接收），并向B发送[FIN = 1,seq=u]数据，之后进入FIN-WAIT-1状态；<br>2）B接收到A发送的请求之后，会通知应用进程A已经不再发送数据，B会向A发送ACK确认数据[ACK=1,seq=v,ack=u+1],B进入  CLOSE-WAIT状态，  A接收到B发送的数据之后，A进入FIN-WAIT-2状态；此时A到B方的连接已经关闭了。<br>3）当B的应用进程发现自己也没有数据需要传送，B应用进程就会发出 被动关闭 的请求，B此时向A发送[FIN=1,ACK=1,seq=w,ack=u+1]数据，并且进入LAST-ACK状态；【所以D不对】<br>4）A接收到B发送的数据之后，向B发送确认数据[ACK =1,seq=u+1,ack=w+1],进入TIME-WAIT状态，等待2MSL之后关闭连接进入CLOSED状态；B接收到A发送的确认之后进入CLOSED状态。B到A方的连接关闭</p>
-<h3 id="HTTP-2"><a href="#HTTP-2" class="headerlink" title="HTTP/2"></a>HTTP/2</h3><h3 id="TCP-IP"><a href="#TCP-IP" class="headerlink" title="TCP/IP"></a>TCP/IP</h3>
+<h3 id="HTTP1-0-HTTP-2-0"><a href="#HTTP1-0-HTTP-2-0" class="headerlink" title="HTTP1.0 / HTTP/2.0"></a>HTTP1.0 / HTTP/2.0</h3><p>关键之一就是在 应用层(HTTP/2)和传输层(TCP or UDP)之间增加一个二进制分帧层。首部信息封装到HEADER frame而Request Body则封装到DATA frame</p>
+<ol>
+<li>单连接多资源的方式，减少服务端的连接压力，内存占用更少，连接吞吐量更大</li>
+<li>由于TCP连接的减少而使网络拥塞状况得以改善，同时慢启动时间的减少，使拥塞和丢包恢复速度更快</li>
+<li>首部压缩，HTTP/1.1不支持首部压缩，出现了SPDY和HTTP/2.0，SPDY使用的是通用DEFLATE算法，HTTP/2使用HPACK算法</li>
+<li><p>服务端推送，</p>
+</li>
+<li><p>HTTP/2是二进制（而文本）协议，因此更简洁高效；</p>
+</li>
+<li>它针对每个域只使用一个多路复用的连接，而不是每个文件一个连接；</li>
+<li>首部使用特制的HPACK协议（而非SPDY中使用的gzip）压缩；</li>
+<li>HTTP/2设计了复杂的优先级排定规则，帮助浏览器首先请求最急需的文件，而NGINX已经支持（SPDY的方案要简单一些）。</li>
+<li><a href="https://laike9m.com/blog/rfc7540-bi-ji-yi-gai-shu,102/" target="_blank" rel="external">RFC7540 笔记（一）——概述 - laike9m’s blog</a> HTTP/2的RFC文档</li>
+</ol>
+<h3 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a>TCP</h3><p> <a href="http://jm.taobao.org/2017/06/08/20170608/" target="_blank" rel="external">就是要你懂 TCP</a><br><a href="http://jm.taobao.org/2017/05/25/525-1/" target="_blank" rel="external">关于TCP 半连接队列和全连接队列</a></p>
+
 
                 <hr>
 
@@ -208,12 +223,12 @@
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/2017/03/30/language/ruby_dev_env/" data-toggle="tooltip" data-placement="top" title="ruby开发环境的搭建">&larr; Previous Post</a>
+                            <a href="/2017/03/30/framework/tornado/" data-toggle="tooltip" data-placement="top" title="Tornado Pyhton web框架介绍">&larr; Previous Post</a>
                         </li>
                     
                     
                         <li class="next">
-                            <a href="/2017/03/30/computer_science/algorithm/" data-toggle="tooltip" data-placement="top" title="算法">Next Post &rarr;</a>
+                            <a href="/2017/03/30/distributed_system/engineering/" data-toggle="tooltip" data-placement="top" title="后端代码工程">Next Post &rarr;</a>
                         </li>
                     
                 </ul>

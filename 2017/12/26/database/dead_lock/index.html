@@ -197,7 +197,14 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h3 id="数据库死锁问题"><a href="#数据库死锁问题" class="headerlink" title="数据库死锁问题"></a>数据库死锁问题</h3><ul>
+                <p>事务的隔离级别，各个数据库实现的都不同。</p>
+<ol>
+<li>未提交读(Read Uncommitted)：允许脏读，也就是可能读取到其他会话中未提交事务修改的数据</li>
+<li>提交读(Read Committed)：只能读取到已经提交的数据。Oracle等多数数据库默认都是该级别</li>
+<li>可重复读(Repeated Read)：可重复读。在同一个事务内的查询都是事务开始时刻一致的，InnoDB默认级别。在SQL标准中，该隔离级别消除了不可重复读，但是还存在幻象读</li>
+<li>串行读(Serializable)：完全串行化的读，每次读都需要获得表级共享锁，读写相互都会阻塞（SQLite）</li>
+</ol>
+<h3 id="数据库死锁问题"><a href="#数据库死锁问题" class="headerlink" title="数据库死锁问题"></a>数据库死锁问题</h3><ul>
 <li><a href="http://825635381.iteye.com/blog/2339434" target="_blank" rel="external">一次mysql死锁的排查过程</a></li>
 </ul>
 
@@ -209,7 +216,7 @@
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/2017/12/26/life_is_short/magazine/" data-toggle="tooltip" data-placement="top" title="杂志">&larr; Previous Post</a>
+                            <a href="/2017/12/26/life_is_short/life/" data-toggle="tooltip" data-placement="top" title="吃喝玩乐">&larr; Previous Post</a>
                         </li>
                     
                     

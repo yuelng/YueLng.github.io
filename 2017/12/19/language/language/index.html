@@ -197,7 +197,14 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h2 id="language-编程语言"><a href="#language-编程语言" class="headerlink" title="language 编程语言"></a>language 编程语言</h2><h3 id="基本的语言特性"><a href="#基本的语言特性" class="headerlink" title="基本的语言特性"></a>基本的语言特性</h3><p>编译型或解释型<br>类型系统<br>编程范式</p>
+                <h2 id="language-编程语言"><a href="#language-编程语言" class="headerlink" title="language 编程语言"></a>language 编程语言</h2><ol>
+<li>声明式编程和命令式编程<br>命令式编程：命令“机器”如何去做事情(how)，这样不管你想要的是什么(what)，它都会按照你的命令实现。<br>声明式编程让我们去描述我们想要的是什么，让底层的软件/计算机/等去解决如何去实现它们。<br>声明式编程举例，Array.map reduce、 SQL</li>
+</ol>
+<p>Concurrency<br><a href="https://www.youtube.com/watch?v=TlkXhpktX0E" target="_blank" rel="external">Shai Rosenfeld - Such Blocking, Very Concurrency, Wow - YouTube</a></p>
+<p>Reactor模型  redis  单进程+单线程<br>IO密集的应用，不太适合CPU密集的应用</p>
+<p>Reactor + one loop per process 多进程 Nginx<br>nginx 多进程网络编程的巅峰<br>memcached 多线程网络编程的巅峰<br>redis单进程网络编程的巅峰</p>
+<p>泛型编程(generic programming)<br>In the simplest definition, generic programming is a style of computer programming in which algorithm are written in terms of types to-be-specified-later that are then instantiated when needed for specific types provided as parameters. – From Wikipedia.<br>鸭子类型(duck typing)<br>When I see a bird that walks like a duck and swins like a duck and quacks like a duck, I call that bird a duck. – James Whitcomb Riley</p>
+<h3 id="基本的语言特性"><a href="#基本的语言特性" class="headerlink" title="基本的语言特性"></a>基本的语言特性</h3><p>编译型或解释型<br>类型系统<br>编程范式</p>
 <h3 id="结构化（Structured）和非结构化编程"><a href="#结构化（Structured）和非结构化编程" class="headerlink" title="结构化（Structured）和非结构化编程"></a>结构化（Structured）和非结构化编程</h3><p>结构化编程的最大特征是使用子程序、代码块、for/while循环结构代替goto，现代程序大多是结构化的，相对于非结构化来说，代码易理解性和可维护性显著提高，非结构化程序语言包括 basic、COBOL、机器语言和汇编语言</p>
 <h3 id="命令式（Imperative）和声明式（Declarative）编程"><a href="#命令式（Imperative）和声明式（Declarative）编程" class="headerlink" title="命令式（Imperative）和声明式（Declarative）编程"></a>命令式（Imperative）和声明式（Declarative）编程</h3><p>几乎所有的编程语言都是命令式的，这更接近编译-执行的思维，代码会编译成相应的机器执行语句。而声明式编程不直接告诉机器要执行的步骤或流程，只是描述目标性质。xml、sql、HTML都是声明式的</p>
 <h3 id="事件驱动（Event-driven）编程和基于线程（Thread-based）编程"><a href="#事件驱动（Event-driven）编程和基于线程（Thread-based）编程" class="headerlink" title="事件驱动（Event-driven）编程和基于线程（Thread-based）编程"></a>事件驱动（Event-driven）编程和基于线程（Thread-based）编程</h3><p><img src="http://ogcxtlv6r.bkt.clouddn.com/17-12-26/72764540.jpg" alt="thread-event"><br>《<a href="http://www.defmacro.org/ramblings/fp.html" target="_blank" rel="external">Functional Programming For The Rest of Us</a>》</p>
