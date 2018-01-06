@@ -96,14 +96,14 @@
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
@@ -190,18 +190,27 @@
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/distributed_system/study_rpc/">
+    <a href="/2017/11/30/project/project_victor/">
         <h2 class="post-title">
-            RPC远程过程调用
+            毕设题目-基于社交网络的推荐系统（众推）
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            如果说把一个网站分为三个部分，经典的MVC设计模式，后台分布式实现就是控制层，模块的服务化全都依赖于rpc框架，从阿里的dubbo、Hadoop等，这些大数据框架都有了广泛的应用，本文是个人学习rpc过程中的一些资料积累和个人想法。 
-RPC调用分类
-同步调用客户方等待调用执行完成并返回结果。
-异步调用客户方调用后不用等待执行结果返回，但依然可以通过回调通知等方式获取返回结果。 若客户方不关......
+            简介项目主要分为web工程、后台业务逻辑、数据库缓存、推荐系统、分布式爬虫
+项目开发流程记录基础部分
+maven框架搭建、多模块、私服
+域名、免费空间，腾讯云
+
+web部分记录
+restful风格设计（json数据优化）
+mvc框架spring mvc或者spring boot
+第三方认证OAUTH
+comment长连接
+session处理
+python tornado实现web工程
+bla......
         </div>
     </a>
     <p class="post-meta">
@@ -214,27 +223,16 @@ RPC调用分类
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/surrounding/markdown/">
+    <a href="/2017/11/30/project/project_remote/">
         <h2 class="post-title">
-            markdown基本操作
+            web远程登录系统
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            基本符号
-*,-,+ 3个符号效果都一样，这3个符号被称为 Markdown符号
-空白行表示另起一个段落
-`是表示inline代码，tab是用来标记 代码段，分别对应html的code，pre标签
-
-换行
-单一段落( \) 用一个空白行
-连续两个空格 会变成一个 
-连续3个符号，然后是空行，表示 hr横线
-
-标题
-生成h1–h6,在文字前面加上 1–6个# 来实现
-文字加粗是通过 文字左右各......
+            项目截图
+web远程登录系统文档简要说明web远程登录系统总体上分为两部分，web工程与web远程登录系统，本文档将会从系统的功能架构和技术架构对本系统进行说明，web工程主要是针对FPGA实验仿真平台的配套设置，用户通过web工程了解FPGA实验仿真平台的基本信息，主要的功能模块有信息首页、公告新闻、文件下载、实验平台等。web远程登录系统则是基于guacamole-一款基于HTML5的w......
         </div>
     </a>
     <p class="post-meta">
@@ -247,19 +245,16 @@ RPC调用分类
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/system_design/system_design_question/">
+    <a href="/2017/11/30/project/project_volunteer/">
         <h2 class="post-title">
-            系统设计问题归总
+            义工平台说明
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            重点考察内容面向对象，接口设计，设计模式，数据库表，分布式
-关于高并发系统设计。主要有以下几个关键技术点：缓存，索引，数据分片，锁粒度尽可能小。
-系统设计相关
-Concurrency (threads, deadlock, starvation, consistency, coherence)
-Abstraction (understanding how OS, filesystem, an......
+            项目截图
+项目介绍义工系统是类似于豆瓣同城的一个项目，都是基于活动信息。用户可以在义工系统中查看学院所发布的义工信息，同时义工系统包含了用户中心，用户中心包括了关注、私信、日志、相册等基本功能。在技术上是基于Struts+spring+hibernate+ehcache框架，后台数据库采用mysql，前后台数据交互全部采用ajax+json模式，个人中心采用了bootstrap UI框架，所......
         </div>
     </a>
     <p class="post-meta">
@@ -272,30 +267,16 @@ Abstraction (understanding how OS, filesystem, an......
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/surrounding/study_git/">
+    <a href="/2017/11/30/project/project_zhongtui/">
         <h2 class="post-title">
-            Git速查表/参考手册
+            众推（先记录下 待整理）
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            索引
-创建
-本地修改
-搜索
-提交历史
-分支与标签
-更新与发布
-合并与重置
-撤销
-
-
-
-创建12$ git clone ssh://user@domain.com/repo.git #复制一个已创建的仓库$ git init #创建一个新的本地仓库
-
-
-本地修改123456789101112131415161718192021$ git status        #显示工作路径下已修改的文件......
+            zhongtui_python系统基于开源项目众推，功能形式上类似今日头条
+概述在开源中国闲逛时发现了这个项目-众推，是一个以Hadoop分布思想为基础类今日头条的开源项目。虽然该项目将去重过滤、文本分类单独出来，但是我认为这都属于数据处理部分。所以我将整个项目的核心划分为三个部分：分布式爬虫、数据清洗与处理、web工程。分别也对应了数据的采集、处理和展示。该项目没有继续下去，可能是因为这个......
         </div>
     </a>
     <p class="post-meta">
@@ -308,16 +289,16 @@ Abstraction (understanding how OS, filesystem, an......
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/surrounding/study_permission/">
+    <a href="/2017/11/30/project/study_shadowsocks/">
         <h2 class="post-title">
-            权限系统学习
+            shadowrocket
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            基于角色的访问控制（Role-Based Access Control）基本概念RBAC认为权限授权实际上是Who、What、How的问题。在RBAC模型中，who、what、how构成了访问权限三元组,也就是“Who对What(Which)进行How的操作”。 　　
-简单理解简单理解就是把系统中所有的功能都作为一个权限（或者称呼为资源），将这些权限赋予不同的角色，这个角色就具有了诸多的功能......
+            这篇文章主要记录在翻墙和寝室上网的各种折腾，亲测可行，从此再也不用担心交网费了！
+代理访问与vpn访问被封禁的网站，基本通过两种方式访问-VPN或者代理。VPN简单直接，在各大国外在华的办事处都是标配，连接VPN的最直接的好处是，你电脑的流量将完全走VPN线路，通过VPN服务器进行访问，所以这个方法是比较成熟可靠，省力的，但最重要的前提是你得选择一家好的VPN服务提供商，而好的服务质量通常意......
         </div>
     </a>
     <p class="post-meta">
@@ -330,16 +311,19 @@ Abstraction (understanding how OS, filesystem, an......
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/surrounding/study_linux/">
+    <a href="/2017/11/30/collection/somesource/">
         <h2 class="post-title">
-            Linux基础知识与命令（Ubuntu14.10）
+            一些有用的资源
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            这里记录常用的一些linux命令，以备不时之需。 
-常用的命令1234567sudo cp xxxx /xxxx #移动文件sudo mv xxxx xxxxx #为文件改名sudo tar zxvf xxx.tar #解压文件夹sudo unrar xxxx.rar #解压文件夹 sudo chmod 775 xxxx #给文件或文件夹加权限sudo chown -R hadoop:had......
+            平时在网上闲逛，看到一些可能会有用的一些资源记录在此
+
+计算机领域论文集合 GitHub - papers-we-love/papers-we-love: Papers from the computer science community to read and discuss. 
+分布式资料 Qix/ds.md at master · ty4z2008/Qix · GitHub 
+程序员......
         </div>
     </a>
     <p class="post-meta">
@@ -352,18 +336,24 @@ Abstraction (understanding how OS, filesystem, an......
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/surrounding/study_vim/">
+    <a href="/2017/11/30/puduct/study_monitor/">
         <h2 class="post-title">
-            vim积累
+            数据驱动开发与产品
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            这里记录vim的一些平常积累
-效果图
-安装参考github上关于vim配置及其插件安装simple_vim_setting
-基本操作1. Under normal mode123456789:wq             - save and quiti               - insertx VIM           - delete characterdd           ......
+            不谋万世者，不足以谋一时；不谋全局者，不足以谋一隅
+Monitor your data作为程序员，我们开发一个后台服务，大家有没有测试过以下数据
+
+这个服务能够承受多少的 QPS（每秒访问量）？
+平均响应时间和 99% 的响应时间是多少？
+如果服务器压力增加，我们能不能通过简单的加机器来解决，需要加多少台机器？
+当前线上服务瓶颈在哪里？
+按当前的增长速度，多久我们得需要加机器？
+
+技术关注点......
         </div>
     </a>
     <p class="post-meta">
@@ -398,21 +388,16 @@ Abstraction (understanding how OS, filesystem, an......
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/thinking/study_software/">
+    <a href="/2017/11/30/distributed_system/study_distribute/">
         <h2 class="post-title">
-            团队项目开发与规范
+            关于Log在分布式系统中的应用以及未来
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            计算机专业的三个维度
-
-基础体系，基础理论、算法与架构
-工程，业界常用方法，实际项目，开源项目
-前沿与未来，保持对新技术的灵敏度，论文
-
-个人理解团队是因为有相同的目标才聚集在一起，所有在做一个项目的开始，要让所有成员认同项目的前景。团队的大小个人认为最多20个人。虽然说很有必要保证规范化，但是我认为按部就班只能扼杀人的创造力，但是一些的必要的流程规范还是要的，也就是下面说的开发流程规范，有......
+            The Log&emsp;&emsp;有一段时间被一篇称为学习笔记：The Log（我所读过的最好的一篇分布式技术文章）所刷屏，各大技术文章推荐APP和微信都推荐了这篇文章，来自于LinkedIn关于kafka的文章，核心如题—The Log。（你可以把这节看成对这篇文章的缩减）
+（一）log由来、重要性、应用&emsp;&emsp;对于任何一项新技术都会先抛出三个问题what？why？ho......
         </div>
     </a>
     <p class="post-meta">
@@ -493,15 +478,15 @@ SHOW PROCESSLIST 查看数据库连接，看哪个连接导致锁表kill id   //
                             
                         
                             
+                            <a href="/tags/#computer_science" title="computer_science" rel="5">computer_science</a>
+                            
+                        
+                            
                             <a href="/tags/#database" title="database" rel="2">database</a>
                             
                         
                             
                             <a href="/tags/#distribution_system" title="distribution_system" rel="12">distribution_system</a>
-                            
-                        
-                            
-                            <a href="/tags/#computer_science" title="computer_science" rel="5">computer_science</a>
                             
                         
                             
@@ -515,11 +500,11 @@ SHOW PROCESSLIST 查看数据库连接，看哪个连接导致锁表kill id   //
                             
                         
                             
-                            <a href="/tags/#framework" title="framework" rel="2">framework</a>
+                            <a href="/tags/#language" title="language" rel="7">language</a>
                             
                         
                             
-                            <a href="/tags/#language" title="language" rel="7">language</a>
+                            <a href="/tags/#framework" title="framework" rel="2">framework</a>
                             
                         
                             
@@ -537,11 +522,11 @@ SHOW PROCESSLIST 查看数据库连接，看哪个连接导致锁表kill id   //
                             
                         
                             
-                            <a href="/tags/#surrounding" title="surrounding" rel="7">surrounding</a>
+                            <a href="/tags/#product" title="product" rel="5">product</a>
                             
                         
                             
-                            <a href="/tags/#product" title="product" rel="5">product</a>
+                            <a href="/tags/#surrounding" title="surrounding" rel="7">surrounding</a>
                             
                         
                             
