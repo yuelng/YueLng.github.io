@@ -190,18 +190,15 @@
 
 <div class="post-preview">
 
-    <a href="/2017/12/12/distributed_system/trace/">
+    <a href="/2017/12/12/distributed_system/mq/">
         <h2 class="post-title">
-            分布式系统追踪
+            消息队列
         </h2>
         <h3 class="post-subtitle">
-             "分布式系统调用链追踪、监控"
+             "消息队列"
         </h3>
         <div class="post-content-preview">
-            Distributed Tracing System需求
-入库消息的结构组成，traceID、层级表示、调用方法、调用时间、返回时间custom opentracing 
-
-关于opentracing jaeger ui展示层接收client的trace span消息，存入到内存map中，并定时清理map中的内容可能存在的问题如果span消息暴增，则会导致周期内写入map中的数据暴增，map......
+            kafka问题描述：kafka 重复消费的问题，每次重启服务，都从broker拉取offset，拉到旧的消息解决：消费者每次从broker拉取数据，消费之后都会自动commit，自动commit有一个定时机制，但是并不保证一定提交成功，例如在commit的时候，程序崩溃（例如重启的情况在重启后，消费者会拉取最新的offset作为消费的起点，sarama默认的initial offset 为O......
         </div>
     </a>
     <p class="post-meta">
@@ -214,15 +211,18 @@
 
 <div class="post-preview">
 
-    <a href="/2017/12/12/distributed_system/mq/">
+    <a href="/2017/12/12/distributed_system/trace/">
         <h2 class="post-title">
-            消息队列
+            分布式系统追踪
         </h2>
         <h3 class="post-subtitle">
-             "消息队列"
+             "分布式系统调用链追踪、监控"
         </h3>
         <div class="post-content-preview">
-            kafka问题描述：kafka 重复消费的问题，每次重启服务，都从broker拉取offset，拉到旧的消息解决：消费者每次从broker拉取数据，消费之后都会自动commit，自动commit有一个定时机制，但是并不保证一定提交成功，例如在commit的时候，程序崩溃（例如重启的情况在重启后，消费者会拉取最新的offset作为消费的起点，sarama默认的initial offset 为O......
+            Distributed Tracing System需求
+入库消息的结构组成，traceID、层级表示、调用方法、调用时间、返回时间custom opentracing 
+
+关于opentracing jaeger ui展示层接收client的trace span消息，存入到内存map中，并定时清理map中的内容可能存在的问题如果span消息暴增，则会导致周期内写入map中的数据暴增，map......
         </div>
     </a>
     <p class="post-meta">
@@ -342,23 +342,18 @@ Raft 使用的是 Log Replication + State Machine 的方式来处理分布式数
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/computer_science/study_server/">
+    <a href="/2017/11/30/computer_science/study_algorithm/">
         <h2 class="post-title">
-            服务器端编程基础积累
+            相似距离算法
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            UNIX I/O模型
-阻塞IO
-非阻塞IO
-IO多路复用
-信号驱动IO
-异步IO
-
-nginx模型操作系统的设计，因此可以归结为三点：（1）以多进程形式，允许多个任务同时运行；（2）以多线程形式，允许单个任务分成不同的部分运行；（3）提供协调机制，一方面防止进程之间和线程之间产生冲突，另一方面允许进程之间和线程之间共享资源。
-...
+            相似距离算法是推荐算法的一部分。
+一、EuclideanDistanceSimilarity: 欧氏距离相似度原理：利用欧式距离d定义的相似度s，s=1 / (1+d)。
+范围：[0,1]，值越大，说明d越小，也就是距离越近，则相似度越大。
+说明：同皮尔森相似度一样，该相似度也没有考虑重叠数对结果的影响，同样地，Mahout通过增加一个枚举类型（Weighting）的参数来使得重叠数也成为计......
         </div>
     </a>
     <p class="post-meta">
@@ -416,16 +411,15 @@ RPC调用分类
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/codeing/study_coding/">
+    <a href="/2017/11/30/framework/study_thrift/">
         <h2 class="post-title">
-            勿在浮沙聚高塔
+            thrift入门
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            1.摘要今天看了新浪新兵训练营的一些资料，整理下关于程序员最基础的知识————关于编码主要内容包括，什么是烂代码，什么是好代码，好代码需要注意什么，如何做出优雅的设计，如何规划合理的架构编码主要是给人看的，其次才是给机器看的。
-2.关于烂代码写出烂代码很容易，入行时很容易被鼓吹要把主要精力放在ABCD（需求文档/功能设计/架构设计/理解原理）上，写代码只是实现想法的工具。在这样的指导思想下，......
+            介绍Thrift 最初由Facebook开发，而后捐献给Apache，目前已广泛应用于业界。Thrift 正如其官方主页介绍的，“是一种可扩展、跨语言的服务开发框架”。简而言之，它主要用于各个服务之间的RPC通信，其服务端和客户端可以用不同的语言来开发。只需要依照IDL（Interface Description Language）定义一次接口，Thrift工具就能自动生成 C++, Jav......
         </div>
     </a>
     <p class="post-meta">
@@ -501,11 +495,11 @@ RPC调用分类
                             
                         
                             
-                            <a href="/tags/#financial" title="financial" rel="3">financial</a>
+                            <a href="/tags/#framework" title="framework" rel="2">framework</a>
                             
                         
                             
-                            <a href="/tags/#framework" title="framework" rel="2">framework</a>
+                            <a href="/tags/#financial" title="financial" rel="3">financial</a>
                             
                         
                             
@@ -531,11 +525,11 @@ RPC调用分类
                             
                         
                             
-                            <a href="/tags/#surrounding" title="surrounding" rel="7">surrounding</a>
+                            <a href="/tags/#system_design" title="system_design" rel="4">system_design</a>
                             
                         
                             
-                            <a href="/tags/#system_design" title="system_design" rel="4">system_design</a>
+                            <a href="/tags/#surrounding" title="surrounding" rel="7">surrounding</a>
                             
                         
                             
