@@ -96,6 +96,13 @@
 
                         
                         <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
                             <a href="/about/">About</a>
                         </li>
                         
@@ -104,13 +111,6 @@
                         
                         <li>
                             <a href="/archives/">Archives</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -366,20 +366,23 @@ RPC调用分类
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/devops/study_environment/">
+    <a href="/2017/11/30/computer_science/study_server/">
         <h2 class="post-title">
-            基础服务环境搭建
+            服务器端编程基础积累
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            这篇文章主要是针对大数据平台的搭建，主要包括的内容有
+            UNIX I/O模型
+阻塞IO
+非阻塞IO
+IO多路复用
+信号驱动IO
+异步IO
 
-vagrant虚拟机环境搭建
-Hadoop集群搭建
-memcached集群搭建
-storm集群搭建一些架构可行的架构：Flume + Kafka + Strom + Hbase 使用vagrant搭建系统安装上 http://www.vagrantbox.es/ 找下载需要的 box ， 譬如 Ubuntu 14.10（based on......
+nginx模型操作系统的设计，因此可以归结为三点：（1）以多进程形式，允许多个任务同时运行；（2）以多线程形式，允许单个任务分成不同的部分运行；（3）提供协调机制，一方面防止进程之间和线程之间产生冲突，另一方面允许进程之间和线程之间共享资源。
+...
         </div>
     </a>
     <p class="post-meta">
@@ -392,15 +395,15 @@ storm集群搭建一些架构可行的架构：Flume + Kafka + Strom + Hbase 使
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/collection/interview/">
+    <a href="/2017/11/30/collection/source_all/">
         <h2 class="post-title">
-            面试题目
+            常用的资源
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            1.Java相关2.Python相关3.算法与数据结构链表、递归、栈、队列（拓扑排序、括号匹配、逆波兰表达式）字符串（全排列、LCS、Huffman编码)数组（局部最大值、荷兰国旗、子集和数、最大间距）树（遍历、AVL等)图（深度搜索、隐式图、单词变换、N-皇后、数独）查找排序（排序大综合、Top10、排序与Hash、桶排序）贪心动态规划（动态规划本质论、回文划分、LIS、矩阵连乘、Cata......
+            计算机科学1.谷歌推荐的技术能力提升指南CS课程入门、了解其他语言、测试代码、培养逻辑推理和学习数学离散知识、深刻理解操作系统、学习UX设计、学习人工智能、学习如何构建编译器、了解密码学、并行编程、与其他程序员一起开发项目。2.hackr.ioShare and discover the best programming tutorials and courses online.3.图说设计......
         </div>
     </a>
     <p class="post-meta">
@@ -413,18 +416,15 @@ storm集群搭建一些架构可行的架构：Flume + Kafka + Strom + Hbase 使
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/system_design/msgpush/">
+    <a href="/2017/11/30/project/project_distribute/">
         <h2 class="post-title">
-            消息推送入门
+            基于开源项目众推的Python实现
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            实时消息推送的几种实现方式相较于手机端的消息推送（一般都是以socket方式实现），web端是基于http协议，很难像tcp一样保持长连接。但随着技术的发展，出现了websocket, comet等新的技术可以达到类似长连接的效果，这些技术大体可分为以下几类：
-
-短轮询。页面端通过js定时异步刷新，这种方式实时效果较差。
-长轮询。页面端通过js异步请求服务端，服务端在接收到请求后，如果该次请......
+            概述在开源中国闲逛时发现了这个项目-众推，是一个以Hadoop分布思想为基础类今日头条的开源项目。虽然该项目将去重过滤、文本分类单独出来，但是我认为这都属于数据处理部分。所以我将整个项目的核心划分为三个部分：分布式爬虫、数据清洗与处理、web工程。分别也对应了数据的采集、处理和展示。该项目没有继续下去，可能是因为这个项目不够吸引人，创意不是很好，但是我认为这个项目是当前所有互联网项目技术架构......
         </div>
     </a>
     <p class="post-meta">
@@ -474,15 +474,11 @@ storm集群搭建一些架构可行的架构：Flume + Kafka + Strom + Hbase 使
                     <div class="tags">
                         
                             
-                            <a href="/tags/#coding" title="coding" rel="3">coding</a>
-                            
-                        
-                            
-                            <a href="/tags/#collection" title="collection" rel="5">collection</a>
-                            
-                        
-                            
                             <a href="/tags/#computer_science" title="computer_science" rel="5">computer_science</a>
+                            
+                        
+                            
+                            <a href="/tags/#coding" title="coding" rel="3">coding</a>
                             
                         
                             
@@ -490,7 +486,7 @@ storm集群搭建一些架构可行的架构：Flume + Kafka + Strom + Hbase 使
                             
                         
                             
-                            <a href="/tags/#distribution_system" title="distribution_system" rel="12">distribution_system</a>
+                            <a href="/tags/#financial" title="financial" rel="3">financial</a>
                             
                         
                             
@@ -498,13 +494,7 @@ storm集群搭建一些架构可行的架构：Flume + Kafka + Strom + Hbase 使
                             
                         
                             
-                        
-                            
-                            <a href="/tags/#financial" title="financial" rel="3">financial</a>
-                            
-                        
-                            
-                            <a href="/tags/#language" title="language" rel="7">language</a>
+                            <a href="/tags/#distribution_system" title="distribution_system" rel="12">distribution_system</a>
                             
                         
                             
@@ -512,17 +502,19 @@ storm集群搭建一些架构可行的架构：Flume + Kafka + Strom + Hbase 使
                             
                         
                             
-                            <a href="/tags/#life_is_short" title="life_is_short" rel="4">life_is_short</a>
+                            <a href="/tags/#language" title="language" rel="7">language</a>
                             
                         
                             
-                            <a href="/tags/#operation" title="operation" rel="2">operation</a>
+                            <a href="/tags/#collection" title="collection" rel="5">collection</a>
                             
                         
                             
                             <a href="/tags/#project" title="project" rel="8">project</a>
                             
                         
+                            
+                            <a href="/tags/#operation" title="operation" rel="2">operation</a>
                             
                         
                             
@@ -534,11 +526,19 @@ storm集群搭建一些架构可行的架构：Flume + Kafka + Strom + Hbase 使
                             
                         
                             
+                        
+                            
                             <a href="/tags/#system_design" title="system_design" rel="4">system_design</a>
                             
                         
                             
                             <a href="/tags/#thinking" title="thinking" rel="8">thinking</a>
+                            
+                        
+                            
+                            <a href="/tags/#life_is_short" title="life_is_short" rel="4">life_is_short</a>
+                            
+                        
                             
                         
                     </div>
