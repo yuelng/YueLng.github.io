@@ -103,14 +103,14 @@
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
@@ -187,28 +187,6 @@
             
                 <!-- Main Content -->
 
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/project/project_remote/">
-        <h2 class="post-title">
-            web远程登录系统
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            项目截图
-web远程登录系统文档简要说明web远程登录系统总体上分为两部分，web工程与web远程登录系统，本文档将会从系统的功能架构和技术架构对本系统进行说明，web工程主要是针对FPGA实验仿真平台的配套设置，用户通过web工程了解FPGA实验仿真平台的基本信息，主要的功能模块有信息首页、公告新闻、文件下载、实验平台等。web远程登录系统则是基于guacamole-一款基于HTML5的w......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
 
 <div class="post-preview">
 
@@ -311,39 +289,19 @@ bla......
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/thinking/think_first/">
+    <a href="/2017/11/30/system_design/system_design_question/">
         <h2 class="post-title">
-            把思维好好捋一捋
+            系统设计问题归总
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            骐骥一跃，不能十步；驽马十驾，功在不舍。
-胡乱扯扯1研究：研究东西，有足够洞察力，研究水准不错2研发：Hack Idea自己有魄力实现，不懂研发的黑客如同不会游泳的海盗3工程：研发出来的需要实战、需要工程化，否则只是玩具，而不能成为真的武器
-关于就业和能力就业实习，还是有压力的。听过学长学姐们的经历，他们有进大公司也有初创企业的，前天还在群里争论是去哪种好，引得一个在初创公司的学长，把月薪都......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/surrounding/study_linux/">
-        <h2 class="post-title">
-            Linux基础知识与命令（Ubuntu14.10）
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            这里记录常用的一些linux命令，以备不时之需。 
-常用的命令1234567sudo cp xxxx /xxxx #移动文件sudo mv xxxx xxxxx #为文件改名sudo tar zxvf xxx.tar #解压文件夹sudo unrar xxxx.rar #解压文件夹 sudo chmod 775 xxxx #给文件或文件夹加权限sudo chown -R hadoop:had......
+            重点考察内容面向对象，接口设计，设计模式，数据库表，分布式
+关于高并发系统设计。主要有以下几个关键技术点：缓存，索引，数据分片，锁粒度尽可能小。
+系统设计相关
+Concurrency (threads, deadlock, starvation, consistency, coherence)
+Abstraction (understanding how OS, filesystem, an......
         </div>
     </a>
     <p class="post-meta">
@@ -378,6 +336,28 @@ bla......
 
 <div class="post-preview">
 
+    <a href="/2017/11/30/system_design/study_model/">
+        <h2 class="post-title">
+            设计模式简要介绍
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            创建型模式简单工厂模式简单工厂模式的要点在于：当你需要什么，只需要传入一个正确的参数，就可以获取你所需要的对象，而无须知道其创建细节。1KeyGenerator keyGen=KeyGenerator.getInstance("DESede");//获取不同加密算法的密钥生成器
+工厂方法模式工厂父类负责定义创建产品对象的公共接口，而工厂子类则负责生成具体的产品对象，这样做的目的是将产品类的实......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/2017/11/30/puduct/study_monitor/">
         <h2 class="post-title">
             数据驱动开发与产品
@@ -396,6 +376,28 @@ Monitor your data作为程序员，我们开发一个后台服务，大家有没
 按当前的增长速度，多久我们得需要加机器？
 
 技术关注点......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/30/codeing/study_coding/">
+        <h2 class="post-title">
+            勿在浮沙聚高塔
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            1.摘要今天看了新浪新兵训练营的一些资料，整理下关于程序员最基础的知识————关于编码主要内容包括，什么是烂代码，什么是好代码，好代码需要注意什么，如何做出优雅的设计，如何规划合理的架构编码主要是给人看的，其次才是给机器看的。
+2.关于烂代码写出烂代码很容易，入行时很容易被鼓吹要把主要精力放在ABCD（需求文档/功能设计/架构设计/理解原理）上，写代码只是实现想法的工具。在这样的指导思想下，......
         </div>
     </a>
     <p class="post-meta">
@@ -476,15 +478,15 @@ SHOW PROCESSLIST 查看数据库连接，看哪个连接导致锁表kill id   //
                             
                         
                             
-                            <a href="/tags/#computer_science" title="computer_science" rel="5">computer_science</a>
-                            
-                        
-                            
                             <a href="/tags/#database" title="database" rel="2">database</a>
                             
                         
                             
                             <a href="/tags/#distribution_system" title="distribution_system" rel="12">distribution_system</a>
+                            
+                        
+                            
+                            <a href="/tags/#computer_science" title="computer_science" rel="5">computer_science</a>
                             
                         
                             
@@ -494,19 +496,19 @@ SHOW PROCESSLIST 查看数据库连接，看哪个连接导致锁表kill id   //
                             
                         
                             
-                            <a href="/tags/#framework" title="framework" rel="2">framework</a>
-                            
-                        
-                            
                             <a href="/tags/#financial" title="financial" rel="3">financial</a>
                             
                         
                             
-                            <a href="/tags/#language" title="language" rel="7">language</a>
+                            <a href="/tags/#framework" title="framework" rel="2">framework</a>
                             
                         
                             
                             <a href="/tags/#life_is_short" title="life_is_short" rel="4">life_is_short</a>
+                            
+                        
+                            
+                            <a href="/tags/#language" title="language" rel="7">language</a>
                             
                         
                             
@@ -524,11 +526,11 @@ SHOW PROCESSLIST 查看数据库连接，看哪个连接导致锁表kill id   //
                             
                         
                             
-                            <a href="/tags/#system_design" title="system_design" rel="4">system_design</a>
+                            <a href="/tags/#surrounding" title="surrounding" rel="7">surrounding</a>
                             
                         
                             
-                            <a href="/tags/#surrounding" title="surrounding" rel="7">surrounding</a>
+                            <a href="/tags/#system_design" title="system_design" rel="4">system_design</a>
                             
                         
                             
