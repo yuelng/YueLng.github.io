@@ -103,14 +103,14 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -190,6 +190,88 @@
 
 <div class="post-preview">
 
+    <a href="/2017/11/30/thinking/think_master_function/">
+        <h2 class="post-title">
+            编程之路—函数式编程
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            编程之路
+编程规范
+函数式编程
+性能与优化
+单元测试
+
+概念定义
+In computer science, functional programming is a programming paradigm that treats computation as the evaluation of mathematical functions and avoids state and mutab......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/30/distributed_system/study_rpc/">
+        <h2 class="post-title">
+            RPC远程过程调用
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            如果说把一个网站分为三个部分，经典的MVC设计模式，后台分布式实现就是控制层，模块的服务化全都依赖于rpc框架，从阿里的dubbo、Hadoop等，这些大数据框架都有了广泛的应用，本文是个人学习rpc过程中的一些资料积累和个人想法。 
+RPC调用分类
+同步调用客户方等待调用执行完成并返回结果。
+异步调用客户方调用后不用等待执行结果返回，但依然可以通过回调通知等方式获取返回结果。 若客户方不关......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/30/puduct/study_monitor/">
+        <h2 class="post-title">
+            数据驱动开发与产品
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            不谋万世者，不足以谋一时；不谋全局者，不足以谋一隅
+Monitor your data作为程序员，我们开发一个后台服务，大家有没有测试过以下数据
+
+这个服务能够承受多少的 QPS（每秒访问量）？
+平均响应时间和 99% 的响应时间是多少？
+如果服务器压力增加，我们能不能通过简单的加机器来解决，需要加多少台机器？
+当前线上服务瓶颈在哪里？
+按当前的增长速度，多久我们得需要加机器？
+
+技术关注点......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/2017/11/30/system_design/msgpush/">
         <h2 class="post-title">
             消息推送入门
@@ -214,18 +296,23 @@
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/surrounding/study_vim/">
+    <a href="/2017/11/30/computer_science/study_server/">
         <h2 class="post-title">
-            vim积累
+            服务器端编程基础积累
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            这里记录vim的一些平常积累
-效果图
-安装参考github上关于vim配置及其插件安装simple_vim_setting
-基本操作1. Under normal mode123456789:wq             - save and quiti               - insertx VIM           - delete characterdd           ......
+            UNIX I/O模型
+阻塞IO
+非阻塞IO
+IO多路复用
+信号驱动IO
+异步IO
+
+nginx模型操作系统的设计，因此可以归结为三点：（1）以多进程形式，允许多个任务同时运行；（2）以多线程形式，允许单个任务分成不同的部分运行；（3）提供协调机制，一方面防止进程之间和线程之间产生冲突，另一方面允许进程之间和线程之间共享资源。
+...
         </div>
     </a>
     <p class="post-meta">
@@ -238,16 +325,16 @@
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/codeing/study_coding/">
+    <a href="/2017/11/30/surrounding/study_permission/">
         <h2 class="post-title">
-            勿在浮沙聚高塔
+            权限系统学习
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            1.摘要今天看了新浪新兵训练营的一些资料，整理下关于程序员最基础的知识————关于编码主要内容包括，什么是烂代码，什么是好代码，好代码需要注意什么，如何做出优雅的设计，如何规划合理的架构编码主要是给人看的，其次才是给机器看的。
-2.关于烂代码写出烂代码很容易，入行时很容易被鼓吹要把主要精力放在ABCD（需求文档/功能设计/架构设计/理解原理）上，写代码只是实现想法的工具。在这样的指导思想下，......
+            基于角色的访问控制（Role-Based Access Control）基本概念RBAC认为权限授权实际上是Who、What、How的问题。在RBAC模型中，who、what、how构成了访问权限三元组,也就是“Who对What(Which)进行How的操作”。 　　
+简单理解简单理解就是把系统中所有的功能都作为一个权限（或者称呼为资源），将这些权限赋予不同的角色，这个角色就具有了诸多的功能......
         </div>
     </a>
     <p class="post-meta">
@@ -260,70 +347,20 @@
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/computer_science/study_flooding/">
+    <a href="/2017/11/30/collection/plan/">
         <h2 class="post-title">
-            SYN洪泛攻击的原理与实现
+            TODO集合
         </h2>
         <h3 class="post-subtitle">
-            
+             "来不及整理的就放在这吧"
         </h3>
         <div class="post-content-preview">
-            设计原理SYN-Flood是目前最流行的DDoS攻击手段，DDoS只是洪水攻击的一个种类。其实还有其它种类的洪水攻击。以前的DoS手段在向分布式这一阶段发展的过程中也经历了逐步淘汰的过程。SYN-Flood的攻击效果最好，故众黑客不约而同选择它。以下了解一下SYN-Flood的详细情况。Syn Flood利用了TCP/IP协议的固有漏洞。面向连接的TCP三次握手是Syn Flood存在的基础......
+            大纲数据库系统、分布式系统、数据科学
+待看文章#程序员的自我修养《程序员的自我修养》链接、装载与库2017年4月30日星期日在golang1.8中使用插件https://github.com/vladimirvivien/go-plugin-examplehttps://medium.com/learning-the-go-programming-language/writing-modul......
         </div>
     </a>
     <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/thinking/think_first/">
-        <h2 class="post-title">
-            把思维好好捋一捋
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            骐骥一跃，不能十步；驽马十驾，功在不舍。
-胡乱扯扯1研究：研究东西，有足够洞察力，研究水准不错2研发：Hack Idea自己有魄力实现，不懂研发的黑客如同不会游泳的海盗3工程：研发出来的需要实战、需要工程化，否则只是玩具，而不能成为真的武器
-关于就业和能力就业实习，还是有压力的。听过学长学姐们的经历，他们有进大公司也有初创企业的，前天还在群里争论是去哪种好，引得一个在初创公司的学长，把月薪都......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/thinking/think_master_function/">
-        <h2 class="post-title">
-            编程之路—函数式编程
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            编程之路
-编程规范
-函数式编程
-性能与优化
-单元测试
-
-概念定义
-In computer science, functional programming is a programming paradigm that treats computation as the evaluation of mathematical functions and avoids state and mutab......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
+        Posted by yueLng on
         2017-11-30
     </p>
 
@@ -354,43 +391,30 @@ In computer science, functional programming is a programming paradigm that treat
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/thinking/study_software/">
+    <a href="/2017/11/30/surrounding/study_git/">
         <h2 class="post-title">
-            团队项目开发与规范
+            Git速查表/参考手册
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            计算机专业的三个维度
+            索引
+创建
+本地修改
+搜索
+提交历史
+分支与标签
+更新与发布
+合并与重置
+撤销
 
-基础体系，基础理论、算法与架构
-工程，业界常用方法，实际项目，开源项目
-前沿与未来，保持对新技术的灵敏度，论文
 
-个人理解团队是因为有相同的目标才聚集在一起，所有在做一个项目的开始，要让所有成员认同项目的前景。团队的大小个人认为最多20个人。虽然说很有必要保证规范化，但是我认为按部就班只能扼杀人的创造力，但是一些的必要的流程规范还是要的，也就是下面说的开发流程规范，有......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
-    </p>
 
-</div>
-<hr>
+创建12$ git clone ssh://user@domain.com/repo.git #复制一个已创建的仓库$ git init #创建一个新的本地仓库
 
-<div class="post-preview">
 
-    <a href="/2017/11/30/project/project_volunteer/">
-        <h2 class="post-title">
-            义工平台说明
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            项目截图
-项目介绍义工系统是类似于豆瓣同城的一个项目，都是基于活动信息。用户可以在义工系统中查看学院所发布的义工信息，同时义工系统包含了用户中心，用户中心包括了关注、私信、日志、相册等基本功能。在技术上是基于Struts+spring+hibernate+ehcache框架，后台数据库采用mysql，前后台数据交互全部采用ajax+json模式，个人中心采用了bootstrap UI框架，所......
+本地修改123456789101112131415161718192021$ git status        #显示工作路径下已修改的文件......
         </div>
     </a>
     <p class="post-meta">
@@ -463,7 +487,11 @@ SHOW PROCESSLIST 查看数据库连接，看哪个连接导致锁表kill id   //
                     <div class="tags">
                         
                             
-                            <a href="/tags/#database" title="database" rel="2">database</a>
+                            <a href="/tags/#coding" title="coding" rel="3">coding</a>
+                            
+                        
+                            
+                            <a href="/tags/#collection" title="collection" rel="5">collection</a>
                             
                         
                             
@@ -471,11 +499,7 @@ SHOW PROCESSLIST 查看数据库连接，看哪个连接导致锁表kill id   //
                             
                         
                             
-                            <a href="/tags/#coding" title="coding" rel="3">coding</a>
-                            
-                        
-                            
-                            <a href="/tags/#framework" title="framework" rel="2">framework</a>
+                            <a href="/tags/#database" title="database" rel="2">database</a>
                             
                         
                             
@@ -487,11 +511,25 @@ SHOW PROCESSLIST 查看数据库连接，看哪个连接导致锁表kill id   //
                             
                         
                             
+                        
+                            
+                            <a href="/tags/#financial" title="financial" rel="3">financial</a>
+                            
+                        
+                            
+                            <a href="/tags/#framework" title="framework" rel="2">framework</a>
+                            
+                        
+                            
                             <a href="/tags/#language" title="language" rel="7">language</a>
                             
                         
                             
-                            <a href="/tags/#collection" title="collection" rel="5">collection</a>
+                            <a href="/tags/#life_is_short" title="life_is_short" rel="4">life_is_short</a>
+                            
+                        
+                            
+                            <a href="/tags/#operation" title="operation" rel="2">operation</a>
                             
                         
                             
@@ -503,11 +541,9 @@ SHOW PROCESSLIST 查看数据库连接，看哪个连接导致锁表kill id   //
                             
                         
                             
-                            <a href="/tags/#operation" title="operation" rel="2">operation</a>
+                            <a href="/tags/#system_design" title="system_design" rel="4">system_design</a>
                             
                         
-                            
-                            <a href="/tags/#life_is_short" title="life_is_short" rel="4">life_is_short</a>
                             
                         
                             
@@ -515,19 +551,7 @@ SHOW PROCESSLIST 查看数据库连接，看哪个连接导致锁表kill id   //
                             
                         
                             
-                            <a href="/tags/#system_design" title="system_design" rel="4">system_design</a>
-                            
-                        
-                            
                             <a href="/tags/#thinking" title="thinking" rel="8">thinking</a>
-                            
-                        
-                            
-                            <a href="/tags/#financial" title="financial" rel="3">financial</a>
-                            
-                        
-                            
-                        
                             
                         
                     </div>
