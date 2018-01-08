@@ -197,25 +197,41 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h2 id="golang的一些资料"><a href="#golang的一些资料" class="headerlink" title="golang的一些资料"></a>golang的一些资料</h2><p>关于golang的一些批评</p>
-<ul>
-<li><a href="https://github.com/ksimka/go-is-not-good" target="_blank" rel="external">go-is-not-good</a></li>
-<li><a href="http://www.yinwang.org/blog-cn/2014/04/18/golang" target="_blank" rel="external">对 Go 语言的综合评价</a></li>
+                <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>Go是Google开发的一种静态强类型、编译型、并发型，并具有垃圾回收功能的编程语言。 –<a href="https://zh.wikipedia.org/wiki/Go" target="_blank" rel="external">wikipedia golang</a><br>在编程语法上类似于C，但是支持垃圾回收功能，Go的并发模型是通信顺序处理CSP，在go1.8中支持了plugin支持，使得go语言动态加载部分函数<br><a href="https://www.oschina.net/translate/go-at-google-language-design-in-the-service-of-software-engineering?lang=chs&amp;page=1#" target="_blank" rel="external">Go在谷歌：以软件工程为目的的语言设计</a></p>
+<h3 id="主要特性"><a href="#主要特性" class="headerlink" title="主要特性"></a>主要特性</h3><ul>
+<li>清晰的依赖关系</li>
+<li>清晰的语法</li>
+<li>清晰的语义</li>
+<li>偏向组合而不是继承</li>
+<li>编程模型（垃圾回收、并发）所代理的简单性</li>
+<li>易于为它编写工具（Easy tooling ）(gotool、gofmt、godoc、gofix)</li>
 </ul>
-<p>虚拟内存<br><a href="http://legendtkl.com/2017/03/21/malloc-os-knowledge/" target="_blank" rel="external">malloc 背后的系统知识 | Legendtkl</a><br>垃圾回收<br><a href="http://legendtkl.com/2017/04/28/golang-gc/" target="_blank" rel="external">Golang 垃圾回收剖析 | Legendtkl</a></p>
-<ol>
-<li>routime库性能是否达到要求，defer、mutex、chan、select等特性</li>
-<li>goroutine带来的高并发并不是新特性，性能上是不是有待提高</li>
-<li>golang GC内存管理器性能无法满足要求，是否真的能替代C或C++的底层工作</li>
-<li>是否需要泛型generics</li>
+<p>作为服务端编程语言</p>
+<ul>
+<li>部署简单 ease of deployment</li>
+<li>精确的垃圾回收</li>
+<li>快速编译、快速启动</li>
+<li>执行性能好</li>
+</ul>
+<h3 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h3><ol>
+<li><a href="https://tour.golang.org/welcome/1" target="_blank" rel="external">A Tour of Go</a></li>
+<li><a href="https://learnxinyminutes.com/docs/zh-cn/go-cn/" target="_blank" rel="external">learn golang in n minute</a></li>
 </ol>
-<p><a href="https://zh.wikipedia.org/wiki/%E6%B3%9B%E5%9E%8B" target="_blank" rel="external">wikipedia泛型</a></p>
-<p><code>From Golang blog
-Do you have plans to implement generics? Many proposals for generics-like features have been mooted both publicly and internally, but as yet we haven&#39;t found a proposal that is consistent with the rest of the language. We think that one of Go&#39;s key strengths is its simplicity, so we are wary of introducing new features that might make the language more difficult to understand. Additionally, the more Go code we write (and thus the better we learn how to write Go code ourselves), the less we feel the need for such a language feature.</code></p>
-<p>golang中的基本数据结构<br>channel<br>goroutine<br>内存模型与管理</p>
-<p><a href="https://github.com/hyper0x/go_command_tutorial" target="_blank" rel="external">GitHub - hyper0x/go_command_tutorial: Golang command tutorial in Chinese.</a> golfing 命令行</p>
-<p>Golang 内存栈的分布<br>协程栈、协程调度、网络、内存管理<br><a href="https://tiancaiamao.gitbooks.io/go-internals/zh/" target="_blank" rel="external">《深入解析Go》</a><br><a href="http://legendtkl.com/2016/10/23/golang-mutex/" target="_blank" rel="external">golang中的锁源码实现：Mutex | Legendtkl</a><br><a href="https://gobyexample.com/" target="_blank" rel="external">Go by Example</a><br><a href="https://github.com/dominikh/go-tools" target="_blank" rel="external">GitHub - dominikh/go-tools: A collection of tools and libraries for working with Go code, including linters and static analysis</a><br><a href="https://www.gitbook.com/book/tracymacding/implementation-of-golang/details" target="_blank" rel="external">implementation of golang · GitBook</a><br><a href="http://colobu.com/2017/06/30/idiomatic-go-references/#Go_Patterns" target="_blank" rel="external">译参考资料: 地道的GO代码 | 鸟窝</a><br><a href="https://tiancaiamao.gitbooks.io/go-internals/zh/" target="_blank" rel="external">Introduction · 深入解析Go</a> <a href="https://checkmarx.gitbooks.io/go-scp/content/" target="_blank" rel="external">Introduction · Go-SCP</a><br><a href="https://www.youtube.com/watch?v=KBZlN0izeiY" target="_blank" rel="external">GopherCon 2017: Kavya Joshi - Understanding Channels - YouTube</a> channel<br><a href="https://www.youtube.com/watch?v=OfEBxZyRMFc" target="_blank" rel="external">Golang UK Conference 2015 Dean Elbaz Understanding Memory Allocation in Go - YouTube</a> memory allocation<br><a href="https://www.youtube.com/watch?v=D6jqVS5JFpM" target="_blank" rel="external">GOTO 2014 • The Fundamentals of Garbage Collector Performance • Charlie Hunt - YouTube</a> garbage collection<br><a href="https://dave.cheney.net/2017/04/29/there-is-no-pass-by-reference-in-go" target="_blank" rel="external">There is no pass-by-reference in Go | Dave Cheney</a><br>Map A map value is a pointer to a runtime.hmap structure.<a href="https://dave.cheney.net/2017/04/30/if-a-map-isnt-a-reference-variable-what-is-it" target="_blank" rel="external">If a map isn’t a reference variable, what is it? | Dave Cheney</a> map<br><a href="https://www.youtube.com/watch?v=F4wUrj6pmSI" target="_blank" rel="external">2 4  Google    Understanding Go Interfaces - YouTube</a> interface<br><a href="http://www.lijiaocn.com/%E7%BC%96%E7%A8%8B/2017/11/06/golang-reflection.html" target="_blank" rel="external">理解go的反射机制reflection</a> 反射</p>
-<p><a href="http://colobu.com/2017/06/27/Lint-your-golang-code-like-a-mad-man/" target="_blank" rel="external">译像牛人一样改进你的Go代码 | 鸟窝</a><br><a href="https://github.com/tidwall/evio" target="_blank" rel="external">GitHub - tidwall/evio: Fast event-loop networking for Go</a></p>
+<h3 id="进阶"><a href="#进阶" class="headerlink" title="进阶"></a>进阶</h3><p>基本数据结构 map channel<br>协程调度 goroutine<br>内存管理 协程栈</p>
+<h3 id="标准库"><a href="#标准库" class="headerlink" title="标准库"></a>标准库</h3><h3 id="外部库"><a href="#外部库" class="headerlink" title="外部库"></a>外部库</h3><h3 id="相关问题"><a href="#相关问题" class="headerlink" title="相关问题"></a>相关问题</h3><p>1.说说为什么同样实现一个“hello world”，Go编译出来的程序一般会比C/C++要大？<br>关键字：跨平台 静态链接编译 依赖库 自带runtime<br><a href="https://blog.golang.org/go1.7-binary-size" target="_blank" rel="external">Smaller Go 1.7 binaries</a></p>
+<p>2.说说channel的实现.（核心，拓展问题：通信常用手段，阻塞非阻塞，同步异步的区别，select／poll/epoll等等）<br><a href="https://www.youtube.com/watch?v=KBZlN0izeiY&amp;t=10s" target="_blank" rel="external">Kavya Joshi - Understanding Channels</a></p>
+<p>3.goruntine是怎么调度的？与进程，线程的关系。（核心，拓展问题，进程，线程，协程区别，死锁，操作系统等等）<br><a href="https://www.youtube.com/watch?v=zbFDjCHzN50" target="_blank" rel="external">https://www.youtube.com/watch?v=zbFDjCHzN50</a></p>
+<p>4.如何理解“不要通过共享内存来通信，要通过通信来共享内存”这句话？（关于代码和设计）<br>关键字：高内聚低耦合 消息机制 channel 结合场景</p>
+<p>5.说说排查Go问题的经历，都用到了什么工具，有什么看法？（经验，排查问题思路和能力，个人觉得排查问题重要的是有没有思路方法，不见得什么最有效）</p>
+<p>6.Go目前的GC策略是什么？之前是什么？怎么改进的？（拓展问题：关于GC算法，内存分配等等）</p>
+<p>7.Go的错误和异常的处理机制怎么样</p>
+<p>7.你喜欢Go吗？说出目前它的三个以上缺点？（是不是真的喜欢，关注，能说出缺点最重要）<br><a href="https://github.com/ksimka/go-is-not-good" target="_blank" rel="external">go-is-not-good</a><br><a href="http://www.yinwang.org/blog-cn/2014/04/18/golang" target="_blank" rel="external">对 Go 语言的综合评价</a><br>routime库性能是否达到要求，defer、mutex、chan、select等特性<br>goroutine带来的高并发并不是新特性，性能上是不是有待提高<br>golang GC内存管理器性能无法满足要求，是否真的能替代C或C++的底层工作<br>是否需要泛型generics，官方认为go的核心在于保持简洁性，对任何会导致语言难以理解的特性，持有怀疑的态度，并且在实践中证明泛型用处并不多</p>
+<h3 id="面试问题"><a href="#面试问题" class="headerlink" title="面试问题"></a>面试问题</h3><ul>
+<li><a href="https://zhuanlan.zhihu.com/interview" target="_blank" rel="external">golang面试笔试题</a></li>
+<li><a href="https://www.zhihu.com/question/67846139" target="_blank" rel="external">如果你是一个Golang面试官，你会问哪些问题？</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/26972862" target="_blank" rel="external">golang 面试题</a></li>
+</ul>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><a href="https://zhuanlan.zhihu.com/deepgolang" target="_blank" rel="external">进击的Golang</a><br><a href="https://www.youtube.com/watch?v=ha8gdZ27wMo&amp;list=PL2ntRZ1ySWBdD9bru6IR-_WXUgJqvrtx9" target="_blank" rel="external">Evolutionary Optimization with Go(GopherCon2017)</a><br><a href="https://learnxinyminutes.com/docs/zh-cn/go-cn/" target="_blank" rel="external">learn golang in n minute</a><br><a href="http://legendtkl.com/2017/03/21/malloc-os-knowledge/" target="_blank" rel="external">malloc 背后的系统知识 | Legendtkl</a><br><a href="http://legendtkl.com/2017/04/28/golang-gc/" target="_blank" rel="external">Golang 垃圾回收剖析 | Legendtkl</a><br><a href="https://zh.wikipedia.org/wiki/%E6%B3%9B%E5%9E%8B" target="_blank" rel="external">wikipedia泛型</a><br><a href="https://tiancaiamao.gitbooks.io/go-internals/zh/" target="_blank" rel="external">《深入解析Go》</a><br><a href="http://legendtkl.com/2016/10/23/golang-mutex/" target="_blank" rel="external">golang中的锁源码实现：Mutex | Legendtkl</a><br><a href="https://gobyexample.com/" target="_blank" rel="external">Go by Example</a><br><a href="https://github.com/dominikh/go-tools" target="_blank" rel="external">GitHub - dominikh/go-tools: A collection of tools and libraries for working with Go code, including linters and static analysis</a><br><a href="https://www.gitbook.com/book/tracymacding/implementation-of-golang/details" target="_blank" rel="external">implementation of golang · GitBook</a><br><a href="http://colobu.com/2017/06/30/idiomatic-go-references/#Go_Patterns" target="_blank" rel="external">译参考资料: 地道的GO代码 | 鸟窝</a><br><a href="https://tiancaiamao.gitbooks.io/go-internals/zh/" target="_blank" rel="external">Introduction · 深入解析Go</a> <a href="https://checkmarx.gitbooks.io/go-scp/content/" target="_blank" rel="external">Introduction · Go-SCP</a><br><a href="https://www.youtube.com/watch?v=KBZlN0izeiY" target="_blank" rel="external">GopherCon 2017: Kavya Joshi - Understanding Channels - YouTube</a> channel<br><a href="https://www.youtube.com/watch?v=OfEBxZyRMFc" target="_blank" rel="external">Golang UK Conference 2015 Dean Elbaz Understanding Memory Allocation in Go - YouTube</a> memory allocation<br><a href="https://www.youtube.com/watch?v=D6jqVS5JFpM" target="_blank" rel="external">GOTO 2014 • The Fundamentals of Garbage Collector Performance • Charlie Hunt - YouTube</a> garbage collection<br><a href="https://dave.cheney.net/2017/04/29/there-is-no-pass-by-reference-in-go" target="_blank" rel="external">There is no pass-by-reference in Go | Dave Cheney</a><br>Map A map value is a pointer to a runtime.hmap structure.<a href="https://dave.cheney.net/2017/04/30/if-a-map-isnt-a-reference-variable-what-is-it" target="_blank" rel="external">If a map isn’t a reference variable, what is it? | Dave Cheney</a> map<br><a href="https://www.youtube.com/watch?v=F4wUrj6pmSI" target="_blank" rel="external">Understanding Go Interfaces - YouTube</a> interface<br><a href="http://www.lijiaocn.com/%E7%BC%96%E7%A8%8B/2017/11/06/golang-reflection.html" target="_blank" rel="external">理解go的反射机制reflection</a> 反射<br><a href="http://colobu.com/2017/06/27/Lint-your-golang-code-like-a-mad-man/" target="_blank" rel="external">译像牛人一样改进你的Go代码 | 鸟窝</a><br><a href="https://github.com/tidwall/evio" target="_blank" rel="external">GitHub - tidwall/evio: Fast event-loop networking for Go</a></p>
 
 
                 <hr>
