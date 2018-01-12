@@ -96,14 +96,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -190,21 +190,73 @@
 
 <div class="post-preview">
 
-    <a href="/2017/12/16/puduct/experience/">
+    <a href="/2017/12/19/language/language/">
         <h2 class="post-title">
-            产品、运营、推广
+            编程语言
         </h2>
         <h3 class="post-subtitle">
-            
+             "programming language"
         </h3>
         <div class="post-content-preview">
-            如何做运营第一，依据不同的产品发展阶段，或当前占据市场份额的大小来判定运营策略和运营规划如何制定；第二，依据不同的产品形态和业务类型，来判定运营策略和运营规划如何制定。
-产品的发展阶段大概分为探索期产品：上线时间不长，产品还在打磨，需求尚待验证，2011-2012年间的知乎、2010年的新浪微博，包括绝大多数上线时间在8个月以内的产品。快速增长期产品：需求已得到验证，初步拥有了一定市场份额，......
+            language 编程语言
+声明式编程和命令式编程命令式编程：命令“机器”如何去做事情(how)，这样不管你想要的是什么(what)，它都会按照你的命令实现。声明式编程让我们去描述我们想要的是什么，让底层的软件/计算机/等去解决如何去实现它们。声明式编程举例，Array.map reduce、 SQL
+
+ConcurrencyShai Rosenfeld - Such Blocking, V......
         </div>
     </a>
     <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-12-16
+        Posted by yueLng on
+        2017-12-19
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/12/18/surrounding/document/">
+        <h2 class="post-title">
+            文档记录
+        </h2>
+        <h3 class="post-subtitle">
+             "文档记录"
+        </h3>
+        <div class="post-content-preview">
+            自述文件驱动开发-Readme drive development
+
+提供全局审视项目的机会，整体设计与架构
+项目的文档，可以让你更好的了解自己想要什么
+方便团队协作，团队成员能快速了解项目
+文档明确概念，不会陷入对某个问题无休止的讨论中
+
+如何做好文档记录，包括代码注释，项目readme编写，前后端API文档，项目通用规范等等gollum文档管理 markdown + git = wiki......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2017-12-18
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/12/18/puduct/startup/">
+        <h2 class="post-title">
+            创业
+        </h2>
+        <h3 class="post-subtitle">
+             "Startup company"
+        </h3>
+        <div class="post-content-preview">
+            cs183c 斯坦福创业课程-githubYC创业课中文社区YC创业课（CS183B）学习笔记
+...
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2017-12-18
     </p>
 
 </div>
@@ -235,23 +287,21 @@
 
 <div class="post-preview">
 
-    <a href="/2017/12/12/distributed_system/trace/">
+    <a href="/2017/12/16/puduct/experience/">
         <h2 class="post-title">
-            分布式系统追踪
+            产品、运营、推广
         </h2>
         <h3 class="post-subtitle">
-             "分布式系统调用链追踪、监控"
+            
         </h3>
         <div class="post-content-preview">
-            Distributed Tracing System需求
-入库消息的结构组成，traceID、层级表示、调用方法、调用时间、返回时间custom opentracing 
-
-关于opentracing jaeger ui展示层接收client的trace span消息，存入到内存map中，并定时清理map中的内容可能存在的问题如果span消息暴增，则会导致周期内写入map中的数据暴增，map......
+            如何做运营第一，依据不同的产品发展阶段，或当前占据市场份额的大小来判定运营策略和运营规划如何制定；第二，依据不同的产品形态和业务类型，来判定运营策略和运营规划如何制定。
+产品的发展阶段大概分为探索期产品：上线时间不长，产品还在打磨，需求尚待验证，2011-2012年间的知乎、2010年的新浪微博，包括绝大多数上线时间在8个月以内的产品。快速增长期产品：需求已得到验证，初步拥有了一定市场份额，......
         </div>
     </a>
     <p class="post-meta">
-        Posted by yueLng on
-        2017-12-12
+        Posted by YueLng Chen on
+        2017-12-16
     </p>
 
 </div>
@@ -268,6 +318,30 @@
         </h3>
         <div class="post-content-preview">
             kafka问题描述：kafka 重复消费的问题，每次重启服务，都从broker拉取offset，拉到旧的消息解决：消费者每次从broker拉取数据，消费之后都会自动commit，自动commit有一个定时机制，但是并不保证一定提交成功，例如在commit的时候，程序崩溃（例如重启的情况在重启后，消费者会拉取最新的offset作为消费的起点，sarama默认的initial offset 为O......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2017-12-12
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/12/12/distributed_system/trace/">
+        <h2 class="post-title">
+            分布式系统追踪
+        </h2>
+        <h3 class="post-subtitle">
+             "分布式系统调用链追踪、监控"
+        </h3>
+        <div class="post-content-preview">
+            Distributed Tracing System需求
+入库消息的结构组成，traceID、层级表示、调用方法、调用时间、返回时间custom opentracing 
+
+关于opentracing jaeger ui展示层接收client的trace span消息，存入到内存map中，并定时清理map中的内容可能存在的问题如果span消息暴增，则会导致周期内写入map中的数据暴增，map......
         </div>
     </a>
     <p class="post-meta">
@@ -311,17 +385,11 @@
              "缓存系统的设计"
         </h3>
         <div class="post-content-preview">
-            memcache、redis 深入理解
+            kv存储设计
+Concurrency-safe golang caching library with expiration capabilities cache2goconcurrentcache是一款golang的内存缓存库，多Segment设计，支持不同Segment间并发写入，提高读写性能。concurrentcache
+memcache、redis 深入理解
 
-缓存模块从无到有，要如何设计？
-要考虑哪些因素？
-如何方式设计不足？
-如何防止设计过度？
-如何满足实际需求？
-要明确哪些问题，才能逐步的完善出一套实现方案？
-
-缓存更新的基本套路
-为什么说命名和缓存失效是计算机科学里面最难应付的两件事命名使用剪短词语来描述系统/接口/变量的功用 甚至实现原理，在本质上是一种表达能力缓存和背后的存储描述的是同一状态，但......
+缓存模块从无到有，要......
         </div>
     </a>
     <p class="post-meta">
@@ -357,70 +425,6 @@ Raft 使用的是 Log Replication + State Machine 的方式来处理分布式数
     </a>
     <p class="post-meta">
         Posted by yueLng on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/distributed_system/study_distribute_item/">
-        <h2 class="post-title">
-            分布式系统要点记录
-        </h2>
-        <h3 class="post-subtitle">
-             "微服务的惯用架构"
-        </h3>
-        <div class="post-content-preview">
-            The Twelve Factor AppThe Twelve Factor App网关聚合服务 提供restful接口grpc 内网调用服务发现，使用etcd自动服务注册服务配置，使用etcd存储配置服务快速部署服务logging记录服务调用链的追踪服务质量的监控，响应时间缓存的应用
-典型架构缓存、消息、搜索Nginx+Tornado+mysql+pythonNginx+rest.li+r......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/computer_science/study_flooding/">
-        <h2 class="post-title">
-            SYN洪泛攻击的原理与实现
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            设计原理SYN-Flood是目前最流行的DDoS攻击手段，DDoS只是洪水攻击的一个种类。其实还有其它种类的洪水攻击。以前的DoS手段在向分布式这一阶段发展的过程中也经历了逐步淘汰的过程。SYN-Flood的攻击效果最好，故众黑客不约而同选择它。以下了解一下SYN-Flood的详细情况。Syn Flood利用了TCP/IP协议的固有漏洞。面向连接的TCP三次握手是Syn Flood存在的基础......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/framework/study_thrift/">
-        <h2 class="post-title">
-            thrift入门
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            介绍Thrift 最初由Facebook开发，而后捐献给Apache，目前已广泛应用于业界。Thrift 正如其官方主页介绍的，“是一种可扩展、跨语言的服务开发框架”。简而言之，它主要用于各个服务之间的RPC通信，其服务端和客户端可以用不同的语言来开发。只需要依照IDL（Interface Description Language）定义一次接口，Thrift工具就能自动生成 C++, Jav......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
         2017-11-30
     </p>
 
@@ -466,11 +470,11 @@ Raft 使用的是 Log Replication + State Machine 的方式来处理分布式数
                     <div class="tags">
                         
                             
-                            <a href="/tags/#collection" title="collection" rel="5">collection</a>
+                            <a href="/tags/#coding" title="coding" rel="3">coding</a>
                             
                         
                             
-                            <a href="/tags/#coding" title="coding" rel="3">coding</a>
+                            <a href="/tags/#collection" title="collection" rel="5">collection</a>
                             
                         
                             
@@ -482,7 +486,9 @@ Raft 使用的是 Log Replication + State Machine 的方式来处理分布式数
                             
                         
                             
-                            <a href="/tags/#financial" title="financial" rel="3">financial</a>
+                        
+                            
+                            <a href="/tags/#language" title="language" rel="7">language</a>
                             
                         
                             
@@ -490,7 +496,17 @@ Raft 使用的是 Log Replication + State Machine 的方式来处理分布式数
                             
                         
                             
-                            <a href="/tags/#language" title="language" rel="7">language</a>
+                            <a href="/tags/#financial" title="financial" rel="3">financial</a>
+                            
+                        
+                            
+                            <a href="/tags/#database" title="database" rel="2">database</a>
+                            
+                        
+                            
+                            <a href="/tags/#distribution_system" title="distribution_system" rel="15">distribution_system</a>
+                            
+                        
                             
                         
                             
@@ -502,21 +518,11 @@ Raft 使用的是 Log Replication + State Machine 的方式来处理分布式数
                             
                         
                             
-                            <a href="/tags/#operation" title="operation" rel="2">operation</a>
-                            
-                        
-                            
                             <a href="/tags/#product" title="product" rel="5">product</a>
                             
                         
                             
-                        
-                            
-                            <a href="/tags/#surrounding" title="surrounding" rel="7">surrounding</a>
-                            
-                        
-                            
-                            <a href="/tags/#distribution_system" title="distribution_system" rel="14">distribution_system</a>
+                            <a href="/tags/#operation" title="operation" rel="2">operation</a>
                             
                         
                             
@@ -524,13 +530,13 @@ Raft 使用的是 Log Replication + State Machine 的方式来处理分布式数
                             
                         
                             
+                        
+                            
                             <a href="/tags/#thinking" title="thinking" rel="8">thinking</a>
                             
                         
                             
-                        
-                            
-                            <a href="/tags/#database" title="database" rel="2">database</a>
+                            <a href="/tags/#surrounding" title="surrounding" rel="8">surrounding</a>
                             
                         
                     </div>
