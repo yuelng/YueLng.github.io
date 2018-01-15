@@ -190,19 +190,16 @@
 
 <div class="post-preview">
 
-    <a href="/2017/03/30/language/ruby_dev_env/">
+    <a href="/2017/03/30/computer_science/network/">
         <h2 class="post-title">
-            ruby开发环境的搭建
+            计算机网络
         </h2>
         <h3 class="post-subtitle">
-             "ruby开发"
+             "计算机网络"
         </h3>
         <div class="post-content-preview">
-            ruby开发环境
-Mac OS本身自带ruby在系统目录 /System/Library/Frameworks/Ruby.framework/Versions/Current12345# 通过homebrew安装ruby最新版brew updatebrew install ruby# 安装railsgem install rails
-
-
-...
+            TCP四次挥手过程
+TCP是面向连接的服务；三次握手（建立连接）和四次挥手（关闭连接）；使用滑动窗口机制进行流量控制；TCP要保证在所有可能的情况下使得所有的数据都能够被投递，当你关闭一个socket时，主动关闭一端的socket将进入TIME_WAIT状态，而被动关闭一方则转入CLOSED状态，这的确能够保证所有的数据都被传输。1）首先A B端的TCP进程都处于established状态，......
         </div>
     </a>
     <p class="post-meta">
@@ -226,6 +223,31 @@ Mac OS本身自带ruby在系统目录 /System/Library/Frameworks/Ruby.framework/
             
 递归与分治策略一个直接或间接地调用自身的算法称为递归算法。分治算法的模式如下：
 12345678910Divide_and_Conquer(P)&#123;    if(|P|&lt;=n0)    Adhoc(P);//Adhoc(P)是基本子算法    divide P into smaller subinstances    P1,P2,...,Pk    for(i=1;i&lt;......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2017-03-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/03/30/language/ruby_dev_env/">
+        <h2 class="post-title">
+            ruby开发环境的搭建
+        </h2>
+        <h3 class="post-subtitle">
+             "ruby开发"
+        </h3>
+        <div class="post-content-preview">
+            ruby开发环境
+Mac OS本身自带ruby在系统目录 /System/Library/Frameworks/Ruby.framework/Versions/Current12345# 通过homebrew安装ruby最新版brew updatebrew install ruby# 安装railsgem install rails
+
+
+...
         </div>
     </a>
     <p class="post-meta">
@@ -264,28 +286,6 @@ Mac OS本身自带ruby在系统目录 /System/Library/Frameworks/Ruby.framework/
 
 <div class="post-preview">
 
-    <a href="/2017/03/30/computer_science/network/">
-        <h2 class="post-title">
-            计算机网络
-        </h2>
-        <h3 class="post-subtitle">
-             "计算机网络"
-        </h3>
-        <div class="post-content-preview">
-            TCP四次挥手过程
-TCP是面向连接的服务；三次握手（建立连接）和四次挥手（关闭连接）；使用滑动窗口机制进行流量控制；TCP要保证在所有可能的情况下使得所有的数据都能够被投递，当你关闭一个socket时，主动关闭一端的socket将进入TIME_WAIT状态，而被动关闭一方则转入CLOSED状态，这的确能够保证所有的数据都被传输。1）首先A B端的TCP进程都处于established状态，......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2017-03-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
     <a href="/2017/03/30/distributed_system/engineering/">
         <h2 class="post-title">
             后端代码工程
@@ -304,6 +304,30 @@ TCP是面向连接的服务；三次握手（建立连接）和四次挥手（�
 命令行选项和参数值具有最高优先级，可以override前两层的配置项值。
 
 错误处理golang内置两种错误处理方式，error与panic，error是逻辑上程序可控制可预见的错误，而panic则相对于error是比较严重的错误。在通常的项......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2017-03-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/03/30/framework/tornado/">
+        <h2 class="post-title">
+            Tornado Pyhton web框架介绍
+        </h2>
+        <h3 class="post-subtitle">
+             "tornado为何这么快"
+        </h3>
+        <div class="post-content-preview">
+            ##Tornado直接读代码
+简介FriendFeed使用了一款使用Python编写的，相对简单的非阻塞式Web服务器。它的特点在于非阻塞服务器和epoll的运用，这个Web框架还包含了一些相关的有用工具和优化。
+以下是经典的“Hello, world”示例：
+123456789101112131415import tornado.ioloopimport tornado.webclass ......
         </div>
     </a>
     <p class="post-meta">
@@ -435,30 +459,6 @@ Component-Driven dev 模块驱动开发
 </div>
 <hr>
 
-<div class="post-preview">
-
-    <a href="/2017/03/28/distributed_system/business/">
-        <h2 class="post-title">
-            微服务的基本架构
-        </h2>
-        <h3 class="post-subtitle">
-             "记录常用的模型，账户系统、支付系统"
-        </h3>
-        <div class="post-content-preview">
-            
-“Yeah It’s on. ”
-
-微服务代码结构微服务是大的趋势。无论后台架构怎么改变，都不能脱离它是业务架构具体实现的本质。无论是前期发展而来的单体架构，遵循着严格的代码分层风格，还是现在大家认同的微服务。微服务是后端开发的绝对趋势，外部用户需求增强直接导致了应用复杂度增加，只有将应用分解再分解才能利用更小的成本干更多的事。微服务的另一种表现是后端“侵占”系统工程、运维部署、DBA的工......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2017-03-28
-    </p>
-
-</div>
-<hr>
-
 
 
 <!-- Pager -->
@@ -506,6 +506,8 @@ Component-Driven dev 模块驱动开发
                             
                         
                             
+                        
+                            
                             <a href="/tags/#computer_science" title="computer_science" rel="5">computer_science</a>
                             
                         
@@ -514,17 +516,7 @@ Component-Driven dev 模块驱动开发
                             
                         
                             
-                        
-                            
-                            <a href="/tags/#language" title="language" rel="7">language</a>
-                            
-                        
-                            
-                            <a href="/tags/#framework" title="framework" rel="2">framework</a>
-                            
-                        
-                            
-                            <a href="/tags/#financial" title="financial" rel="3">financial</a>
+                            <a href="/tags/#distribution_system" title="distribution_system" rel="15">distribution_system</a>
                             
                         
                             
@@ -532,7 +524,15 @@ Component-Driven dev 模块驱动开发
                             
                         
                             
-                            <a href="/tags/#distribution_system" title="distribution_system" rel="15">distribution_system</a>
+                            <a href="/tags/#framework" title="framework" rel="3">framework</a>
+                            
+                        
+                            
+                            <a href="/tags/#language" title="language" rel="7">language</a>
+                            
+                        
+                            
+                            <a href="/tags/#financial" title="financial" rel="3">financial</a>
                             
                         
                             
@@ -546,11 +546,13 @@ Component-Driven dev 模块驱动开发
                             
                         
                             
-                            <a href="/tags/#product" title="product" rel="5">product</a>
+                            <a href="/tags/#operation" title="operation" rel="2">operation</a>
                             
                         
                             
-                            <a href="/tags/#operation" title="operation" rel="2">operation</a>
+                            <a href="/tags/#product" title="product" rel="5">product</a>
+                            
+                        
                             
                         
                             
@@ -558,13 +560,11 @@ Component-Driven dev 模块驱动开发
                             
                         
                             
+                            <a href="/tags/#surrounding" title="surrounding" rel="8">surrounding</a>
+                            
                         
                             
                             <a href="/tags/#thinking" title="thinking" rel="8">thinking</a>
-                            
-                        
-                            
-                            <a href="/tags/#surrounding" title="surrounding" rel="8">surrounding</a>
                             
                         
                     </div>

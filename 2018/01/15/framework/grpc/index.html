@@ -13,11 +13,11 @@
 
     <title>
         
-          把思维好好捋一捋 - YueLng的博客 | YueLng&#39;s Blog
+          深入了解gRPC - YueLng的博客 | YueLng&#39;s Blog
         
     </title>
 
-    <link rel="canonical" href="http://yuelng.github.io/2017/11/30/thinking/think_first/">
+    <link rel="canonical" href="http://yuelng.github.io/2018/01/15/framework/grpc/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -161,7 +161,7 @@
 <!-- Post Header -->
 <style type="text/css">
     header.intro-header{
-        background-image: url('http://ogcxtlv6r.bkt.clouddn.com/17-12-16/89744702.jpg')
+        background-image: url('http://ogcxtlv6r.bkt.clouddn.com/18-1-15/82255369.jpg')
     }
 </style>
 <header class="intro-header" >
@@ -171,14 +171,14 @@
                 <div class="post-heading">
                     <div class="tags">
                         
-                          <a class="tag" href="/tags/#thinking" title="thinking">thinking</a>
+                          <a class="tag" href="/tags/#framework" title="framework">framework</a>
                         
                     </div>
-                    <h1>把思维好好捋一捋</h1>
-                    <h2 class="subheading"></h2>
+                    <h1>深入了解gRPC</h1>
+                    <h2 class="subheading"> &quot;grpc&quot;</h2>
                     <span class="meta">
-                        Posted by YueLng Chen on
-                        2017-11-30
+                        Posted by yueLng on
+                        2018-01-15
                     </span>
                 </div>
             </div>
@@ -197,15 +197,38 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>骐骥一跃，不能十步；驽马十驾，功在不舍。</p>
-<h2 id="胡乱扯扯"><a href="#胡乱扯扯" class="headerlink" title="胡乱扯扯"></a>胡乱扯扯</h2><p>1研究：研究东西，有足够洞察力，研究水准不错<br>2研发：Hack Idea自己有魄力实现，不懂研发的黑客如同不会游泳的海盗<br>3工程：研发出来的需要实战、需要工程化，否则只是玩具，而不能成为真的武器</p>
-<h2 id="关于就业和能力"><a href="#关于就业和能力" class="headerlink" title="关于就业和能力"></a>关于就业和能力</h2><p>就业实习，还是有压力的。听过学长学姐们的经历，他们有进大公司也有初创企业的，前天还在群里争论是去哪种好，引得一个在初创公司的学长，把月薪都晒出来了。月薪12k上海，20k+杭州。我在想当年轮子哥和赵姐夫刚毕业不也是这么高工资，难道学长们的水平和他们那时候差不多，应该是差不多的，不然也不会拿一样高的薪水，当然也和我同学经常跟我说，你拿多少薪水就得实现多少价值，这是肯定的。所以后面再群里我就说自身能力够了，大公司小公司都可以。我也说过这样一句哪里的工资高就去哪，我想工资虽然不能完全体现一个人的能力，八九成还是有的。之前也看过别人的面经，Google、Twitter等等公司的，招聘是真的靠实力说话，无论是算法，设计还是思维都有相对比较高的要求。我想这应该跟一个人是否具有geek精神，是否真正热爱这一行有很重要的关系。很多时候，我在网上看博客、看各种技术文章，经常出现的一种情况是由一篇文章引申出兴趣点，然后不断地依赖Google进行发散式地打开网页，造成自身消化不了这么多东西。这种是好还是坏，借用哲学的观点来说，自己去掌握那个度（阿基米德的那个支点）；总有一点是可以确认的，在短期来看，并不能学到什么东西（实在是信息量巨大），长远来看广泛涉猎，就会慢慢建立一套我称之为计算机本质体系。这应该有助于自身的内力增长吧。总之就是说就业的薪水是能反映人的能力和价值的，国外的薪水高但是要求也高，我那这种发散式思维来提高自己的能力，打算把自己站在一个新的高度来看计算机学习，我想应该是没有错的，我坚信。</p>
-<h2 id="没点干货怎么玩的转"><a href="#没点干货怎么玩的转" class="headerlink" title="没点干货怎么玩的转"></a>没点干货怎么玩的转</h2><p>我一直在想什么样的能力才是用人单位所需要的，有这样一种知识是unknown unknown ，你不知道你自己不知道什么，所以我一直在寻找解决这个问题的方法，资源决定了你能不能解决问题，流程决定了你解决问题的效率有多高，优先级是用来决定你到底要不要解决问题，学习进步的过程也就是解决问题的过程。从各个招聘网站上看到的任职要求，一般都有下面几点，基础性知识，技能型知识，专业性知识。基础性的范围面大，包括了Linux基础、编程语言基础、操作系统、计算机网络、数据库、算法数据结构、编程能力等等。技能型知识就是特定语言下面的特定框架的思想与应用，比如Java的spring框架，Python下的tornado，我把这类当做是技能型知识，而专业性知识就可以拿来当一碗饭吃了，Javaweb、Python后台开发、机器学习、系统架构…这些都是建立在基础知识和专业性知识之上的，有一份程序员能力矩阵，它包含了几个方面，1、计算机科学 Conputer Science，2、软件工程 Software Engineering，3、程序设计Programming，4、经验Experience，5、学识 Knowledge，从这里看来这个也是层层递进的。按照这条路走，只要下苦工，还是有一碗热饭吃的。</p>
-<h2 id="关于学习"><a href="#关于学习" class="headerlink" title="关于学习"></a>关于学习</h2><p>基础很重要，无论事物繁杂，但其核心本质是不变的，工程师文化就有简约文化、抽象思想。我想在码农圈内有着5-6年经验的工程师都会有自己关于这套体系的理解，这种理解也就是摸清了整个行业脉络，但是达到这个高度是很困难的，也是说是达到之前说的学识这一块，现在看来，程序员能力矩阵是比较合理的，由基础慢慢过渡到大师的境界。</p>
-<h2 id="关于自身"><a href="#关于自身" class="headerlink" title="关于自身"></a>关于自身</h2><p>革命尚未成功，同志仍需努力！</p>
-<hr>
-<p>本文作者：<a href="http://penicilluus.github.io/about" target="_blank" rel="external">penicillus</a></p>
-<p>原文链接：<a href="http://penicilluus.github.io/2015/08/10/think" target="_blank" rel="external">http://penicilluus.github.io/2015/08/10/think</a></p>
+                <p>gRPC是基于HTTP/2协议的，要想了解gRPC，就需要理解HTTP/2协议</p>
+<p>HTTP/1.x 的问题</p>
+<ul>
+<li>Parser 1.x是基于文本协议的，对机器并不友好，所以读取HTTP header 会耗费性能</li>
+<li>Request/Response 1.x 一问一答的固定交互模式，必须等待连接返回，因此网络连接效率不高</li>
+<li>push 推送一般用Long polling或者websocket</li>
+</ul>
+<p>HTTP/2<br>Stream： 一个双向流，一条连接可以有多个 streams。<br>Message： 也就是逻辑上面的 request，response。<br>Frame:：数据传输的最小单位。每个 Frame 都属于一个特定的 stream 或者整个连接。一个 message 可能有多个 frame 组成。</p>
+<ul>
+<li>Frame Format Frame的结构定义如下</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">+-----------------------------------------------+</div><div class="line">|                 Length (24)                   |</div><div class="line">+---------------+---------------+---------------+</div><div class="line">|   Type (8)    |   Flags (8)   |</div><div class="line">+-+-------------+---------------+-------------------------------+</div><div class="line">|R|                 Stream Identifier (31)                      |</div><div class="line">+=+=============================================================+</div><div class="line">|                   Frame Payload (0...)                      ...</div><div class="line">+---------------------------------------------------------------+</div></pre></td></tr></table></figure>
+<p>Length：也就是 Frame 的长度，默认最大长度是 16KB，如果要发送更大的 Frame，需要显式的设置 max frame size。<br>Type：Frame 的类型，譬如有 DATA，HEADERS，PRIORITY 等。<br>Flag 和 R：保留位，可以先不管。<br>Stream Identifier：标识所属的 stream，如果为 0，则表示这个 frame 属于整条连接。<br>Frame Payload：根据不同 Type 有不同的格式。</p>
+<ul>
+<li>Multiplexing</li>
+</ul>
+<p>一条连接可以包含多个 streams，多个 streams 发送的数据互相不影响。<br>Stream 可以被 client 和 server 单方面或者共享使用。<br>Stream 可以被任意一段关闭。<br>Stream 会确定好发送 frame 的顺序，另一端会按照接受到的顺序来处理。<br>Stream 用一个唯一 ID 来标识。</p>
+<p>如果需要加大一条连接上的并发可以调大 <code>SETTINGS_MAX_CONCURRENT_STREAMS</code></p>
+<ul>
+<li>Priority</li>
+<li>Flow Control</li>
+<li>HPACK</li>
+</ul>
+<p>GRPC<br>gRPC 通常有四种模式，unary，client streaming，server streaming 以及 bidirectional streaming，对于底层 HTTP/2 来说，它们都是 stream，并且仍然是一套 request + response 模型。</p>
+<ul>
+<li>Request</li>
+<li>Response</li>
+<li>Protobuf</li>
+</ul>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ul>
+<li><a href="https://www.jianshu.com/p/48ad37e8b4ed" target="_blank" rel="external">深入了解 gRPC：协议</a></li>
+</ul>
 
 
                 <hr>
@@ -214,13 +237,9 @@
 
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/2017/11/30/distributed_system/study_distribute_item/" data-toggle="tooltip" data-placement="top" title="分布式系统要点记录">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/2017/11/30/collection/plan/" data-toggle="tooltip" data-placement="top" title="TODO集合">Next Post &rarr;</a>
+                            <a href="/2018/01/12/data_science/data/" data-toggle="tooltip" data-placement="top" title="数据科学">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -267,7 +286,7 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#thinking" title="thinking">thinking</a>
+                          <a class="tag" href="/tags/#framework" title="framework">framework</a>
                         
                     </div>
                 </section>
@@ -297,8 +316,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "tamchen";
-    var disqus_identifier = "http://yuelng.github.io/2017/11/30/thinking/think_first/";
-    var disqus_url = "http://yuelng.github.io/2017/11/30/thinking/think_first/";
+    var disqus_identifier = "http://yuelng.github.io/2018/01/15/framework/grpc/";
+    var disqus_url = "http://yuelng.github.io/2018/01/15/framework/grpc/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

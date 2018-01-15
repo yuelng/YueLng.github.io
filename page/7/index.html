@@ -190,18 +190,18 @@
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/system_design/msgpush/">
+    <a href="/2017/11/30/computer_science/study_algorithm/">
         <h2 class="post-title">
-            消息推送入门
+            相似距离算法
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            实时消息推送的几种实现方式相较于手机端的消息推送（一般都是以socket方式实现），web端是基于http协议，很难像tcp一样保持长连接。但随着技术的发展，出现了websocket, comet等新的技术可以达到类似长连接的效果，这些技术大体可分为以下几类：
-
-短轮询。页面端通过js定时异步刷新，这种方式实时效果较差。
-长轮询。页面端通过js异步请求服务端，服务端在接收到请求后，如果该次请......
+            相似距离算法是推荐算法的一部分。
+一、EuclideanDistanceSimilarity: 欧氏距离相似度原理：利用欧式距离d定义的相似度s，s=1 / (1+d)。
+范围：[0,1]，值越大，说明d越小，也就是距离越近，则相似度越大。
+说明：同皮尔森相似度一样，该相似度也没有考虑重叠数对结果的影响，同样地，Mahout通过增加一个枚举类型（Weighting）的参数来使得重叠数也成为计......
         </div>
     </a>
     <p class="post-meta">
@@ -214,16 +214,16 @@
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/system_design/study_model/">
+    <a href="/2017/11/30/language/study_python/">
         <h2 class="post-title">
-            设计模式简要介绍
+            python学习
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            创建型模式简单工厂模式简单工厂模式的要点在于：当你需要什么，只需要传入一个正确的参数，就可以获取你所需要的对象，而无须知道其创建细节。1KeyGenerator keyGen=KeyGenerator.getInstance("DESede");//获取不同加密算法的密钥生成器
-工厂方法模式工厂父类负责定义创建产品对象的公共接口，而工厂子类则负责生成具体的产品对象，这样做的目的是将产品类的实......
+            Ubuntu下配置基本的Python开发环境安装Python发布版本和build依赖包
+/# 安装 Python 发布版本，dev包必须安装，很多用pip安装包都需要编译sudo apt-get install python2.7 python2.7-dev python3.4 python3.4-dev/#很多pip安装的包都需要libssl和libevent编译环境sudo apt-ge......
         </div>
     </a>
     <p class="post-meta">
@@ -236,15 +236,16 @@
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/collection/source_all/">
+    <a href="/2017/11/30/language/study_shell/">
         <h2 class="post-title">
-            常用的资源
+            python的装饰器与JavaScript中的闭包
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            计算机科学1.谷歌推荐的技术能力提升指南CS课程入门、了解其他语言、测试代码、培养逻辑推理和学习数学离散知识、深刻理解操作系统、学习UX设计、学习人工智能、学习如何构建编译器、了解密码学、并行编程、与其他程序员一起开发项目。2.hackr.ioShare and discover the best programming tutorials and courses online.3.图说设计......
+            1.摘要这里记录关于Python装饰器和JavaScript闭包的学习笔记
+2.1Python中的装饰器12345678910111213def makebold(fn):    def wrapped():        return "&lt;b&gt;" + fn() + "&lt;/b&gt;"    return wrappeddef makeitalic(fn):    def ......
         </div>
     </a>
     <p class="post-meta">
@@ -269,6 +270,28 @@
 效果图
 安装参考github上关于vim配置及其插件安装simple_vim_setting
 基本操作1. Under normal mode123456789:wq             - save and quiti               - insertx VIM           - delete characterdd           ......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/30/surrounding/study_permission/">
+        <h2 class="post-title">
+            权限系统学习
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            基于角色的访问控制（Role-Based Access Control）基本概念RBAC认为权限授权实际上是Who、What、How的问题。在RBAC模型中，who、what、how构成了访问权限三元组,也就是“Who对What(Which)进行How的操作”。 　　
+简单理解简单理解就是把系统中所有的功能都作为一个权限（或者称呼为资源），将这些权限赋予不同的角色，这个角色就具有了诸多的功能......
         </div>
     </a>
     <p class="post-meta">
@@ -396,30 +419,6 @@ Hackintosh简介与法律问题Hackintosh是在非苹果硬件上安装运行苹
 </div>
 <hr>
 
-<div class="post-preview">
-
-    <a href="/2017/03/30/framework/tornado/">
-        <h2 class="post-title">
-            Tornado Pyhton web框架介绍
-        </h2>
-        <h3 class="post-subtitle">
-             "tornado为何这么快"
-        </h3>
-        <div class="post-content-preview">
-            ##Tornado直接读代码
-简介FriendFeed使用了一款使用Python编写的，相对简单的非阻塞式Web服务器。它的特点在于非阻塞服务器和epoll的运用，这个Web框架还包含了一些相关的有用工具和优化。
-以下是经典的“Hello, world”示例：
-123456789101112131415import tornado.ioloopimport tornado.webclass ......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2017-03-30
-    </p>
-
-</div>
-<hr>
-
 
 
 <!-- Pager -->
@@ -467,6 +466,8 @@ Hackintosh简介与法律问题Hackintosh是在非苹果硬件上安装运行苹
                             
                         
                             
+                        
+                            
                             <a href="/tags/#computer_science" title="computer_science" rel="5">computer_science</a>
                             
                         
@@ -475,17 +476,7 @@ Hackintosh简介与法律问题Hackintosh是在非苹果硬件上安装运行苹
                             
                         
                             
-                        
-                            
-                            <a href="/tags/#language" title="language" rel="7">language</a>
-                            
-                        
-                            
-                            <a href="/tags/#framework" title="framework" rel="2">framework</a>
-                            
-                        
-                            
-                            <a href="/tags/#financial" title="financial" rel="3">financial</a>
+                            <a href="/tags/#distribution_system" title="distribution_system" rel="15">distribution_system</a>
                             
                         
                             
@@ -493,7 +484,15 @@ Hackintosh简介与法律问题Hackintosh是在非苹果硬件上安装运行苹
                             
                         
                             
-                            <a href="/tags/#distribution_system" title="distribution_system" rel="15">distribution_system</a>
+                            <a href="/tags/#framework" title="framework" rel="3">framework</a>
+                            
+                        
+                            
+                            <a href="/tags/#language" title="language" rel="7">language</a>
+                            
+                        
+                            
+                            <a href="/tags/#financial" title="financial" rel="3">financial</a>
                             
                         
                             
@@ -507,11 +506,13 @@ Hackintosh简介与法律问题Hackintosh是在非苹果硬件上安装运行苹
                             
                         
                             
-                            <a href="/tags/#product" title="product" rel="5">product</a>
+                            <a href="/tags/#operation" title="operation" rel="2">operation</a>
                             
                         
                             
-                            <a href="/tags/#operation" title="operation" rel="2">operation</a>
+                            <a href="/tags/#product" title="product" rel="5">product</a>
+                            
+                        
                             
                         
                             
@@ -519,13 +520,11 @@ Hackintosh简介与法律问题Hackintosh是在非苹果硬件上安装运行苹
                             
                         
                             
+                            <a href="/tags/#surrounding" title="surrounding" rel="8">surrounding</a>
+                            
                         
                             
                             <a href="/tags/#thinking" title="thinking" rel="8">thinking</a>
-                            
-                        
-                            
-                            <a href="/tags/#surrounding" title="surrounding" rel="8">surrounding</a>
                             
                         
                     </div>
