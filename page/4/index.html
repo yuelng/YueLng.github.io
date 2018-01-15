@@ -243,15 +243,16 @@ Raft 使用的是 Log Replication + State Machine 的方式来处理分布式数
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/project/project_distribute/">
+    <a href="/2017/11/30/language/study_shell/">
         <h2 class="post-title">
-            基于开源项目众推的Python实现
+            python的装饰器与JavaScript中的闭包
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            概述在开源中国闲逛时发现了这个项目-众推，是一个以Hadoop分布思想为基础类今日头条的开源项目。虽然该项目将去重过滤、文本分类单独出来，但是我认为这都属于数据处理部分。所以我将整个项目的核心划分为三个部分：分布式爬虫、数据清洗与处理、web工程。分别也对应了数据的采集、处理和展示。该项目没有继续下去，可能是因为这个项目不够吸引人，创意不是很好，但是我认为这个项目是当前所有互联网项目技术架构......
+            1.摘要这里记录关于Python装饰器和JavaScript闭包的学习笔记
+2.1Python中的装饰器12345678910111213def makebold(fn):    def wrapped():        return "&lt;b&gt;" + fn() + "&lt;/b&gt;"    return wrappeddef makeitalic(fn):    def ......
         </div>
     </a>
     <p class="post-meta">
@@ -264,41 +265,21 @@ Raft 使用的是 Log Replication + State Machine 的方式来处理分布式数
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/distributed_system/study_distribute/">
+    <a href="/2017/11/30/thinking/study_software/">
         <h2 class="post-title">
-            关于Log在分布式系统中的应用以及未来
+            团队项目开发与规范
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            The Log&emsp;&emsp;有一段时间被一篇称为学习笔记：The Log（我所读过的最好的一篇分布式技术文章）所刷屏，各大技术文章推荐APP和微信都推荐了这篇文章，来自于LinkedIn关于kafka的文章，核心如题—The Log。（你可以把这节看成对这篇文章的缩减）
-（一）log由来、重要性、应用&emsp;&emsp;对于任何一项新技术都会先抛出三个问题what？why？ho......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
-    </p>
+            计算机专业的三个维度
 
-</div>
-<hr>
+基础体系，基础理论、算法与架构
+工程，业界常用方法，实际项目，开源项目
+前沿与未来，保持对新技术的灵敏度，论文
 
-<div class="post-preview">
-
-    <a href="/2017/11/30/system_design/system_design_question/">
-        <h2 class="post-title">
-            系统设计问题归总
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            重点考察内容面向对象，接口设计，设计模式，数据库表，分布式
-关于高并发系统设计。主要有以下几个关键技术点：缓存，索引，数据分片，锁粒度尽可能小。
-系统设计相关
-Concurrency (threads, deadlock, starvation, consistency, coherence)
-Abstraction (understanding how OS, filesystem, an......
+个人理解团队是因为有相同的目标才聚集在一起，所有在做一个项目的开始，要让所有成员认同项目的前景。团队的大小个人认为最多20个人。虽然说很有必要保证规范化，但是我认为按部就班只能扼杀人的创造力，但是一些的必要的流程规范还是要的，也就是下面说的开发流程规范，有......
         </div>
     </a>
     <p class="post-meta">
@@ -336,16 +317,19 @@ Abstraction (understanding how OS, filesystem, an......
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/language/study_shell/">
+    <a href="/2017/11/30/system_design/system_design_question/">
         <h2 class="post-title">
-            python的装饰器与JavaScript中的闭包
+            系统设计问题归总
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            1.摘要这里记录关于Python装饰器和JavaScript闭包的学习笔记
-2.1Python中的装饰器12345678910111213def makebold(fn):    def wrapped():        return "&lt;b&gt;" + fn() + "&lt;/b&gt;"    return wrappeddef makeitalic(fn):    def ......
+            重点考察内容面向对象，接口设计，设计模式，数据库表，分布式
+关于高并发系统设计。主要有以下几个关键技术点：缓存，索引，数据分片，锁粒度尽可能小。
+系统设计相关
+Concurrency (threads, deadlock, starvation, consistency, coherence)
+Abstraction (understanding how OS, filesystem, an......
         </div>
     </a>
     <p class="post-meta">
@@ -358,20 +342,16 @@ Abstraction (understanding how OS, filesystem, an......
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/devops/study_environment/">
+    <a href="/2017/11/30/collection/interview/">
         <h2 class="post-title">
-            基础服务环境搭建
+            面试题目
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            这篇文章主要是针对大数据平台的搭建，主要包括的内容有
-
-vagrant虚拟机环境搭建
-Hadoop集群搭建
-memcached集群搭建
-storm集群搭建一些架构可行的架构：Flume + Kafka + Strom + Hbase 使用vagrant搭建系统安装上 http://www.vagrantbox.es/ 找下载需要的 box ， 譬如 Ubuntu 14.10（based on......
+            二.操作系统 可以直接认为是linux，毕竟搞后端的多数是和linux打交道。1.tcp/udp的区别？tcp粘包是怎么回事，如何处理？udp有粘包吗？2.time_wait是什么情况？出现过多的close_wait可能是什么原因？3.epoll,select的区别？边缘触发，水平触发区别？
+三.存储 存储可能包含rdbms，nosql以及缓存等，我以mysql,redis举例 mysql相......
         </div>
     </a>
     <p class="post-meta">
@@ -384,17 +364,16 @@ storm集群搭建一些架构可行的架构：Flume + Kafka + Strom + Hbase 使
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/thinking/think_first/">
+    <a href="/2017/11/30/system_design/study_model/">
         <h2 class="post-title">
-            把思维好好捋一捋
+            设计模式简要介绍
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            骐骥一跃，不能十步；驽马十驾，功在不舍。
-胡乱扯扯1研究：研究东西，有足够洞察力，研究水准不错2研发：Hack Idea自己有魄力实现，不懂研发的黑客如同不会游泳的海盗3工程：研发出来的需要实战、需要工程化，否则只是玩具，而不能成为真的武器
-关于就业和能力就业实习，还是有压力的。听过学长学姐们的经历，他们有进大公司也有初创企业的，前天还在群里争论是去哪种好，引得一个在初创公司的学长，把月薪都......
+            创建型模式简单工厂模式简单工厂模式的要点在于：当你需要什么，只需要传入一个正确的参数，就可以获取你所需要的对象，而无须知道其创建细节。1KeyGenerator keyGen=KeyGenerator.getInstance("DESede");//获取不同加密算法的密钥生成器
+工厂方法模式工厂父类负责定义创建产品对象的公共接口，而工厂子类则负责生成具体的产品对象，这样做的目的是将产品类的实......
         </div>
     </a>
     <p class="post-meta">
@@ -407,22 +386,37 @@ storm集群搭建一些架构可行的架构：Flume + Kafka + Strom + Hbase 使
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/thinking/think_master_function/">
+    <a href="/2017/11/30/codeing/study_coding/">
         <h2 class="post-title">
-            编程之路—函数式编程
+            勿在浮沙聚高塔
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            编程之路
-编程规范
-函数式编程
-性能与优化
-单元测试
+            1.摘要今天看了新浪新兵训练营的一些资料，整理下关于程序员最基础的知识————关于编码主要内容包括，什么是烂代码，什么是好代码，好代码需要注意什么，如何做出优雅的设计，如何规划合理的架构编码主要是给人看的，其次才是给机器看的。
+2.关于烂代码写出烂代码很容易，入行时很容易被鼓吹要把主要精力放在ABCD（需求文档/功能设计/架构设计/理解原理）上，写代码只是实现想法的工具。在这样的指导思想下，......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-11-30
+    </p>
 
-概念定义
-In computer science, functional programming is a programming paradigm that treats computation as the evaluation of mathematical functions and avoids state and mutab......
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/30/computer_science/study_flooding/">
+        <h2 class="post-title">
+            SYN洪泛攻击的原理与实现
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            设计原理SYN-Flood是目前最流行的DDoS攻击手段，DDoS只是洪水攻击的一个种类。其实还有其它种类的洪水攻击。以前的DoS手段在向分布式这一阶段发展的过程中也经历了逐步淘汰的过程。SYN-Flood的攻击效果最好，故众黑客不约而同选择它。以下了解一下SYN-Flood的详细情况。Syn Flood利用了TCP/IP协议的固有漏洞。面向连接的TCP三次握手是Syn Flood存在的基础......
         </div>
     </a>
     <p class="post-meta">
