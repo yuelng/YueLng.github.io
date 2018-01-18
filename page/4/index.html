@@ -96,7 +96,7 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
@@ -110,7 +110,7 @@
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -235,6 +235,28 @@ Concurrency-safe golang caching library with expiration capabilities cache2gocon
 
 <div class="post-preview">
 
+    <a href="/2017/11/30/distributed_system/study_distribute_item/">
+        <h2 class="post-title">
+            分布式系统要点记录
+        </h2>
+        <h3 class="post-subtitle">
+             "微服务的惯用架构"
+        </h3>
+        <div class="post-content-preview">
+            The Twelve Factor AppThe Twelve Factor App网关聚合服务 提供restful接口grpc 内网调用服务发现，使用etcd自动服务注册服务配置，使用etcd存储配置服务快速部署服务logging记录服务调用链的追踪服务质量的监控，响应时间缓存的应用
+典型架构缓存、消息、搜索Nginx+Tornado+mysql+pythonNginx+rest.li+r......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/2017/11/30/distributed_system/raft/">
         <h2 class="post-title">
             分布式系统的一致性算法-raft
@@ -266,80 +288,6 @@ Raft 使用的是 Log Replication + State Machine 的方式来处理分布式数
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/distributed_system/study_distribute_item/">
-        <h2 class="post-title">
-            分布式系统要点记录
-        </h2>
-        <h3 class="post-subtitle">
-             "微服务的惯用架构"
-        </h3>
-        <div class="post-content-preview">
-            The Twelve Factor AppThe Twelve Factor App网关聚合服务 提供restful接口grpc 内网调用服务发现，使用etcd自动服务注册服务配置，使用etcd存储配置服务快速部署服务logging记录服务调用链的追踪服务质量的监控，响应时间缓存的应用
-典型架构缓存、消息、搜索Nginx+Tornado+mysql+pythonNginx+rest.li+r......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/thinking/study_software/">
-        <h2 class="post-title">
-            团队项目开发与规范
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            计算机专业的三个维度
-
-基础体系，基础理论、算法与架构
-工程，业界常用方法，实际项目，开源项目
-前沿与未来，保持对新技术的灵敏度，论文
-
-个人理解团队是因为有相同的目标才聚集在一起，所有在做一个项目的开始，要让所有成员认同项目的前景。团队的大小个人认为最多20个人。虽然说很有必要保证规范化，但是我认为按部就班只能扼杀人的创造力，但是一些的必要的流程规范还是要的，也就是下面说的开发流程规范，有......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/collection/somesource/">
-        <h2 class="post-title">
-            一些有用的资源
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            平时在网上闲逛，看到一些可能会有用的一些资源记录在此
-
-计算机领域论文集合 GitHub - papers-we-love/papers-we-love: Papers from the computer science community to read and discuss. 
-分布式资料 Qix/ds.md at master · ty4z2008/Qix · GitHub 
-程序员......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
     <a href="/2017/11/30/framework/study_thrift/">
         <h2 class="post-title">
             thrift入门
@@ -361,15 +309,15 @@ Raft 使用的是 Log Replication + State Machine 的方式来处理分布式数
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/project/project_distribute/">
+    <a href="/2017/11/30/computer_science/study_flooding/">
         <h2 class="post-title">
-            基于开源项目众推的Python实现
+            SYN洪泛攻击的原理与实现
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            概述在开源中国闲逛时发现了这个项目-众推，是一个以Hadoop分布思想为基础类今日头条的开源项目。虽然该项目将去重过滤、文本分类单独出来，但是我认为这都属于数据处理部分。所以我将整个项目的核心划分为三个部分：分布式爬虫、数据清洗与处理、web工程。分别也对应了数据的采集、处理和展示。该项目没有继续下去，可能是因为这个项目不够吸引人，创意不是很好，但是我认为这个项目是当前所有互联网项目技术架构......
+            设计原理SYN-Flood是目前最流行的DDoS攻击手段，DDoS只是洪水攻击的一个种类。其实还有其它种类的洪水攻击。以前的DoS手段在向分布式这一阶段发展的过程中也经历了逐步淘汰的过程。SYN-Flood的攻击效果最好，故众黑客不约而同选择它。以下了解一下SYN-Flood的详细情况。Syn Flood利用了TCP/IP协议的固有漏洞。面向连接的TCP三次握手是Syn Flood存在的基础......
         </div>
     </a>
     <p class="post-meta">
@@ -382,17 +330,16 @@ Raft 使用的是 Log Replication + State Machine 的方式来处理分布式数
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/thinking/think_first/">
+    <a href="/2017/11/30/surrounding/study_permission/">
         <h2 class="post-title">
-            把思维好好捋一捋
+            权限系统学习
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            骐骥一跃，不能十步；驽马十驾，功在不舍。
-胡乱扯扯1研究：研究东西，有足够洞察力，研究水准不错2研发：Hack Idea自己有魄力实现，不懂研发的黑客如同不会游泳的海盗3工程：研发出来的需要实战、需要工程化，否则只是玩具，而不能成为真的武器
-关于就业和能力就业实习，还是有压力的。听过学长学姐们的经历，他们有进大公司也有初创企业的，前天还在群里争论是去哪种好，引得一个在初创公司的学长，把月薪都......
+            基于角色的访问控制（Role-Based Access Control）基本概念RBAC认为权限授权实际上是Who、What、How的问题。在RBAC模型中，who、what、how构成了访问权限三元组,也就是“Who对What(Which)进行How的操作”。 　　
+简单理解简单理解就是把系统中所有的功能都作为一个权限（或者称呼为资源），将这些权限赋予不同的角色，这个角色就具有了诸多的功能......
         </div>
     </a>
     <p class="post-meta">
@@ -417,6 +364,57 @@ Raft 使用的是 Log Replication + State Machine 的方式来处理分布式数
 简介网络监控系统是在学校的外包项目，老师的课题。由于项目属于外包项目，软件代码的所有权自然不在我，所以只能大概讲讲结构，不能开源代码。
 这个项目如果细分的话可以分为安全准入系统和网络监控系统，两个项目都是属于网络相关的项目，下面分两部分来介绍这个项目
 安全准入系统安全准入系统是基于C/S/B模式的管理系统，准入的意思是用户必须通过登录才能访问内网和外网资源，同时还具备监控系统的一些......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/30/computer_science/study_server/">
+        <h2 class="post-title">
+            服务器端编程基础积累
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            UNIX I/O模型
+阻塞IO
+非阻塞IO
+IO多路复用
+信号驱动IO
+异步IO
+
+nginx模型操作系统的设计，因此可以归结为三点：（1）以多进程形式，允许多个任务同时运行；（2）以多线程形式，允许单个任务分成不同的部分运行；（3）提供协调机制，一方面防止进程之间和线程之间产生冲突，另一方面允许进程之间和线程之间共享资源。
+...
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/30/surrounding/study_linux/">
+        <h2 class="post-title">
+            Linux基础知识与命令（Ubuntu14.10）
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            这里记录常用的一些linux命令，以备不时之需。 
+常用的命令1234567sudo cp xxxx /xxxx #移动文件sudo mv xxxx xxxxx #为文件改名sudo tar zxvf xxx.tar #解压文件夹sudo unrar xxxx.rar #解压文件夹 sudo chmod 775 xxxx #给文件或文件夹加权限sudo chown -R hadoop:had......
         </div>
     </a>
     <p class="post-meta">
@@ -466,11 +464,17 @@ Raft 使用的是 Log Replication + State Machine 的方式来处理分布式数
                     <div class="tags">
                         
                             
+                            <a href="/tags/#coding" title="coding" rel="3">coding</a>
+                            
+                        
+                            
                             <a href="/tags/#collection" title="collection" rel="5">collection</a>
                             
                         
                             
-                            <a href="/tags/#coding" title="coding" rel="3">coding</a>
+                            <a href="/tags/#computer_science" title="computer_science" rel="5">computer_science</a>
+                            
+                        
                             
                         
                             
@@ -482,15 +486,21 @@ Raft 使用的是 Log Replication + State Machine 的方式来处理分布式数
                             
                         
                             
-                        
+                            <a href="/tags/#devops" title="devops" rel="2">devops</a>
                             
-                            <a href="/tags/#framework" title="framework" rel="3">framework</a>
+                        
                             
                         
                             
                             <a href="/tags/#financial" title="financial" rel="3">financial</a>
                             
                         
+                            
+                            <a href="/tags/#framework" title="framework" rel="3">framework</a>
+                            
+                        
+                            
+                            <a href="/tags/#language" title="language" rel="8">language</a>
                             
                         
                             
@@ -502,10 +512,6 @@ Raft 使用的是 Log Replication + State Machine 的方式来处理分布式数
                             
                         
                             
-                            <a href="/tags/#language" title="language" rel="8">language</a>
-                            
-                        
-                            
                             <a href="/tags/#project" title="project" rel="8">project</a>
                             
                         
@@ -513,12 +519,6 @@ Raft 使用的是 Log Replication + State Machine 的方式来处理分布式数
                             <a href="/tags/#product" title="product" rel="5">product</a>
                             
                         
-                            
-                            <a href="/tags/#computer_science" title="computer_science" rel="5">computer_science</a>
-                            
-                        
-                            
-                            <a href="/tags/#devops" title="devops" rel="2">devops</a>
                             
                         
                             
@@ -531,8 +531,6 @@ Raft 使用的是 Log Replication + State Machine 的方式来处理分布式数
                         
                             
                             <a href="/tags/#thinking" title="thinking" rel="8">thinking</a>
-                            
-                        
                             
                         
                     </div>

@@ -96,7 +96,7 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
@@ -110,7 +110,7 @@
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -214,53 +214,6 @@
 
 <div class="post-preview">
 
-    <a href="/2017/03/30/language/ruby_dev_env/">
-        <h2 class="post-title">
-            ruby开发环境的搭建
-        </h2>
-        <h3 class="post-subtitle">
-             "ruby开发"
-        </h3>
-        <div class="post-content-preview">
-            ruby开发环境
-Mac OS本身自带ruby在系统目录 /System/Library/Frameworks/Ruby.framework/Versions/Current12345# 通过homebrew安装ruby最新版brew updatebrew install ruby# 安装railsgem install rails
-
-
-...
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2017-03-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/03/30/computer_science/network/">
-        <h2 class="post-title">
-            计算机网络
-        </h2>
-        <h3 class="post-subtitle">
-             "计算机网络"
-        </h3>
-        <div class="post-content-preview">
-            TCP四次挥手过程
-TCP是面向连接的服务；三次握手（建立连接）和四次挥手（关闭连接）；使用滑动窗口机制进行流量控制；TCP要保证在所有可能的情况下使得所有的数据都能够被投递，当你关闭一个socket时，主动关闭一端的socket将进入TIME_WAIT状态，而被动关闭一方则转入CLOSED状态，这的确能够保证所有的数据都被传输。1）首先A B端的TCP进程都处于established状态，......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2017-03-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
     <a href="/2017/03/30/operation/basic_oprate/">
         <h2 class="post-title">
             记录常用的配置
@@ -275,29 +228,6 @@ TCP是面向连接的服务；三次握手（建立连接）和四次挥手（�
 
 总共分为球员版player，管理员admin，用户user，统计stats，网页web，五个部分
 项目之间的关系：五个部分全都是基于tornado API项目开发......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2017-03-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/03/30/computer_science/algorithm/">
-        <h2 class="post-title">
-            算法
-        </h2>
-        <h3 class="post-subtitle">
-             "算法"
-        </h3>
-        <div class="post-content-preview">
-            
-递归与分治策略一个直接或间接地调用自身的算法称为递归算法。分治算法的模式如下：
-12345678910Divide_and_Conquer(P)&#123;    if(|P|&lt;=n0)    Adhoc(P);//Adhoc(P)是基本子算法    divide P into smaller subinstances    P1,P2,...,Pk    for(i=1;i&lt;......
         </div>
     </a>
     <p class="post-meta">
@@ -340,6 +270,28 @@ TCP是面向连接的服务；三次握手（建立连接）和四次挥手（�
 
 <div class="post-preview">
 
+    <a href="/2017/03/30/computer_science/network/">
+        <h2 class="post-title">
+            计算机网络
+        </h2>
+        <h3 class="post-subtitle">
+             "计算机网络"
+        </h3>
+        <div class="post-content-preview">
+            TCP四次挥手过程
+TCP是面向连接的服务；三次握手（建立连接）和四次挥手（关闭连接）；使用滑动窗口机制进行流量控制；TCP要保证在所有可能的情况下使得所有的数据都能够被投递，当你关闭一个socket时，主动关闭一端的socket将进入TIME_WAIT状态，而被动关闭一方则转入CLOSED状态，这的确能够保证所有的数据都被传输。1）首先A B端的TCP进程都处于established状态，......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2017-03-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/2017/03/30/framework/tornado/">
         <h2 class="post-title">
             Tornado Pyhton web框架介绍
@@ -352,6 +304,54 @@ TCP是面向连接的服务；三次握手（建立连接）和四次挥手（�
 简介FriendFeed使用了一款使用Python编写的，相对简单的非阻塞式Web服务器。它的特点在于非阻塞服务器和epoll的运用，这个Web框架还包含了一些相关的有用工具和优化。
 以下是经典的“Hello, world”示例：
 123456789101112131415import tornado.ioloopimport tornado.webclass ......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2017-03-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/03/30/computer_science/algorithm/">
+        <h2 class="post-title">
+            算法
+        </h2>
+        <h3 class="post-subtitle">
+             "算法"
+        </h3>
+        <div class="post-content-preview">
+            
+递归与分治策略一个直接或间接地调用自身的算法称为递归算法。分治算法的模式如下：
+12345678910Divide_and_Conquer(P)&#123;    if(|P|&lt;=n0)    Adhoc(P);//Adhoc(P)是基本子算法    divide P into smaller subinstances    P1,P2,...,Pk    for(i=1;i&lt;......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2017-03-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/03/30/language/ruby_dev_env/">
+        <h2 class="post-title">
+            ruby开发环境的搭建
+        </h2>
+        <h3 class="post-subtitle">
+             "ruby开发"
+        </h3>
+        <div class="post-content-preview">
+            ruby开发环境
+Mac OS本身自带ruby在系统目录 /System/Library/Frameworks/Ruby.framework/Versions/Current12345# 通过homebrew安装ruby最新版brew updatebrew install ruby# 安装railsgem install rails
+
+
+...
         </div>
     </a>
     <p class="post-meta">
@@ -492,11 +492,17 @@ Component-Driven dev 模块驱动开发
                     <div class="tags">
                         
                             
+                            <a href="/tags/#coding" title="coding" rel="3">coding</a>
+                            
+                        
+                            
                             <a href="/tags/#collection" title="collection" rel="5">collection</a>
                             
                         
                             
-                            <a href="/tags/#coding" title="coding" rel="3">coding</a>
+                            <a href="/tags/#computer_science" title="computer_science" rel="5">computer_science</a>
+                            
+                        
                             
                         
                             
@@ -508,15 +514,21 @@ Component-Driven dev 模块驱动开发
                             
                         
                             
-                        
+                            <a href="/tags/#devops" title="devops" rel="2">devops</a>
                             
-                            <a href="/tags/#framework" title="framework" rel="3">framework</a>
+                        
                             
                         
                             
                             <a href="/tags/#financial" title="financial" rel="3">financial</a>
                             
                         
+                            
+                            <a href="/tags/#framework" title="framework" rel="3">framework</a>
+                            
+                        
+                            
+                            <a href="/tags/#language" title="language" rel="8">language</a>
                             
                         
                             
@@ -528,10 +540,6 @@ Component-Driven dev 模块驱动开发
                             
                         
                             
-                            <a href="/tags/#language" title="language" rel="8">language</a>
-                            
-                        
-                            
                             <a href="/tags/#project" title="project" rel="8">project</a>
                             
                         
@@ -539,12 +547,6 @@ Component-Driven dev 模块驱动开发
                             <a href="/tags/#product" title="product" rel="5">product</a>
                             
                         
-                            
-                            <a href="/tags/#computer_science" title="computer_science" rel="5">computer_science</a>
-                            
-                        
-                            
-                            <a href="/tags/#devops" title="devops" rel="2">devops</a>
                             
                         
                             
@@ -557,8 +559,6 @@ Component-Driven dev 模块驱动开发
                         
                             
                             <a href="/tags/#thinking" title="thinking" rel="8">thinking</a>
-                            
-                        
                             
                         
                     </div>
