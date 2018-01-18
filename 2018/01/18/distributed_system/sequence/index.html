@@ -13,11 +13,11 @@
 
     <title>
         
-          安装Hackintosh - YueLng的博客 | YueLng&#39;s Blog
+          sequence - YueLng的博客 | YueLng&#39;s Blog
         
     </title>
 
-    <link rel="canonical" href="http://yuelng.github.io/2017/04/28/operation/hackintosh/">
+    <link rel="canonical" href="http://yuelng.github.io/2018/01/18/distributed_system/sequence/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -161,7 +161,7 @@
 <!-- Post Header -->
 <style type="text/css">
     header.intro-header{
-        background-image: url('http://ooy4j2kxh.bkt.clouddn.com/Winter%20Road%20Trip.jpg')
+        background-image: url('http://i2.muimg.com/567571/ffea982f946e6c5f.jpg')
     }
 </style>
 <header class="intro-header" >
@@ -171,14 +171,14 @@
                 <div class="post-heading">
                     <div class="tags">
                         
-                          <a class="tag" href="/tags/#operation" title="operation">operation</a>
+                          <a class="tag" href="/tags/#distribution_system" title="distribution_system">distribution_system</a>
                         
                     </div>
-                    <h1>安装Hackintosh</h1>
-                    <h2 class="subheading"> &quot;使用unibeast安装黑苹果&quot;</h2>
+                    <h1>sequence</h1>
+                    <h2 class="subheading"> &quot;分布式发号器&quot;</h2>
                     <span class="meta">
                         Posted by yueLng on
-                        2017-04-28
+                        2018-01-18
                     </span>
                 </div>
             </div>
@@ -197,29 +197,7 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <blockquote>
-<p>“硬件选好了，安装都是很容易的”</p>
-</blockquote>
-<h3 id="Hackintosh简介与法律问题"><a href="#Hackintosh简介与法律问题" class="headerlink" title="Hackintosh简介与法律问题"></a>Hackintosh简介与法律问题</h3><p>Hackintosh是在非苹果硬件上安装运行苹果系统MacOS。这个名字还有一个官方的名字-OSx86，Wikipedia是这样介绍的，OSx86是把苹果公司出品的macOS操作系统在x86架构的非苹果电脑上运行的黑客协作计划，OSx86名字源于macOS系统的原名“OS X”与英特尔处理器架构名“x86”。关于安装黑苹果的法律问题，个人赞同这只是违约问题，并不存在违法。根据以往的法院判例，Psystar销售安装MacOS的自家硬件，法院给的判决是“违反了苹果的独家复制权、发行权和开发衍生作品权”，主要原因是-对MacOS进行再包装销售而引起的侵权。个人使用的是MBP，安装黑苹果也只是玩票性质，不存在再包装销售的流程，所以也不用管是否被查水表啦，重要的是自由hacker的精神。</p>
-<h3 id="成功的可能性"><a href="#成功的可能性" class="headerlink" title="成功的可能性"></a>成功的可能性</h3><p>选好了硬件，黑苹果是比较容易装的。黑苹果经过这么长的时间，形成了完整的产业，现在在淘宝上也完全可以找到已经装好的低价高配黑苹果，这也算是破除了苹果的垄断。如果非要自己折腾，这潭水还是很深的。从google、百度以及各大论坛查到关于如何装黑苹果的资料都是很多的，涉及的内容也是需要大量时间去消化理解的，这里只是针对我搜索到的一些内容做些整理，希望大家不要走弯路。使用google搜索是下意识的思考，前3个搜索结果就是主要参考对象，分别是<a href="http://www.hackintosh.com/" target="_blank" rel="external">hackintosh</a>、<a href="http://lifehacker.com/the-always-up-to-date-guide-to-building-a-hackintosh-o-5841604" target="_blank" rel="external">guide-to-building-a-hackintosh</a>、<a href="https://www.tonymacx86.com/" target="_blank" rel="external">tonymacx86</a>，在这几个网站上基本上解决了黑苹果的所有问题。例如说关于如何选择硬件配置。在tonymacx86上就有黑苹果的推荐配置<a href="https://www.tonymacx86.com/buyersguide/april/2017" target="_blank" rel="external">buyersguide</a>，解决了硬件问题就完成了一半。所以说自己定制出低价高性能的机子是完全有可能的。</p>
-<h3 id="安装Hackintosh"><a href="#安装Hackintosh" class="headerlink" title="安装Hackintosh"></a>安装Hackintosh</h3><p>基本来说安装hackintosh需要mac环境、一个8G的U盘、一台准备安装的电脑。在安装Hackintosh的过程中很顺利，基本上没有遇到朋友说的需要几周的时间，如果需要完全弄清楚黑苹果的机制例如UEFI等等机制，肯定需要几周的时间，我这算是管中窥豹而已。我的主要参考资料是这篇安装指南<a href="https://www.tonymacx86.com/threads/unibeast-install-macos-sierra-on-any-supported-intel-based-pc.200564/" target="_blank" rel="external">unibeast-install-macos-sierra-on-any-supported-intel-based-pc</a>,因为我本机是Sierra的系统也是最新的系统，当然在黑苹果上也选择了Sierra。根据指南安装黑苹果的大概有以下几个步骤</p>
-<ul>
-<li>Step 1: Download macOS Sierra</li>
-<li>Step 2: Create a Bootable USB with UniBeast</li>
-<li>Step 3: Recommended BIOS Settings</li>
-<li>Step 4: Install macOS Sier</li>
-<li>Step 5: Post Installation with MultiBeast</li>
-</ul>
-<p>前面3个步骤都不是很难，主要是利用unibeast将下载好的系统安装到U盘中，然后设置好硬件基本的BIOS环境。对于大多数情况来说，卡住的是第4步，使用U盘进入macos的安装界面，这里有必要说明下使用U盘安装我们使用的是clover引导，clover的作用是欺骗macos，让它以为自己安装在原装的苹果硬件上，而clover的核心部件是config.plist，不同的硬件需要配置不同的config.plist，这也是安装黑苹果中最耗时间的一部分。这里我给出我的config.plist 配置<a href="http://ooy4j2kxh.bkt.clouddn.com/content/config.plist" target="_blank" rel="external">config.plist</a>。如果顺利到达安装界面的话，基本上成功了大半，如果根据这个config没有出现安装界面，可能还要去上述的几个论坛逛一逛，看看是否有符合自己硬件标准的config配置。值得注意的另外一个大头就是安装驱动，我使用的显卡是集显HD4600，根据指南使用mutibeast安装相应的4600驱动即可正常驱动显卡，但是针对GTX、英伟达这些需要好好看看论坛帖子怎么配置。</p>
-<h3 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h3><p>相对来说，这是一次很顺畅的黑苹果的安装经历。如果我这台mbp退役了，很有可能再去动手去配置一个性能更强劲的黑苹果。黑苹果关于硬件的知识很多，自己运气好安装比较顺利，但是并不保证后面系统不出问题，我的声卡驱动还没有完全装好，我也会在后面时不时更新这篇文章。</p>
-<h3 id="参考内容"><a href="#参考内容" class="headerlink" title="参考内容"></a>参考内容</h3><ul>
-<li><a href="http://www.hackintosh.com/" target="_blank" rel="external">hackintosh</a></li>
-<li><a href="http://lifehacker.com/the-always-up-to-date-guide-to-building-a-hackintosh-o-5841604" target="_blank" rel="external">guide-to-building-a-hackintosh</a></li>
-<li><a href="https://www.tonymacx86.com/" target="_blank" rel="external">tonymacx86</a></li>
-<li><a href="https://www.tonymacx86.com/buyersguide/april/2017" target="_blank" rel="external">buyersguide</a></li>
-<li><a href="https://www.tonymacx86.com/threads/unibeast-install-macos-sierra-on-any-supported-intel-based-pc.200564/" target="_blank" rel="external">unibeast-install-macos-sierra-on-any-supported-intel-based-pc</a></li>
-<li><a href="http://ooy4j2kxh.bkt.clouddn.com/content/config.plist" target="_blank" rel="external">config.plist</a></li>
-</ul>
+                <h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><a href="https://tech.youzan.com/id_generator/" target="_blank" rel="external">如何做一个靠谱的发号器</a><br><a href="http://t.cn/RQotT0G" target="_blank" rel="external">万亿级调用系统：微信序列号生成器架构设计及演变</a></p>
 
 
                 <hr>
@@ -228,13 +206,9 @@
 
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/2017/10/16/puduct/wegame/" data-toggle="tooltip" data-placement="top" title="使用商业画布分析WeGame商业模式设计">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/2017/03/30/devops/deploy_kubernetes/" data-toggle="tooltip" data-placement="top" title="Golang微服务部署在kubernetes">Next Post &rarr;</a>
+                            <a href="/2018/01/18/language/lua/" data-toggle="tooltip" data-placement="top" title="Lua">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -281,7 +255,7 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#operation" title="operation">operation</a>
+                          <a class="tag" href="/tags/#distribution_system" title="distribution_system">distribution_system</a>
                         
                     </div>
                 </section>
@@ -311,8 +285,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "tamchen";
-    var disqus_identifier = "http://yuelng.github.io/2017/04/28/operation/hackintosh/";
-    var disqus_url = "http://yuelng.github.io/2017/04/28/operation/hackintosh/";
+    var disqus_identifier = "http://yuelng.github.io/2018/01/18/distributed_system/sequence/";
+    var disqus_url = "http://yuelng.github.io/2018/01/18/distributed_system/sequence/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

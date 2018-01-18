@@ -103,14 +103,14 @@
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
@@ -190,6 +190,83 @@
 
 <div class="post-preview">
 
+    <a href="/2017/11/30/surrounding/markdown/">
+        <h2 class="post-title">
+            markdown基本操作
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            基本符号
+*,-,+ 3个符号效果都一样，这3个符号被称为 Markdown符号
+空白行表示另起一个段落
+`是表示inline代码，tab是用来标记 代码段，分别对应html的code，pre标签
+
+换行
+单一段落( \) 用一个空白行
+连续两个空格 会变成一个 
+连续3个符号，然后是空行，表示 hr横线
+
+标题
+生成h1–h6,在文字前面加上 1–6个# 来实现
+文字加粗是通过 文字左右各......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/30/framework/study_thrift/">
+        <h2 class="post-title">
+            thrift入门
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            介绍Thrift 最初由Facebook开发，而后捐献给Apache，目前已广泛应用于业界。Thrift 正如其官方主页介绍的，“是一种可扩展、跨语言的服务开发框架”。简而言之，它主要用于各个服务之间的RPC通信，其服务端和客户端可以用不同的语言来开发。只需要依照IDL（Interface Description Language）定义一次接口，Thrift工具就能自动生成 C++, Jav......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/30/thinking/think_first/">
+        <h2 class="post-title">
+            把思维好好捋一捋
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            骐骥一跃，不能十步；驽马十驾，功在不舍。
+胡乱扯扯1研究：研究东西，有足够洞察力，研究水准不错2研发：Hack Idea自己有魄力实现，不懂研发的黑客如同不会游泳的海盗3工程：研发出来的需要实战、需要工程化，否则只是玩具，而不能成为真的武器
+关于就业和能力就业实习，还是有压力的。听过学长学姐们的经历，他们有进大公司也有初创企业的，前天还在群里争论是去哪种好，引得一个在初创公司的学长，把月薪都......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/2017/11/30/project/project_distribute/">
         <h2 class="post-title">
             Untitled
@@ -214,24 +291,19 @@ layout:     posttitle:      “基于开源项目众推的Python实现”subtitl
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/puduct/study_monitor/">
+    <a href="/2017/11/30/collection/somesource/">
         <h2 class="post-title">
-            数据驱动开发与产品
+            一些有用的资源
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            不谋万世者，不足以谋一时；不谋全局者，不足以谋一隅
-Monitor your data作为程序员，我们开发一个后台服务，大家有没有测试过以下数据
+            平时在网上闲逛，看到一些可能会有用的一些资源记录在此
 
-这个服务能够承受多少的 QPS（每秒访问量）？
-平均响应时间和 99% 的响应时间是多少？
-如果服务器压力增加，我们能不能通过简单的加机器来解决，需要加多少台机器？
-当前线上服务瓶颈在哪里？
-按当前的增长速度，多久我们得需要加机器？
-
-技术关注点......
+计算机领域论文集合 GitHub - papers-we-love/papers-we-love: Papers from the computer science community to read and discuss. 
+分布式资料 Qix/ds.md at master · ty4z2008/Qix · GitHub 
+程序员......
         </div>
     </a>
     <p class="post-meta">
@@ -244,16 +316,15 @@ Monitor your data作为程序员，我们开发一个后台服务，大家有没
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/system_design/study_model/">
+    <a href="/2017/11/30/computer_science/study_flooding/">
         <h2 class="post-title">
-            设计模式简要介绍
+            SYN洪泛攻击的原理与实现
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            创建型模式简单工厂模式简单工厂模式的要点在于：当你需要什么，只需要传入一个正确的参数，就可以获取你所需要的对象，而无须知道其创建细节。1KeyGenerator keyGen=KeyGenerator.getInstance("DESede");//获取不同加密算法的密钥生成器
-工厂方法模式工厂父类负责定义创建产品对象的公共接口，而工厂子类则负责生成具体的产品对象，这样做的目的是将产品类的实......
+            设计原理SYN-Flood是目前最流行的DDoS攻击手段，DDoS只是洪水攻击的一个种类。其实还有其它种类的洪水攻击。以前的DoS手段在向分布式这一阶段发展的过程中也经历了逐步淘汰的过程。SYN-Flood的攻击效果最好，故众黑客不约而同选择它。以下了解一下SYN-Flood的详细情况。Syn Flood利用了TCP/IP协议的固有漏洞。面向连接的TCP三次握手是Syn Flood存在的基础......
         </div>
     </a>
     <p class="post-meta">
@@ -266,60 +337,19 @@ Monitor your data作为程序员，我们开发一个后台服务，大家有没
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/collection/interview/">
+    <a href="/2017/11/30/system_design/system_design_question/">
         <h2 class="post-title">
-            面试题目
+            系统设计问题归总
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            二.操作系统 可以直接认为是linux，毕竟搞后端的多数是和linux打交道。1.tcp/udp的区别？tcp粘包是怎么回事，如何处理？udp有粘包吗？2.time_wait是什么情况？出现过多的close_wait可能是什么原因？3.epoll,select的区别？边缘触发，水平触发区别？
-三.存储 存储可能包含rdbms，nosql以及缓存等，我以mysql,redis举例 mysql相......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/codeing/study_coding/">
-        <h2 class="post-title">
-            勿在浮沙聚高塔
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            1.摘要今天看了新浪新兵训练营的一些资料，整理下关于程序员最基础的知识————关于编码主要内容包括，什么是烂代码，什么是好代码，好代码需要注意什么，如何做出优雅的设计，如何规划合理的架构编码主要是给人看的，其次才是给机器看的。
-2.关于烂代码写出烂代码很容易，入行时很容易被鼓吹要把主要精力放在ABCD（需求文档/功能设计/架构设计/理解原理）上，写代码只是实现想法的工具。在这样的指导思想下，......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/language/study_python/">
-        <h2 class="post-title">
-            python学习
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            Ubuntu下配置基本的Python开发环境安装Python发布版本和build依赖包
-/# 安装 Python 发布版本，dev包必须安装，很多用pip安装包都需要编译sudo apt-get install python2.7 python2.7-dev python3.4 python3.4-dev/#很多pip安装的包都需要libssl和libevent编译环境sudo apt-ge......
+            重点考察内容面向对象，接口设计，设计模式，数据库表，分布式
+关于高并发系统设计。主要有以下几个关键技术点：缓存，索引，数据分片，锁粒度尽可能小。
+系统设计相关
+Concurrency (threads, deadlock, starvation, consistency, coherence)
+Abstraction (understanding how OS, filesystem, an......
         </div>
     </a>
     <p class="post-meta">
@@ -399,30 +429,6 @@ SHOW PROCESSLIST 查看数据库连接，看哪个连接导致锁表kill id   //
 </div>
 <hr>
 
-<div class="post-preview">
-
-    <a href="/2017/04/28/operation/hackintosh/">
-        <h2 class="post-title">
-            安装Hackintosh
-        </h2>
-        <h3 class="post-subtitle">
-             "使用unibeast安装黑苹果"
-        </h3>
-        <div class="post-content-preview">
-            
-“硬件选好了，安装都是很容易的”
-
-Hackintosh简介与法律问题Hackintosh是在非苹果硬件上安装运行苹果系统MacOS。这个名字还有一个官方的名字-OSx86，Wikipedia是这样介绍的，OSx86是把苹果公司出品的macOS操作系统在x86架构的非苹果电脑上运行的黑客协作计划，OSx86名字源于macOS系统的原名“OS X”与英特尔处理器架构名“x86”。关于安装黑苹......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2017-04-28
-    </p>
-
-</div>
-<hr>
-
 
 
 <!-- Pager -->
@@ -478,13 +484,13 @@ Hackintosh简介与法律问题Hackintosh是在非苹果硬件上安装运行苹
                             
                         
                             
+                        
+                            
                             <a href="/tags/#devops" title="devops" rel="2">devops</a>
                             
                         
                             
                             <a href="/tags/#distribution_system" title="distribution_system" rel="16">distribution_system</a>
-                            
-                        
                             
                         
                             
