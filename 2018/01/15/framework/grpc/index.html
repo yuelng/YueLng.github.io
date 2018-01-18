@@ -216,9 +216,12 @@
 <p>一条连接可以包含多个 streams，多个 streams 发送的数据互相不影响。<br>Stream 可以被 client 和 server 单方面或者共享使用。<br>Stream 可以被任意一段关闭。<br>Stream 会确定好发送 frame 的顺序，另一端会按照接受到的顺序来处理。<br>Stream 用一个唯一 ID 来标识。</p>
 <p>如果需要加大一条连接上的并发可以调大 <code>SETTINGS_MAX_CONCURRENT_STREAMS</code></p>
 <ul>
-<li>Priority</li>
-<li>Flow Control</li>
-<li>HPACK</li>
+<li><p>Priority<br>stream 有优先级，方便对端为不同的请求分配不同的资源</p>
+</li>
+<li><p>Flow Control<br>Flow control 是单向的。Receiver 可以选择给 stream 或者整个连接设置 window size。<br>Flow control 是基于信任的。Receiver 只是会给 sender 建议它的初始连接和 stream 的 flow control window size。<br>Flow control 不可能被禁止掉。当 HTTP/2 连接建立起来之后，client 和 server 会交换 SETTINGS frames，用来设置 flow control window size。<br>Flow control 是 hop-by-hop，并不是 end-to-end 的，也就是我们可以用一个中间人来进行 flow control。</p>
+</li>
+<li><p>HPACK<br>为了减少header头数据传输大小</p>
+</li>
 </ul>
 <p>GRPC<br>gRPC 通常有四种模式，unary，client streaming，server streaming 以及 bidirectional streaming，对于底层 HTTP/2 来说，它们都是 stream，并且仍然是一套 request + response 模型。</p>
 <ul>
@@ -236,6 +239,10 @@
                 
 
                 <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2018/01/17/surrounding/encoding/" data-toggle="tooltip" data-placement="top" title="编码">&larr; Previous Post</a>
+                        </li>
                     
                     
                         <li class="next">

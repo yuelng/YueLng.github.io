@@ -213,16 +213,32 @@
 <li>快速编译、快速启动</li>
 <li>执行性能好</li>
 </ul>
+<p>关于依赖管理，vendor，如果a 依赖b，b依赖c，则可以a包下建立vendor目录 包含b、c即可，b、c包在vendor目录下并不需要自身的vendor目录</p>
 <h3 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h3><ol>
 <li><a href="https://tour.golang.org/welcome/1" target="_blank" rel="external">A Tour of Go</a></li>
 <li><a href="https://learnxinyminutes.com/docs/zh-cn/go-cn/" target="_blank" rel="external">learn golang in n minute</a></li>
 <li><a href="https://blog.golang.org/" target="_blank" rel="external">golang blog</a></li>
 </ol>
 <h3 id="进阶"><a href="#进阶" class="headerlink" title="进阶"></a>进阶</h3><ol>
-<li>基本数据结构 map channel</li>
-<li>协程调度 goroutine</li>
-<li>内存管理 协程栈<br>📹 <a href="https://www.youtube.com/watch?v=zzAdEt3xZ1M" target="_blank" rel="external">SOLID Go Design</a><br>📹 <a href="https://www.infoq.com/presentations/go-concurrency-gc" target="_blank" rel="external">The Why of Go</a><br>📹 <a href="https://www.youtube.com/watch?v=aiv1JOfMjm0" target="_blank" rel="external">Rick Hudson - Go GC: Solving the Latency Problem</a><br>📹 <a href="https://www.youtube.com/watch?v=ZuQcbqYK0BY" target="_blank" rel="external">How to optimize Go for really high performance</a></li>
+<li>基本数据结构 map channel<br><a href="https://guidao.github.io/go_map.html" target="_blank" rel="external">go_map</a></li>
 </ol>
+<p><a href="https://garbagecollected.org/2017/02/22/go-range-loop-internals/" target="_blank" rel="external">Go Range Loop Internals</a><br>in Go, everything you assign, you copy.<br>slices are syntactic sugar for a struct holding a pointer to the backing array</p>
+<ul>
+<li>Loop variables are reused and assigned to at each iteration.</li>
+<li>The range expression gets evaluated once before the loop starts by assigning to a variable.</li>
+<li>You can delete or add values to a map while iterating. Adds may or may not be visible in the loop.</li>
+</ul>
+<p>maps are pointers to a struct</p>
+<ul>
+<li>it is safe to add to and remove from maps in a range loop</li>
+<li>if you add an element it may or may not see it in an upcoming iteration</li>
+</ul>
+<ol>
+<li>协程调度 goroutine</li>
+<li>内存管理 协程栈<br><a href="https://guidao.github.io/malloc.html" target="_blank" rel="external">golang内存分配分析</a></li>
+</ol>
+<p><a href="http://colobu.com/2017/12/28/top-golang-articles-of-2017/" target="_blank" rel="external">年终盘点！2017年超有价值的Golang文章</a><br><a href="http://colobu.com/2017/12/29/best-practices-for-writing-high-performance-Go-code/" target="_blank" rel="external">编写高性能的Go代码的最佳实践</a></p>
+<p>📹 <a href="https://www.youtube.com/watch?v=zzAdEt3xZ1M" target="_blank" rel="external">SOLID Go Design</a><br>📹 <a href="https://www.infoq.com/presentations/go-concurrency-gc" target="_blank" rel="external">The Why of Go</a><br>📹 <a href="https://www.youtube.com/watch?v=aiv1JOfMjm0" target="_blank" rel="external">Rick Hudson - Go GC: Solving the Latency Problem</a><br>📹 <a href="https://www.youtube.com/watch?v=ZuQcbqYK0BY" target="_blank" rel="external">How to optimize Go for really high performance</a></p>
 <h3 id="标准库"><a href="#标准库" class="headerlink" title="标准库"></a>标准库</h3><h3 id="外部库"><a href="#外部库" class="headerlink" title="外部库"></a>外部库</h3><h3 id="相关问题"><a href="#相关问题" class="headerlink" title="相关问题"></a>相关问题</h3><p>1.说说为什么同样实现一个“hello world”，Go编译出来的程序一般会比C/C++要大？<br>关键字：跨平台 静态链接编译 依赖库 自带runtime<br><a href="https://blog.golang.org/go1.7-binary-size" target="_blank" rel="external">Smaller Go 1.7 binaries</a></p>
 <p>2.说说channel的实现.（核心，拓展问题：通信常用手段，阻塞非阻塞，同步异步的区别，select／poll/epoll等等）<br><a href="https://www.youtube.com/watch?v=KBZlN0izeiY&amp;t=10s" target="_blank" rel="external">Kavya Joshi - Understanding Channels</a></p>
 <p>3.goruntine是怎么调度的？与进程，线程的关系。（核心，拓展问题，进程，线程，协程区别，死锁，操作系统等等）<br><a href="https://www.youtube.com/watch?v=zbFDjCHzN50" target="_blank" rel="external">https://www.youtube.com/watch?v=zbFDjCHzN50</a></p>
