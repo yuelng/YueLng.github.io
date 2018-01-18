@@ -96,14 +96,14 @@
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
@@ -190,9 +190,219 @@
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/thinking/think_master_function/">
+    <a href="/2017/03/30/devops/deploy_kubernetes/">
         <h2 class="post-title">
-            编程之路—函数式编程
+            Golang微服务部署在kubernetes
+        </h2>
+        <h3 class="post-subtitle">
+             "关于开发与部署流程"
+        </h3>
+        <div class="post-content-preview">
+            
+“What I cannot create, I do not understand. – Richard Feynman”
+
+微服务部署是一个难题，包括了一系列开发中的实际问题。例如是否将所有微服务代码放在一个git仓库还是分git仓库，是否需要公共代码（这里的公共代码指的是与业务逻辑无关在任何项目中都可以即开即用的脚手架代码），部署方式是否使用jenkins自动化部署还是自己写个脚本，......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2017-03-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/03/30/language/ruby_dev_env/">
+        <h2 class="post-title">
+            ruby开发环境的搭建
+        </h2>
+        <h3 class="post-subtitle">
+             "ruby开发"
+        </h3>
+        <div class="post-content-preview">
+            ruby开发环境
+Mac OS本身自带ruby在系统目录 /System/Library/Frameworks/Ruby.framework/Versions/Current12345# 通过homebrew安装ruby最新版brew updatebrew install ruby# 安装railsgem install rails
+
+
+...
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2017-03-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/03/30/distributed_system/engineering/">
+        <h2 class="post-title">
+            后端代码工程
+        </h2>
+        <h3 class="post-subtitle">
+             "配置"
+        </h3>
+        <div class="post-content-preview">
+            
+“Yeah It’s on. ”
+
+
+配置文件
+程序内内置配置项的初始默认值
+配置文件中的配置项值可以覆盖(override)程序内配置项的默认值。
+命令行选项和参数值具有最高优先级，可以override前两层的配置项值。
+
+错误处理golang内置两种错误处理方式，error与panic，error是逻辑上程序可控制可预见的错误，而panic则相对于error是比较严重的错误。在通常的项......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2017-03-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/03/30/computer_science/network/">
+        <h2 class="post-title">
+            计算机网络
+        </h2>
+        <h3 class="post-subtitle">
+             "计算机网络"
+        </h3>
+        <div class="post-content-preview">
+            TCP四次挥手过程
+TCP是面向连接的服务；三次握手（建立连接）和四次挥手（关闭连接）；使用滑动窗口机制进行流量控制；TCP要保证在所有可能的情况下使得所有的数据都能够被投递，当你关闭一个socket时，主动关闭一端的socket将进入TIME_WAIT状态，而被动关闭一方则转入CLOSED状态，这的确能够保证所有的数据都被传输。1）首先A B端的TCP进程都处于established状态，......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2017-03-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/03/30/framework/tornado/">
+        <h2 class="post-title">
+            Tornado Pyhton web框架介绍
+        </h2>
+        <h3 class="post-subtitle">
+             "tornado为何这么快"
+        </h3>
+        <div class="post-content-preview">
+            ##Tornado直接读代码
+简介FriendFeed使用了一款使用Python编写的，相对简单的非阻塞式Web服务器。它的特点在于非阻塞服务器和epoll的运用，这个Web框架还包含了一些相关的有用工具和优化。
+以下是经典的“Hello, world”示例：
+123456789101112131415import tornado.ioloopimport tornado.webclass ......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2017-03-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/03/30/operation/basic_oprate/">
+        <h2 class="post-title">
+            记录常用的配置
+        </h2>
+        <h3 class="post-subtitle">
+             "配置"
+        </h3>
+        <div class="post-content-preview">
+            ####项目部署执行openplay_backend requirement.txt 中却少raven
+在跑run.py时，debug配置文件下却少sentry，将product环境下的sentry添加即可
+####项目基础架构
+
+总共分为球员版player，管理员admin，用户user，统计stats，网页web，五个部分
+项目之间的关系：五个部分全都是基于tornado API项目开发......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2017-03-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/03/30/computer_science/algorithm/">
+        <h2 class="post-title">
+            算法
+        </h2>
+        <h3 class="post-subtitle">
+             "算法"
+        </h3>
+        <div class="post-content-preview">
+            
+递归与分治策略一个直接或间接地调用自身的算法称为递归算法。分治算法的模式如下：
+12345678910Divide_and_Conquer(P)&#123;    if(|P|&lt;=n0)    Adhoc(P);//Adhoc(P)是基本子算法    divide P into smaller subinstances    P1,P2,...,Pk    for(i=1;i&lt;......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2017-03-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/03/28/thinking/think_work/">
+        <h2 class="post-title">
+            软件工程与自我修养
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            
+不以赚钱为目的选择学习的内容
+以自己是否能造出轮子来衡量学习的效果
+坚持每天写自己的代码，前十年每天至少6个小时，不包括学习和工作时间
+
+
+
+对所做的事情的理解越深，你就会做的越好。
+服务：将单页面单请求拆分为多个请求，拆分服务
+代码级别的文档，只写别人经常看的文档
+Component-Driven dev 模块驱动开发
+测试驱动开发
+数据驱动开发
+
+软件工程师的基本素养
+计算机程序的构造......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-03-28
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/03/28/thinking/think_master_performance/">
+        <h2 class="post-title">
+            编程之路—性能与优化
         </h2>
         <h3 class="post-subtitle">
             
@@ -204,13 +414,12 @@
 性能与优化
 单元测试
 
-概念定义
-In computer science, functional programming is a programming paradigm that treats computation as the evaluation of mathematical functions and avoids state and mutab......
+概念定义...
         </div>
     </a>
     <p class="post-meta">
         Posted by YueLng Chen on
-        2017-11-30
+        2017-03-28
     </p>
 
 </div>
@@ -218,213 +427,27 @@ In computer science, functional programming is a programming paradigm that treat
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/surrounding/study_vim/">
+    <a href="/2017/03/28/thinking/think_master_program/">
         <h2 class="post-title">
-            vim积累
+            编程之路—编程规范
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            这里记录vim的一些平常积累
-效果图
-安装参考github上关于vim配置及其插件安装simple_vim_setting
-基本操作1. Under normal mode123456789:wq             - save and quiti               - insertx VIM           - delete characterdd           ......
+            编程之路
+编程规范
+函数式编程
+性能与优化
+单元测试
+
+####宏观编程规范编程规范应该是编程活动中的精华所在，虽然与其他几种同列，但是我认为这不仅仅是规范
+规范体现了一个程序员的基本素养，武林高手一般会有他自己的独有风格，但是也会有大多数高手都有的气质。编程规范是能够体现出程序员水准的标准，通常在达到一定的境界的时候，大家都会不约而同形成一套体系，而这套体系是前人不断总结出来的，在我看来这......
         </div>
     </a>
     <p class="post-meta">
         Posted by YueLng Chen on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/puduct/study_monitor/">
-        <h2 class="post-title">
-            数据驱动开发与产品
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            不谋万世者，不足以谋一时；不谋全局者，不足以谋一隅
-Monitor your data作为程序员，我们开发一个后台服务，大家有没有测试过以下数据
-
-这个服务能够承受多少的 QPS（每秒访问量）？
-平均响应时间和 99% 的响应时间是多少？
-如果服务器压力增加，我们能不能通过简单的加机器来解决，需要加多少台机器？
-当前线上服务瓶颈在哪里？
-按当前的增长速度，多久我们得需要加机器？
-
-技术关注点......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/collection/source_all/">
-        <h2 class="post-title">
-            常用的资源
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            计算机科学1.谷歌推荐的技术能力提升指南CS课程入门、了解其他语言、测试代码、培养逻辑推理和学习数学离散知识、深刻理解操作系统、学习UX设计、学习人工智能、学习如何构建编译器、了解密码学、并行编程、与其他程序员一起开发项目。2.hackr.ioShare and discover the best programming tutorials and courses online.3.图说设计......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/computer_science/study_algorithm/">
-        <h2 class="post-title">
-            相似距离算法
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            相似距离算法是推荐算法的一部分。
-一、EuclideanDistanceSimilarity: 欧氏距离相似度原理：利用欧式距离d定义的相似度s，s=1 / (1+d)。
-范围：[0,1]，值越大，说明d越小，也就是距离越近，则相似度越大。
-说明：同皮尔森相似度一样，该相似度也没有考虑重叠数对结果的影响，同样地，Mahout通过增加一个枚举类型（Weighting）的参数来使得重叠数也成为计......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/collection/plan/">
-        <h2 class="post-title">
-            TODO集合
-        </h2>
-        <h3 class="post-subtitle">
-             "来不及整理的就放在这吧"
-        </h3>
-        <div class="post-content-preview">
-            大纲数据库系统、分布式系统、数据科学
-待看文章#程序员的自我修养《程序员的自我修养》链接、装载与库2017年4月30日星期日在golang1.8中使用插件https://github.com/vladimirvivien/go-plugin-examplehttps://medium.com/learning-the-go-programming-language/writing-modul......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/28/database/database/">
-        <h2 class="post-title">
-            数据库原理、实践
-        </h2>
-        <h3 class="post-subtitle">
-             "数据库原理、实践"
-        </h3>
-        <div class="post-content-preview">
-            数据库实践数据库并发查询下 导致巨大时延？
-SHOW PROCESSLIST 查看数据库连接，看哪个连接导致锁表kill id   //杀掉被锁的表
-如何使用online DDL 增加字段MySQL Online DDL - 腾讯云社区 - 腾讯云没有使用 online DDL选项主库增加了字段，通过binlog 同步到从库执行alter 操作 会导致锁表，锁表导致set old_alter......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2017-11-28
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/27/distributed_system/service_discovery/">
-        <h2 class="post-title">
-            服务发现与配置
-        </h2>
-        <h3 class="post-subtitle">
-             "服务发现与配置"
-        </h3>
-        <div class="post-content-preview">
-            etcd
-...
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2017-11-27
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/10/16/puduct/wegame/">
-        <h2 class="post-title">
-            使用商业画布分析WeGame商业模式设计
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            
-“来自人人都是产品经理”
-
-作为WeGame团队的一颗螺丝钉，在WeGame全量上线之际，和大家分享分享在这大半年时间里我们都在做一个什么样的WeGame，WeGame在一个UI开发同学眼中又是什么样子呢？我们爬山，除了兴趣、健身、社交，可能更多的是为了登高而望远，看得远了，见得多了，我们的掌握的信息和优势自然而然就会更丰富和明显。　　山底站久了，那我们就快快爬到山顶看看WeGame到底都......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by 任寒韬 on
-        2017-10-16
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/04/28/operation/hackintosh/">
-        <h2 class="post-title">
-            安装Hackintosh
-        </h2>
-        <h3 class="post-subtitle">
-             "使用unibeast安装黑苹果"
-        </h3>
-        <div class="post-content-preview">
-            
-“硬件选好了，安装都是很容易的”
-
-Hackintosh简介与法律问题Hackintosh是在非苹果硬件上安装运行苹果系统MacOS。这个名字还有一个官方的名字-OSx86，Wikipedia是这样介绍的，OSx86是把苹果公司出品的macOS操作系统在x86架构的非苹果电脑上运行的黑客协作计划，OSx86名字源于macOS系统的原名“OS X”与英特尔处理器架构名“x86”。关于安装黑苹......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2017-04-28
+        2017-03-28
     </p>
 
 </div>
@@ -481,17 +504,17 @@ Hackintosh简介与法律问题Hackintosh是在非苹果硬件上安装运行苹
                             
                         
                             
+                            <a href="/tags/#database" title="database" rel="2">database</a>
+                            
                         
                             
-                            <a href="/tags/#database" title="database" rel="2">database</a>
+                            <a href="/tags/#devops" title="devops" rel="2">devops</a>
                             
                         
                             
                             <a href="/tags/#distribution_system" title="distribution_system" rel="16">distribution_system</a>
                             
                         
-                            
-                            <a href="/tags/#devops" title="devops" rel="2">devops</a>
                             
                         
                             
@@ -517,7 +540,7 @@ Hackintosh简介与法律问题Hackintosh是在非苹果硬件上安装运行苹
                             
                         
                             
-                            <a href="/tags/#project" title="project" rel="8">project</a>
+                            <a href="/tags/#project" title="project" rel="7">project</a>
                             
                         
                             

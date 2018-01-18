@@ -96,14 +96,14 @@
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
@@ -288,6 +288,73 @@ Raft 使用的是 Log Replication + State Machine 的方式来处理分布式数
 
 <div class="post-preview">
 
+    <a href="/2017/11/30/collection/plan/">
+        <h2 class="post-title">
+            TODO集合
+        </h2>
+        <h3 class="post-subtitle">
+             "来不及整理的就放在这吧"
+        </h3>
+        <div class="post-content-preview">
+            大纲数据库系统、分布式系统、数据科学
+待看文章#程序员的自我修养《程序员的自我修养》链接、装载与库2017年4月30日星期日在golang1.8中使用插件https://github.com/vladimirvivien/go-plugin-examplehttps://medium.com/learning-the-go-programming-language/writing-modul......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/30/system_design/msgpush/">
+        <h2 class="post-title">
+            消息推送入门
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            实时消息推送的几种实现方式相较于手机端的消息推送（一般都是以socket方式实现），web端是基于http协议，很难像tcp一样保持长连接。但随着技术的发展，出现了websocket, comet等新的技术可以达到类似长连接的效果，这些技术大体可分为以下几类：
+
+短轮询。页面端通过js定时异步刷新，这种方式实时效果较差。
+长轮询。页面端通过js异步请求服务端，服务端在接收到请求后，如果该次请......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/30/collection/source_all/">
+        <h2 class="post-title">
+            常用的资源
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            计算机科学1.谷歌推荐的技术能力提升指南CS课程入门、了解其他语言、测试代码、培养逻辑推理和学习数学离散知识、深刻理解操作系统、学习UX设计、学习人工智能、学习如何构建编译器、了解密码学、并行编程、与其他程序员一起开发项目。2.hackr.ioShare and discover the best programming tutorials and courses online.3.图说设计......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/2017/11/30/framework/study_thrift/">
         <h2 class="post-title">
             thrift入门
@@ -309,15 +376,19 @@ Raft 使用的是 Log Replication + State Machine 的方式来处理分布式数
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/computer_science/study_flooding/">
+    <a href="/2017/11/30/system_design/system_design_question/">
         <h2 class="post-title">
-            SYN洪泛攻击的原理与实现
+            系统设计问题归总
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            设计原理SYN-Flood是目前最流行的DDoS攻击手段，DDoS只是洪水攻击的一个种类。其实还有其它种类的洪水攻击。以前的DoS手段在向分布式这一阶段发展的过程中也经历了逐步淘汰的过程。SYN-Flood的攻击效果最好，故众黑客不约而同选择它。以下了解一下SYN-Flood的详细情况。Syn Flood利用了TCP/IP协议的固有漏洞。面向连接的TCP三次握手是Syn Flood存在的基础......
+            重点考察内容面向对象，接口设计，设计模式，数据库表，分布式
+关于高并发系统设计。主要有以下几个关键技术点：缓存，索引，数据分片，锁粒度尽可能小。
+系统设计相关
+Concurrency (threads, deadlock, starvation, consistency, coherence)
+Abstraction (understanding how OS, filesystem, an......
         </div>
     </a>
     <p class="post-meta">
@@ -330,91 +401,18 @@ Raft 使用的是 Log Replication + State Machine 的方式来处理分布式数
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/surrounding/study_permission/">
+    <a href="/2017/11/30/computer_science/study_algorithm/">
         <h2 class="post-title">
-            权限系统学习
+            相似距离算法
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            基于角色的访问控制（Role-Based Access Control）基本概念RBAC认为权限授权实际上是Who、What、How的问题。在RBAC模型中，who、what、how构成了访问权限三元组,也就是“Who对What(Which)进行How的操作”。 　　
-简单理解简单理解就是把系统中所有的功能都作为一个权限（或者称呼为资源），将这些权限赋予不同的角色，这个角色就具有了诸多的功能......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/project/project_network/">
-        <h2 class="post-title">
-            网络监控系统
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            项目截图
-简介网络监控系统是在学校的外包项目，老师的课题。由于项目属于外包项目，软件代码的所有权自然不在我，所以只能大概讲讲结构，不能开源代码。
-这个项目如果细分的话可以分为安全准入系统和网络监控系统，两个项目都是属于网络相关的项目，下面分两部分来介绍这个项目
-安全准入系统安全准入系统是基于C/S/B模式的管理系统，准入的意思是用户必须通过登录才能访问内网和外网资源，同时还具备监控系统的一些......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/computer_science/study_server/">
-        <h2 class="post-title">
-            服务器端编程基础积累
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            UNIX I/O模型
-阻塞IO
-非阻塞IO
-IO多路复用
-信号驱动IO
-异步IO
-
-nginx模型操作系统的设计，因此可以归结为三点：（1）以多进程形式，允许多个任务同时运行；（2）以多线程形式，允许单个任务分成不同的部分运行；（3）提供协调机制，一方面防止进程之间和线程之间产生冲突，另一方面允许进程之间和线程之间共享资源。
-...
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/surrounding/study_linux/">
-        <h2 class="post-title">
-            Linux基础知识与命令（Ubuntu14.10）
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            这里记录常用的一些linux命令，以备不时之需。 
-常用的命令1234567sudo cp xxxx /xxxx #移动文件sudo mv xxxx xxxxx #为文件改名sudo tar zxvf xxx.tar #解压文件夹sudo unrar xxxx.rar #解压文件夹 sudo chmod 775 xxxx #给文件或文件夹加权限sudo chown -R hadoop:had......
+            相似距离算法是推荐算法的一部分。
+一、EuclideanDistanceSimilarity: 欧氏距离相似度原理：利用欧式距离d定义的相似度s，s=1 / (1+d)。
+范围：[0,1]，值越大，说明d越小，也就是距离越近，则相似度越大。
+说明：同皮尔森相似度一样，该相似度也没有考虑重叠数对结果的影响，同样地，Mahout通过增加一个枚举类型（Weighting）的参数来使得重叠数也成为计......
         </div>
     </a>
     <p class="post-meta">
@@ -476,17 +474,17 @@ nginx模型操作系统的设计，因此可以归结为三点：（1）以多�
                             
                         
                             
+                            <a href="/tags/#database" title="database" rel="2">database</a>
+                            
                         
                             
-                            <a href="/tags/#database" title="database" rel="2">database</a>
+                            <a href="/tags/#devops" title="devops" rel="2">devops</a>
                             
                         
                             
                             <a href="/tags/#distribution_system" title="distribution_system" rel="16">distribution_system</a>
                             
                         
-                            
-                            <a href="/tags/#devops" title="devops" rel="2">devops</a>
                             
                         
                             
@@ -512,7 +510,7 @@ nginx模型操作系统的设计，因此可以归结为三点：（1）以多�
                             
                         
                             
-                            <a href="/tags/#project" title="project" rel="8">project</a>
+                            <a href="/tags/#project" title="project" rel="7">project</a>
                             
                         
                             
