@@ -96,6 +96,13 @@
 
                         
                         <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
                             <a href="/about/">About</a>
                         </li>
                         
@@ -104,13 +111,6 @@
                         
                         <li>
                             <a href="/archives/">Archives</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -190,30 +190,6 @@
 
 <div class="post-preview">
 
-    <a href="/2017/04/28/operation/hackintosh/">
-        <h2 class="post-title">
-            安装Hackintosh
-        </h2>
-        <h3 class="post-subtitle">
-             "使用unibeast安装黑苹果"
-        </h3>
-        <div class="post-content-preview">
-            
-“硬件选好了，安装都是很容易的”
-
-Hackintosh简介与法律问题Hackintosh是在非苹果硬件上安装运行苹果系统MacOS。这个名字还有一个官方的名字-OSx86，Wikipedia是这样介绍的，OSx86是把苹果公司出品的macOS操作系统在x86架构的非苹果电脑上运行的黑客协作计划，OSx86名字源于macOS系统的原名“OS X”与英特尔处理器架构名“x86”。关于安装黑苹......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2017-04-28
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
     <a href="/2017/03/30/devops/deploy_kubernetes/">
         <h2 class="post-title">
             Golang微服务部署在kubernetes
@@ -238,16 +214,19 @@ Hackintosh简介与法律问题Hackintosh是在非苹果硬件上安装运行苹
 
 <div class="post-preview">
 
-    <a href="/2017/03/30/computer_science/network/">
+    <a href="/2017/03/30/language/ruby_dev_env/">
         <h2 class="post-title">
-            计算机网络
+            ruby开发环境的搭建
         </h2>
         <h3 class="post-subtitle">
-             "计算机网络"
+             "ruby开发"
         </h3>
         <div class="post-content-preview">
-            TCP四次挥手过程
-TCP是面向连接的服务；三次握手（建立连接）和四次挥手（关闭连接）；使用滑动窗口机制进行流量控制；TCP要保证在所有可能的情况下使得所有的数据都能够被投递，当你关闭一个socket时，主动关闭一端的socket将进入TIME_WAIT状态，而被动关闭一方则转入CLOSED状态，这的确能够保证所有的数据都被传输。1）首先A B端的TCP进程都处于established状态，......
+            ruby开发环境
+Mac OS本身自带ruby在系统目录 /System/Library/Frameworks/Ruby.framework/Versions/Current12345# 通过homebrew安装ruby最新版brew updatebrew install ruby# 安装railsgem install rails
+
+
+...
         </div>
     </a>
     <p class="post-meta">
@@ -260,17 +239,16 @@ TCP是面向连接的服务；三次握手（建立连接）和四次挥手（�
 
 <div class="post-preview">
 
-    <a href="/2017/03/30/computer_science/algorithm/">
+    <a href="/2017/03/30/computer_science/network/">
         <h2 class="post-title">
-            算法
+            计算机网络
         </h2>
         <h3 class="post-subtitle">
-             "算法"
+             "计算机网络"
         </h3>
         <div class="post-content-preview">
-            
-递归与分治策略一个直接或间接地调用自身的算法称为递归算法。分治算法的模式如下：
-12345678910Divide_and_Conquer(P)&#123;    if(|P|&lt;=n0)    Adhoc(P);//Adhoc(P)是基本子算法    divide P into smaller subinstances    P1,P2,...,Pk    for(i=1;i&lt;......
+            TCP四次挥手过程
+TCP是面向连接的服务；三次握手（建立连接）和四次挥手（关闭连接）；使用滑动窗口机制进行流量控制；TCP要保证在所有可能的情况下使得所有的数据都能够被投递，当你关闭一个socket时，主动关闭一端的socket将进入TIME_WAIT状态，而被动关闭一方则转入CLOSED状态，这的确能够保证所有的数据都被传输。1）首先A B端的TCP进程都处于established状态，......
         </div>
     </a>
     <p class="post-meta">
@@ -309,43 +287,17 @@ TCP是面向连接的服务；三次握手（建立连接）和四次挥手（�
 
 <div class="post-preview">
 
-    <a href="/2017/03/30/framework/tornado/">
+    <a href="/2017/03/30/computer_science/algorithm/">
         <h2 class="post-title">
-            Tornado Pyhton web框架介绍
+            算法
         </h2>
         <h3 class="post-subtitle">
-             "tornado为何这么快"
+             "算法"
         </h3>
         <div class="post-content-preview">
-            ##Tornado直接读代码
-简介FriendFeed使用了一款使用Python编写的，相对简单的非阻塞式Web服务器。它的特点在于非阻塞服务器和epoll的运用，这个Web框架还包含了一些相关的有用工具和优化。
-以下是经典的“Hello, world”示例：
-123456789101112131415import tornado.ioloopimport tornado.webclass ......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2017-03-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/03/30/language/ruby_dev_env/">
-        <h2 class="post-title">
-            ruby开发环境的搭建
-        </h2>
-        <h3 class="post-subtitle">
-             "ruby开发"
-        </h3>
-        <div class="post-content-preview">
-            ruby开发环境
-Mac OS本身自带ruby在系统目录 /System/Library/Frameworks/Ruby.framework/Versions/Current12345# 通过homebrew安装ruby最新版brew updatebrew install ruby# 安装railsgem install rails
-
-
-...
+            
+递归与分治策略一个直接或间接地调用自身的算法称为递归算法。分治算法的模式如下：
+12345678910Divide_and_Conquer(P)&#123;    if(|P|&lt;=n0)    Adhoc(P);//Adhoc(P)是基本子算法    divide P into smaller subinstances    P1,P2,...,Pk    for(i=1;i&lt;......
         </div>
     </a>
     <p class="post-meta">
@@ -376,6 +328,30 @@ Mac OS本身自带ruby在系统目录 /System/Library/Frameworks/Ruby.framework/
 命令行选项和参数值具有最高优先级，可以override前两层的配置项值。
 
 错误处理golang内置两种错误处理方式，error与panic，error是逻辑上程序可控制可预见的错误，而panic则相对于error是比较严重的错误。在通常的项......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2017-03-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/03/30/framework/tornado/">
+        <h2 class="post-title">
+            Tornado Pyhton web框架介绍
+        </h2>
+        <h3 class="post-subtitle">
+             "tornado为何这么快"
+        </h3>
+        <div class="post-content-preview">
+            ##Tornado直接读代码
+简介FriendFeed使用了一款使用Python编写的，相对简单的非阻塞式Web服务器。它的特点在于非阻塞服务器和epoll的运用，这个Web框架还包含了一些相关的有用工具和优化。
+以下是经典的“Hello, world”示例：
+123456789101112131415import tornado.ioloopimport tornado.webclass ......
         </div>
     </a>
     <p class="post-meta">
@@ -449,6 +425,34 @@ Component-Driven dev 模块驱动开发
 </div>
 <hr>
 
+<div class="post-preview">
+
+    <a href="/2017/03/28/thinking/think_master_program/">
+        <h2 class="post-title">
+            编程之路—编程规范
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            编程之路
+编程规范
+函数式编程
+性能与优化
+单元测试
+
+####宏观编程规范编程规范应该是编程活动中的精华所在，虽然与其他几种同列，但是我认为这不仅仅是规范
+规范体现了一个程序员的基本素养，武林高手一般会有他自己的独有风格，但是也会有大多数高手都有的气质。编程规范是能够体现出程序员水准的标准，通常在达到一定的境界的时候，大家都会不约而同形成一套体系，而这套体系是前人不断总结出来的，在我看来这......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-03-28
+    </p>
+
+</div>
+<hr>
+
 
 
 <!-- Pager -->
@@ -496,11 +500,7 @@ Component-Driven dev 模块驱动开发
                             
                         
                             
-                            <a href="/tags/#computer_science" title="computer_science" rel="5">computer_science</a>
-                            
-                        
-                            
-                            <a href="/tags/#devops" title="devops" rel="2">devops</a>
+                            <a href="/tags/#database" title="database" rel="2">database</a>
                             
                         
                             
@@ -510,15 +510,13 @@ Component-Driven dev 模块驱动开发
                             
                         
                             
-                            <a href="/tags/#database" title="database" rel="2">database</a>
-                            
-                        
-                            
-                            <a href="/tags/#language" title="language" rel="8">language</a>
-                            
-                        
-                            
                             <a href="/tags/#framework" title="framework" rel="3">framework</a>
+                            
+                        
+                            
+                            <a href="/tags/#financial" title="financial" rel="3">financial</a>
+                            
+                        
                             
                         
                             
@@ -530,6 +528,10 @@ Component-Driven dev 模块驱动开发
                             
                         
                             
+                            <a href="/tags/#language" title="language" rel="8">language</a>
+                            
+                        
+                            
                             <a href="/tags/#project" title="project" rel="8">project</a>
                             
                         
@@ -538,11 +540,11 @@ Component-Driven dev 模块驱动开发
                             
                         
                             
-                        
-                            
-                            <a href="/tags/#system_design" title="system_design" rel="4">system_design</a>
+                            <a href="/tags/#computer_science" title="computer_science" rel="5">computer_science</a>
                             
                         
+                            
+                            <a href="/tags/#devops" title="devops" rel="2">devops</a>
                             
                         
                             
@@ -550,11 +552,13 @@ Component-Driven dev 模块驱动开发
                             
                         
                             
-                            <a href="/tags/#thinking" title="thinking" rel="8">thinking</a>
+                            <a href="/tags/#system_design" title="system_design" rel="4">system_design</a>
                             
                         
                             
-                            <a href="/tags/#financial" title="financial" rel="3">financial</a>
+                            <a href="/tags/#thinking" title="thinking" rel="8">thinking</a>
+                            
+                        
                             
                         
                     </div>

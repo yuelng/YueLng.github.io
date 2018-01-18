@@ -96,6 +96,13 @@
 
                         
                         <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
                             <a href="/about/">About</a>
                         </li>
                         
@@ -104,13 +111,6 @@
                         
                         <li>
                             <a href="/archives/">Archives</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -190,16 +190,18 @@
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/system_design/study_model/">
+    <a href="/2017/11/30/distributed_system/study_rpc/">
         <h2 class="post-title">
-            设计模式简要介绍
+            RPC远程过程调用
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            创建型模式简单工厂模式简单工厂模式的要点在于：当你需要什么，只需要传入一个正确的参数，就可以获取你所需要的对象，而无须知道其创建细节。1KeyGenerator keyGen=KeyGenerator.getInstance("DESede");//获取不同加密算法的密钥生成器
-工厂方法模式工厂父类负责定义创建产品对象的公共接口，而工厂子类则负责生成具体的产品对象，这样做的目的是将产品类的实......
+            如果说把一个网站分为三个部分，经典的MVC设计模式，后台分布式实现就是控制层，模块的服务化全都依赖于rpc框架，从阿里的dubbo、Hadoop等，这些大数据框架都有了广泛的应用，本文是个人学习rpc过程中的一些资料积累和个人想法。 
+RPC调用分类
+同步调用客户方等待调用执行完成并返回结果。
+异步调用客户方调用后不用等待执行结果返回，但依然可以通过回调通知等方式获取返回结果。 若客户方不关......
         </div>
     </a>
     <p class="post-meta">
@@ -212,16 +214,71 @@
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/distributed_system/study_distribute/">
+    <a href="/2017/11/30/surrounding/markdown/">
         <h2 class="post-title">
-            关于Log在分布式系统中的应用以及未来
+            markdown基本操作
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            The Log&emsp;&emsp;有一段时间被一篇称为学习笔记：The Log（我所读过的最好的一篇分布式技术文章）所刷屏，各大技术文章推荐APP和微信都推荐了这篇文章，来自于LinkedIn关于kafka的文章，核心如题—The Log。（你可以把这节看成对这篇文章的缩减）
-（一）log由来、重要性、应用&emsp;&emsp;对于任何一项新技术都会先抛出三个问题what？why？ho......
+            基本符号
+*,-,+ 3个符号效果都一样，这3个符号被称为 Markdown符号
+空白行表示另起一个段落
+`是表示inline代码，tab是用来标记 代码段，分别对应html的code，pre标签
+
+换行
+单一段落( \) 用一个空白行
+连续两个空格 会变成一个 
+连续3个符号，然后是空行，表示 hr横线
+
+标题
+生成h1–h6,在文字前面加上 1–6个# 来实现
+文字加粗是通过 文字左右各......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/30/codeing/study_coding/">
+        <h2 class="post-title">
+            勿在浮沙聚高塔
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            1.摘要今天看了新浪新兵训练营的一些资料，整理下关于程序员最基础的知识————关于编码主要内容包括，什么是烂代码，什么是好代码，好代码需要注意什么，如何做出优雅的设计，如何规划合理的架构编码主要是给人看的，其次才是给机器看的。
+2.关于烂代码写出烂代码很容易，入行时很容易被鼓吹要把主要精力放在ABCD（需求文档/功能设计/架构设计/理解原理）上，写代码只是实现想法的工具。在这样的指导思想下，......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/30/language/study_shell/">
+        <h2 class="post-title">
+            python的装饰器与JavaScript中的闭包
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            1.摘要这里记录关于Python装饰器和JavaScript闭包的学习笔记
+2.1Python中的装饰器12345678910111213def makebold(fn):    def wrapped():        return "&lt;b&gt;" + fn() + "&lt;/b&gt;"    return wrappeddef makeitalic(fn):    def ......
         </div>
     </a>
     <p class="post-meta">
@@ -256,90 +313,24 @@
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/system_design/msgpush/">
+    <a href="/2017/11/30/devops/study_environment/">
         <h2 class="post-title">
-            消息推送入门
+            基础服务环境搭建
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            实时消息推送的几种实现方式相较于手机端的消息推送（一般都是以socket方式实现），web端是基于http协议，很难像tcp一样保持长连接。但随着技术的发展，出现了websocket, comet等新的技术可以达到类似长连接的效果，这些技术大体可分为以下几类：
+            这篇文章主要是针对大数据平台的搭建，主要包括的内容有
 
-短轮询。页面端通过js定时异步刷新，这种方式实时效果较差。
-长轮询。页面端通过js异步请求服务端，服务端在接收到请求后，如果该次请......
+vagrant虚拟机环境搭建
+Hadoop集群搭建
+memcached集群搭建
+storm集群搭建一些架构可行的架构：Flume + Kafka + Strom + Hbase 使用vagrant搭建系统安装上 http://www.vagrantbox.es/ 找下载需要的 box ， 譬如 Ubuntu 14.10（based on......
         </div>
     </a>
     <p class="post-meta">
         Posted by YueLng Chen on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/computer_science/study_flooding/">
-        <h2 class="post-title">
-            SYN洪泛攻击的原理与实现
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            设计原理SYN-Flood是目前最流行的DDoS攻击手段，DDoS只是洪水攻击的一个种类。其实还有其它种类的洪水攻击。以前的DoS手段在向分布式这一阶段发展的过程中也经历了逐步淘汰的过程。SYN-Flood的攻击效果最好，故众黑客不约而同选择它。以下了解一下SYN-Flood的详细情况。Syn Flood利用了TCP/IP协议的固有漏洞。面向连接的TCP三次握手是Syn Flood存在的基础......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/system_design/system_design_question/">
-        <h2 class="post-title">
-            系统设计问题归总
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            重点考察内容面向对象，接口设计，设计模式，数据库表，分布式
-关于高并发系统设计。主要有以下几个关键技术点：缓存，索引，数据分片，锁粒度尽可能小。
-系统设计相关
-Concurrency (threads, deadlock, starvation, consistency, coherence)
-Abstraction (understanding how OS, filesystem, an......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/collection/plan/">
-        <h2 class="post-title">
-            TODO集合
-        </h2>
-        <h3 class="post-subtitle">
-             "来不及整理的就放在这吧"
-        </h3>
-        <div class="post-content-preview">
-            大纲数据库系统、分布式系统、数据科学
-待看文章#程序员的自我修养《程序员的自我修养》链接、装载与库2017年4月30日星期日在golang1.8中使用插件https://github.com/vladimirvivien/go-plugin-examplehttps://medium.com/learning-the-go-programming-language/writing-modul......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
         2017-11-30
     </p>
 
@@ -415,6 +406,30 @@ SHOW PROCESSLIST 查看数据库连接，看哪个连接导致锁表kill id   //
 </div>
 <hr>
 
+<div class="post-preview">
+
+    <a href="/2017/04/28/operation/hackintosh/">
+        <h2 class="post-title">
+            安装Hackintosh
+        </h2>
+        <h3 class="post-subtitle">
+             "使用unibeast安装黑苹果"
+        </h3>
+        <div class="post-content-preview">
+            
+“硬件选好了，安装都是很容易的”
+
+Hackintosh简介与法律问题Hackintosh是在非苹果硬件上安装运行苹果系统MacOS。这个名字还有一个官方的名字-OSx86，Wikipedia是这样介绍的，OSx86是把苹果公司出品的macOS操作系统在x86架构的非苹果电脑上运行的黑客协作计划，OSx86名字源于macOS系统的原名“OS X”与英特尔处理器架构名“x86”。关于安装黑苹......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2017-04-28
+    </p>
+
+</div>
+<hr>
+
 
 
 <!-- Pager -->
@@ -462,11 +477,7 @@ SHOW PROCESSLIST 查看数据库连接，看哪个连接导致锁表kill id   //
                             
                         
                             
-                            <a href="/tags/#computer_science" title="computer_science" rel="5">computer_science</a>
-                            
-                        
-                            
-                            <a href="/tags/#devops" title="devops" rel="2">devops</a>
+                            <a href="/tags/#database" title="database" rel="2">database</a>
                             
                         
                             
@@ -476,15 +487,13 @@ SHOW PROCESSLIST 查看数据库连接，看哪个连接导致锁表kill id   //
                             
                         
                             
-                            <a href="/tags/#database" title="database" rel="2">database</a>
-                            
-                        
-                            
-                            <a href="/tags/#language" title="language" rel="8">language</a>
-                            
-                        
-                            
                             <a href="/tags/#framework" title="framework" rel="3">framework</a>
+                            
+                        
+                            
+                            <a href="/tags/#financial" title="financial" rel="3">financial</a>
+                            
+                        
                             
                         
                             
@@ -496,6 +505,10 @@ SHOW PROCESSLIST 查看数据库连接，看哪个连接导致锁表kill id   //
                             
                         
                             
+                            <a href="/tags/#language" title="language" rel="8">language</a>
+                            
+                        
+                            
                             <a href="/tags/#project" title="project" rel="8">project</a>
                             
                         
@@ -504,11 +517,11 @@ SHOW PROCESSLIST 查看数据库连接，看哪个连接导致锁表kill id   //
                             
                         
                             
-                        
-                            
-                            <a href="/tags/#system_design" title="system_design" rel="4">system_design</a>
+                            <a href="/tags/#computer_science" title="computer_science" rel="5">computer_science</a>
                             
                         
+                            
+                            <a href="/tags/#devops" title="devops" rel="2">devops</a>
                             
                         
                             
@@ -516,11 +529,13 @@ SHOW PROCESSLIST 查看数据库连接，看哪个连接导致锁表kill id   //
                             
                         
                             
-                            <a href="/tags/#thinking" title="thinking" rel="8">thinking</a>
+                            <a href="/tags/#system_design" title="system_design" rel="4">system_design</a>
                             
                         
                             
-                            <a href="/tags/#financial" title="financial" rel="3">financial</a>
+                            <a href="/tags/#thinking" title="thinking" rel="8">thinking</a>
+                            
+                        
                             
                         
                     </div>
