@@ -190,15 +190,18 @@
 
 <div class="post-preview">
 
-    <a href="/2017/12/12/distributed_system/mq/">
+    <a href="/2017/12/12/distributed_system/trace/">
         <h2 class="post-title">
-            消息队列
+            分布式系统追踪
         </h2>
         <h3 class="post-subtitle">
-             "消息队列"
+             "分布式系统调用链追踪、监控"
         </h3>
         <div class="post-content-preview">
-            kafka问题描述：kafka 重复消费的问题，每次重启服务，都从broker拉取offset，拉到旧的消息解决：消费者每次从broker拉取数据，消费之后都会自动commit，自动commit有一个定时机制，但是并不保证一定提交成功，例如在commit的时候，程序崩溃（例如重启的情况在重启后，消费者会拉取最新的offset作为消费的起点，sarama默认的initial offset 为O......
+            Distributed Tracing System需求
+入库消息的结构组成，traceID、层级表示、调用方法、调用时间、返回时间custom opentracing 
+
+关于opentracing jaeger ui展示层接收client的trace span消息，存入到内存map中，并定时清理map中的内容可能存在的问题如果span消息暴增，则会导致周期内写入map中的数据暴增，map......
         </div>
     </a>
     <p class="post-meta">
@@ -308,6 +311,64 @@ Raft 使用的是 Log Replication + State Machine 的方式来处理分布式数
 
 <div class="post-preview">
 
+    <a href="/2017/11/30/puduct/study_monitor/">
+        <h2 class="post-title">
+            数据驱动开发与产品
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            不谋万世者，不足以谋一时；不谋全局者，不足以谋一隅
+Monitor your data作为程序员，我们开发一个后台服务，大家有没有测试过以下数据
+
+这个服务能够承受多少的 QPS（每秒访问量）？
+平均响应时间和 99% 的响应时间是多少？
+如果服务器压力增加，我们能不能通过简单的加机器来解决，需要加多少台机器？
+当前线上服务瓶颈在哪里？
+按当前的增长速度，多久我们得需要加机器？
+
+技术关注点......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/30/thinking/think_master_function/">
+        <h2 class="post-title">
+            编程之路—函数式编程
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            编程之路
+编程规范
+函数式编程
+性能与优化
+单元测试
+
+概念定义
+In computer science, functional programming is a programming paradigm that treats computation as the evaluation of mathematical functions and avoids state and mutab......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/2017/11/30/distributed_system/study_distribute/">
         <h2 class="post-title">
             关于Log在分布式系统中的应用以及未来
@@ -330,61 +391,15 @@ Raft 使用的是 Log Replication + State Machine 的方式来处理分布式数
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/collection/interview/">
+    <a href="/2017/11/30/computer_science/study_flooding/">
         <h2 class="post-title">
-            面试题目
+            SYN洪泛攻击的原理与实现
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            二.操作系统 可以直接认为是linux，毕竟搞后端的多数是和linux打交道。1.tcp/udp的区别？tcp粘包是怎么回事，如何处理？udp有粘包吗？2.time_wait是什么情况？出现过多的close_wait可能是什么原因？3.epoll,select的区别？边缘触发，水平触发区别？
-三.存储 存储可能包含rdbms，nosql以及缓存等，我以mysql,redis举例 mysql相......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/distributed_system/study_rpc/">
-        <h2 class="post-title">
-            RPC远程过程调用
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            如果说把一个网站分为三个部分，经典的MVC设计模式，后台分布式实现就是控制层，模块的服务化全都依赖于rpc框架，从阿里的dubbo、Hadoop等，这些大数据框架都有了广泛的应用，本文是个人学习rpc过程中的一些资料积累和个人想法。 
-RPC调用分类
-同步调用客户方等待调用执行完成并返回结果。
-异步调用客户方调用后不用等待执行结果返回，但依然可以通过回调通知等方式获取返回结果。 若客户方不关......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/collection/source_all/">
-        <h2 class="post-title">
-            常用的资源
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            计算机科学1.谷歌推荐的技术能力提升指南CS课程入门、了解其他语言、测试代码、培养逻辑推理和学习数学离散知识、深刻理解操作系统、学习UX设计、学习人工智能、学习如何构建编译器、了解密码学、并行编程、与其他程序员一起开发项目。2.hackr.ioShare and discover the best programming tutorials and courses online.3.图说设计......
+            设计原理SYN-Flood是目前最流行的DDoS攻击手段，DDoS只是洪水攻击的一个种类。其实还有其它种类的洪水攻击。以前的DoS手段在向分布式这一阶段发展的过程中也经历了逐步淘汰的过程。SYN-Flood的攻击效果最好，故众黑客不约而同选择它。以下了解一下SYN-Flood的详细情况。Syn Flood利用了TCP/IP协议的固有漏洞。面向连接的TCP三次握手是Syn Flood存在的基础......
         </div>
     </a>
     <p class="post-meta">
@@ -456,6 +471,10 @@ RPC调用分类
                     <div class="tags">
                         
                             
+                            <a href="/tags/#coding" title="coding" rel="3">coding</a>
+                            
+                        
+                            
                             <a href="/tags/#collection" title="collection" rel="5">collection</a>
                             
                         
@@ -464,9 +483,13 @@ RPC调用分类
                             
                         
                             
-                            <a href="/tags/#coding" title="coding" rel="3">coding</a>
+                        
+                            
+                            <a href="/tags/#database" title="database" rel="2">database</a>
                             
                         
+                            
+                            <a href="/tags/#distribution_system" title="distribution_system" rel="16">distribution_system</a>
                             
                         
                             
@@ -486,6 +509,10 @@ RPC调用分类
                             
                         
                             
+                            <a href="/tags/#life_is_short" title="life_is_short" rel="4">life_is_short</a>
+                            
+                        
+                            
                             <a href="/tags/#operation" title="operation" rel="2">operation</a>
                             
                         
@@ -498,12 +525,6 @@ RPC调用分类
                             
                         
                             
-                            <a href="/tags/#database" title="database" rel="2">database</a>
-                            
-                        
-                            
-                            <a href="/tags/#distribution_system" title="distribution_system" rel="16">distribution_system</a>
-                            
                         
                             
                             <a href="/tags/#surrounding" title="surrounding" rel="9">surrounding</a>
@@ -515,12 +536,6 @@ RPC调用分类
                         
                             
                             <a href="/tags/#thinking" title="thinking" rel="8">thinking</a>
-                            
-                        
-                            
-                        
-                            
-                            <a href="/tags/#life_is_short" title="life_is_short" rel="4">life_is_short</a>
                             
                         
                     </div>
