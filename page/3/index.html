@@ -364,28 +364,6 @@ paradigm shift。是否对......
 
 <div class="post-preview">
 
-    <a href="/2017/12/16/puduct/experience/">
-        <h2 class="post-title">
-            产品、运营、推广
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            如何做运营第一，依据不同的产品发展阶段，或当前占据市场份额的大小来判定运营策略和运营规划如何制定；第二，依据不同的产品形态和业务类型，来判定运营策略和运营规划如何制定。
-产品的发展阶段大概分为探索期产品：上线时间不长，产品还在打磨，需求尚待验证，2011-2012年间的知乎、2010年的新浪微博，包括绝大多数上线时间在8个月以内的产品。快速增长期产品：需求已得到验证，初步拥有了一定市场份额，......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-12-16
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
     <a href="/2017/12/16/life_is_short/movie/">
         <h2 class="post-title">
             电影艺术
@@ -409,15 +387,40 @@ paradigm shift。是否对......
 
 <div class="post-preview">
 
-    <a href="/2017/12/12/distributed_system/mq/">
+    <a href="/2017/12/16/puduct/experience/">
         <h2 class="post-title">
-            消息队列
+            产品、运营、推广
         </h2>
         <h3 class="post-subtitle">
-             "消息队列"
+            
         </h3>
         <div class="post-content-preview">
-            kafka问题描述：kafka 重复消费的问题，每次重启服务，都从broker拉取offset，拉到旧的消息解决：消费者每次从broker拉取数据，消费之后都会自动commit，自动commit有一个定时机制，但是并不保证一定提交成功，例如在commit的时候，程序崩溃（例如重启的情况在重启后，消费者会拉取最新的offset作为消费的起点，sarama默认的initial offset 为O......
+            如何做运营第一，依据不同的产品发展阶段，或当前占据市场份额的大小来判定运营策略和运营规划如何制定；第二，依据不同的产品形态和业务类型，来判定运营策略和运营规划如何制定。
+产品的发展阶段大概分为探索期产品：上线时间不长，产品还在打磨，需求尚待验证，2011-2012年间的知乎、2010年的新浪微博，包括绝大多数上线时间在8个月以内的产品。快速增长期产品：需求已得到验证，初步拥有了一定市场份额，......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-12-16
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/12/12/distributed_system/trace/">
+        <h2 class="post-title">
+            分布式系统追踪
+        </h2>
+        <h3 class="post-subtitle">
+             "分布式系统调用链追踪、监控"
+        </h3>
+        <div class="post-content-preview">
+            Distributed Tracing System需求
+入库消息的结构组成，traceID、层级表示、调用方法、调用时间、返回时间custom opentracing 
+
+关于opentracing jaeger ui展示层接收client的trace span消息，存入到内存map中，并定时清理map中的内容可能存在的问题如果span消息暴增，则会导致周期内写入map中的数据暴增，map......
         </div>
     </a>
     <p class="post-meta">
@@ -471,13 +474,13 @@ paradigm shift。是否对......
                             
                         
                             
-                            <a href="/tags/#collection" title="collection" rel="5">collection</a>
-                            
-                        
-                            
                             <a href="/tags/#computer_science" title="computer_science" rel="5">computer_science</a>
                             
                         
+                            
+                        
+                            
+                            <a href="/tags/#collection" title="collection" rel="5">collection</a>
                             
                         
                             
@@ -497,19 +500,15 @@ paradigm shift。是否对......
                             
                         
                             
-                            <a href="/tags/#language" title="language" rel="8">language</a>
-                            
-                        
-                            
                             <a href="/tags/#framework" title="framework" rel="3">framework</a>
                             
                         
                             
-                            <a href="/tags/#life_is_short" title="life_is_short" rel="4">life_is_short</a>
+                            <a href="/tags/#language" title="language" rel="8">language</a>
                             
                         
                             
-                            <a href="/tags/#operation" title="operation" rel="2">operation</a>
+                            <a href="/tags/#life_is_short" title="life_is_short" rel="4">life_is_short</a>
                             
                         
                             
@@ -518,6 +517,10 @@ paradigm shift。是否对......
                         
                             
                             <a href="/tags/#product" title="product" rel="5">product</a>
+                            
+                        
+                            
+                            <a href="/tags/#operation" title="operation" rel="2">operation</a>
                             
                         
                             
