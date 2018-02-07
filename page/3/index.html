@@ -103,14 +103,14 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -190,6 +190,81 @@
 
 <div class="post-preview">
 
+    <a href="/2017/12/28/distributed_system/data_intensive/">
+        <h2 class="post-title">
+            Designing Data-Intensive Applications
+        </h2>
+        <h3 class="post-subtitle">
+             "some note"
+        </h3>
+        <div class="post-content-preview">
+            可用性可扩展性可维护性容错容错，这个词的理解，书面意思就是可以容下错误，不让错误再次扩张，让这个错误产生的影响在一个固定的边界之内在工作中，降级、限流、熔断器、超时重试等都是常见的容错方法
+抗量
+使用并发如何抗住大并发的场景，充分利用golang的goroutine并发性能，利用并发执行缩短总体服务响应时间，针对耗时严重的服务，使用消息队列进行缓冲。
+脱离DB使用分库分表、读写分离，使用re......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2017-12-28
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/12/26/life_is_short/life/">
+        <h2 class="post-title">
+            吃喝玩乐
+        </h2>
+        <h3 class="post-subtitle">
+            人生苦短、为欢几何？
+        </h3>
+        <div class="post-content-preview">
+            广州旅游手册
+看经济学人大西洋周刊纽约客
+讲究吃喝玩乐
+吃蔡澜江献珠：一生寻真味广州白斩鸡、盐焗鸡、潮汕牛肉火锅、虾仔净云吞烤鸡、烤肋排、羊肉
+喝啤酒、白酒、酸梅汤、柠檬梅子绿夺命大乌苏 1000ml 50绝对伏特加  螺丝起子
+玩乐体育运动 玩车 玩音乐“一个人如连玩都玩不好，还可能把工作干好吗？！” –王世襄秋斗蟋蟀，冬怀鸣虫，钩鹰逐兔，挈狗捉獾，皆乐之不疲，而养鸽飞放更是不受节令限制的......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-12-26
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/12/26/database/dead_lock/">
+        <h2 class="post-title">
+            数据库死锁问题
+        </h2>
+        <h3 class="post-subtitle">
+             "dead lock"
+        </h3>
+        <div class="post-content-preview">
+            事务的隔离级别，各个数据库实现的都不同。
+
+未提交读(Read Uncommitted)：允许脏读，也就是可能读取到其他会话中未提交事务修改的数据
+提交读(Read Committed)：只能读取到已经提交的数据。Oracle等多数数据库默认都是该级别
+可重复读(Repeated Read)：可重复读。在同一个事务内的查询都是事务开始时刻一致的，InnoDB默认级别。在SQL标准中，该隔离级......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2017-12-26
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/2017/12/26/distributed_system/lock/">
         <h2 class="post-title">
             lock
@@ -228,79 +303,6 @@ How to do distributed locking这篇文......
     <p class="post-meta">
         Posted by yueLng on
         2017-12-22
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/12/20/distributed_system/key_value/">
-        <h2 class="post-title">
-            分布式key/value存储系统
-        </h2>
-        <h3 class="post-subtitle">
-             "programming language"
-        </h3>
-        <div class="post-content-preview">
-            etcd：从应用场景到实现原理的全方位解读Etcd3学习笔记使用 Rust 构建分布式 Key-Value Storegithub-etcd
-...
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2017-12-20
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/12/20/language/study_golang/">
-        <h2 class="post-title">
-            golang
-        </h2>
-        <h3 class="post-subtitle">
-             "golang"
-        </h3>
-        <div class="post-content-preview">
-            简介Go是Google开发的一种静态强类型、编译型、并发型，并具有垃圾回收功能的编程语言。 –wikipedia golang在编程语法上类似于C，但是支持垃圾回收功能，Go的并发模型是通信顺序处理CSP，在go1.8中支持了plugin支持，使得go语言动态加载部分函数Go在谷歌：以软件工程为目的的语言设计
-主要特性
-清晰的依赖关系
-清晰的语法
-清晰的语义
-偏向组合而不是继承
-编程模型（垃......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2017-12-20
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/12/19/language/language/">
-        <h2 class="post-title">
-            编程语言
-        </h2>
-        <h3 class="post-subtitle">
-             "programming language"
-        </h3>
-        <div class="post-content-preview">
-            language 编程语言
-声明式编程和命令式编程命令式编程：命令“机器”如何去做事情(how)，这样不管你想要的是什么(what)，它都会按照你的命令实现。声明式编程让我们去描述我们想要的是什么，让底层的软件/计算机/等去解决如何去实现它们。声明式编程举例，Array.map reduce、 SQL
-
-ConcurrencyShai Rosenfeld - Such Blocking, V......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2017-12-19
     </p>
 
 </div>
@@ -468,10 +470,6 @@ paradigm shift。是否对......
                     <div class="tags">
                         
                             
-                            <a href="/tags/#coding" title="coding" rel="3">coding</a>
-                            
-                        
-                            
                             <a href="/tags/#collection" title="collection" rel="5">collection</a>
                             
                         
@@ -480,7 +478,7 @@ paradigm shift。是否对......
                             
                         
                             
-                            <a href="/tags/#database" title="database" rel="2">database</a>
+                            <a href="/tags/#coding" title="coding" rel="3">coding</a>
                             
                         
                             
@@ -490,17 +488,7 @@ paradigm shift。是否对......
                             
                         
                             
-                            <a href="/tags/#distribution_system" title="distribution_system" rel="16">distribution_system</a>
-                            
-                        
-                            
-                        
-                            
-                            <a href="/tags/#financial" title="financial" rel="3">financial</a>
-                            
-                        
-                            
-                            <a href="/tags/#framework" title="framework" rel="3">framework</a>
+                            <a href="/tags/#financial" title="financial" rel="4">financial</a>
                             
                         
                             
@@ -508,7 +496,7 @@ paradigm shift。是否对......
                             
                         
                             
-                            <a href="/tags/#life_is_short" title="life_is_short" rel="4">life_is_short</a>
+                            <a href="/tags/#framework" title="framework" rel="3">framework</a>
                             
                         
                             
@@ -516,13 +504,19 @@ paradigm shift。是否对......
                             
                         
                             
-                            <a href="/tags/#project" title="project" rel="7">project</a>
+                            <a href="/tags/#project" title="project" rel="8">project</a>
                             
                         
                             
                             <a href="/tags/#product" title="product" rel="5">product</a>
                             
                         
+                            
+                            <a href="/tags/#database" title="database" rel="2">database</a>
+                            
+                        
+                            
+                            <a href="/tags/#distribution_system" title="distribution_system" rel="16">distribution_system</a>
                             
                         
                             
@@ -535,6 +529,12 @@ paradigm shift。是否对......
                         
                             
                             <a href="/tags/#thinking" title="thinking" rel="8">thinking</a>
+                            
+                        
+                            
+                        
+                            
+                            <a href="/tags/#life_is_short" title="life_is_short" rel="4">life_is_short</a>
                             
                         
                     </div>

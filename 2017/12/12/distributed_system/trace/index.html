@@ -103,14 +103,14 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -201,9 +201,10 @@
 <li>入库消息的结构组成，traceID、层级表示、调用方法、调用时间、返回时间<br>custom opentracing </li>
 </ul>
 <p>关于opentracing jaeger ui展示层<br>接收client的trace span消息，存入到内存map中，并定时清理map中的内容<br>可能存在的问题<br>如果span消息暴增，则会导致周期内写入map中的数据暴增，map会变得很大<br>如果在清理过程中阻塞或者是在写入时阻塞，会导致map无法写入或者无法清空<br>如果map在清理过程中耗时过长，将导致在清理的过程中，map完全不可写入</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
-<li><a href="https://github.com/jaegertracing/jaeger" target="_blank" rel="external">jaegertracing/jaeger</a></li>
-<li><a href="https://github.com/jaegertracing/jaeger" target="_blank" rel="external">jaegertracing/jaeger</a></li>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><p><a href="https://github.com/jaegertracing/jaeger" target="_blank" rel="external">jaegertracing/jaeger</a></p>
+<p>​</p>
+</li>
 </ul>
 
 

@@ -103,14 +103,14 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -242,8 +242,7 @@
              "缓存系统的设计"
         </h3>
         <div class="post-content-preview">
-            kv存储设计
-Concurrency-safe golang caching library with expiration capabilities cache2goconcurrentcache是一款golang的内存缓存库，多Segment设计，支持不同Segment间并发写入，提高读写性能。concurrentcachegroupcache is a caching and cach......
+            LRU cacheLeast Recently Used（LRU） in order to achieve fast lookup and make insert/delete fast, we use queue implemented by a doubly linked list to store all the resources. Also, a hash table with r......
         </div>
     </a>
     <p class="post-meta">
@@ -309,6 +308,28 @@ Raft 使用的是 Log Replication + State Machine 的方式来处理分布式数
 
 <div class="post-preview">
 
+    <a href="/2017/11/30/distributed_system/study_distribute/">
+        <h2 class="post-title">
+            关于Log在分布式系统中的应用以及未来
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            The Log&emsp;&emsp;有一段时间被一篇称为学习笔记：The Log（我所读过的最好的一篇分布式技术文章）所刷屏，各大技术文章推荐APP和微信都推荐了这篇文章，来自于LinkedIn关于kafka的文章，核心如题—The Log。（你可以把这节看成对这篇文章的缩减）
+（一）log由来、重要性、应用&emsp;&emsp;对于任何一项新技术都会先抛出三个问题what？why？ho......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/2017/11/30/collection/interview/">
         <h2 class="post-title">
             面试题目
@@ -319,57 +340,6 @@ Raft 使用的是 Log Replication + State Machine 的方式来处理分布式数
         <div class="post-content-preview">
             二.操作系统 可以直接认为是linux，毕竟搞后端的多数是和linux打交道。1.tcp/udp的区别？tcp粘包是怎么回事，如何处理？udp有粘包吗？2.time_wait是什么情况？出现过多的close_wait可能是什么原因？3.epoll,select的区别？边缘触发，水平触发区别？
 三.存储 存储可能包含rdbms，nosql以及缓存等，我以mysql,redis举例 mysql相......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/codeing/study_coding/">
-        <h2 class="post-title">
-            勿在浮沙聚高塔
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            1.摘要今天看了新浪新兵训练营的一些资料，整理下关于程序员最基础的知识————关于编码主要内容包括，什么是烂代码，什么是好代码，好代码需要注意什么，如何做出优雅的设计，如何规划合理的架构编码主要是给人看的，其次才是给机器看的。
-2.关于烂代码写出烂代码很容易，入行时很容易被鼓吹要把主要精力放在ABCD（需求文档/功能设计/架构设计/理解原理）上，写代码只是实现想法的工具。在这样的指导思想下，......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/computer_science/study_server/">
-        <h2 class="post-title">
-            服务器端编程基础积累
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            UNIX I/O模型
-阻塞IO
-非阻塞IO
-IO多路复用
-信号驱动IO
-异步IO
-
-nginx模型操作系统的设计，因此可以归结为三点：（1）以多进程形式，允许多个任务同时运行；（2）以多线程形式，允许单个任务分成不同的部分运行；（3）提供协调机制，一方面防止进程之间和线程之间产生冲突，另一方面允许进程之间和线程之间共享资源。
-...
         </div>
     </a>
     <p class="post-meta">
@@ -425,6 +395,28 @@ RPC调用分类
 </div>
 <hr>
 
+<div class="post-preview">
+
+    <a href="/2017/11/30/language/study_python/">
+        <h2 class="post-title">
+            python学习
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            Ubuntu下配置基本的Python开发环境安装Python发布版本和build依赖包
+/# 安装 Python 发布版本，dev包必须安装，很多用pip安装包都需要编译sudo apt-get install python2.7 python2.7-dev python3.4 python3.4-dev/#很多pip安装的包都需要libssl和libevent编译环境sudo apt-ge......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
 
 
 <!-- Pager -->
@@ -464,10 +456,6 @@ RPC调用分类
                     <div class="tags">
                         
                             
-                            <a href="/tags/#coding" title="coding" rel="3">coding</a>
-                            
-                        
-                            
                             <a href="/tags/#collection" title="collection" rel="5">collection</a>
                             
                         
@@ -476,7 +464,7 @@ RPC调用分类
                             
                         
                             
-                            <a href="/tags/#database" title="database" rel="2">database</a>
+                            <a href="/tags/#coding" title="coding" rel="3">coding</a>
                             
                         
                             
@@ -486,17 +474,7 @@ RPC调用分类
                             
                         
                             
-                            <a href="/tags/#distribution_system" title="distribution_system" rel="16">distribution_system</a>
-                            
-                        
-                            
-                        
-                            
-                            <a href="/tags/#financial" title="financial" rel="3">financial</a>
-                            
-                        
-                            
-                            <a href="/tags/#framework" title="framework" rel="3">framework</a>
+                            <a href="/tags/#financial" title="financial" rel="4">financial</a>
                             
                         
                             
@@ -504,7 +482,7 @@ RPC调用分类
                             
                         
                             
-                            <a href="/tags/#life_is_short" title="life_is_short" rel="4">life_is_short</a>
+                            <a href="/tags/#framework" title="framework" rel="3">framework</a>
                             
                         
                             
@@ -512,13 +490,19 @@ RPC调用分类
                             
                         
                             
-                            <a href="/tags/#project" title="project" rel="7">project</a>
+                            <a href="/tags/#project" title="project" rel="8">project</a>
                             
                         
                             
                             <a href="/tags/#product" title="product" rel="5">product</a>
                             
                         
+                            
+                            <a href="/tags/#database" title="database" rel="2">database</a>
+                            
+                        
+                            
+                            <a href="/tags/#distribution_system" title="distribution_system" rel="16">distribution_system</a>
                             
                         
                             
@@ -531,6 +515,12 @@ RPC调用分类
                         
                             
                             <a href="/tags/#thinking" title="thinking" rel="8">thinking</a>
+                            
+                        
+                            
+                        
+                            
+                            <a href="/tags/#life_is_short" title="life_is_short" rel="4">life_is_short</a>
                             
                         
                     </div>
