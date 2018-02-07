@@ -190,27 +190,156 @@
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/surrounding/markdown/">
+    <a href="/2017/11/30/computer_science/study_flooding/">
         <h2 class="post-title">
-            markdown基本操作
+            SYN洪泛攻击的原理与实现
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            基本符号
-*,-,+ 3个符号效果都一样，这3个符号被称为 Markdown符号
-空白行表示另起一个段落
-`是表示inline代码，tab是用来标记 代码段，分别对应html的code，pre标签
+            设计原理SYN-Flood是目前最流行的DDoS攻击手段，DDoS只是洪水攻击的一个种类。其实还有其它种类的洪水攻击。以前的DoS手段在向分布式这一阶段发展的过程中也经历了逐步淘汰的过程。SYN-Flood的攻击效果最好，故众黑客不约而同选择它。以下了解一下SYN-Flood的详细情况。Syn Flood利用了TCP/IP协议的固有漏洞。面向连接的TCP三次握手是Syn Flood存在的基础......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-11-30
+    </p>
 
-换行
-单一段落( \) 用一个空白行
-连续两个空格 会变成一个 
-连续3个符号，然后是空行，表示 hr横线
+</div>
+<hr>
 
-标题
-生成h1–h6,在文字前面加上 1–6个# 来实现
-文字加粗是通过 文字左右各......
+<div class="post-preview">
+
+    <a href="/2017/11/30/language/study_python/">
+        <h2 class="post-title">
+            python学习
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            Ubuntu下配置基本的Python开发环境安装Python发布版本和build依赖包
+/# 安装 Python 发布版本，dev包必须安装，很多用pip安装包都需要编译sudo apt-get install python2.7 python2.7-dev python3.4 python3.4-dev/#很多pip安装的包都需要libssl和libevent编译环境sudo apt-ge......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/30/collection/interview/">
+        <h2 class="post-title">
+            面试题目
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            二.操作系统 可以直接认为是linux，毕竟搞后端的多数是和linux打交道。1.tcp/udp的区别？tcp粘包是怎么回事，如何处理？udp有粘包吗？2.time_wait是什么情况？出现过多的close_wait可能是什么原因？3.epoll,select的区别？边缘触发，水平触发区别？
+三.存储 存储可能包含rdbms，nosql以及缓存等，我以mysql,redis举例 mysql相......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/30/distributed_system/study_rpc/">
+        <h2 class="post-title">
+            RPC远程过程调用
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            如果说把一个网站分为三个部分，经典的MVC设计模式，后台分布式实现就是控制层，模块的服务化全都依赖于rpc框架，从阿里的dubbo、Hadoop等，这些大数据框架都有了广泛的应用，本文是个人学习rpc过程中的一些资料积累和个人想法。 
+RPC调用分类
+同步调用客户方等待调用执行完成并返回结果。
+异步调用客户方调用后不用等待执行结果返回，但依然可以通过回调通知等方式获取返回结果。 若客户方不关......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/30/codeing/study_coding/">
+        <h2 class="post-title">
+            勿在浮沙聚高塔
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            1.摘要今天看了新浪新兵训练营的一些资料，整理下关于程序员最基础的知识————关于编码主要内容包括，什么是烂代码，什么是好代码，好代码需要注意什么，如何做出优雅的设计，如何规划合理的架构编码主要是给人看的，其次才是给机器看的。
+2.关于烂代码写出烂代码很容易，入行时很容易被鼓吹要把主要精力放在ABCD（需求文档/功能设计/架构设计/理解原理）上，写代码只是实现想法的工具。在这样的指导思想下，......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/30/thinking/think_master_function/">
+        <h2 class="post-title">
+            编程之路—函数式编程
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            编程之路
+编程规范
+函数式编程
+性能与优化
+单元测试
+
+概念定义
+In computer science, functional programming is a programming paradigm that treats computation as the evaluation of mathematical functions and avoids state and mutab......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/30/thinking/think_first/">
+        <h2 class="post-title">
+            把思维好好捋一捋
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            骐骥一跃，不能十步；驽马十驾，功在不舍。
+胡乱扯扯1研究：研究东西，有足够洞察力，研究水准不错2研发：Hack Idea自己有魄力实现，不懂研发的黑客如同不会游泳的海盗3工程：研发出来的需要实战、需要工程化，否则只是玩具，而不能成为真的武器
+关于就业和能力就业实习，还是有压力的。听过学长学姐们的经历，他们有进大公司也有初创企业的，前天还在群里争论是去哪种好，引得一个在初创公司的学长，把月薪都......
         </div>
     </a>
     <p class="post-meta">
@@ -252,173 +381,6 @@ nginx模型操作系统的设计，因此可以归结为三点：（1）以多�
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/language/study_python/">
-        <h2 class="post-title">
-            python学习
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            Ubuntu下配置基本的Python开发环境安装Python发布版本和build依赖包
-/# 安装 Python 发布版本，dev包必须安装，很多用pip安装包都需要编译sudo apt-get install python2.7 python2.7-dev python3.4 python3.4-dev/#很多pip安装的包都需要libssl和libevent编译环境sudo apt-ge......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/thinking/study_software/">
-        <h2 class="post-title">
-            团队项目开发与规范
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            计算机专业的三个维度
-
-基础体系，基础理论、算法与架构
-工程，业界常用方法，实际项目，开源项目
-前沿与未来，保持对新技术的灵敏度，论文
-
-个人理解团队是因为有相同的目标才聚集在一起，所有在做一个项目的开始，要让所有成员认同项目的前景。团队的大小个人认为最多20个人。虽然说很有必要保证规范化，但是我认为按部就班只能扼杀人的创造力，但是一些的必要的流程规范还是要的，也就是下面说的开发流程规范，有......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/collection/plan/">
-        <h2 class="post-title">
-            TODO集合
-        </h2>
-        <h3 class="post-subtitle">
-             "来不及整理的就放在这吧"
-        </h3>
-        <div class="post-content-preview">
-            大纲数据库系统、分布式系统、数据科学
-待看文章#程序员的自我修养《程序员的自我修养》链接、装载与库2017年4月30日星期日在golang1.8中使用插件https://github.com/vladimirvivien/go-plugin-examplehttps://medium.com/learning-the-go-programming-language/writing-modul......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/collection/interview/">
-        <h2 class="post-title">
-            面试题目
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            二.操作系统 可以直接认为是linux，毕竟搞后端的多数是和linux打交道。1.tcp/udp的区别？tcp粘包是怎么回事，如何处理？udp有粘包吗？2.time_wait是什么情况？出现过多的close_wait可能是什么原因？3.epoll,select的区别？边缘触发，水平触发区别？
-三.存储 存储可能包含rdbms，nosql以及缓存等，我以mysql,redis举例 mysql相......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/system_design/system_design_question/">
-        <h2 class="post-title">
-            系统设计问题归总
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            重点考察内容面向对象，接口设计，设计模式，数据库表，分布式
-关于高并发系统设计。主要有以下几个关键技术点：缓存，索引，数据分片，锁粒度尽可能小。
-系统设计相关
-Concurrency (threads, deadlock, starvation, consistency, coherence)
-Abstraction (understanding how OS, filesystem, an......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/distributed_system/study_rpc/">
-        <h2 class="post-title">
-            RPC远程过程调用
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            如果说把一个网站分为三个部分，经典的MVC设计模式，后台分布式实现就是控制层，模块的服务化全都依赖于rpc框架，从阿里的dubbo、Hadoop等，这些大数据框架都有了广泛的应用，本文是个人学习rpc过程中的一些资料积累和个人想法。 
-RPC调用分类
-同步调用客户方等待调用执行完成并返回结果。
-异步调用客户方调用后不用等待执行结果返回，但依然可以通过回调通知等方式获取返回结果。 若客户方不关......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/collection/somesource/">
-        <h2 class="post-title">
-            一些有用的资源
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            平时在网上闲逛，看到一些可能会有用的一些资源记录在此
-
-计算机领域论文集合 GitHub - papers-we-love/papers-we-love: Papers from the computer science community to read and discuss. 
-分布式资料 Qix/ds.md at master · ty4z2008/Qix · GitHub 
-程序员......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
     <a href="/2017/11/30/devops/study_environment/">
         <h2 class="post-title">
             基础服务环境搭建
@@ -433,6 +395,28 @@ vagrant虚拟机环境搭建
 Hadoop集群搭建
 memcached集群搭建
 storm集群搭建一些架构可行的架构：Flume + Kafka + Strom + Hbase 使用vagrant搭建系统安装上 http://www.vagrantbox.es/ 找下载需要的 box ， 譬如 Ubuntu 14.10（based on......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/30/distributed_system/study_distribute/">
+        <h2 class="post-title">
+            关于Log在分布式系统中的应用以及未来
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            The Log&emsp;&emsp;有一段时间被一篇称为学习笔记：The Log（我所读过的最好的一篇分布式技术文章）所刷屏，各大技术文章推荐APP和微信都推荐了这篇文章，来自于LinkedIn关于kafka的文章，核心如题—The Log。（你可以把这节看成对这篇文章的缩减）
+（一）log由来、重要性、应用&emsp;&emsp;对于任何一项新技术都会先抛出三个问题what？why？ho......
         </div>
     </a>
     <p class="post-meta">

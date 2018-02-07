@@ -239,18 +239,20 @@ Mac OS本身自带ruby在系统目录 /System/Library/Frameworks/Ruby.framework/
 
 <div class="post-preview">
 
-    <a href="/2017/03/30/framework/tornado/">
+    <a href="/2017/03/30/operation/basic_oprate/">
         <h2 class="post-title">
-            Tornado Pyhton web框架介绍
+            记录常用的配置
         </h2>
         <h3 class="post-subtitle">
-             "tornado为何这么快"
+             "配置"
         </h3>
         <div class="post-content-preview">
-            ##Tornado直接读代码
-简介FriendFeed使用了一款使用Python编写的，相对简单的非阻塞式Web服务器。它的特点在于非阻塞服务器和epoll的运用，这个Web框架还包含了一些相关的有用工具和优化。
-以下是经典的“Hello, world”示例：
-123456789101112131415import tornado.ioloopimport tornado.webclass ......
+            ####项目部署执行openplay_backend requirement.txt 中却少raven
+在跑run.py时，debug配置文件下却少sentry，将product环境下的sentry添加即可
+####项目基础架构
+
+总共分为球员版player，管理员admin，用户user，统计stats，网页web，五个部分
+项目之间的关系：五个部分全都是基于tornado API项目开发......
         </div>
     </a>
     <p class="post-meta">
@@ -293,20 +295,18 @@ Mac OS本身自带ruby在系统目录 /System/Library/Frameworks/Ruby.framework/
 
 <div class="post-preview">
 
-    <a href="/2017/03/30/operation/basic_oprate/">
+    <a href="/2017/03/30/framework/tornado/">
         <h2 class="post-title">
-            记录常用的配置
+            Tornado Pyhton web框架介绍
         </h2>
         <h3 class="post-subtitle">
-             "配置"
+             "tornado为何这么快"
         </h3>
         <div class="post-content-preview">
-            ####项目部署执行openplay_backend requirement.txt 中却少raven
-在跑run.py时，debug配置文件下却少sentry，将product环境下的sentry添加即可
-####项目基础架构
-
-总共分为球员版player，管理员admin，用户user，统计stats，网页web，五个部分
-项目之间的关系：五个部分全都是基于tornado API项目开发......
+            ##Tornado直接读代码
+简介FriendFeed使用了一款使用Python编写的，相对简单的非阻塞式Web服务器。它的特点在于非阻塞服务器和epoll的运用，这个Web框架还包含了一些相关的有用工具和优化。
+以下是经典的“Hello, world”示例：
+123456789101112131415import tornado.ioloopimport tornado.webclass ......
         </div>
     </a>
     <p class="post-meta">
