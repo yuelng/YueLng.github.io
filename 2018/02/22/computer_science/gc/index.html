@@ -13,11 +13,11 @@
 
     <title>
         
-          YueLng的博客 | YueLng&#39;s Blog
+          垃圾回收机制 - YueLng的博客 | YueLng&#39;s Blog
         
     </title>
 
-    <link rel="canonical" href="http://yuelng.github.io/categories/system-design/">
+    <link rel="canonical" href="http://yuelng.github.io/2018/02/22/computer_science/gc/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -153,7 +153,234 @@
 
 
     <!-- Main Content -->
-    <!-- Default Archive layout, we use archives instead. -->
+    
+<!-- Image to hack wechat -->
+<!-- <img src="http://yuelng.github.io/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('http://ogcxtlv6r.bkt.clouddn.com/18-2-27/37046586.jpg')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/tags/#computer_science" title="computer_science">computer_science</a>
+                        
+                    </div>
+                    <h1>垃圾回收机制</h1>
+                    <h2 class="subheading">Garbage collection</h2>
+                    <span class="meta">
+                        Posted by yueLng on
+                        2018-02-22
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <blockquote>
+<p>In <a href="https://en.wikipedia.org/wiki/Computer_science" target="_blank" rel="external">computer science</a>, <strong>garbage collection</strong> (<strong>GC</strong>) is a form of automatic <a href="https://en.wikipedia.org/wiki/Memory_management" target="_blank" rel="external">memory management</a>. The <em>garbage collector</em>, or just <em>collector</em>, attempts to reclaim <em>garbage</em>, or memory occupied by <a href="https://en.wikipedia.org/wiki/Object_(computer_science" target="_blank" rel="external">objects</a>) that are no longer in use by the <a href="https://en.wikipedia.org/wiki/Application_software" target="_blank" rel="external">program</a>. Garbage collection was invented by <a href="https://en.wikipedia.org/wiki/John_McCarthy_(computer_scientist" target="_blank" rel="external">John McCarthy</a>) around 1959 to simplify manual memory management in <a href="https://en.wikipedia.org/wiki/Lisp_(programming_language" target="_blank" rel="external">Lisp</a>).<a href="https://en.wikipedia.org/wiki/Garbage_collection_(computer_science" target="_blank" rel="external">[1]</a>#cite_note-1)<a href="https://en.wikipedia.org/wiki/Garbage_collection_(computer_science" target="_blank" rel="external">[2]</a>#cite_note-2)</p>
+</blockquote>
+<h3 id="引用计数-Reference-Counting-Collector"><a href="#引用计数-Reference-Counting-Collector" class="headerlink" title="引用计数(Reference-Counting-Collector)"></a>引用计数(Reference-Counting-Collector)</h3><p>引用计数的原理比较简单，为每一个要管理的对象，记录一个被引用的计数，当被引用，计数加一，当不引用，计数减一，当计数为零时，则回收该对象。一般使用哈希表作为管理数据结构，键为管理对象的地址，其计数为值。</p>
+<p>引用计数的一个缺点在于，需要频繁更新引用计数，另一缺点是引用形成环路造成循环引用，导致计数永远不会零，对象永不会被回收</p>
+<h3 id="追踪式-Trace-Collector"><a href="#追踪式-Trace-Collector" class="headerlink" title="追踪式(Trace-Collector)"></a>追踪式(Trace-Collector)</h3><p>跟踪式就是将所有被管理的对象以引用关系组织成一张有向图，然后从必定不需回收的节点作为根节点(root)出发，trace其引用关系，遍历所有可达节点。只要节点可达就不需回收，如果不可达就要回收。</p>
+<p>跟踪式为自动管理，有以下几种算法：</p>
+<ol>
+<li>Mark-Sweep法（标记清除法）</li>
+</ol>
+<p>这个算法分为两步，标记和清除。</p>
+<ul>
+<li>标记：从程序的根节点开始， <strong>递归地</strong> 遍历所有对象，将能遍历到的对象打上标记。</li>
+<li>清除：讲所有未标记的的对象当作垃圾销毁。</li>
+</ul>
+<p>但是这个算法也有一个缺陷，就是人们常常说的 STW 问题（Stop The World）。因为算法在标记时必须暂停整个程序，否则其他线程的代码可能会改变对象状态，从而可能把不应该回收的对象当做垃圾收集掉。另外一个问题在于递归遍历整个对象树，当程序中对象逐渐增多，导致gc时间过长。</p>
+<ol>
+<li>Mark-Compact</li>
+</ol>
+<p>类似标记-清除算法，标记-压缩同样需要标记出所有被引用节点。但是下一步并不是光简单的清除未被引用的节点，还需要将被引用的节点压缩到内存上的一片连续区域，来优化外部碎片问题。</p>
+<ol>
+<li>三色标记法</li>
+</ol>
+<p>三色标记法是传统 Mark-Sweep 的一个改进，它是一个并发的 GC 算法</p>
+<ul>
+<li>黑色:根对象，或者该对象与它的子对象都被扫描</li>
+<li>灰色:对象本身被扫描,但还没扫描完该对象中的子对象</li>
+<li><p>白色:未被扫描对象，扫描完成所有对象之后，最终为白色的为不可达对象，即垃圾对象</p>
+<ol>
+<li>首先创建三个集合：白、灰、黑。</li>
+<li>将所有对象放入白色集合中。</li>
+<li>然后从根节点开始遍历所有对象（注意这里<strong>并不递归遍历</strong>），把遍历到的对象从白色集合放入灰色集合。</li>
+<li>之后遍历灰色集合，将灰色对象引用的对象从白色集合放入灰色集合，之后将此灰色对象放入黑色集合</li>
+<li>重复 4 直到灰色中无任何对象</li>
+<li>通过write-barrier检测对象有变化，重复以上操作</li>
+<li>收集所有白色对象（垃圾）</li>
+</ol>
+</li>
+</ul>
+<p><img src="https://en.wikipedia.org/wiki/Tracing_garbage_collection#/media/File:Animation_of_tri-color_garbage_collection.gif"></p>
+<ol>
+<li>Generational</li>
+</ol>
+<p>这种算法按被管理对象的生命周期长短使用不同的算法对其进行管理。如果几次GC触发回收仍都不需回收的对象被认为是常驻内存的对象，被称作老生代对象(old generation)，会被放入老生代区域，使用mark&amp;compact算法对其进行管理。而刚被分配的对象，被称作年轻代对象(young generation)，会被放入年轻代区域，使用copy算法对其进行管理。</p>
+<h3 id="参考内容"><a href="#参考内容" class="headerlink" title="参考内容"></a>参考内容</h3><ol>
+<li><a href="https://mp.weixin.qq.com/s/fsF8TdxD1ryhhXrYk0laQw" target="_blank" rel="external">计算机体系 – 垃圾收集器</a></li>
+<li><a href="https://lengzzz.com/note/gc-in-golang" target="_blank" rel="external">golang 垃圾回收机制</a></li>
+</ol>
+
+
+                <hr>
+
+                
+
+                <ul class="pager">
+                    
+                    
+                        <li class="next">
+                            <a href="/2018/02/16/social_science/social/" data-toggle="tooltip" data-placement="top" title="社会科学">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                
+
+                
+                <!-- disqus 评论框 start -->
+                <div class="comment">
+                    <div id="disqus_thread" class="disqus-thread"></div>
+                </div>
+                <!-- disqus 评论框 end -->
+                
+
+            </div>
+    <!-- Side Catalog Container -->
+        
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+        
+
+    <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#computer_science" title="computer_science">computer_science</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="http://blog.kaijun.rocks" target="_blank">Kaijun&#39;s Blog</a></li>
+                    
+                </ul>
+                
+            </div>
+
+        </div>
+    </div>
+</article>
+
+
+
+
+<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "tamchen";
+    var disqus_identifier = "http://yuelng.github.io/2018/02/22/computer_science/gc/";
+    var disqus_url = "http://yuelng.github.io/2018/02/22/computer_science/gc/";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus 公共JS代码 end -->
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
 
     <!-- Footer -->
     <!-- Footer -->

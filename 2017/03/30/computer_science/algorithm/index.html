@@ -96,14 +96,14 @@
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
@@ -197,13 +197,35 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <ol>
-<li><p>递归与分治策略<br>一个直接或间接地调用自身的算法称为递归算法。<br>分治算法的模式如下：</p>
+                <blockquote>
+<ol>
+<li>穷举=树型搜索</li>
+<li>递归=树型搜索+剪枝</li>
+<li>动态规划=树型搜索+剪枝+节点合并</li>
+<li>因此算法效率：动态规划&gt;递归&gt;穷举。</li>
+</ol>
+</blockquote>
+<ol>
+<li><p>递归与分治策略</p>
+<p>一个直接或间接地调用自身的算法称为递归算法。</p>
+<p>分治算法的模式如下：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">Divide_and_Conquer(P)</div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span>(|P|&lt;=n0)</div><div class="line">    Adhoc(P);<span class="comment">//Adhoc(P)是基本子算法</span></div><div class="line">    divide P into smaller subinstances</div><div class="line">    P1,P2,...,<span class="function">Pk</span></div><div class="line">    <span class="title">for</span><span class="params">(i=<span class="number">1</span>;i&lt;=k;i++)</span></div><div class="line">    yi=Divide_and_Conquer(Pi);</div><div class="line">    <span class="keyword">return</span> Merge(y1,y2,...,yk);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
-<li><p>贪心算法<br>&emsp;&emsp;贪心算法总是作出在当前看来是最好的选择。也就是说，贪心算法并不从整体最优上加<br>以考虑，它所作出的选择只是在某种意义上的局部最优选择。贪心算法不是对所有问题都能<br>得到整体最优解，但对范围相当广泛的许多问题它能产生整体最优解或是整体最优解的近似<br>解。</p>
+<li><p>动态规划</p>
 </li>
-<li>回溯法<br>&emsp;&emsp;回溯法以深度优先的方式系统地搜索一个问题的所有解或任一解，伪代码描述如下：<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function">Proc <span class="title">Search</span><span class="params">(当前状态)</span></span></div><div class="line">Begin</div><div class="line">    If 当前状态等于目标状态 then exit；</div><div class="line">    For 对所有可能的新状态</div><div class="line">    <span class="title">Search</span><span class="params">(新状态)</span>；</div><div class="line">End；</div></pre></td></tr></table></figure>
+<li>最优子结构：子问题最优时母问题通过优化选择后一定最优的情况叫做“最优子结构”。</li>
+<li>子问题重叠：母问题与子问题本质上是同一个问题的情况称为“子问题重叠”。</li>
+<li>边界：子问题在一定时候就不再需要提出子子问题的情况叫做边界，没有边界就会出现死循环。</li>
+<li>子问题独立：当前被选择的子问题两两互不影响的情况叫做“子问题独立”。</li>
+</ol>
+<p>动态规划的实质是分治思想和解决冗余，因此，动态规划是一种将问题实例分解为更小的、相似的子问题，并存储子问题的解而避免计算重复的子问题，以解决最优化问题的算法策略</p>
+<ol>
+<li><p>贪心算法</p>
+<p>贪心算法总是作出在当前看来是最好的选择。也就是说，贪心算法并不从整体最优上加</p>
+<p>以考虑，它所作出的选择只是在某种意义上的局部最优选择。贪心算法不是对所有问题都能<br>得到整体最优解，但对范围相当广泛的许多问题它能产生整体最优解或是整体最优解的近似<br>解。</p>
+</li>
+<li><p>回溯法<br>&emsp;&emsp;回溯法以深度优先的方式系统地搜索一个问题的所有解或任一解，伪代码描述如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function">Proc <span class="title">Search</span><span class="params">(当前状态)</span></span></div><div class="line">Begin</div><div class="line">    If 当前状态等于目标状态 then exit；</div><div class="line">    For 对所有可能的新状态</div><div class="line">    <span class="title">Search</span><span class="params">(新状态)</span>；</div><div class="line">End；</div></pre></td></tr></table></figure>
 </li>
 </ol>
 <p>&emsp;&emsp;递归回溯的算法框架如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">Backtrack</span><span class="params">(<span class="keyword">int</span> t)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span>(t&gt;n)<span class="comment">// //t 是递归深度，n 是解空间树的高度</span></div><div class="line">        Output(x);</div><div class="line">    <span class="keyword">else</span></div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=f(n,t);i&lt;=g(n,t);i++)&#123;</div><div class="line">            x[t]=h(i);</div><div class="line">            <span class="keyword">if</span>(Constraint(t)&amp;&amp;Bound(t))</div><div class="line">            Backtrack(t+<span class="number">1</span>);</div><div class="line">        &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
@@ -223,12 +245,12 @@
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/2017/03/30/distributed_system/engineering/" data-toggle="tooltip" data-placement="top" title="后端代码工程">&larr; Previous Post</a>
+                            <a href="/2017/03/30/framework/tornado/" data-toggle="tooltip" data-placement="top" title="Tornado Pyhton web框架介绍">&larr; Previous Post</a>
                         </li>
                     
                     
                         <li class="next">
-                            <a href="/2017/03/30/framework/tornado/" data-toggle="tooltip" data-placement="top" title="Tornado Pyhton web框架介绍">Next Post &rarr;</a>
+                            <a href="/2017/03/30/computer_science/network/" data-toggle="tooltip" data-placement="top" title="计算机网络">Next Post &rarr;</a>
                         </li>
                     
                 </ul>

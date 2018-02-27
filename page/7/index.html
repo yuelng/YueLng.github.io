@@ -96,14 +96,14 @@
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
@@ -187,6 +187,29 @@
             
                 <!-- Main Content -->
 
+
+<div class="post-preview">
+
+    <a href="/2017/11/30/thinking/think_first/">
+        <h2 class="post-title">
+            把思维好好捋一捋
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            骐骥一跃，不能十步；驽马十驾，功在不舍。
+胡乱扯扯1研究：研究东西，有足够洞察力，研究水准不错2研发：Hack Idea自己有魄力实现，不懂研发的黑客如同不会游泳的海盗3工程：研发出来的需要实战、需要工程化，否则只是玩具，而不能成为真的武器
+关于就业和能力就业实习，还是有压力的。听过学长学姐们的经历，他们有进大公司也有初创企业的，前天还在群里争论是去哪种好，引得一个在初创公司的学长，把月薪都......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
 
 <div class="post-preview">
 
@@ -307,6 +330,31 @@ Hackintosh简介与法律问题Hackintosh是在非苹果硬件上安装运行苹
 
 <div class="post-preview">
 
+    <a href="/2017/03/30/language/ruby_dev_env/">
+        <h2 class="post-title">
+            ruby开发环境的搭建
+        </h2>
+        <h3 class="post-subtitle">
+             "ruby开发"
+        </h3>
+        <div class="post-content-preview">
+            ruby开发环境
+Mac OS本身自带ruby在系统目录 /System/Library/Frameworks/Ruby.framework/Versions/Current12345# 通过homebrew安装ruby最新版brew updatebrew install ruby# 安装railsgem install rails
+
+
+...
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2017-03-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/2017/03/30/operation/basic_oprate/">
         <h2 class="post-title">
             记录常用的配置
@@ -321,53 +369,6 @@ Hackintosh简介与法律问题Hackintosh是在非苹果硬件上安装运行苹
 
 总共分为球员版player，管理员admin，用户user，统计stats，网页web，五个部分
 项目之间的关系：五个部分全都是基于tornado API项目开发......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2017-03-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/03/30/computer_science/network/">
-        <h2 class="post-title">
-            计算机网络
-        </h2>
-        <h3 class="post-subtitle">
-             "计算机网络"
-        </h3>
-        <div class="post-content-preview">
-            TCP四次挥手过程
-TCP是面向连接的服务；三次握手（建立连接）和四次挥手（关闭连接）；使用滑动窗口机制进行流量控制；TCP要保证在所有可能的情况下使得所有的数据都能够被投递，当你关闭一个socket时，主动关闭一端的socket将进入TIME_WAIT状态，而被动关闭一方则转入CLOSED状态，这的确能够保证所有的数据都被传输。1）首先A B端的TCP进程都处于established状态，......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2017-03-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/03/30/language/ruby_dev_env/">
-        <h2 class="post-title">
-            ruby开发环境的搭建
-        </h2>
-        <h3 class="post-subtitle">
-             "ruby开发"
-        </h3>
-        <div class="post-content-preview">
-            ruby开发环境
-Mac OS本身自带ruby在系统目录 /System/Library/Frameworks/Ruby.framework/Versions/Current12345# 通过homebrew安装ruby最新版brew updatebrew install ruby# 安装railsgem install rails
-
-
-...
         </div>
     </a>
     <p class="post-meta">
@@ -410,17 +411,18 @@ Mac OS本身自带ruby在系统目录 /System/Library/Frameworks/Ruby.framework/
 
 <div class="post-preview">
 
-    <a href="/2017/03/30/computer_science/algorithm/">
+    <a href="/2017/03/30/framework/tornado/">
         <h2 class="post-title">
-            算法
+            Tornado Pyhton web框架介绍
         </h2>
         <h3 class="post-subtitle">
-             "算法"
+             "tornado为何这么快"
         </h3>
         <div class="post-content-preview">
-            
-递归与分治策略一个直接或间接地调用自身的算法称为递归算法。分治算法的模式如下：
-12345678910Divide_and_Conquer(P)&#123;    if(|P|&lt;=n0)    Adhoc(P);//Adhoc(P)是基本子算法    divide P into smaller subinstances    P1,P2,...,Pk    for(i=1;i&lt;......
+            ##Tornado直接读代码
+简介FriendFeed使用了一款使用Python编写的，相对简单的非阻塞式Web服务器。它的特点在于非阻塞服务器和epoll的运用，这个Web框架还包含了一些相关的有用工具和优化。
+以下是经典的“Hello, world”示例：
+123456789101112131415import tornado.ioloopimport tornado.webclass ......
         </div>
     </a>
     <p class="post-meta">
@@ -478,7 +480,9 @@ Mac OS本身自带ruby在系统目录 /System/Library/Frameworks/Ruby.framework/
                             
                         
                             
-                            <a href="/tags/#computer_science" title="computer_science" rel="6">computer_science</a>
+                            <a href="/tags/#computer_science" title="computer_science" rel="7">computer_science</a>
+                            
+                        
                             
                         
                             
@@ -486,13 +490,11 @@ Mac OS本身自带ruby在系统目录 /System/Library/Frameworks/Ruby.framework/
                             
                         
                             
-                            <a href="/tags/#distribution_system" title="distribution_system" rel="16">distribution_system</a>
-                            
-                        
-                            
-                        
-                            
                             <a href="/tags/#devops" title="devops" rel="2">devops</a>
+                            
+                        
+                            
+                            <a href="/tags/#distribution_system" title="distribution_system" rel="16">distribution_system</a>
                             
                         
                             

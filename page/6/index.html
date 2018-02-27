@@ -96,14 +96,14 @@
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
@@ -190,44 +190,15 @@
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/collection/plan/">
+    <a href="/2017/11/30/framework/study_thrift/">
         <h2 class="post-title">
-            TODO集合
-        </h2>
-        <h3 class="post-subtitle">
-             "来不及整理的就放在这吧"
-        </h3>
-        <div class="post-content-preview">
-            大纲数据库系统、分布式系统、数据科学
-待看文章#程序员的自我修养《程序员的自我修养》链接、装载与库2017年4月30日星期日在golang1.8中使用插件https://github.com/vladimirvivien/go-plugin-examplehttps://medium.com/learning-the-go-programming-language/writing-modul......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/thinking/think_master_function/">
-        <h2 class="post-title">
-            编程之路—函数式编程
+            thrift入门
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            编程之路
-编程规范
-函数式编程
-性能与优化
-单元测试
-
-概念定义
-In computer science, functional programming is a programming paradigm that treats computation as the evaluation of mathematical functions and avoids state and mutab......
+            介绍Thrift 最初由Facebook开发，而后捐献给Apache，目前已广泛应用于业界。Thrift 正如其官方主页介绍的，“是一种可扩展、跨语言的服务开发框架”。简而言之，它主要用于各个服务之间的RPC通信，其服务端和客户端可以用不同的语言来开发。只需要依照IDL（Interface Description Language）定义一次接口，Thrift工具就能自动生成 C++, Jav......
         </div>
     </a>
     <p class="post-meta">
@@ -240,20 +211,15 @@ In computer science, functional programming is a programming paradigm that treat
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/devops/study_environment/">
+    <a href="/2017/11/30/computer_science/study_flooding/">
         <h2 class="post-title">
-            基础服务环境搭建
+            SYN洪泛攻击的原理与实现
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            这篇文章主要是针对大数据平台的搭建，主要包括的内容有
-
-vagrant虚拟机环境搭建
-Hadoop集群搭建
-memcached集群搭建
-storm集群搭建一些架构可行的架构：Flume + Kafka + Strom + Hbase 使用vagrant搭建系统安装上 http://www.vagrantbox.es/ 找下载需要的 box ， 譬如 Ubuntu 14.10（based on......
+            设计原理SYN-Flood是目前最流行的DDoS攻击手段，DDoS只是洪水攻击的一个种类。其实还有其它种类的洪水攻击。以前的DoS手段在向分布式这一阶段发展的过程中也经历了逐步淘汰的过程。SYN-Flood的攻击效果最好，故众黑客不约而同选择它。以下了解一下SYN-Flood的详细情况。Syn Flood利用了TCP/IP协议的固有漏洞。面向连接的TCP三次握手是Syn Flood存在的基础......
         </div>
     </a>
     <p class="post-meta">
@@ -266,16 +232,16 @@ storm集群搭建一些架构可行的架构：Flume + Kafka + Strom + Hbase 使
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/codeing/study_coding/">
+    <a href="/2017/11/30/distributed_system/study_distribute/">
         <h2 class="post-title">
-            勿在浮沙聚高塔
+            关于Log在分布式系统中的应用以及未来
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            1.摘要今天看了新浪新兵训练营的一些资料，整理下关于程序员最基础的知识————关于编码主要内容包括，什么是烂代码，什么是好代码，好代码需要注意什么，如何做出优雅的设计，如何规划合理的架构编码主要是给人看的，其次才是给机器看的。
-2.关于烂代码写出烂代码很容易，入行时很容易被鼓吹要把主要精力放在ABCD（需求文档/功能设计/架构设计/理解原理）上，写代码只是实现想法的工具。在这样的指导思想下，......
+            The Log&emsp;&emsp;有一段时间被一篇称为学习笔记：The Log（我所读过的最好的一篇分布式技术文章）所刷屏，各大技术文章推荐APP和微信都推荐了这篇文章，来自于LinkedIn关于kafka的文章，核心如题—The Log。（你可以把这节看成对这篇文章的缩减）
+（一）log由来、重要性、应用&emsp;&emsp;对于任何一项新技术都会先抛出三个问题what？why？ho......
         </div>
     </a>
     <p class="post-meta">
@@ -315,40 +281,23 @@ storm集群搭建一些架构可行的架构：Flume + Kafka + Strom + Hbase 使
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/framework/study_thrift/">
+    <a href="/2017/11/30/computer_science/study_server/">
         <h2 class="post-title">
-            thrift入门
+            服务器端编程基础积累
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            介绍Thrift 最初由Facebook开发，而后捐献给Apache，目前已广泛应用于业界。Thrift 正如其官方主页介绍的，“是一种可扩展、跨语言的服务开发框架”。简而言之，它主要用于各个服务之间的RPC通信，其服务端和客户端可以用不同的语言来开发。只需要依照IDL（Interface Description Language）定义一次接口，Thrift工具就能自动生成 C++, Jav......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
-    </p>
+            UNIX I/O模型
+阻塞IO
+非阻塞IO
+IO多路复用
+信号驱动IO
+异步IO
 
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/system_design/system_design_question/">
-        <h2 class="post-title">
-            系统设计问题归总
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            重点考察内容面向对象，接口设计，设计模式，数据库表，分布式
-关于高并发系统设计。主要有以下几个关键技术点：缓存，索引，数据分片，锁粒度尽可能小。
-系统设计相关
-Concurrency (threads, deadlock, starvation, consistency, coherence)
-Abstraction (understanding how OS, filesystem, an......
+nginx模型操作系统的设计，因此可以归结为三点：（1）以多进程形式，允许多个任务同时运行；（2）以多线程形式，允许单个任务分成不同的部分运行；（3）提供协调机制，一方面防止进程之间和线程之间产生冲突，另一方面允许进程之间和线程之间共享资源。
+...
         </div>
     </a>
     <p class="post-meta">
@@ -391,15 +340,19 @@ Monitor your data作为程序员，我们开发一个后台服务，大家有没
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/collection/source_all/">
+    <a href="/2017/11/30/system_design/system_design_question/">
         <h2 class="post-title">
-            常用的资源
+            系统设计问题归总
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            计算机科学1.谷歌推荐的技术能力提升指南CS课程入门、了解其他语言、测试代码、培养逻辑推理和学习数学离散知识、深刻理解操作系统、学习UX设计、学习人工智能、学习如何构建编译器、了解密码学、并行编程、与其他程序员一起开发项目。2.hackr.ioShare and discover the best programming tutorials and courses online.3.图说设计......
+            重点考察内容面向对象，接口设计，设计模式，数据库表，分布式
+关于高并发系统设计。主要有以下几个关键技术点：缓存，索引，数据分片，锁粒度尽可能小。
+系统设计相关
+Concurrency (threads, deadlock, starvation, consistency, coherence)
+Abstraction (understanding how OS, filesystem, an......
         </div>
     </a>
     <p class="post-meta">
@@ -422,6 +375,52 @@ Monitor your data作为程序员，我们开发一个后台服务，大家有没
         <div class="post-content-preview">
             创建型模式简单工厂模式简单工厂模式的要点在于：当你需要什么，只需要传入一个正确的参数，就可以获取你所需要的对象，而无须知道其创建细节。1KeyGenerator keyGen=KeyGenerator.getInstance("DESede");//获取不同加密算法的密钥生成器
 工厂方法模式工厂父类负责定义创建产品对象的公共接口，而工厂子类则负责生成具体的产品对象，这样做的目的是将产品类的实......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/30/system_design/msgpush/">
+        <h2 class="post-title">
+            消息推送入门
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            实时消息推送的几种实现方式相较于手机端的消息推送（一般都是以socket方式实现），web端是基于http协议，很难像tcp一样保持长连接。但随着技术的发展，出现了websocket, comet等新的技术可以达到类似长连接的效果，这些技术大体可分为以下几类：
+
+短轮询。页面端通过js定时异步刷新，这种方式实时效果较差。
+长轮询。页面端通过js异步请求服务端，服务端在接收到请求后，如果该次请......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/30/collection/interview/">
+        <h2 class="post-title">
+            面试题目
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            二.操作系统 可以直接认为是linux，毕竟搞后端的多数是和linux打交道。1.tcp/udp的区别？tcp粘包是怎么回事，如何处理？udp有粘包吗？2.time_wait是什么情况？出现过多的close_wait可能是什么原因？3.epoll,select的区别？边缘触发，水平触发区别？
+三.存储 存储可能包含rdbms，nosql以及缓存等，我以mysql,redis举例 mysql相......
         </div>
     </a>
     <p class="post-meta">
@@ -479,7 +478,9 @@ Monitor your data作为程序员，我们开发一个后台服务，大家有没
                             
                         
                             
-                            <a href="/tags/#computer_science" title="computer_science" rel="6">computer_science</a>
+                            <a href="/tags/#computer_science" title="computer_science" rel="7">computer_science</a>
+                            
+                        
                             
                         
                             
@@ -487,13 +488,11 @@ Monitor your data作为程序员，我们开发一个后台服务，大家有没
                             
                         
                             
-                            <a href="/tags/#distribution_system" title="distribution_system" rel="16">distribution_system</a>
-                            
-                        
-                            
-                        
-                            
                             <a href="/tags/#devops" title="devops" rel="2">devops</a>
+                            
+                        
+                            
+                            <a href="/tags/#distribution_system" title="distribution_system" rel="16">distribution_system</a>
                             
                         
                             
