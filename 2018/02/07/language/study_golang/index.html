@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+          golang - YueLng的博客 | YueLng&#39;s Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://yuelng.github.io/2018/02/07/language/study_golang/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <!-- Font CSS -->
+    <link rel="stylesheet" href="/css/font.min.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Less is more</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archives/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    
+<!-- Image to hack wechat -->
+<!-- <img src="http://yuelng.github.io/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('http://ogcxtlv6r.bkt.clouddn.com/17-12-18/57927760.jpg')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/tags/#language" title="language">language</a>
+                        
+                    </div>
+                    <h1>golang</h1>
+                    <h2 class="subheading"> &quot;golang&quot;</h2>
+                    <span class="meta">
+                        Posted by yueLng on
+                        2018-02-07
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>Go是Google开发的一种静态强类型、编译型、并发型，并具有垃圾回收功能的编程语言。 –<a href="https://zh.wikipedia.org/wiki/Go" target="_blank" rel="external">wikipedia golang</a><br>在编程语法上类似于C，但是支持垃圾回收功能，Go的并发模型是通信顺序处理<a href="https://www.zhihu.com/question/26192499" target="_blank" rel="external">CSP</a>，在go1.8中支持了<a href="https://github.com/vladimirvivien/go-plugin-example" target="_blank" rel="external">plugin</a>支持，使得go语言动态加载部分函数<br><a href="https://www.oschina.net/translate/go-at-google-language-design-in-the-service-of-software-engineering?lang=chs&amp;page=1#" target="_blank" rel="external">Go在谷歌：以软件工程为目的的语言设计</a></p>
+<h3 id="主要特性"><a href="#主要特性" class="headerlink" title="主要特性"></a>主要特性</h3><ul>
+<li>清晰的依赖关系</li>
+<li>清晰的语法</li>
+<li>清晰的语义</li>
+<li>偏向组合而不是继承</li>
+<li>编程模型（垃圾回收、并发）所代理的简单性</li>
+<li>易于为它编写工具（Easy tooling ）(gotool、gofmt、godoc、gofix)</li>
+</ul>
+<p>作为服务端编程语言</p>
+<ul>
+<li>部署简单 ease of deployment</li>
+<li>精确的垃圾回收</li>
+<li>快速编译、快速启动</li>
+<li>执行性能好</li>
+</ul>
+<p>关于依赖管理，vendor，如果a 依赖b，b依赖c，则可以a包下建立vendor目录 包含b、c即可，b、c包在vendor目录下并不需要自身的vendor目录</p>
+<h3 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h3><ol>
+<li><a href="https://tour.golang.org/welcome/1" target="_blank" rel="external">A Tour of Go</a></li>
+<li><a href="https://learnxinyminutes.com/docs/zh-cn/go-cn/" target="_blank" rel="external">learn golang in n minute</a></li>
+<li><a href="https://blog.golang.org/" target="_blank" rel="external">golang blog</a></li>
+</ol>
+<h3 id="进阶"><a href="#进阶" class="headerlink" title="进阶"></a>进阶</h3><ol>
+<li>基本数据结构 map channel<br><a href="https://guidao.github.io/go_map.html" target="_blank" rel="external">go_map</a></li>
+<li><a href="https://github.com/dgryski/go-perfbook/blob/master/performance.md" target="_blank" rel="external">Thoughts on Go performance optimization</a></li>
+<li>​</li>
+</ol>
+<p><a href="https://garbagecollected.org/2017/02/22/go-range-loop-internals/" target="_blank" rel="external">Go Range Loop Internals</a><br>in Go, everything you assign, you copy.<br>slices are syntactic sugar for a struct holding a pointer to the backing array</p>
+<ul>
+<li>Loop variables are reused and assigned to at each iteration.</li>
+<li>The range expression gets evaluated once before the loop starts by assigning to a variable.</li>
+<li>You can delete or add values to a map while iterating. Adds may or may not be visible in the loop.</li>
+</ul>
+<p>maps are pointers to a struct</p>
+<ul>
+<li>it is safe to add to and remove from maps in a range loop</li>
+<li>if you add an element it may or may not see it in an upcoming iteration</li>
+</ul>
+<ol>
+<li>协程调度 goroutine</li>
+<li>内存管理 协程栈<br><a href="https://guidao.github.io/malloc.html" target="_blank" rel="external">golang内存分配分析</a></li>
+</ol>
+<p><a href="http://colobu.com/2017/12/28/top-golang-articles-of-2017/" target="_blank" rel="external">年终盘点！2017年超有价值的Golang文章</a><br><a href="http://colobu.com/2017/12/29/best-practices-for-writing-high-performance-Go-code/" target="_blank" rel="external">编写高性能的Go代码的最佳实践</a></p>
+<p> <a href="https://www.youtube.com/watch?v=zzAdEt3xZ1M" target="_blank" rel="external">SOLID Go Design</a><br> <a href="https://www.infoq.com/presentations/go-concurrency-gc" target="_blank" rel="external">The Why of Go</a><br> <a href="https://www.youtube.com/watch?v=aiv1JOfMjm0" target="_blank" rel="external">Rick Hudson - Go GC: Solving the Latency Problem</a><br> <a href="https://www.youtube.com/watch?v=ZuQcbqYK0BY" target="_blank" rel="external">How to optimize Go for really high performance</a></p>
+<h3 id="标准库"><a href="#标准库" class="headerlink" title="标准库"></a>标准库</h3><p>context</p>
+<p><code>Context</code>包，专门用来简化 对于处理单个请求的多个 goroutine 之间与 请求域的数据、取消信号、截止时间等相关操作。它是一种简单的超时和取消机制， 保证了临界区数据 (比如安全凭证) 在不同的 Go 项目中顺利传递。</p>
+<p>Context 的调用应该是链式的，通过<code>WithCancel</code>，<code>WithDeadline</code>，<code>WithTimeout</code>或<code>WithValue</code>派生出新的 Context。当父 Context 被取消时，其派生的所有 Context 都将取消。</p>
+<h3 id="外部库"><a href="#外部库" class="headerlink" title="外部库"></a>外部库</h3><h3 id="Writing-high-performance-go"><a href="#Writing-high-performance-go" class="headerlink" title="Writing high performance go"></a>Writing high performance go</h3><ol>
+<li><p>Performance measurement and profiling</p>
+<blockquote>
+<p>“Don’t guess,measure”<br>use pprof</p>
+</blockquote>
+</li>
+<li><p>Benchmarking</p>
+</li>
+<li>Memory management and GC tuning</li>
+<li>Concurrency</li>
+</ol>
+<p><a href="https://segment.com/blog/allocation-efficiency-in-high-performance-go-services/" target="_blank" rel="external">Allocation Efficiency in High-Performance Go Services</a></p>
+<p><a href="https://github.com/dgryski/go-perfbook/blob/master/performance.md" target="_blank" rel="external">Writing and Optimizing Go code</a></p>
+<p><a href="https://www.youtube.com/watch?v=N3PWzBeLX2M" target="_blank" rel="external">Profiling and Optimizing Go</a></p>
+<p>channel 的效率并不高，内部使用锁实现</p>
+<p>跨进程通信会是问题，扩展性不强</p>
+<p>不能持久化，容易丢数据</p>
+<h3 id="Advance-Golang"><a href="#Advance-Golang" class="headerlink" title="Advance Golang"></a>Advance Golang</h3><ol>
+<li><p>引导与初始化</p>
+<p>所有 init 函数都在同一个 goroutine 内执行。所有 init 函数结束后才会执行 main.main 函数。    </p>
+</li>
+<li><p>内存分配</p>
+<p><a href="http://blog.csdn.net/chosen0ne/article/details/9338591" target="_blank" rel="external">TCMalloc小记</a></p>
+<p>mmap     虚拟存储器的相关知识 Golang 编译器支持逃逸分析(escape analysis)，它会在编译期通过构建调用图来分析局部变量是否会被外部引用，从而决定是否可直接分配在栈上,你或许见过 “Zero Garbage” 这个说法，其目的就是避免在堆上的分配行为，从而减小垃圾回收压力，提升性能。另外，做性能测试时使用 go test -benchmem 参数可以输出堆分配次数统计</p>
+</li>
+<li><p>垃圾回收</p>
+</li>
+<li><p>并发调度 goroutine</p>
+</li>
+<li><p>通道 channel</p>
+</li>
+<li><p>延迟 defer</p>
+</li>
+<li><p>析构？</p>
+</li>
+<li><p>缓存池 sync pool</p>
+</li>
+</ol>
+<h3 id="相关问题"><a href="#相关问题" class="headerlink" title="相关问题"></a>相关问题</h3><p>1.说说为什么同样实现一个“hello world”，Go编译出来的程序一般会比C/C++要大？<br>关键字：跨平台 静态链接编译 依赖库 自带runtime<br><a href="https://blog.golang.org/go1.7-binary-size" target="_blank" rel="external">Smaller Go 1.7 binaries</a></p>
+<p>2.说说channel的实现.（核心，拓展问题：通信常用手段，阻塞非阻塞，同步异步的区别，select／poll/epoll等等）<br><a href="https://www.youtube.com/watch?v=KBZlN0izeiY&amp;t=10s" target="_blank" rel="external">Kavya Joshi - Understanding Channels</a></p>
+<p>3.goruntine是怎么调度的？与进程，线程的关系。（核心，拓展问题，进程，线程，协程区别，死锁，操作系统等等）<br><a href="https://www.youtube.com/watch?v=zbFDjCHzN50" target="_blank" rel="external">https://www.youtube.com/watch?v=zbFDjCHzN50</a></p>
+<p>4.如何理解“不要通过共享内存来通信，要通过通信来共享内存”这句话？（关于代码和设计）<br>关键字：高内聚低耦合 消息机制 channel 结合场景</p>
+<p>5.说说排查Go问题的经历，都用到了什么工具，有什么看法？（经验，排查问题思路和能力，个人觉得排查问题重要的是有没有思路方法，不见得什么最有效）</p>
+<p>6.Go目前的GC策略是什么？之前是什么？怎么改进的？（拓展问题：关于GC算法，内存分配等等）<br><a href="https://blog.golang.org/go15gc" target="_blank" rel="external">Go GC: Prioritizing low latency and simplicity</a></p>
+<p>7.Go的错误和异常的处理机制怎么样<br>计算机中的错误都是可预见的，例如文件打开错误，并不需要特定的语言结构，使用if/else就可以<br>golang提供了error的interface，使用error类型的数据返回对错误的描述</p>
+<p>7.你喜欢Go吗？说出目前它的三个以上缺点？（是不是真的喜欢，关注，能说出缺点最重要）<br><a href="https://github.com/ksimka/go-is-not-good" target="_blank" rel="external">go-is-not-good</a><br><a href="http://www.yinwang.org/blog-cn/2014/04/18/golang" target="_blank" rel="external">对 Go 语言的综合评价</a><br><a href="https://www.youtube.com/watch?v=_Id9bFkjaDc" target="_blank" rel="external">golang sucks</a><br>routime库性能是否达到要求，defer、mutex、chan、select等特性<br>goroutine带来的高并发并不是新特性，性能上是不是有待提高<br>golang GC内存管理器性能无法满足要求，是否真的能替代C或C++的底层工作<br>是否需要泛型generics，官方认为go的核心在于保持简洁性，对任何会导致语言难以理解的特性，持有怀疑的态度，并且在实践中证明泛型用处并不多</p>
+<h3 id="面试问题"><a href="#面试问题" class="headerlink" title="面试问题"></a>面试问题</h3><ul>
+<li><a href="https://zhuanlan.zhihu.com/interview" target="_blank" rel="external">golang面试笔试题</a></li>
+<li><a href="https://www.zhihu.com/question/67846139" target="_blank" rel="external">如果你是一个Golang面试官，你会问哪些问题？</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/26972862" target="_blank" rel="external">golang 面试题</a></li>
+</ul>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><a href="https://github.com/gopherchina/conference" target="_blank" rel="external">gopherCon china ppt</a><br><a href="https://github.com/gophercon" target="_blank" rel="external">GopherCon github</a><br><a href="https://gowalker.org/" target="_blank" rel="external">golang walker</a><br><a href="https://golangnews.com/" target="_blank" rel="external">golang news</a><br><a href="https://zhuanlan.zhihu.com/deepgolang" target="_blank" rel="external">进击的Golang</a><br><a href="https://www.youtube.com/watch?v=ha8gdZ27wMo&amp;list=PL2ntRZ1ySWBdD9bru6IR-_WXUgJqvrtx9" target="_blank" rel="external">Evolutionary Optimization with Go(GopherCon2017)</a><br><a href="https://learnxinyminutes.com/docs/zh-cn/go-cn/" target="_blank" rel="external">learn golang in n minute</a><br><a href="http://legendtkl.com/2017/03/21/malloc-os-knowledge/" target="_blank" rel="external">malloc 背后的系统知识 | Legendtkl</a><br><a href="http://legendtkl.com/2017/04/28/golang-gc/" target="_blank" rel="external">Golang 垃圾回收剖析 | Legendtkl</a><br><a href="https://zh.wikipedia.org/wiki/%E6%B3%9B%E5%9E%8B" target="_blank" rel="external">wikipedia泛型</a><br><a href="https://tiancaiamao.gitbooks.io/go-internals/zh/" target="_blank" rel="external">《深入解析Go》</a><br><a href="http://legendtkl.com/2016/10/23/golang-mutex/" target="_blank" rel="external">golang中的锁源码实现：Mutex | Legendtkl</a><br><a href="https://gobyexample.com/" target="_blank" rel="external">Go by Example</a><br><a href="https://github.com/dominikh/go-tools" target="_blank" rel="external">GitHub - dominikh/go-tools: A collection of tools and libraries for working with Go code, including linters and static analysis</a><br><a href="https://www.gitbook.com/book/tracymacding/implementation-of-golang/details" target="_blank" rel="external">implementation of golang · GitBook</a><br><a href="http://colobu.com/2017/06/30/idiomatic-go-references/#Go_Patterns" target="_blank" rel="external">译参考资料: 地道的GO代码 | 鸟窝</a><br><a href="https://tiancaiamao.gitbooks.io/go-internals/zh/" target="_blank" rel="external">Introduction · 深入解析Go</a> <a href="https://checkmarx.gitbooks.io/go-scp/content/" target="_blank" rel="external">Introduction · Go-SCP</a><br><a href="https://www.youtube.com/watch?v=KBZlN0izeiY" target="_blank" rel="external">GopherCon 2017: Kavya Joshi - Understanding Channels - YouTube</a> channel<br><a href="https://www.youtube.com/watch?v=OfEBxZyRMFc" target="_blank" rel="external">Golang UK Conference 2015 Dean Elbaz Understanding Memory Allocation in Go - YouTube</a> memory allocation<br><a href="https://www.youtube.com/watch?v=D6jqVS5JFpM" target="_blank" rel="external">GOTO 2014 • The Fundamentals of Garbage Collector Performance • Charlie Hunt - YouTube</a> garbage collection<br><a href="https://dave.cheney.net/2017/04/29/there-is-no-pass-by-reference-in-go" target="_blank" rel="external">There is no pass-by-reference in Go | Dave Cheney</a><br>Map A map value is a pointer to a runtime.hmap structure.<a href="https://dave.cheney.net/2017/04/30/if-a-map-isnt-a-reference-variable-what-is-it" target="_blank" rel="external">If a map isn’t a reference variable, what is it? | Dave Cheney</a> map<br><a href="https://www.youtube.com/watch?v=F4wUrj6pmSI" target="_blank" rel="external">Understanding Go Interfaces - YouTube</a> interface<br><a href="http://www.lijiaocn.com/%E7%BC%96%E7%A8%8B/2017/11/06/golang-reflection.html" target="_blank" rel="external">理解go的反射机制reflection</a> 反射<br><a href="http://colobu.com/2017/06/27/Lint-your-golang-code-like-a-mad-man/" target="_blank" rel="external">译像牛人一样改进你的Go代码 | 鸟窝</a><br><a href="https://github.com/tidwall/evio" target="_blank" rel="external">GitHub - tidwall/evio: Fast event-loop networking for Go</a><br><a href="http://go-talks.appspot.com/github.com/davecheney/presentations/writing-high-performance-go.slide" target="_blank" rel="external">writing-high-performance-go</a></p>
+
+
+                <hr>
+
+                
+
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2018/02/08/financial/economic/" data-toggle="tooltip" data-placement="top" title="经济学知识">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/2018/02/07/financial/report/" data-toggle="tooltip" data-placement="top" title="财务报告分析">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                
+
+                
+                <!-- disqus 评论框 start -->
+                <div class="comment">
+                    <div id="disqus_thread" class="disqus-thread"></div>
+                </div>
+                <!-- disqus 评论框 end -->
+                
+
+            </div>
+    <!-- Side Catalog Container -->
+        
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+        
+
+    <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#language" title="language">language</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="http://blog.kaijun.rocks" target="_blank">Kaijun&#39;s Blog</a></li>
+                    
+                </ul>
+                
+            </div>
+
+        </div>
+    </div>
+</article>
+
+
+
+
+<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "tamchen";
+    var disqus_identifier = "http://yuelng.github.io/2018/02/07/language/study_golang/";
+    var disqus_url = "http://yuelng.github.io/2018/02/07/language/study_golang/";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus 公共JS代码 end -->
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/tam7_penicillus">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/tamchen">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://www.facebook.com/chen.penicillus">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/yuelng">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Less is more 2018
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a>
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span>
+                    Ported by <a href="http://blog.kaijun.rocks">Kaijun</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=kaijun&repo=hexo-theme-huxblog&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--
+     Because of the native support for backtick-style fenced code blocks
+     right within the Markdown is landed in Github Pages,
+     From V1.6, There is no need for Highlight.js,
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://yuelng.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-67304654-1';
+    var _gaDomain = 'yuelng.github.io';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- Side Catalog -->
+
+<script type="text/javascript">
+    function generateCatalog (selector) {
+        var P = $('div.post-container'),a,n,t,l,i,c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#"+$(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="'+i+'" rel="nofollow">'+t+'</a>');
+            l = $('<li class="'+n+'_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    // toggle side catalog
+    $(".catalog-toggle").click((function(e){
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    /*
+     * Doc: https://github.com/davist11/jQuery-One-Page-Nav
+     * Fork by Hux to support padding
+     */
+    async("/js/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+
+
+<!-- Image to hack wechat -->
+<img src="http://yuelng.github.io/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

@@ -190,6 +190,85 @@
 
 <div class="post-preview">
 
+    <a href="/2017/12/16/life_is_short/movie/">
+        <h2 class="post-title">
+            电影艺术
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            权利的游戏，纸牌屋，星球大战 西比厄斯对权利的攫取，利用战争来确定自身的权利权利需要好的叙事来支撑《动物农场》《蝇王》《经济人的末日-极权主义的起源》经济的衰退才是极权主义起源的根源。
+谣言如何传播，他们相信的并不是谣言本身，而是对无序局面的一种恐惧。他们认为在无序中有一切恐惧的可能
+德鲁克提出了他的洞见，并非法西斯主义的宣传工具无比高效，让“群众被法西斯的宣传麻醉了”对极权主义声音的警觉，......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-12-16
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/12/16/puduct/experience/">
+        <h2 class="post-title">
+            产品、运营、推广
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            如何做运营第一，依据不同的产品发展阶段，或当前占据市场份额的大小来判定运营策略和运营规划如何制定；第二，依据不同的产品形态和业务类型，来判定运营策略和运营规划如何制定。
+产品的发展阶段大概分为探索期产品：上线时间不长，产品还在打磨，需求尚待验证，2011-2012年间的知乎、2010年的新浪微博，包括绝大多数上线时间在8个月以内的产品。快速增长期产品：需求已得到验证，初步拥有了一定市场份额，......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-12-16
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/12/12/distributed_system/trace/">
+        <h2 class="post-title">
+            分布式系统追踪
+        </h2>
+        <h3 class="post-subtitle">
+             "分布式系统调用链追踪、监控"
+        </h3>
+        <div class="post-content-preview">
+            
+应用场景
+微服务中如何诊断到耗时服务
+如何定位单点失败
+如何检测并避免循环依赖关系
+如何定位相互调用关系
+
+实现原理
+在API接入层，生成全局唯一traceID，并注入到对应的context中
+在每个节点生成spanID，根据traceID和spanID定位某次请求的某服务
+将traceID跟随context注入到下一节点
+
+
+入库消息的结构组成，traceID、层级表示、调用方法、调用时......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2017-12-12
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/2017/12/12/distributed_system/mq/">
         <h2 class="post-title">
             消息队列
@@ -329,58 +408,6 @@ Raft 使用的是 Log Replication + State Machine 的方式来处理分布式数
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/collection/plan/">
-        <h2 class="post-title">
-            TODO集合
-        </h2>
-        <h3 class="post-subtitle">
-             "来不及整理的就放在这吧"
-        </h3>
-        <div class="post-content-preview">
-            大纲数据库系统、分布式系统、数据科学
-待看文章#程序员的自我修养《程序员的自我修养》链接、装载与库2017年4月30日星期日在golang1.8中使用插件https://github.com/vladimirvivien/go-plugin-examplehttps://medium.com/learning-the-go-programming-language/writing-modul......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/puduct/study_monitor/">
-        <h2 class="post-title">
-            数据驱动开发与产品
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            不谋万世者，不足以谋一时；不谋全局者，不足以谋一隅
-Monitor your data作为程序员，我们开发一个后台服务，大家有没有测试过以下数据
-
-这个服务能够承受多少的 QPS（每秒访问量）？
-平均响应时间和 99% 的响应时间是多少？
-如果服务器压力增加，我们能不能通过简单的加机器来解决，需要加多少台机器？
-当前线上服务瓶颈在哪里？
-按当前的增长速度，多久我们得需要加机器？
-
-技术关注点......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
     <a href="/2017/11/30/computer_science/study_algorithm/">
         <h2 class="post-title">
             相似距离算法
@@ -393,27 +420,6 @@ Monitor your data作为程序员，我们开发一个后台服务，大家有没
 一、EuclideanDistanceSimilarity: 欧氏距离相似度原理：利用欧式距离d定义的相似度s，s=1 / (1+d)。
 范围：[0,1]，值越大，说明d越小，也就是距离越近，则相似度越大。
 说明：同皮尔森相似度一样，该相似度也没有考虑重叠数对结果的影响，同样地，Mahout通过增加一个枚举类型（Weighting）的参数来使得重叠数也成为计......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/framework/study_thrift/">
-        <h2 class="post-title">
-            thrift入门
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            介绍Thrift 最初由Facebook开发，而后捐献给Apache，目前已广泛应用于业界。Thrift 正如其官方主页介绍的，“是一种可扩展、跨语言的服务开发框架”。简而言之，它主要用于各个服务之间的RPC通信，其服务端和客户端可以用不同的语言来开发。只需要依照IDL（Interface Description Language）定义一次接口，Thrift工具就能自动生成 C++, Jav......
         </div>
     </a>
     <p class="post-meta">
@@ -471,9 +477,7 @@ Monitor your data作为程序员，我们开发一个后台服务，大家有没
                             
                         
                             
-                            <a href="/tags/#computer_science" title="computer_science" rel="5">computer_science</a>
-                            
-                        
+                            <a href="/tags/#computer_science" title="computer_science" rel="6">computer_science</a>
                             
                         
                             
@@ -485,11 +489,13 @@ Monitor your data作为程序员，我们开发一个后台服务，大家有没
                             
                         
                             
+                        
+                            
                             <a href="/tags/#devops" title="devops" rel="2">devops</a>
                             
                         
                             
-                            <a href="/tags/#financial" title="financial" rel="4">financial</a>
+                            <a href="/tags/#financial" title="financial" rel="5">financial</a>
                             
                         
                             
@@ -516,6 +522,8 @@ Monitor your data作为程序员，我们开发一个后台服务，大家有没
                             <a href="/tags/#product" title="product" rel="5">product</a>
                             
                         
+                            
+                            <a href="/tags/#reading" title="reading" rel="2">reading</a>
                             
                         
                             

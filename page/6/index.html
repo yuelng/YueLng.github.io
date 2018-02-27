@@ -190,6 +190,104 @@
 
 <div class="post-preview">
 
+    <a href="/2017/11/30/distributed_system/study_distribute/">
+        <h2 class="post-title">
+            关于Log在分布式系统中的应用以及未来
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            The Log&emsp;&emsp;有一段时间被一篇称为学习笔记：The Log（我所读过的最好的一篇分布式技术文章）所刷屏，各大技术文章推荐APP和微信都推荐了这篇文章，来自于LinkedIn关于kafka的文章，核心如题—The Log。（你可以把这节看成对这篇文章的缩减）
+（一）log由来、重要性、应用&emsp;&emsp;对于任何一项新技术都会先抛出三个问题what？why？ho......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/30/thinking/think_master_function/">
+        <h2 class="post-title">
+            编程之路—函数式编程
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            编程之路
+编程规范
+函数式编程
+性能与优化
+单元测试
+
+概念定义
+In computer science, functional programming is a programming paradigm that treats computation as the evaluation of mathematical functions and avoids state and mutab......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/30/collection/interview/">
+        <h2 class="post-title">
+            面试题目
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            二.操作系统 可以直接认为是linux，毕竟搞后端的多数是和linux打交道。1.tcp/udp的区别？tcp粘包是怎么回事，如何处理？udp有粘包吗？2.time_wait是什么情况？出现过多的close_wait可能是什么原因？3.epoll,select的区别？边缘触发，水平触发区别？
+三.存储 存储可能包含rdbms，nosql以及缓存等，我以mysql,redis举例 mysql相......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/30/devops/study_environment/">
+        <h2 class="post-title">
+            基础服务环境搭建
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            这篇文章主要是针对大数据平台的搭建，主要包括的内容有
+
+vagrant虚拟机环境搭建
+Hadoop集群搭建
+memcached集群搭建
+storm集群搭建一些架构可行的架构：Flume + Kafka + Strom + Hbase 使用vagrant搭建系统安装上 http://www.vagrantbox.es/ 找下载需要的 box ， 譬如 Ubuntu 14.10（based on......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/2017/11/30/thinking/study_software/">
         <h2 class="post-title">
             团队项目开发与规范
@@ -242,41 +340,18 @@ Abstraction (understanding how OS, filesystem, an......
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/system_design/study_model/">
+    <a href="/2017/11/30/distributed_system/study_rpc/">
         <h2 class="post-title">
-            设计模式简要介绍
+            RPC远程过程调用
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            创建型模式简单工厂模式简单工厂模式的要点在于：当你需要什么，只需要传入一个正确的参数，就可以获取你所需要的对象，而无须知道其创建细节。1KeyGenerator keyGen=KeyGenerator.getInstance("DESede");//获取不同加密算法的密钥生成器
-工厂方法模式工厂父类负责定义创建产品对象的公共接口，而工厂子类则负责生成具体的产品对象，这样做的目的是将产品类的实......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/collection/somesource/">
-        <h2 class="post-title">
-            一些有用的资源
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            平时在网上闲逛，看到一些可能会有用的一些资源记录在此
-
-计算机领域论文集合 GitHub - papers-we-love/papers-we-love: Papers from the computer science community to read and discuss. 
-分布式资料 Qix/ds.md at master · ty4z2008/Qix · GitHub 
-程序员......
+            如果说把一个网站分为三个部分，经典的MVC设计模式，后台分布式实现就是控制层，模块的服务化全都依赖于rpc框架，从阿里的dubbo、Hadoop等，这些大数据框架都有了广泛的应用，本文是个人学习rpc过程中的一些资料积累和个人想法。 
+RPC调用分类
+同步调用客户方等待调用执行完成并返回结果。
+异步调用客户方调用后不用等待执行结果返回，但依然可以通过回调通知等方式获取返回结果。 若客户方不关......
         </div>
     </a>
     <p class="post-meta">
@@ -313,27 +388,16 @@ Abstraction (understanding how OS, filesystem, an......
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/surrounding/markdown/">
+    <a href="/2017/11/30/system_design/study_model/">
         <h2 class="post-title">
-            markdown基本操作
+            设计模式简要介绍
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            基本符号
-*,-,+ 3个符号效果都一样，这3个符号被称为 Markdown符号
-空白行表示另起一个段落
-`是表示inline代码，tab是用来标记 代码段，分别对应html的code，pre标签
-
-换行
-单一段落( \) 用一个空白行
-连续两个空格 会变成一个 
-连续3个符号，然后是空行，表示 hr横线
-
-标题
-生成h1–h6,在文字前面加上 1–6个# 来实现
-文字加粗是通过 文字左右各......
+            创建型模式简单工厂模式简单工厂模式的要点在于：当你需要什么，只需要传入一个正确的参数，就可以获取你所需要的对象，而无须知道其创建细节。1KeyGenerator keyGen=KeyGenerator.getInstance("DESede");//获取不同加密算法的密钥生成器
+工厂方法模式工厂父类负责定义创建产品对象的公共接口，而工厂子类则负责生成具体的产品对象，这样做的目的是将产品类的实......
         </div>
     </a>
     <p class="post-meta">
@@ -362,76 +426,6 @@ SHOW PROCESSLIST 查看数据库连接，看哪个连接导致锁表kill id   //
     <p class="post-meta">
         Posted by yueLng on
         2017-11-28
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/27/distributed_system/service_discovery/">
-        <h2 class="post-title">
-            服务发现与配置
-        </h2>
-        <h3 class="post-subtitle">
-             "服务发现与配置"
-        </h3>
-        <div class="post-content-preview">
-            etcd
-...
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2017-11-27
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/10/16/puduct/wegame/">
-        <h2 class="post-title">
-            使用商业画布分析WeGame商业模式设计
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            
-“来自人人都是产品经理”
-
-作为WeGame团队的一颗螺丝钉，在WeGame全量上线之际，和大家分享分享在这大半年时间里我们都在做一个什么样的WeGame，WeGame在一个UI开发同学眼中又是什么样子呢？我们爬山，除了兴趣、健身、社交，可能更多的是为了登高而望远，看得远了，见得多了，我们的掌握的信息和优势自然而然就会更丰富和明显。　　山底站久了，那我们就快快爬到山顶看看WeGame到底都......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by 任寒韬 on
-        2017-10-16
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/04/28/operation/hackintosh/">
-        <h2 class="post-title">
-            安装Hackintosh
-        </h2>
-        <h3 class="post-subtitle">
-             "使用unibeast安装黑苹果"
-        </h3>
-        <div class="post-content-preview">
-            
-“硬件选好了，安装都是很容易的”
-
-Hackintosh简介与法律问题Hackintosh是在非苹果硬件上安装运行苹果系统MacOS。这个名字还有一个官方的名字-OSx86，Wikipedia是这样介绍的，OSx86是把苹果公司出品的macOS操作系统在x86架构的非苹果电脑上运行的黑客协作计划，OSx86名字源于macOS系统的原名“OS X”与英特尔处理器架构名“x86”。关于安装黑苹......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2017-04-28
     </p>
 
 </div>
@@ -484,9 +478,7 @@ Hackintosh简介与法律问题Hackintosh是在非苹果硬件上安装运行苹
                             
                         
                             
-                            <a href="/tags/#computer_science" title="computer_science" rel="5">computer_science</a>
-                            
-                        
+                            <a href="/tags/#computer_science" title="computer_science" rel="6">computer_science</a>
                             
                         
                             
@@ -498,11 +490,13 @@ Hackintosh简介与法律问题Hackintosh是在非苹果硬件上安装运行苹
                             
                         
                             
+                        
+                            
                             <a href="/tags/#devops" title="devops" rel="2">devops</a>
                             
                         
                             
-                            <a href="/tags/#financial" title="financial" rel="4">financial</a>
+                            <a href="/tags/#financial" title="financial" rel="5">financial</a>
                             
                         
                             
@@ -529,6 +523,8 @@ Hackintosh简介与法律问题Hackintosh是在非苹果硬件上安装运行苹
                             <a href="/tags/#product" title="product" rel="5">product</a>
                             
                         
+                            
+                            <a href="/tags/#reading" title="reading" rel="2">reading</a>
                             
                         
                             
