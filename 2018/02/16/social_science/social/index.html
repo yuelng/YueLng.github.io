@@ -13,11 +13,11 @@
 
     <title>
         
-          数据驱动开发与产品 - YueLng的博客 | YueLng&#39;s Blog
+          社会科学 - YueLng的博客 | YueLng&#39;s Blog
         
     </title>
 
-    <link rel="canonical" href="http://yuelng.github.io/2017/11/30/puduct/study_monitor/">
+    <link rel="canonical" href="http://yuelng.github.io/2018/02/16/social_science/social/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -161,7 +161,7 @@
 <!-- Post Header -->
 <style type="text/css">
     header.intro-header{
-        background-image: url('http://ogcxtlv6r.bkt.clouddn.com/17-12-16/89744702.jpg')
+        background-image: url('http://ogcxtlv6r.bkt.clouddn.com/18-2-16/25004699.jpg')
     }
 </style>
 <header class="intro-header" >
@@ -171,14 +171,14 @@
                 <div class="post-heading">
                     <div class="tags">
                         
-                          <a class="tag" href="/tags/#product" title="product">product</a>
+                          <a class="tag" href="/tags/#social_science" title="social_science">social_science</a>
                         
                     </div>
-                    <h1>数据驱动开发与产品</h1>
-                    <h2 class="subheading"></h2>
+                    <h1>社会科学</h1>
+                    <h2 class="subheading"> &quot;个人组成社会，每个人心中的善恶的种子，在社会这片森林中郁郁葱葱&quot;</h2>
                     <span class="meta">
-                        Posted by YueLng Chen on
-                        2017-11-30
+                        Posted by yueLng on
+                        2018-02-16
                     </span>
                 </div>
             </div>
@@ -197,38 +197,9 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>不谋万世者，不足以谋一时；不谋全局者，不足以谋一隅</p>
-<h2 id="Monitor-your-data"><a href="#Monitor-your-data" class="headerlink" title="Monitor your data"></a>Monitor your data</h2><p>作为程序员，我们开发一个后台服务，大家有没有测试过以下数据</p>
-<ul>
-<li>这个服务能够承受多少的 QPS（每秒访问量）？</li>
-<li>平均响应时间和 99% 的响应时间是多少？</li>
-<li>如果服务器压力增加，我们能不能通过简单的加机器来解决，需要加多少台机器？</li>
-<li>当前线上服务瓶颈在哪里？</li>
-<li>按当前的增长速度，多久我们得需要加机器？</li>
-</ul>
-<p>技术关注点在于系统 QPS 和 TPS 以及特殊日期的 PV 倍数对系统的挑战，压测模型的建立和全链路压测等，数据驱动的一种做法便是在开发阶段编写的代码中放入很多小的探针，从而使你更加了解你的代码到底行不行。<a href="http://newrelic.com/" target="_blank" rel="external">New Relic</a>这家公司便是这么做的。</p>
-<a id="more"></a>
-<h2 id="数据指导产品"><a href="#数据指导产品" class="headerlink" title="数据指导产品"></a>数据指导产品</h2><ul>
-<li>验证想法<br>新的互联网产品，不是靠用户调研或数据分析。很多产品的第一版在于创始人的想法，如果创始人经验丰富，那么很可能产品对了7分，错了3分。另外那3分的错误假设，可以在产品上线后迅速通过数据来验证，从而迭代修正这些假设。</li>
-<li>数据直觉<br>从日志系统清洗过后得到数据相当于一张张报表，首先必须知道你想知道些什么信息，例如使用该产品的用户年龄段，培养数据直觉，发现这些数据中的规律，把握好产品对用户的迎合度。所以产品人经常关注的是PV/UV/GMV等商业指数以及留存率，活跃时长等细粒度指标。</li>
-</ul>
-<h2 id="性能分析与监控"><a href="#性能分析与监控" class="headerlink" title="性能分析与监控"></a>性能分析与监控</h2><p>页面加载性能分析，首先需要拿到数据，拿到数据需要我们在程序内部打点，对于统计脚本需要满足两个条件</p>
-<ul>
-<li>避免对业务代码的入侵；</li>
-<li>不影响被测量的页面的性能；<br>针对第 1 个要求，需要开发独立的统计脚本，避免其与现有的框架耦合，方便移植到其他项目；而针对第 2 个要求，需要在主文档加载完毕之后，再注入统计脚本收集数据，并且尽可能的合并数据请求，减少带宽消耗。</li>
-</ul>
-<p>确定了数据统计脚本的约束条件之后，我们从哪里得到这些数据呢？目前使用的主要途径有：</p>
-<ul>
-<li>主文档加载速度，利用 Navigation Timing API 取得；</li>
-<li>静态资源加载速度，利用 Resource Timing API 取得；</li>
-<li>首次渲染速度，IE 下用 msFirstPaint 取得，Chrome 下利用 loadTimes 取得，我们的 Chrome 浏览器用户占比超过 70%；</li>
-<li>文档生成速度，则是在后端应用内打点来获得；</li>
-</ul>
-<p>最终形成一站式的性能数据收集、计算、存储和展示服务，如下图来自美团性能监控基础架构<br><img src="/img/platform-architecture.png"></p>
-<h2 id="参考内容"><a href="#参考内容" class="headerlink" title="参考内容"></a>参考内容</h2><ol>
-<li><a href="http://blog.devtang.com/blog/2015/09/02/why-we-need-monitor-data/" target="_blank" rel="external">数据的秘密（上）- 为什么要关注数据</a></li>
-<li><a href="http://tech.meituan.com/performance-framework-and-platform.html" target="_blank" rel="external">美团性能分析框架和性能监控平台</a></li>
-</ol>
+                <p>权利的游戏，纸牌屋，星球大战 西比厄斯对权利的攫取，利用战争来确定自身的权利，所以权利需要好的叙事来支撑(这里想到电影至暗时刻中丘吉尔的演讲)，语言的力量体现在引导民众心理的能力。</p>
+<p>谣言如何传播，他们相信的并不是谣言本身，而是对无序局面的一种恐惧。他们认为在无序中有一切恐惧的可能。正如同恐慌、谣言易于传播一样，也要看到勇气的力量，就好像只有在至黑的环境，再小的微光也能激发人们内心的希望，这这微光正是人类赖以生存的东西。《动物农场》《蝇王》马基雅维利</p>
+<p>德鲁克提出了他的洞见，并非法西斯主义的宣传工具无比高效，让“群众被法西斯的宣传麻醉了”对极权主义声音的警觉，热衷于各种“意识形态”的蛊惑。而是极权主义的另一套机制，事实上让其拥护者从精神(平等感)和物质(“充分”就业)两方面获得了实在的利益。这也是所有极权主义统治下的人们眼睁睁地看着他人无法抗拒地被剥夺一切时，对其保持缄默的原因。所以集权主义并不是凭空产生，而是民众需要这样这样的一种集权主义来满足他们的利益，民众才是集权主义的主要推手。《经济人的末日-极权主义的起源》一个观点。经济的衰退才是极权主义起源的根源（二战），生存才是终极意义，这里又可以讲到马洛斯需求。</p>
 
 
                 <hr>
@@ -237,13 +208,9 @@
 
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/2017/11/30/distributed_system/study_rpc/" data-toggle="tooltip" data-placement="top" title="RPC远程过程调用">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/2017/11/30/collection/source_all/" data-toggle="tooltip" data-placement="top" title="常用的资源">Next Post &rarr;</a>
+                            <a href="/2018/02/12/computer_science/topic/" data-toggle="tooltip" data-placement="top" title="Some topic about computer science">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -290,7 +257,7 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#product" title="product">product</a>
+                          <a class="tag" href="/tags/#social_science" title="social_science">social_science</a>
                         
                     </div>
                 </section>
@@ -320,8 +287,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "tamchen";
-    var disqus_identifier = "http://yuelng.github.io/2017/11/30/puduct/study_monitor/";
-    var disqus_url = "http://yuelng.github.io/2017/11/30/puduct/study_monitor/";
+    var disqus_identifier = "http://yuelng.github.io/2018/02/16/social_science/social/";
+    var disqus_url = "http://yuelng.github.io/2018/02/16/social_science/social/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
