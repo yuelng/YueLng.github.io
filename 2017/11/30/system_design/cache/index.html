@@ -96,14 +96,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -197,7 +197,10 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h3 id="LRU-cache"><a href="#LRU-cache" class="headerlink" title="LRU cache"></a>LRU cache</h3><p>Least Recently Used（LRU） in order to achieve fast lookup and make insert/delete fast, we use queue implemented by a doubly linked list to store all the resources. Also, a hash table with resource identifier as key and address of the corresponding queue node as value is needed.</p>
+                <blockquote>
+<p>计算机访问数据经常会呈现出局部性原理，局部性原理又包括空间局部性和时间局部性。空间局部性就是说，计算机访问数据，而其存储在邻近的数据也经常会被访问。时间局部性就是说，在相对的一小段时间内，计算机经常会访问相同的数据。</p>
+</blockquote>
+<h3 id="LRU-cache"><a href="#LRU-cache" class="headerlink" title="LRU cache"></a>LRU cache</h3><p>Least Recently Used（LRU） in order to achieve fast lookup and make insert/delete fast, we use queue implemented by a doubly linked list to store all the resources. Also, a hash table with resource identifier as key and address of the corresponding queue node as value is needed.</p>
 <h3 id="Eviction-plicy"><a href="#Eviction-plicy" class="headerlink" title="Eviction plicy"></a>Eviction plicy</h3><ol>
 <li>Random Replacement (RR) </li>
 <li>Least frequently used (LFU) </li>

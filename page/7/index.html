@@ -96,14 +96,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -307,29 +307,6 @@ Hackintosh简介与法律问题Hackintosh是在非苹果硬件上安装运行苹
 
 <div class="post-preview">
 
-    <a href="/2017/03/30/computer_science/algorithm/">
-        <h2 class="post-title">
-            算法
-        </h2>
-        <h3 class="post-subtitle">
-             "算法"
-        </h3>
-        <div class="post-content-preview">
-            
-递归与分治策略一个直接或间接地调用自身的算法称为递归算法。分治算法的模式如下：
-12345678910Divide_and_Conquer(P)&#123;    if(|P|&lt;=n0)    Adhoc(P);//Adhoc(P)是基本子算法    divide P into smaller subinstances    P1,P2,...,Pk    for(i=1;i&lt;......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2017-03-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
     <a href="/2017/03/30/operation/basic_oprate/">
         <h2 class="post-title">
             记录常用的配置
@@ -344,6 +321,28 @@ Hackintosh简介与法律问题Hackintosh是在非苹果硬件上安装运行苹
 
 总共分为球员版player，管理员admin，用户user，统计stats，网页web，五个部分
 项目之间的关系：五个部分全都是基于tornado API项目开发......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2017-03-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/03/30/computer_science/network/">
+        <h2 class="post-title">
+            计算机网络
+        </h2>
+        <h3 class="post-subtitle">
+             "计算机网络"
+        </h3>
+        <div class="post-content-preview">
+            TCP四次挥手过程
+TCP是面向连接的服务；三次握手（建立连接）和四次挥手（关闭连接）；使用滑动窗口机制进行流量控制；TCP要保证在所有可能的情况下使得所有的数据都能够被投递，当你关闭一个socket时，主动关闭一端的socket将进入TIME_WAIT状态，而被动关闭一方则转入CLOSED状态，这的确能够保证所有的数据都被传输。1）首先A B端的TCP进程都处于established状态，......
         </div>
     </a>
     <p class="post-meta">
@@ -381,30 +380,6 @@ Mac OS本身自带ruby在系统目录 /System/Library/Frameworks/Ruby.framework/
 
 <div class="post-preview">
 
-    <a href="/2017/03/30/framework/tornado/">
-        <h2 class="post-title">
-            Tornado Pyhton web框架介绍
-        </h2>
-        <h3 class="post-subtitle">
-             "tornado为何这么快"
-        </h3>
-        <div class="post-content-preview">
-            ##Tornado直接读代码
-简介FriendFeed使用了一款使用Python编写的，相对简单的非阻塞式Web服务器。它的特点在于非阻塞服务器和epoll的运用，这个Web框架还包含了一些相关的有用工具和优化。
-以下是经典的“Hello, world”示例：
-123456789101112131415import tornado.ioloopimport tornado.webclass ......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2017-03-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
     <a href="/2017/03/30/distributed_system/engineering/">
         <h2 class="post-title">
             后端代码工程
@@ -423,6 +398,29 @@ Mac OS本身自带ruby在系统目录 /System/Library/Frameworks/Ruby.framework/
 命令行选项和参数值具有最高优先级，可以override前两层的配置项值。
 
 错误处理golang内置两种错误处理方式，error与panic，error是逻辑上程序可控制可预见的错误，而panic则相对于error是比较严重的错误。在通常的项......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2017-03-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/03/30/computer_science/algorithm/">
+        <h2 class="post-title">
+            算法
+        </h2>
+        <h3 class="post-subtitle">
+             "算法"
+        </h3>
+        <div class="post-content-preview">
+            
+递归与分治策略一个直接或间接地调用自身的算法称为递归算法。分治算法的模式如下：
+12345678910Divide_and_Conquer(P)&#123;    if(|P|&lt;=n0)    Adhoc(P);//Adhoc(P)是基本子算法    divide P into smaller subinstances    P1,P2,...,Pk    for(i=1;i&lt;......
         </div>
     </a>
     <p class="post-meta">
@@ -476,13 +474,11 @@ Mac OS本身自带ruby在系统目录 /System/Library/Frameworks/Ruby.framework/
                             
                         
                             
-                            <a href="/tags/#computer_science" title="computer_science" rel="6">computer_science</a>
-                            
-                        
-                            
                             <a href="/tags/#collection" title="collection" rel="5">collection</a>
                             
                         
+                            
+                            <a href="/tags/#computer_science" title="computer_science" rel="6">computer_science</a>
                             
                         
                             
@@ -491,6 +487,8 @@ Mac OS本身自带ruby在系统目录 /System/Library/Frameworks/Ruby.framework/
                         
                             
                             <a href="/tags/#distribution_system" title="distribution_system" rel="16">distribution_system</a>
+                            
+                        
                             
                         
                             
@@ -526,9 +524,9 @@ Mac OS本身自带ruby在系统目录 /System/Library/Frameworks/Ruby.framework/
                             
                         
                             
-                            <a href="/tags/#reading" title="reading" rel="2">reading</a>
-                            
                         
+                            
+                            <a href="/tags/#reading" title="reading" rel="2">reading</a>
                             
                         
                             

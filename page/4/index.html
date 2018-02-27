@@ -96,14 +96,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -261,27 +261,6 @@
 
 <div class="post-preview">
 
-    <a href="/2017/12/12/distributed_system/mq/">
-        <h2 class="post-title">
-            消息队列
-        </h2>
-        <h3 class="post-subtitle">
-             "消息队列"
-        </h3>
-        <div class="post-content-preview">
-            kafka问题描述：kafka 重复消费的问题，每次重启服务，都从broker拉取offset，拉到旧的消息解决：消费者每次从broker拉取数据，消费之后都会自动commit，自动commit有一个定时机制，但是并不保证一定提交成功，例如在commit的时候，程序崩溃（例如重启的情况在重启后，消费者会拉取最新的offset作为消费的起点，sarama默认的initial offset 为O......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2017-12-12
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
     <a href="/2017/12/12/distributed_system/trace/">
         <h2 class="post-title">
             分布式系统追踪
@@ -304,6 +283,27 @@
 
 
 入库消息的结构组成，traceID、层级表示、调用方法、调用时......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2017-12-12
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/12/12/distributed_system/mq/">
+        <h2 class="post-title">
+            消息队列
+        </h2>
+        <h3 class="post-subtitle">
+             "消息队列"
+        </h3>
+        <div class="post-content-preview">
+            kafka问题描述：kafka 重复消费的问题，每次重启服务，都从broker拉取offset，拉到旧的消息解决：消费者每次从broker拉取数据，消费之后都会自动commit，自动commit有一个定时机制，但是并不保证一定提交成功，例如在commit的时候，程序崩溃（例如重启的情况在重启后，消费者会拉取最新的offset作为消费的起点，sarama默认的initial offset 为O......
         </div>
     </a>
     <p class="post-meta">
@@ -347,7 +347,10 @@
              "缓存系统的设计"
         </h3>
         <div class="post-content-preview">
-            LRU cacheLeast Recently Used（LRU） in order to achieve fast lookup and make insert/delete fast, we use queue implemented by a doubly linked list to store all the resources. Also, a hash table with r......
+            
+计算机访问数据经常会呈现出局部性原理，局部性原理又包括空间局部性和时间局部性。空间局部性就是说，计算机访问数据，而其存储在邻近的数据也经常会被访问。时间局部性就是说，在相对的一小段时间内，计算机经常会访问相同的数据。
+
+LRU cacheLeast Recently Used（LRU） in order to achieve fast lookup and make insert/dele......
         </div>
     </a>
     <p class="post-meta">
@@ -413,20 +416,19 @@ Raft 使用的是 Log Replication + State Machine 的方式来处理分布式数
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/collection/plan/">
+    <a href="/2017/11/30/computer_science/study_flooding/">
         <h2 class="post-title">
-            TODO集合
+            SYN洪泛攻击的原理与实现
         </h2>
         <h3 class="post-subtitle">
-             "来不及整理的就放在这吧"
+            
         </h3>
         <div class="post-content-preview">
-            大纲数据库系统、分布式系统、数据科学
-待看文章#程序员的自我修养《程序员的自我修养》链接、装载与库2017年4月30日星期日在golang1.8中使用插件https://github.com/vladimirvivien/go-plugin-examplehttps://medium.com/learning-the-go-programming-language/writing-modul......
+            设计原理SYN-Flood是目前最流行的DDoS攻击手段，DDoS只是洪水攻击的一个种类。其实还有其它种类的洪水攻击。以前的DoS手段在向分布式这一阶段发展的过程中也经历了逐步淘汰的过程。SYN-Flood的攻击效果最好，故众黑客不约而同选择它。以下了解一下SYN-Flood的详细情况。Syn Flood利用了TCP/IP协议的固有漏洞。面向连接的TCP三次握手是Syn Flood存在的基础......
         </div>
     </a>
     <p class="post-meta">
-        Posted by yueLng on
+        Posted by YueLng Chen on
         2017-11-30
     </p>
 
@@ -476,13 +478,11 @@ Raft 使用的是 Log Replication + State Machine 的方式来处理分布式数
                             
                         
                             
-                            <a href="/tags/#computer_science" title="computer_science" rel="6">computer_science</a>
-                            
-                        
-                            
                             <a href="/tags/#collection" title="collection" rel="5">collection</a>
                             
                         
+                            
+                            <a href="/tags/#computer_science" title="computer_science" rel="6">computer_science</a>
                             
                         
                             
@@ -491,6 +491,8 @@ Raft 使用的是 Log Replication + State Machine 的方式来处理分布式数
                         
                             
                             <a href="/tags/#distribution_system" title="distribution_system" rel="16">distribution_system</a>
+                            
+                        
                             
                         
                             
@@ -526,9 +528,9 @@ Raft 使用的是 Log Replication + State Machine 的方式来处理分布式数
                             
                         
                             
-                            <a href="/tags/#reading" title="reading" rel="2">reading</a>
-                            
                         
+                            
+                            <a href="/tags/#reading" title="reading" rel="2">reading</a>
                             
                         
                             
