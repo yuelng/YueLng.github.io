@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+          一些有用的资源 - YueLng的博客 | YueLng&#39;s Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://yuelng.github.io/2018/01/18/collection/somesource/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <!-- Font CSS -->
+    <link rel="stylesheet" href="/css/font.min.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">YueLng&#39;s Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archives/">Archives</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    
+<!-- Image to hack wechat -->
+<!-- <img src="http://yuelng.github.io/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('http://ogcxtlv6r.bkt.clouddn.com/17-12-16/89744702.jpg')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/tags/#collection" title="collection">collection</a>
+                        
+                    </div>
+                    <h1>一些有用的资源</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by YueLng Chen on
+                        2018-01-18
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <p>平时在网上闲逛，看到一些可能会有用的一些资源记录在此</p>
+<ol>
+<li>计算机领域论文集合 <a href="https://github.com/papers-we-love/papers-we-love" target="_blank" rel="external">GitHub - papers-we-love/papers-we-love: Papers from the computer science community to read and discuss.</a> </li>
+<li>分布式资料 <a href="https://github.com/ty4z2008/Qix/blob/master/ds.md" target="_blank" rel="external">Qix/ds.md at master · ty4z2008/Qix · GitHub</a> </li>
+<li>程序员必知必会<a href="https://github.com/mr-mig/every-programmer-should-know" target="_blank" rel="external">GitHub - mr-mig/every-programmer-should-know: A collection of (mostly) technical things every software developer should know</a></li>
+</ol>
+<h2 id="资源"><a href="#资源" class="headerlink" title="资源"></a>资源</h2><ol>
+<li><a href="https://www.youtube.com/channel/UCLiAl_5hNOMQdeN0safxV6Q" target="_blank" rel="external">Asta Xie - YouTube</a> golang YouTube视频<br><a href="https://sspai.com/" target="_blank" rel="external">少数派 - 高品质数字消费指南</a></li>
+</ol>
+<h2 id="阅读"><a href="#阅读" class="headerlink" title="阅读"></a>阅读</h2><ol>
+<li><a href="https://twitter.com/" target="_blank" rel="external">https://twitter.com/</a>  推特</li>
+<li><a href="http://reader.one/" target="_blank" rel="external">http://reader.one/</a>  hacknews</li>
+<li>onetab    pocket   松鼠症🐿</li>
+<li><a href="https://gocn.io/" target="_blank" rel="external">Go 技术社区 - golang</a>  golang 社区</li>
+<li><a href="https://wanqu.co/" target="_blank" rel="external">https://wanqu.co/</a> 湾区日报</li>
+<li><a href="https://digests.dylanninin.com/" target="_blank" rel="external">https://digests.dylanninin.com/</a>  </li>
+<li><a href="http://hozin.com/" target="_blank" rel="external">HoZiN | 产品思维<em>信息架构</em>交互设计</a> 产品方向<br><a href="http://www.pmcaff.com/" target="_blank" rel="external">社区 - PMCAFF产品经理社区 中国第一产品经理人气组织::专注于研究互联网产品</a><br><a href="http://www.woshipm.com/" target="_blank" rel="external">人人都是产品经理 | 产品经理、产品爱好者学习交流平台</a><br><a href="https://medium.economist.com/" target="_blank" rel="external">The Economist</a><br><a href="http://www.geeksforgeeks.org/" target="_blank" rel="external">GeeksforGeeks | A computer science portal for geeks</a></li>
+</ol>
+<h2 id="技术类"><a href="#技术类" class="headerlink" title="技术类"></a>技术类</h2><p><a href="https://increment.com/development/" target="_blank" rel="external">Increment issue 3: Development</a></p>
+<h2 id="常去的网站"><a href="#常去的网站" class="headerlink" title="常去的网站"></a>常去的网站</h2><ol>
+<li><a href="https://wanqu.co/issues?s=top" target="_blank" rel="external">湾区日报</a></li>
+<li><a href="http://toutiao.io/account/subscriptions" target="_blank" rel="external">开发者头条</a></li>
+<li><a href="http://memect.com/" target="_blank" rel="external">好东西传送门</a></li>
+<li><a href="http://weekly.pychina.org/" target="_blank" rel="external">蟒周刊</a></li>
+<li><a href="http://news.dbanotes.net/news" target="_blank" rel="external">国内hackernews</a></li>
+<li><a href="https://www.quora.com/" target="_blank" rel="external">quora</a></li>
+<li><a href="https://news.ycombinator.com/" target="_blank" rel="external">hackernews ycombinator</a></li>
+<li><a href="https://github.com/" target="_blank" rel="external">github</a></li>
+<li><a href="https://medium.com/" target="_blank" rel="external">medium</a></li>
+<li><a href="https://ruby-china.org/" target="_blank" rel="external">ruby-china</a></li>
+<li><a href="http://www.geeksforgeeks.org/" target="_blank" rel="external">geeksforgeeks</a></li>
+<li><a href="https://tianrunhe.wordpress.com/" target="_blank" rel="external">面试题目</a></li>
+<li><a href="http://www.algorithmist.com/index.php/Main_Page" target="_blank" rel="external">algorithmist</a></li>
+<li><a href="http://noexcuselist.com/" target="_blank" rel="external">noexcuselist</a></li>
+<li><a href="http://tryruby.org/levels/2/challenges/1" target="_blank" rel="external">tryruby</a></li>
+<li><a href="http://www.tutorialspoint.com/" target="_blank" rel="external">tutorialspoint</a><br>开发者应该去的十个网站</li>
+</ol>
+<h2 id="工具集"><a href="#工具集" class="headerlink" title="工具集"></a>工具集</h2><ol>
+<li><a href="http://www.cheatography.com/" target="_blank" rel="external">Cheatography</a>：一家可以查看N多cheatsheet的网站。</li>
+<li><a href="http://ondras.zarovi.cz/sql/demo/" target="_blank" rel="external">ondras</a>：在线可视化设计图标，可生成sql(mysql)</li>
+<li><a href="https://www.zybuluo.com/mdeditor" target="_blank" rel="external">zybuluo</a>在线编辑markdown</li>
+<li><a href="http://bluereader.org/" target="_blank" rel="external">深蓝阅读</a>圈内人做的专注于内容订阅，可订阅RSS或任意网站链接等，一切你关心的皆可订阅。</li>
+</ol>
+<h2 id="资料"><a href="#资料" class="headerlink" title="资料"></a>资料</h2><p>1.<a href="http://mirror.bjtu.edu.cn/cn/" target="_blank" rel="external">北京交通大学的镜像</a> archlinux, debian, fedora, xpud, tldp, apache, GNU, gimp, kde, ctan, eclipse, rpmfusion, linux kernel 以及 ubuntu 的官方镜像.</p>
+<h2 id="数据挖掘"><a href="#数据挖掘" class="headerlink" title="数据挖掘"></a>数据挖掘</h2><p>1.<a href="http://cn.soulmachine.me/blog/20100528/" target="_blank" rel="external">基于朴素贝叶斯的文本分类算法</a> 常用的文本分类方法有支持向量机、K-近邻算法和朴素贝叶斯。其中朴素贝叶斯具有容易实现，运行速度快的特点，被广泛使用。本文详细介绍了朴素贝叶斯的基本原理，讨论了两种常见模型：多项式模型（MM）和伯努利模型（BM），实现了可运行的代码，并进行了一些数据测试。</p>
+<p>2.<a href="http://www.threedweb.cn/article-12-1.html" target="_blank" rel="external">scikit-learn文本挖掘系统学习</a><br>scikit-learn文本挖掘系统学习</p>
+
+
+                <hr>
+
+                
+
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2018/01/18/computer_science/study_server/" data-toggle="tooltip" data-placement="top" title="服务器端编程基础积累">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/2018/01/18/collection/source_all/" data-toggle="tooltip" data-placement="top" title="常用的资源">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                
+
+                
+                <!-- disqus 评论框 start -->
+                <div class="comment">
+                    <div id="disqus_thread" class="disqus-thread"></div>
+                </div>
+                <!-- disqus 评论框 end -->
+                
+
+            </div>
+    <!-- Side Catalog Container -->
+        
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+        
+
+    <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#collection" title="collection">collection</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="http://blog.kaijun.rocks" target="_blank">Kaijun&#39;s Blog</a></li>
+                    
+                </ul>
+                
+            </div>
+
+        </div>
+    </div>
+</article>
+
+
+
+
+<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "tamchen";
+    var disqus_identifier = "http://yuelng.github.io/2018/01/18/collection/somesource/";
+    var disqus_url = "http://yuelng.github.io/2018/01/18/collection/somesource/";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus 公共JS代码 end -->
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/tam7_penicillus">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/tamchen">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://www.facebook.com/chen.penicillus">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/YueLng">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; YueLng&#39;s Blog 2018
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a>
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span>
+                    Ported by <a href="http://blog.kaijun.rocks">Kaijun</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=kaijun&repo=hexo-theme-huxblog&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--
+     Because of the native support for backtick-style fenced code blocks
+     right within the Markdown is landed in Github Pages,
+     From V1.6, There is no need for Highlight.js,
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://yuelng.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-67304654-1';
+    var _gaDomain = 'yuelng.github.io';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- Side Catalog -->
+
+<script type="text/javascript">
+    function generateCatalog (selector) {
+        var P = $('div.post-container'),a,n,t,l,i,c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#"+$(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="'+i+'" rel="nofollow">'+t+'</a>');
+            l = $('<li class="'+n+'_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    // toggle side catalog
+    $(".catalog-toggle").click((function(e){
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    /*
+     * Doc: https://github.com/davist11/jQuery-One-Page-Nav
+     * Fork by Hux to support padding
+     */
+    async("/js/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+
+
+<!-- Image to hack wechat -->
+<img src="http://yuelng.github.io/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

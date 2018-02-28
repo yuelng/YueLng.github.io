@@ -70,7 +70,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">Less is more</a>
+            <a class="navbar-brand" href="/">YueLng&#39;s Blog</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -103,14 +103,14 @@
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
@@ -159,9 +159,9 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
                 <div class="site-heading">
-                    <h1>Less is more</h1>
+                    <h1>YueLng&#39;s Blog</h1>
                     <!--<hr class="small">-->
-                    <span class="subheading">Explore in every moment of the cudgel thinking!</span>
+                    <span class="subheading">To Infinity And Beyond!</span>
                 </div>
             </div>
         </div>
@@ -190,20 +190,27 @@
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/computer_science/study_flooding/">
+    <a href="/2018/01/15/framework/grpc/">
         <h2 class="post-title">
-            SYN洪泛攻击的原理与实现
+            深入了解gRPC
         </h2>
         <h3 class="post-subtitle">
-            
+             "grpc"
         </h3>
         <div class="post-content-preview">
-            设计原理SYN-Flood是目前最流行的DDoS攻击手段，DDoS只是洪水攻击的一个种类。其实还有其它种类的洪水攻击。以前的DoS手段在向分布式这一阶段发展的过程中也经历了逐步淘汰的过程。SYN-Flood的攻击效果最好，故众黑客不约而同选择它。以下了解一下SYN-Flood的详细情况。Syn Flood利用了TCP/IP协议的固有漏洞。面向连接的TCP三次握手是Syn Flood存在的基础......
+            gRPC是基于HTTP/2协议的，要想了解gRPC，就需要理解HTTP/2协议
+HTTP/1.x 的问题
+
+Parser 1.x是基于文本协议的，对机器并不友好，所以读取HTTP header 会耗费性能
+Request/Response 1.x 一问一答的固定交互模式，必须等待连接返回，因此网络连接效率不高
+push 推送一般用Long polling或者websocket
+
+HTTP/2......
         </div>
     </a>
     <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
+        Posted by yueLng on
+        2018-01-15
     </p>
 
 </div>
@@ -211,7 +218,104 @@
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/distributed_system/study_rpc/">
+    <a href="/2018/01/10/distributed_system/transaction/">
+        <h2 class="post-title">
+            分布式事务架构的演进
+        </h2>
+        <h3 class="post-subtitle">
+             "分布式事务"
+        </h3>
+        <div class="post-content-preview">
+            概述从单机数据库事务到分布式事务的解决办法
+单数据库事务基于后置提交的多数据库事务基于两段提交的多数据事务TCC事务最终一致性参考资料
+以交易系统为例，看分布式事务架构的五大演进
+
+...
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2018-01-10
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2018/01/04/project/block_chain/">
+        <h2 class="post-title">
+            比特币-区块链
+        </h2>
+        <h3 class="post-subtitle">
+             "区块链与比特币"
+        </h3>
+        <div class="post-content-preview">
+            
+广义来讲，区块链技术是利用块链式数据结构来验证与存储数据、利用分布式节点共识算法来生成和更新数据、利用密码学的方式保证数据传输和访问的安全、利用由自动化脚本代码组成的智能合约来编程和操作数据的一种全新的分布式基础架构与计算范式。简单来说，区块链就是一种去中心化的分布式账本数据库。
+​                                                —— 《中国......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2018-01-04
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2018/01/02/thinking/think_master_performance/">
+        <h2 class="post-title">
+            编程之路—性能与优化
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            编程之路
+编程规范
+函数式编程
+性能与优化
+单元测试
+
+概念定义...
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2018-01-02
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2018/01/02/operation/devops/">
+        <h2 class="post-title">
+            DevOps
+        </h2>
+        <h3 class="post-subtitle">
+             "devops"
+        </h3>
+        <div class="post-content-preview">
+            docker-gitlab
+...
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2018-01-02
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2018/01/02/distributed_system/study_rpc/">
         <h2 class="post-title">
             RPC远程过程调用
         </h2>
@@ -227,7 +331,7 @@ RPC调用分类
     </a>
     <p class="post-meta">
         Posted by YueLng Chen on
-        2017-11-30
+        2018-01-02
     </p>
 
 </div>
@@ -235,26 +339,21 @@ RPC调用分类
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/thinking/study_software/">
+    <a href="/2018/01/02/distributed_system/study_distribute/">
         <h2 class="post-title">
-            团队项目开发与规范
+            关于Log在分布式系统中的应用以及未来
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            计算机专业的三个维度
-
-基础体系，基础理论、算法与架构
-工程，业界常用方法，实际项目，开源项目
-前沿与未来，保持对新技术的灵敏度，论文
-
-个人理解团队是因为有相同的目标才聚集在一起，所有在做一个项目的开始，要让所有成员认同项目的前景。团队的大小个人认为最多20个人。虽然说很有必要保证规范化，但是我认为按部就班只能扼杀人的创造力，但是一些的必要的流程规范还是要的，也就是下面说的开发流程规范，有......
+            The Log&emsp;&emsp;有一段时间被一篇称为学习笔记：The Log（我所读过的最好的一篇分布式技术文章）所刷屏，各大技术文章推荐APP和微信都推荐了这篇文章，来自于LinkedIn关于kafka的文章，核心如题—The Log。（你可以把这节看成对这篇文章的缩减）
+（一）log由来、重要性、应用&emsp;&emsp;对于任何一项新技术都会先抛出三个问题what？why？ho......
         </div>
     </a>
     <p class="post-meta">
         Posted by YueLng Chen on
-        2017-11-30
+        2018-01-02
     </p>
 
 </div>
@@ -262,143 +361,22 @@ RPC调用分类
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/devops/study_environment/">
+    <a href="/2018/01/02/codeing/reverie/">
         <h2 class="post-title">
-            基础服务环境搭建
+            如何写好代码
         </h2>
         <h3 class="post-subtitle">
-            
+             "how coding"
         </h3>
         <div class="post-content-preview">
-            这篇文章主要是针对大数据平台的搭建，主要包括的内容有
-
-vagrant虚拟机环境搭建
-Hadoop集群搭建
-memcached集群搭建
-storm集群搭建一些架构可行的架构：Flume + Kafka + Strom + Hbase 使用vagrant搭建系统安装上 http://www.vagrantbox.es/ 找下载需要的 box ， 譬如 Ubuntu 14.10（based on......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/collection/source_all/">
-        <h2 class="post-title">
-            常用的资源
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            计算机科学1.谷歌推荐的技术能力提升指南CS课程入门、了解其他语言、测试代码、培养逻辑推理和学习数学离散知识、深刻理解操作系统、学习UX设计、学习人工智能、学习如何构建编译器、了解密码学、并行编程、与其他程序员一起开发项目。2.hackr.ioShare and discover the best programming tutorials and courses online.3.图说设计......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/language/study_python/">
-        <h2 class="post-title">
-            python学习
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            Ubuntu下配置基本的Python开发环境安装Python发布版本和build依赖包
-/# 安装 Python 发布版本，dev包必须安装，很多用pip安装包都需要编译sudo apt-get install python2.7 python2.7-dev python3.4 python3.4-dev/#很多pip安装的包都需要libssl和libevent编译环境sudo apt-ge......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/codeing/study_coding/">
-        <h2 class="post-title">
-            勿在浮沙聚高塔
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            1.摘要今天看了新浪新兵训练营的一些资料，整理下关于程序员最基础的知识————关于编码主要内容包括，什么是烂代码，什么是好代码，好代码需要注意什么，如何做出优雅的设计，如何规划合理的架构编码主要是给人看的，其次才是给机器看的。
-2.关于烂代码写出烂代码很容易，入行时很容易被鼓吹要把主要精力放在ABCD（需求文档/功能设计/架构设计/理解原理）上，写代码只是实现想法的工具。在这样的指导思想下，......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/computer_science/study_algorithm/">
-        <h2 class="post-title">
-            相似距离算法
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            相似距离算法是推荐算法的一部分。
-一、EuclideanDistanceSimilarity: 欧氏距离相似度原理：利用欧式距离d定义的相似度s，s=1 / (1+d)。
-范围：[0,1]，值越大，说明d越小，也就是距离越近，则相似度越大。
-说明：同皮尔森相似度一样，该相似度也没有考虑重叠数对结果的影响，同样地，Mahout通过增加一个枚举类型（Weighting）的参数来使得重叠数也成为计......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/computer_science/study_server/">
-        <h2 class="post-title">
-            服务器端编程基础积累
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            UNIX I/O模型
-阻塞IO
-非阻塞IO
-IO多路复用
-信号驱动IO
-异步IO
-
-nginx模型操作系统的设计，因此可以归结为三点：（1）以多进程形式，允许多个任务同时运行；（2）以多线程形式，允许单个任务分成不同的部分运行；（3）提供协调机制，一方面防止进程之间和线程之间产生冲突，另一方面允许进程之间和线程之间共享资源。
+            writing efficient programsprogramming pearlsmore programming pearlsthe pragmatic programmingthe practice of programming
+编写可读代码的艺术
 ...
         </div>
     </a>
     <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
+        Posted by yueLng on
+        2018-01-02
     </p>
 
 </div>
@@ -406,24 +384,43 @@ nginx模型操作系统的设计，因此可以归结为三点：（1）以多�
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/system_design/system_design_question/">
+    <a href="/2017/12/18/puduct/startup/">
         <h2 class="post-title">
-            系统设计问题归总
+            创业
+        </h2>
+        <h3 class="post-subtitle">
+             "Startup company"
+        </h3>
+        <div class="post-content-preview">
+            cs183c 斯坦福创业课程-githubYC创业课中文社区YC创业课（CS183B）学习笔记
+...
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2017-12-18
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/12/16/puduct/experience/">
+        <h2 class="post-title">
+            产品、运营、推广
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            重点考察内容面向对象，接口设计，设计模式，数据库表，分布式
-关于高并发系统设计。主要有以下几个关键技术点：缓存，索引，数据分片，锁粒度尽可能小。
-系统设计相关
-Concurrency (threads, deadlock, starvation, consistency, coherence)
-Abstraction (understanding how OS, filesystem, an......
+            如何做运营第一，依据不同的产品发展阶段，或当前占据市场份额的大小来判定运营策略和运营规划如何制定；第二，依据不同的产品形态和业务类型，来判定运营策略和运营规划如何制定。
+产品的发展阶段大概分为探索期产品：上线时间不长，产品还在打磨，需求尚待验证，2011-2012年间的知乎、2010年的新浪微博，包括绝大多数上线时间在8个月以内的产品。快速增长期产品：需求已得到验证，初步拥有了一定市场份额，......
         </div>
     </a>
     <p class="post-meta">
         Posted by YueLng Chen on
-        2017-11-30
+        2017-12-16
     </p>
 
 </div>
@@ -522,9 +519,11 @@ Abstraction (understanding how OS, filesystem, an......
                             
                         
                             
+                            <a href="/tags/#reading" title="reading" rel="2">reading</a>
+                            
                         
                             
-                            <a href="/tags/#reading" title="reading" rel="2">reading</a>
+                            <a href="/tags/#social_science" title="social_science" rel="2">social_science</a>
                             
                         
                             
@@ -595,7 +594,7 @@ Abstraction (understanding how OS, filesystem, an......
 
                             
                                 <li>
-                                    <a target="_blank"  href="https://github.com/yuelng">
+                                    <a target="_blank"  href="https://github.com/YueLng">
                                         <span class="fa-stack fa-lg">
                                             <i class="fa fa-circle fa-stack-2x"></i>
                                             <i class="fa fa-github fa-stack-1x fa-inverse"></i>
@@ -671,7 +670,7 @@ Abstraction (understanding how OS, filesystem, an......
 
                 
                     <li>
-                        <a target="_blank"  href="https://github.com/yuelng">
+                        <a target="_blank"  href="https://github.com/YueLng">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa fa-github fa-stack-1x fa-inverse"></i>
@@ -684,7 +683,7 @@ Abstraction (understanding how OS, filesystem, an......
 
                 </ul>
                 <p class="copyright text-muted">
-                    Copyright &copy; Less is more 2018
+                    Copyright &copy; YueLng&#39;s Blog 2018
                     <br>
                     Theme by <a href="http://huangxuan.me">Hux</a>
                     <span style="display: inline-block; margin: 0 5px;">

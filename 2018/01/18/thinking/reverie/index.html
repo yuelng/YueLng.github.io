@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+          reverie - YueLng的博客 | YueLng&#39;s Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://yuelng.github.io/2018/01/18/thinking/reverie/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <!-- Font CSS -->
+    <link rel="stylesheet" href="/css/font.min.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">YueLng&#39;s Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archives/">Archives</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    
+<!-- Image to hack wechat -->
+<!-- <img src="http://yuelng.github.io/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('http://ogcxtlv6r.bkt.clouddn.com/18-1-5/8764316.jpg')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/tags/#thinking" title="thinking">thinking</a>
+                        
+                    </div>
+                    <h1>reverie</h1>
+                    <h2 class="subheading">遐思</h2>
+                    <span class="meta">
+                        Posted by YueLng Chen on
+                        2018-01-18
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <p>“The more that you read,the more things you will know.The more that you learn,the more places you’ll go.”  ― Dr. Seuss</p>
+<h3 id="从软件系统到业务认知水平"><a href="#从软件系统到业务认知水平" class="headerlink" title="从软件系统到业务认知水平"></a>从软件系统到业务认知水平</h3><p>我们先从软件系统的演进谈起，谈谈软件系统中的重要组成部分，然后聊聊工程师如何打造系统能力：它们和具体的功能无关 —— 如何使用各种工具和资源，建立一套体系，让软件能够正常运行和演进。这包括综合的软件开发和系统架构的能力，收集数据的能力，以及分析数据的能力，快速应对问题，进行决策和解决问题的能力，以及万金油 —— 什么都「略懂」的能力。</p>
+<p>然后，谈谈商业知识和业务知识业务的业务获取，比如说，你需要了解你的公司公司如何赚钱？如何获取用户？每个用户身上花费多少（UAC），能够赚多少钱（LTV）？ —— 这些知识，能够帮助你更好地撰写出有价值的软件，能够让你在价值链上越走越高。由于公司和公司的业务不同，在这里，我提出一些基础的概念，然后不断提出问题，不断引发你的思考，从而激发你问出更多的问题，并主动去寻找这些问题的答案，或者找到更好地解决方法。很多时候，问对问题，比寻找答案还要重要。</p>
+<h3 id="创造性思维的四则运算（-4-Functions-of-Arithmetic-for-Creative-Thought-4FACT-）-："><a href="#创造性思维的四则运算（-4-Functions-of-Arithmetic-for-Creative-Thought-4FACT-）-：" class="headerlink" title="创造性思维的四则运算（ 4 Functions of Arithmetic for Creative Thought, 4FACT ） ："></a>创造性思维的四则运算（ 4 Functions of Arithmetic for Creative Thought, 4FACT ） ：</h3><ul>
+<li>加法，即是创新内容的重复和叠加；</li>
+<li>减法，是将现有的惯例打破并弃置；</li>
+<li>乘法，是把事物的不同维度融解整合；</li>
+<li>除法，则是把复杂问题因式分解，提炼出其中的核心价值并加以重塑。</li>
+</ul>
+<ol>
+<li>减法+乘法：打破现有惯例，并将通过整合不同维度创造出最优路径<br>如何确立和提高自己的核心能力？<br>如何找到最能体现自己能力的职业？ </li>
+<li>减法+除法：把复杂问题进行分解，提取并解决核心矛盾<br>如何能让对方意识到我的价值？<br>感觉自己没有特长时应该如何凸显自己？</li>
+<li>加法＋减法+除法：提炼核心价值后将有效的内容进行重复与叠加<br>如何才能做到多才多艺？<br>如何才能最大化的应用时间和资源，真正地改变自己的生活和事业？</li>
+</ol>
+<h3 id="穷人和贫穷的本质"><a href="#穷人和贫穷的本质" class="headerlink" title="穷人和贫穷的本质"></a>穷人和贫穷的本质</h3><p>管窥效应，坐井观天长期处在匮乏稀缺状态下的人都会慢慢被环境所改变，而逐渐形成一种稀缺心态。<br>当稀缺心态俘获我们的注意力时，就会改变我们的思维方式，影响我们的决策和行为方式。而这里的稀缺不仅仅是缺钱，也有可能是缺时间、缺爱。<br>他一旦进入稀缺的状态，他就没法在业余时间提升自我也不愿意花钱去学习一项新的技能。<br>学习更多的技能才能在这个残酷的世界里生存，技多不压身。投资是实现自由相对公平的办法<br>『贫穷陷阱』是两位常年研究贫穷问题的美国麻省理工学院经济学教授，阿比吉特·班纳吉（印度）和埃斯特·迪费洛（法国），在《贫穷的本质》一书中提出的概念<br>只要你不能根据当下的资本净值存下更多的钱、继而进行投资，那么你的品质生活，便和食不果腹的穷人在粮食和巧克力间优先选择了巧克力一样，是一种虚妄。</p>
+<h3 id="关于复盘"><a href="#关于复盘" class="headerlink" title="关于复盘"></a>关于复盘</h3><p>通俗来说，复盘就是把当时「走」的过程重复多遍，并且主动思考为什么这么「走」，下一步应该如何设计，接下来的几步该怎么走。从棋阵来看，复盘是攻守结合的切磋，从心理战来看，能更好地对比双方的心理思维，最终总结出所谓的「套路」。当「套路」熟捻于心，就自然能达到高手的境界了<br>复盘的四步走，当时集体复盘时 叙述过程 尽量让所有都知道事件过程，这样才有讨论的基础，不要浪费时间在信息层面</p>
+<ol>
+<li>回顾目标：当初的目的或期望是什么；</li>
+<li>评估结果：和原定目标相比有哪些亮点和不足；</li>
+<li>分析原因：事情成功和失败的根本原因，包括主观和客观两方面；</li>
+<li>总结经验：需要实施哪些新举措，需要继续哪些措施，需要叫停哪些项目。</li>
+</ol>
+<h3 id="方法论"><a href="#方法论" class="headerlink" title="方法论"></a>方法论</h3><p>SMART原则：Specific（明确性）、Measurable（可衡量性）、Attainable（可达成性）、Relevant（相关性）和Time-bound（时限性）<br>个人独立：积极主动-自我领导、以终为始-个人愿景、要事第一-自我管理<br>团体：双赢思维-人际领导、知己知彼、统合综效<br>麦肯锡方法</p>
+<p>建立解决方案，分为三个步骤：1）以事实为基础 2）严格的结构化3）以假设为导向。<br>制定步骤，但是只要以事实为基础，模仿加创新，就会得出独一无二的解决办法。<br>重要的潜规则，</p>
+<ol>
+<li>8/2法则、抓住主要矛盾</li>
+<li>不要想把整个海洋煮沸，不要试图分析所有事，有所选择，排列事情的先后顺序Work harder、work smart</li>
+<li>发现关键驱动因素：关键人，关键事</li>
+<li>电梯测试，是否能用简单的话语来解释问题，并给出简要的解决方案，只有真正想清楚了，才能用最简单的话说出来</li>
+<li>先摘好摘的果子，就好像考试时先把所有有把握的题目做了。</li>
+<li>每天做一张图表。做好良好的时间规划和一天总结。静坐半小时问自己今天学到的三件最重要的事情是什么？制作成简易的三行两列表格，进入分析模式，想一想他们有没有意义，可以用在你的解决方案的什么地方。</li>
+<li>一个垒一个垒的打。你不可能把一切事情都做完，即时你设法做到了一次反而会引起周围人对你不切实际的期望，一旦你没有满足这种期望，要想重新赢得信任的困难的。不要期许再商业上总出现本垒打，你最好一个垒一个垒的打。</li>
+<li>hatever you think think bigger，关注大画面，要解决什么问题，该怎么去解决这个问题，已有的有利条件和不利条件，如何推进思路，为什么要去做</li>
+<li>对于没有把握的事，尽管说我不知道，不要不懂装懂</li>
+</ol>
+<h3 id="摘录"><a href="#摘录" class="headerlink" title="摘录"></a>摘录</h3><ul>
+<li><p>武则天当政时，一位大臣见她经常杀人，就向她提建议说：‘你这样杀人，谁还敢当官呀？’武则天听后不急不恼，只是让那大臣晚上再来一次。那大臣吓得不知所措，天威莫测呀。当天晚上，武则天让人在殿台上点了一把大火，黑暗中的飞蛾见火便纷纷飞来，结果飞来多少，就烧死多少，可还是不断地有飞蛾扑来。武则天笑着对那大臣说：‘这叫飞蛾扑火，自取灭亡，本性难移吧！’大臣立刻明白了武则天的用意。看来，只要有高官厚禄，要当官的人就会源源不断，哪里会杀得尽呢？</p>
+</li>
+<li><p>钱，放在百姓手里，放在士绅手里，嘉靖是收不上来的，不是不能收，而是当皇帝的不能盘剥天下。但是，钱要是放在贪官污吏手里，那就是随时都能收严嵩说得可对了，太平盛世刮百姓，百姓刮不起了刮商人，但是有一点他没说，那就是商人刮没了，就该刮贪官了。大明王朝1566 </p>
+</li>
+<li><p>看到朋友说 中国四大宽容：大过年的 人都死了 来都来了 都不容易  三七开 走了一点弯路 被一小撮人蒙蔽了 历史遗留问题</p>
+</li>
+<li><p>用对了人才是干大事的第一要义</p>
+</li>
+<li><p>一个故事离不开一个讲故事的人和一个听故事的人，还有他们同时所处的环境。</p>
+</li>
+<li><p>马基雅维利 <a href="http://www.iheima.com/zixun/2017/0712/164095.shtml" target="_blank" rel="external">权利的游戏为什么好看</a></p>
+</li>
+<li><p>“所以……其实若没有人，神也不复存在。若天下生灵安乐无忧，就没有人供奉乞求神灵。所以神的力量，并非无法赐予所有人安乐，只是不愿。所以神故意要控制所有人的命运，让他们求之不得，让他们痛失所爱，这样人才会向神乞求，才会认为他们得到的一切，都是神给予的，才会甘心去供奉？”</p>
+</li>
+<li><p>“真的么？神不贪，为何容不得一点儿对其不敬？神不恶，为何要将地上千万生灵命运，握于手中？”</p>
+</li>
+<li><p>《黑天鹅》的作者也倾向于阅读经典著作，视流行商业观点和《华尔街日报》之流为噪音。芒格喜欢阅读传记，他形容其为与人类历史上最牛逼的人对话。经常有着一种奇异的想法：同已故的伟人交朋友。</p>
+</li>
+<li><p>就像弗罗斯特(Robert Frost)在他最著名的诗《未选择的路》（The road not taken）里说的，“I took the one less traveled by, and that has made all the difference.”我选择了一条与众不同的道路，而这对我此生意义非凡。</p>
+</li>
+<li><p>这次投资让他尝到了甜头，他开始总结经验，同时读了很多书。其中对他影响最大的就是费舍的《怎样选择成长股》以及格雷厄姆的《聪明的投资者》。</p>
+</li>
+<li><p>“守正用奇”、“弱水三千，但取一瓢”、“桃李不言、下自成蹊”</p>
+</li>
+<li><p>冯子论语》是电子杂志《风马牛》中的一个动画栏目。《风马牛》于2006年创刊，其中由泰美时光动漫公司参与创意制作的《冯子论语》被誉为CEO必看动画。</p>
+</li>
+<li><p>任何时候不要把对方逼到无路可走，当对方无路可走的时候，你自己也就快要倒霉了。所谓的“穷寇莫追”也是这个道理吧</p>
+</li>
+<li><p>有一天姥爷回家吃饭的时候说有一个很穷的老街坊来看病，但是没钱拿药。 姥姥听了以后当时就给姥爷定了一个规矩，遇到看不起病的老街坊，能不要钱就不要钱了，连欠条都不要打，因为你让人家立了欠条，人家还不上，时间久了就会恨你，就会盼着你出事。</p>
+</li>
+<li><p>阅读使人充实，会谈使人敏捷，写作与笔记使人精确。史鉴使人明智，诗歌使人巧慧，数学使人精细，博物使人深沉，伦理之学使人庄重，逻辑与修辞使人善辩。</p>
+</li>
+<li><p>《毛选》开篇第一段：“谁是我们的敌人？谁是我们的朋友？这个问题是革命的首要问题。”这句话是什么意思呢？就是说无论你在做什么事时，都要首先搞清楚你的帮助力量以及你的敌对力量各是什么。世间万事能否办成，无非是力量的对比。削弱你的敌对，增加你的朋友，你想做的事自然就水到渠成了。</p>
+</li>
+<li><p>没有调查没有发言权</p>
+</li>
+<li><p>一定要明白，有些该做的事儿你大胆去做，得罪人是不可避免的，</p>
+</li>
+<li><p>做人不要磨叽</p>
+</li>
+<li><p>同样是离职，我认识的一个销售大哥是这么和我说的：“当时公司80%销售额是我做出来的，我走的时候老板差点气死，现在老头都退休在家了，十年过去了，听说上个月还在饭局上骂我不是东西呢，哈哈”。你看，就是这样，不是让你去和这老头儿怼，只是让你承认，你不论干得如何，这世界上总有人会觉得你不是东西。别怕结梁子，别磨叽，你讨好不了所有人的。所以说好人做人也要厉害一点，就是这个道理。</p>
+</li>
+</ul>
+
+
+                <hr>
+
+                
+
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2018/01/18/thinking/study_software/" data-toggle="tooltip" data-placement="top" title="团队项目开发与规范">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/2018/01/18/system_design/system_design_question/" data-toggle="tooltip" data-placement="top" title="系统设计问题归总">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                
+
+                
+                <!-- disqus 评论框 start -->
+                <div class="comment">
+                    <div id="disqus_thread" class="disqus-thread"></div>
+                </div>
+                <!-- disqus 评论框 end -->
+                
+
+            </div>
+    <!-- Side Catalog Container -->
+        
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+        
+
+    <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#thinking" title="thinking">thinking</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="http://blog.kaijun.rocks" target="_blank">Kaijun&#39;s Blog</a></li>
+                    
+                </ul>
+                
+            </div>
+
+        </div>
+    </div>
+</article>
+
+
+
+
+<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "tamchen";
+    var disqus_identifier = "http://yuelng.github.io/2018/01/18/thinking/reverie/";
+    var disqus_url = "http://yuelng.github.io/2018/01/18/thinking/reverie/";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus 公共JS代码 end -->
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/tam7_penicillus">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/tamchen">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://www.facebook.com/chen.penicillus">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/YueLng">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; YueLng&#39;s Blog 2018
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a>
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span>
+                    Ported by <a href="http://blog.kaijun.rocks">Kaijun</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=kaijun&repo=hexo-theme-huxblog&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--
+     Because of the native support for backtick-style fenced code blocks
+     right within the Markdown is landed in Github Pages,
+     From V1.6, There is no need for Highlight.js,
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://yuelng.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-67304654-1';
+    var _gaDomain = 'yuelng.github.io';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- Side Catalog -->
+
+<script type="text/javascript">
+    function generateCatalog (selector) {
+        var P = $('div.post-container'),a,n,t,l,i,c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#"+$(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="'+i+'" rel="nofollow">'+t+'</a>');
+            l = $('<li class="'+n+'_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    // toggle side catalog
+    $(".catalog-toggle").click((function(e){
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    /*
+     * Doc: https://github.com/davist11/jQuery-One-Page-Nav
+     * Fork by Hux to support padding
+     */
+    async("/js/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+
+
+<!-- Image to hack wechat -->
+<img src="http://yuelng.github.io/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

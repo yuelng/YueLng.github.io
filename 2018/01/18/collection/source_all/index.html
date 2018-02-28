@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+          常用的资源 - YueLng的博客 | YueLng&#39;s Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://yuelng.github.io/2018/01/18/collection/source_all/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <!-- Font CSS -->
+    <link rel="stylesheet" href="/css/font.min.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">YueLng&#39;s Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archives/">Archives</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    
+<!-- Image to hack wechat -->
+<!-- <img src="http://yuelng.github.io/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('http://ogcxtlv6r.bkt.clouddn.com/17-12-16/89744702.jpg')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/tags/#collection" title="collection">collection</a>
+                        
+                    </div>
+                    <h1>常用的资源</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by YueLng Chen on
+                        2018-01-18
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <h2 id="计算机科学"><a href="#计算机科学" class="headerlink" title="计算机科学"></a>计算机科学</h2><p>1.<a href="http://codecloud.net/google-guide-for-technical-development-4142.html" target="_blank" rel="external">谷歌推荐的技术能力提升指南</a>CS课程入门、了解其他语言、测试代码、培养逻辑推理和学习数学离散知识、深刻理解操作系统、学习UX设计、学习人工智能、学习如何构建编译器、了解密码学、并行编程、与其他程序员一起开发项目。<br>2.<a href="http://hackr.io/" target="_blank" rel="external">hackr.io</a>Share and discover the best programming tutorials and courses online.<br>3.<a href="http://design-patterns.readthedocs.org/zh_CN/latest/index.html" target="_blank" rel="external">图说设计模式</a> 关于设计模式讲的很详细。<br>4.<a href="http://blog.knownsec.com/Knownsec_RD_Checklist/v3.0.html" target="_blank" rel="external">知道创宇研发技能表v3.0</a>包括了通用技能、专业技能、优质资源。重点在于专业技能方面总结的非常到位。研发包括了，编码环境、Python、Linux/UNIX、前端、爬虫进阶、调度、并发、数据结构、数据存储与处理、DevOps、调试、算法、持续集成、安全、协作等等。研究：研究东西，有足够洞察力，研究水准不错。研发：Hack Idea自己有魄力实现，不懂研发的黑客如同不会游泳的海盗。3工程：研发出来的需要实战、需要工程化，否则只是玩具，而不能成为真的武器<br>5.<a href="https://github.com/icepy/iOS-usefulinformation-zh_CN" target="_blank" rel="external">iOS开发－阅读收集的资料</a>说不定哪天就转IOS开发了。<br>6.<a href="https://github.com/justjavac/free-programming-books-zh_CN#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F" target="_blank" rel="external">免费的计算机编程类中文书籍</a><br>7.<a href="http://get.jobdeer.com/7812.get" target="_blank" rel="external">365种创业、办公、和生活成长的精华资源</a>主要包含的内容有创业、开发、设计、灵感、在线课程、业务成长、编程学习、营销创意、人脉、产品新闻等等，有关于创业的一切。<br>8.<a href="https://github.com/sindresorhus/awesome" target="_blank" rel="external">A curated list of awesome lists</a>awesome!!!<br>9.<a href="https://www.hackerrank.com/domains" target="_blank" rel="external">hackerrank</a>几乎包含所有计算机科学领域的学习内容。<br><a id="more"></a></p>
+<h2 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h2><p>1.<a href="https://github.com/w3crange/Front-End-Develop-Guide" target="_blank" rel="external">Front-End-Develop-Guide 前端开发指南</a>这份指南汇集了前端开发所使用语言的主流学习资源，并以开发者的视角进行整理编排而成。<br>2.<a href="https://github.com/xufei/blog/blob/master/posts/2014-05-20-%E5%89%8D%E7%AB%AF%E6%9E%B6%E6%9E%84%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF.md" target="_blank" rel="external">前端架构那些事儿</a>文章中主要讲到前端的发展历程，从不重视前端到如今前端的工程化，前端的工程问题包括很多，比如模板渲染的情况，多文件部署的情况，还有前端优化的一些内容。<br>3.<a href="https://github.com/fouber/blog" target="_blank" rel="external">张云龙的前端技术博客</a>来自百度FIS团队，主要内容关于个人关于前端工程的感悟、示例项目、业界实践、经典图书、经典文章等内容。<br>4.<a href="https://github.com/fouber/blog/issues/10" target="_blank" rel="external">前端工程系列文章</a>包括基础篇、工具篇、架构篇、流程篇、监控篇与测试篇<br>5.<a href="http://code.mforever78.com/front-end/2015/08/24/thinking-in-react-component/" target="_blank" rel="external">React 组件化思想</a>驱动 React.js 高效性能的虚拟 DOM 技术作用的最基础单元是React世界中被称为组件（Component）的东西。本文试图用一个具体的例子说明React的组件机制、组件间的通信方式，以及衍生出的 Flux 架构模式。<br>6.<a href="http://www.jianshu.com/p/3a18fcd9fcda" target="_blank" rel="external">CSS 最核心的几个概念</a>本文将讲述 CSS 中最核心的几个概念，包括：盒模型、position、float等。<br>7.<a href="http://www.ruanyifeng.com/blog/2015/07/flex-examples.html" target="_blank" rel="external">Flex 布局教程：实例篇</a>Flex应该是未来布局的主流</p>
+<h2 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h2><p>1.<a href="http://www.blogjava.net/xylz/archive/2010/07/08/325587.html" target="_blank" rel="external">深入浅出Java concurrency</a>主要内容有原子操作、锁机制、并发容器、线程池、开发总结<br>2.<a href="http://docs.spring.io/spring-boot/docs/1.3.0.M3/reference/htmlsingle/" target="_blank" rel="external">Spring Boot Reference Guide</a>官方文档，特别详细。</p>
+<h2 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h2><p>1.<a href="https://github.com/vinta/awesome-python" target="_blank" rel="external">awesome-python</a>A curated list of awesome Python frameworks, libraries and software<a href="http://awesome-python.com/" target="_blank" rel="external">http://awesome-python.com/</a><br>2.<a href="https://www.dataquest.io/courses" target="_blank" rel="external">dataquest</a>学习Python的好地方，数据分析、数据可视化、计算机科学、统计、线性代数<br>3.<a href="http://www.zhihu.com/question/34907211/answer/60369202" target="_blank" rel="external">python有哪些好的学习资料或者博客</a><br>4.<a href="http://www.fullstackpython.com/" target="_blank" rel="external">Full Stack Python</a><br>5.<a href="http://blogread.cn/it/article/3892?f=wb" target="_blank" rel="external">如何成为Python高手</a>函数式编程、性能、测试、编程规范<br>6.<a href="https://github.com/kirang89/pycrumbs/blob/master/pycrumbs.md" target="_blank" rel="external">Bits and Bytes of Python from the Internet.</a>Bits and Bytes of Python from the Internet.<br>7.<a href="http://wklken.me/posts/2014/07/26/python-tech-stack.html" target="_blank" rel="external">PYTHON后端相关技术/工具栈</a></p>
+<h2 id="分布式"><a href="#分布式" class="headerlink" title="分布式"></a>分布式</h2><p>1.<a href="https://github.com/ty4z2008/Qix/blob/master/ds.md" target="_blank" rel="external">分布式系统资料</a>基本上以论文资料为主，也有介绍分布式系统阅读材料列表，大概60多篇。<br>2.<a href="http://reiddraper.github.io/distreader/" target="_blank" rel="external">分布式阅读材料</a>Causality、Consistency、Application、General</p>
+<h2 id="大数据"><a href="#大数据" class="headerlink" title="大数据"></a>大数据</h2><p>1.<a href="http://www.csdn.net/article/2015-07-07/2825148" target="_blank" rel="external">PayPal高级工程总监：读完这100篇论文 就能成大数据高手</a> 包括关键架构层、架构的演进、文件系统层、数据存储层、资源管理层、计算框架、流式、实时系统（RealTime）、库、数据集成、摄入/消息传递（Ingest/Messaging）<br>2.<a href="https://github.com/Flowerowl/Big-Data-Resources" target="_blank" rel="external">大数据/数据挖掘/推荐系统/机器学习相关资源</a>包括书、视频、Github上的推荐系统库、博客文章、论文《推荐系统实战》引用<br>3.<a href="http://get.jobdeer.com/7509.get" target="_blank" rel="external">Deep Learning（深度学习）学习笔记整理系列</a>该Deep Learning的学习系列是整理自网上很大牛和机器学习专家所无私奉献的资料的</p>
+<h2 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h2><p>1.<a href="http://colobu.com/2015/07/21/Architecture-2013/" target="_blank" rel="external">架构学习资料整理（2013）</a> 包含有知名网站架构分析、架构分析与设计、架构背后的技术、数据库架构、插件架构、权限架构</p>
+<h2 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h2><p>1.<a href="https://github.com/josephmisiti/awesome-machine-learning" target="_blank" rel="external">awesome-machine-learning</a>A curated list of awesome Machine Learning frameworks, libraries and software.<br>2.<a href="https://github.com/ty4z2008/Qix/blob/master/dl.md" target="_blank" rel="external">机器学习(Machine Learning)&amp;深度学习(Deep Learning)资料</a>篇目一共500条，篇目二正在更<br>3.<a href="http://suanfazu.com/t/kaggle-ji-qi-xue-xi-jing-sai-guan-jun-ji-you-sheng-zhe-de-yuan-dai-ma-hui-zong/230" target="_blank" rel="external">Kaggle 机器学习竞赛冠军及优胜者的源代码汇总</a>Kaggle比赛源代码和讨论的收集整理<br>4.<a href="https://www.metacademy.org/course_guides/" target="_blank" rel="external">机器学习资料（英文）</a>机器学习图谱<br>5.<a href="http://suanfazu.com/t/topic/245" target="_blank" rel="external">深度学习阅读清单</a>包含了深度学习的很全的资源：在线免费资源；课程；视频和讲座；论 文；教程；网站；数据集；框架和其它杂项。<br>6.<a href="http://cn.soulmachine.me/blog/20130327/" target="_blank" rel="external">机器学习的一些通俗易懂的tutorial</a>Prior, Likelihood, Posterior,距离和相似度度量,KNN(K Nearest Neighbor),K-Means,PCA(Principal Components Analysis),因子分析(Factor analysis),期望最大化(EM, Expectation Maximization),支持向量机(SVM, Support Vector Machines),隐马尔科夫模型(Hidden Markov Model, HMM),条件随机场(CRF, Conditional Random Field)<br>7.<a href="http://article.yeeyan.org/view/22139/410514" target="_blank" rel="external">机器学习最佳入门学习资料汇总</a></p>
+<h2 id="数据科学"><a href="#数据科学" class="headerlink" title="数据科学"></a>数据科学</h2><p>1.<a href="http://www.wzchen.com/data-science-books" target="_blank" rel="external">What are good data science books?</a>16 (and more) free data science books for the aspirational data scientist, covering statistics, Python, machine learning, the data science process, and more.<br>2.<a href="http://datasciencemasters.org/" target="_blank" rel="external">The Open Source Data Science Masters</a>The open-source curriculum for learning Data Science. Foundational in both theory and technologies, the OSDSM breaks down the core competencies necessary to make data useful.<br>3.<a href="https://github.com/okulbilisim/awesome-datascience#motivation" target="_blank" rel="external">awesome-datascience</a>An awesome Data Science repository to learn and apply for real world problems.<br>4.<a href="https://github.com/Penicilluus/DataMiningAlgorithm" target="_blank" rel="external">数据挖掘18大算法实现以及其他相关经典DM算法</a>有代码有文章介绍，致敬！<br>5.<a href="http://guidetodatamining.com/" target="_blank" rel="external">A Programmer’s Guide to Data Mining</a>Introduction、Recommendation systems、Item-based filtering、Classification、More on classification、Naïve Bayes、Unstructured text、Clustering</p>
+<h2 id="运维"><a href="#运维" class="headerlink" title="运维"></a>运维</h2><p>1.<a href="http://www.zhihu.com/question/23665108/answer/25299881" target="_blank" rel="external">运维工程师必须掌握的基础技能有哪些</a>1.Linux基础 2.运维的命令 3.基础服务 4.运维平台工具 5.脚本 6.底层 7.网络 8.安全 9.硬件 10. google Linux运维工程师要求<br>2.<a href="http://www.lai18.com/content/433623.html" target="_blank" rel="external">Linux 运维工程师的十个基本技能点</a>linux系统基础、网络服务、shell和另外一个脚本语言、sed和awk工具、文本处理命令、数据库、防火墙、监控工具、集群和热备、数据备份。</p>
+<h2 id="数据存储"><a href="#数据存储" class="headerlink" title="数据存储"></a>数据存储</h2><p>1.<a href="http://mp.weixin.qq.com/s?__biz=MzAwMDU1MTE1OQ==&amp;mid=209753217&amp;idx=1&amp;sn=d3a021a7bd959cbf92ffc658336b2387" target="_blank" rel="external">数据库深度解析 | 从NoSQL历史看未来</a>1970：We have no SQL;1980：Know SQL;2005：Not only SQL;2013：No,SQL!;阿里的技术选择<br>2.<a href="http://blog.codinglabs.org/articles/theory-of-mysql-index.html" target="_blank" rel="external">MySQL索引背后的数据结构及算法原理</a>第一部分主要从数据结构及算法理论层面讨论MySQL数据库索引的数理基础。第二部分结合MySQL数据库中MyISAM和InnoDB数据存储引擎中索引的架构实现讨论聚集索引、非聚集索引及覆盖索引等话题。第三部分根据上面的理论基础，讨论MySQL中高性能使用索引的策略。<br>3.<a href="http://get.jobdeer.com/522.get" target="_blank" rel="external">Redis设计与实现（一~五整合版）</a></p>
+<h2 id="算法与数据结构"><a href="#算法与数据结构" class="headerlink" title="算法与数据结构"></a>算法与数据结构</h2><p>1.<a href="http://codecloud.net/programming-challenges-4116.html" target="_blank" rel="external">编程挑战</a>这些网站资源可以磨练你的数学、算法技巧。</p>
+<h2 id="读书笔记"><a href="#读书笔记" class="headerlink" title="读书笔记"></a>读书笔记</h2><p>1.<a href="http://favoorr.github.io/books/csapp/" target="_blank" rel="external">深入理解计算机系统笔记</a><br>2.<a href="http://coolshell.cn/articles/11564.html" target="_blank" rel="external">TCP/IP详解卷1：协议笔记（上）</a>主要向你介绍TCP协议的定义和丢包时的重传机制<br>3.<a href="http://coolshell.cn/articles/11609.html" target="_blank" rel="external">TCP/IP详解卷1：协议笔记（下）</a>重点介绍TCP的流迭、拥塞处理</p>
+<h2 id="创业"><a href="#创业" class="headerlink" title="创业"></a>创业</h2><p>1.<a href="http://startupclass.club/steps" target="_blank" rel="external">YC创业课中文社区</a>YC在斯坦福的创业教授的课程，来自YC投资成功的创业公司成功经验</p>
+<h2 id="知识学习补充"><a href="#知识学习补充" class="headerlink" title="知识学习补充"></a>知识学习补充</h2><p>1.<a href="https://www.shiyanlou.com/courses/" target="_blank" rel="external">实验楼</a>模拟学校的实验报告，木有视频只有实验步骤，自己动手做，丰衣足食<br>2.<a href="https://github.com/lanxuezaipiao/papers-we-love" target="_blank" rel="external">Papers We Love</a>国外整理的Paper集合，可以经常去逛</p>
+<h2 id="个人博客"><a href="#个人博客" class="headerlink" title="个人博客"></a>个人博客</h2><ol>
+<li><a href="http://www.liaoxuefeng.com/" target="_blank" rel="external">廖雪峰的官方网站</a>主要是一些关于编程、读书、JavaScript、Python、Git内容的教程和心得分享</li>
+<li><a href="http://timyang.net/" target="_blank" rel="external">后端技术 by Tim Yang</a>Tim’s blog,关于架构、互联网技术、分布式、服务化、NoSQL等，干货特别多。</li>
+<li><a href="http://blog.codinglabs.org/" target="_blank" rel="external">张洋的博客</a>包含算法、基数估计、大数据、概率、数学</li>
+<li><a href="http://dongxicheng.org/" target="_blank" rel="external">董的博客</a>关注大规模数据处理，包括Hadoop，YARN，MapReduce，Spark，Mesos等</li>
+<li><a href="http://www.powerxing.com/" target="_blank" rel="external">给力星</a>Hadoop安装教程真心不错，还有一些操作系统，sql语法的文章，值得一看</li>
+<li><a href="http://oserror.com/" target="_blank" rel="external">Charles的技术博客</a></li>
+<li>Zhipeng Jiang](<a href="http://zpjiang.me/" target="_blank" rel="external">http://zpjiang.me/</a>)</li>
+</ol>
+<h2 id="团体博客"><a href="#团体博客" class="headerlink" title="团体博客"></a>团体博客</h2><ol>
+<li><a href="http://dataunion.org/" target="_blank" rel="external">数盟</a>前沿阵地！前沿阵地！前沿阵地！</li>
+<li><a href="http://www.importnew.com/" target="_blank" rel="external">importnew</a>java基础、架构、web</li>
+<li><a href="http://blog.nosqlfan.com/" target="_blank" rel="external">nosqlfan</a>关注NoSQL相关的新闻与技术,nosql书籍推荐、redis资料、mongoDB资料</li>
+<li><a href="http://www.searchtb.com/" target="_blank" rel="external">搜索技术博客-淘宝</a>数据挖掘、分布式技术、前端技术、搜索引擎、性能优化</li>
+<li><a href="http://weekly.manong.io/issues/85?ref=toutiao" target="_blank" rel="external">码农周刊</a></li>
+<li><a href="http://suanfazu.com/" target="_blank" rel="external">算法组</a></li>
+</ol>
+<h2 id="书籍推荐"><a href="#书籍推荐" class="headerlink" title="书籍推荐"></a>书籍推荐</h2><p>1.<a href="http://book.douban.com/subject/1052241/" target="_blank" rel="external">设计模式</a>——作者: [美] Erich Gamma / Richard Helm / Ralph Johnson / John Vlissides<br>2.<a href="http://agiledon.github.io/blog/2013/04/17/thoughtworks-developer-reading-radar/?utm_source=geek.csdn.net" target="_blank" rel="external">程序员读书雷达</a>程序员的知识来自于四个领域，编程实践、架构与设计、方法学、思想和领导力，每个领域从基础到高阶都有推荐。<br>3.<a href="http://book.douban.com/subject/10747453/" target="_blank" rel="external">UNIX/Linux 系统管理技术手册</a>第一部分全面介绍了运行单机Linux系统涉及的各种管理知识和技术。第二部分从详细讲解TCP/IP协议基本原理开始，深入讨论了网络的两大基本应用——域名系统和路由技术，然后逐章讲解电子邮件、NFS、文件共享、Web托管和Internet服务，网络硬件、网络管理与调试以及系统安全。第三部分包括了多种不容忽视的重要主题：X窗口系统、打印系统、系统维护与环境、性能分析、与Windows系统的协作、串行设备、操作系统驱动程序和内核、系统守护进程以及政策与行政管理方面的知识等。<br>4.<a href="http://siberiawolf.com/free_programming/index.html" target="_blank" rel="external">免费的计算机编程类中文书籍</a>github上国内人整理的，十分推荐<br>5.<a href="http://book.douban.com/subject/3288908/" target="_blank" rel="external">集体智慧编程 (豆瓣)</a>这是一本非常好的机器学习入门书，书中的例子源码都是Python实现的，并且能帮你迅速熟悉Python相关的各种计算库。<br>6.<a href="http://book.douban.com/subject/10590856/" target="_blank" rel="external">统计学习方法 (豆瓣)</a>一整本的干货，没有废话<br>7.<a href="http://www.cnblogs.com/figure9/p/developer-reading-list.html" target="_blank" rel="external">程序员必读书单</a><br>8.<a href="http://tengine.taobao.org/book/index.html" target="_blank" rel="external">Nginx开发从入门到精通</a><br>9.<a href="https://git-scm.com/book/zh/v2" target="_blank" rel="external">git-pro</a><br>10.<a href="http://gitref.justjavac.com/" target="_blank" rel="external">Git 参考手册</a><br>11.<a href="https://github.com/justinyhuang/the-little-mongodb-book-cn/blob/master/mongodb.md" target="_blank" rel="external">the-little-mongodb-book-cn</a><br>12.<a href="https://github.com/JasonLai256/the-little-redis-book/blob/master/cn/redis.md" target="_blank" rel="external">The Little Redis Book</a><br>13.<a href="http://article.yeeyan.org/view/311527/287706" target="_blank" rel="external">Python的神奇方法指南</a><br>14.<a href="http://highscalability.com/" target="_blank" rel="external">highscalability</a><br>15.<a href="https://www.hiredintech.com/system-design/the-system-design-process/" target="_blank" rel="external">system-design</a><br>16.<a href="https://www.evernote.com/shard/s576/sh/7e58b450-1abe-43a8-bf82-fbf07f1db13c/049802174415b418a2e65f75b744ab72" target="_blank" rel="external">Interview Preparation</a><br>17.<a href="https://ocw.mit.edu/resources/res-6-004-principles-of-computer-system-design-an-introduction-spring-2009/online-textbook/" target="_blank" rel="external">Principles of Computer System Design</a></p>
+
+
+                <hr>
+
+                
+
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2018/01/18/collection/somesource/" data-toggle="tooltip" data-placement="top" title="一些有用的资源">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/2018/01/18/collection/plan/" data-toggle="tooltip" data-placement="top" title="TODO集合">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                
+
+                
+                <!-- disqus 评论框 start -->
+                <div class="comment">
+                    <div id="disqus_thread" class="disqus-thread"></div>
+                </div>
+                <!-- disqus 评论框 end -->
+                
+
+            </div>
+    <!-- Side Catalog Container -->
+        
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+        
+
+    <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#collection" title="collection">collection</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="http://blog.kaijun.rocks" target="_blank">Kaijun&#39;s Blog</a></li>
+                    
+                </ul>
+                
+            </div>
+
+        </div>
+    </div>
+</article>
+
+
+
+
+<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "tamchen";
+    var disqus_identifier = "http://yuelng.github.io/2018/01/18/collection/source_all/";
+    var disqus_url = "http://yuelng.github.io/2018/01/18/collection/source_all/";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus 公共JS代码 end -->
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/tam7_penicillus">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/tamchen">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://www.facebook.com/chen.penicillus">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/YueLng">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; YueLng&#39;s Blog 2018
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a>
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span>
+                    Ported by <a href="http://blog.kaijun.rocks">Kaijun</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=kaijun&repo=hexo-theme-huxblog&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--
+     Because of the native support for backtick-style fenced code blocks
+     right within the Markdown is landed in Github Pages,
+     From V1.6, There is no need for Highlight.js,
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://yuelng.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-67304654-1';
+    var _gaDomain = 'yuelng.github.io';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- Side Catalog -->
+
+<script type="text/javascript">
+    function generateCatalog (selector) {
+        var P = $('div.post-container'),a,n,t,l,i,c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#"+$(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="'+i+'" rel="nofollow">'+t+'</a>');
+            l = $('<li class="'+n+'_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    // toggle side catalog
+    $(".catalog-toggle").click((function(e){
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    /*
+     * Doc: https://github.com/davist11/jQuery-One-Page-Nav
+     * Fork by Hux to support padding
+     */
+    async("/js/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+
+
+<!-- Image to hack wechat -->
+<img src="http://yuelng.github.io/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

@@ -13,7 +13,7 @@
 
     <title>
         
-          YueLng的博客 | YueLng&#39;s Blog
+          基于开源项目众推的Python实现 - YueLng的博客 | YueLng&#39;s Blog
         
     </title>
 
@@ -70,7 +70,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">Less is more</a>
+            <a class="navbar-brand" href="/">YueLng&#39;s Blog</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -103,14 +103,14 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -171,8 +171,10 @@
                 <div class="post-heading">
                     <div class="tags">
                         
+                          <a class="tag" href="/tags/#project" title="project">project</a>
+                        
                     </div>
-                    <h1></h1>
+                    <h1>基于开源项目众推的Python实现</h1>
                     <h2 class="subheading"></h2>
                     <span class="meta">
                         Posted by YueLng Chen on
@@ -195,10 +197,7 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <hr>
-<p>layout:     post<br>title:      “基于开源项目众推的Python实现”<br>subtitle:   “”<br>date:       2016-09-09 19:03:47<br>author:     “yueLng”<br>header-img: <a href="http://ogcxtlv6r.bkt.clouddn.com/17-12-16/89744702.jpg" target="_blank" rel="external">http://ogcxtlv6r.bkt.clouddn.com/17-12-16/89744702.jpg</a><br>tags:</p>
-<pre><code>- project
-</code></pre><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>在开源中国闲逛时发现了这个项目-众推，是一个以Hadoop分布思想为基础类今日头条的开源项目。虽然该项目将去重过滤、文本分类单独出来，但是我认为这都属于数据处理部分。所以我将整个项目的核心划分为三个部分：分布式爬虫、数据清洗与处理、web工程。分别也对应了数据的采集、处理和展示。该项目没有继续下去，可能是因为这个项目不够吸引人，创意不是很好，但是我认为这个项目是当前所有互联网项目技术架构的通用骨架，而本人也正在恶补分布式、机器学习等知识，也想拿Python写一个项目练手，所以就有这个项目，这个项目还处于资料收集、技术储备阶段，这个阶段会有一系列的demo。</p>
+                <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>在开源中国闲逛时发现了这个项目-众推，是一个以Hadoop分布思想为基础类今日头条的开源项目。虽然该项目将去重过滤、文本分类单独出来，但是我认为这都属于数据处理部分。所以我将整个项目的核心划分为三个部分：分布式爬虫、数据清洗与处理、web工程。分别也对应了数据的采集、处理和展示。该项目没有继续下去，可能是因为这个项目不够吸引人，创意不是很好，但是我认为这个项目是当前所有互联网项目技术架构的通用骨架，而本人也正在恶补分布式、机器学习等知识，也想拿Python写一个项目练手，所以就有这个项目，这个项目还处于资料收集、技术储备阶段，这个阶段会有一系列的demo。</p>
 <h2 id="关于系统架构"><a href="#关于系统架构" class="headerlink" title="关于系统架构"></a>关于系统架构</h2><p>SOA面向服务架构大概是现在架构的通用标准，这种架构的最大优势在于高内聚、低耦合，在UNIX的设计思想中也体现了这一点。SOA在我看来就是模块化，而模块之间的通信则是通过RPC或者消息系统，以我现在的理解，将RPC用在模块内的通信，而消息系统则用在不同模块之间，以下是项目的初略架构图<br><img src="/img/arc_zongtui.png" width="70%" height="auto"><br><a id="more"></a></p>
 <h2 id="分布式爬虫部分"><a href="#分布式爬虫部分" class="headerlink" title="分布式爬虫部分"></a>分布式爬虫部分</h2><p>网络爬虫的基本工作原理： 1）从一个初始URL集合中挑选一个URL，下载该URL对应的页面；<br>2）解析该页面，从该页面中抽取出其包含的URL集合，接下来将抽取的URL集合再添加到初始URL集合中；<br>3）重复前两个过程，直到爬虫达到某种停止标准为止。<br>爬虫中需要重点关注的问题：<br>1）判断要爬取的URL是否爬过，判重使用Bloom Filter，它可以使用固定的内存（不随url的数量而增长）以O(1)的效率判定url是否已经在set中。但是如果这个url不在set中，BF可以100%确定这个url没有看过。但是如果这个url在set中，它会告诉你：这个url应该已经出现过，不过我有2%的不确定性。<br>2）分布式爬取（维护分布式队列）<br>我们把这100台中的99台运算能力较小的机器叫作slave，另外一台较大的机器叫作master，那么回顾上面代码中的url_queue，如果我们能把这个queue放到这台master机器上，所有的slave都可以通过网络跟master联通，每当一个slave完成下载一个网页，就向master请求一个新的网页来抓取。而每次slave新抓到一个网页，就把这个网页上所有的链接送到master的queue里去。同样，bloom filter也放到master上，但是现在master只发送确定没有被访问过的url给slave。Bloom Filter放到master的内存里，而被访问过的url放到运行在master上的Redis里，这样保证所有操作都是O(1)。<br>主要参考Fourinone国产四不像的分布式模型。</p>
 <h2 id="数据处理部分"><a href="#数据处理部分" class="headerlink" title="数据处理部分"></a>数据处理部分</h2><p>数据的存储采用纯文本模型，索引项格式为<br>页面号码|页面大小|URL文本大小|抓取时间文本大小|URL文本|抓取时间文本</p>
@@ -212,12 +211,12 @@
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/2017/11/30/thinking/think_first/" data-toggle="tooltip" data-placement="top" title="把思维好好捋一捋">&larr; Previous Post</a>
+                            <a href="/2017/11/30/project/project_remote/" data-toggle="tooltip" data-placement="top" title="web远程登录系统">&larr; Previous Post</a>
                         </li>
                     
                     
                         <li class="next">
-                            <a href="/2017/11/30/collection/somesource/" data-toggle="tooltip" data-placement="top" title="一些有用的资源">Next Post &rarr;</a>
+                            <a href="/2017/11/30/language/study_shell/" data-toggle="tooltip" data-placement="top" title="python的装饰器与JavaScript中的闭包">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -264,6 +263,8 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
+                          <a class="tag" href="/tags/#project" title="project">project</a>
+                        
                     </div>
                 </section>
                 
@@ -386,7 +387,7 @@
 
                 
                     <li>
-                        <a target="_blank"  href="https://github.com/yuelng">
+                        <a target="_blank"  href="https://github.com/YueLng">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa fa-github fa-stack-1x fa-inverse"></i>
@@ -399,7 +400,7 @@
 
                 </ul>
                 <p class="copyright text-muted">
-                    Copyright &copy; Less is more 2018
+                    Copyright &copy; YueLng&#39;s Blog 2017
                     <br>
                     Theme by <a href="http://huangxuan.me">Hux</a>
                     <span style="display: inline-block; margin: 0 5px;">
