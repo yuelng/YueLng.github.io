@@ -103,14 +103,14 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -190,42 +190,19 @@
 
 <div class="post-preview">
 
-    <a href="/2018/01/18/devops/study_environment/">
+    <a href="/2018/01/18/database/dead_lock/">
         <h2 class="post-title">
-            基础服务环境搭建
+            数据库死锁问题
         </h2>
         <h3 class="post-subtitle">
-            
+             "dead lock"
         </h3>
         <div class="post-content-preview">
-            这篇文章主要是针对大数据平台的搭建，主要包括的内容有
+            事务的隔离级别，各个数据库实现的都不同。
 
-vagrant虚拟机环境搭建
-Hadoop集群搭建
-memcached集群搭建
-storm集群搭建一些架构可行的架构：Flume + Kafka + Strom + Hbase 使用vagrant搭建系统安装上 http://www.vagrantbox.es/ 找下载需要的 box ， 譬如 Ubuntu 14.10（based on......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2018-01-18
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2018/01/18/data_science/data/">
-        <h2 class="post-title">
-            数据科学
-        </h2>
-        <h3 class="post-subtitle">
-             "data science"
-        </h3>
-        <div class="post-content-preview">
-            前端慌不慌？用深度学习自动生成HTML代码致研究者：2018 AI研究趋势|机器之心
-https://distill.pub/What are the best, insightful blogs about data, including how businesses are using data?linkWhat are some actual projects that data sc......
+未提交读(Read Uncommitted)：允许脏读，也就是可能读取到其他会话中未提交事务修改的数据
+提交读(Read Committed)：只能读取到已经提交的数据。Oracle等多数数据库默认都是该级别
+可重复读(Repeated Read)：可重复读。在同一个事务内的查询都是事务开始时刻一致的，InnoDB默认级别。在SQL标准中，该隔离级......
         </div>
     </a>
     <p class="post-meta">
@@ -267,23 +244,20 @@ nginx模型操作系统的设计，因此可以归结为三点：（1）以多�
 
 <div class="post-preview">
 
-    <a href="/2018/01/18/collection/somesource/">
+    <a href="/2018/01/18/data_science/data/">
         <h2 class="post-title">
-            一些有用的资源
+            数据科学
         </h2>
         <h3 class="post-subtitle">
-            
+             "data science"
         </h3>
         <div class="post-content-preview">
-            平时在网上闲逛，看到一些可能会有用的一些资源记录在此
-
-计算机领域论文集合 GitHub - papers-we-love/papers-we-love: Papers from the computer science community to read and discuss. 
-分布式资料 Qix/ds.md at master · ty4z2008/Qix · GitHub 
-程序员......
+            前端慌不慌？用深度学习自动生成HTML代码致研究者：2018 AI研究趋势|机器之心
+https://distill.pub/What are the best, insightful blogs about data, including how businesses are using data?linkWhat are some actual projects that data sc......
         </div>
     </a>
     <p class="post-meta">
-        Posted by YueLng Chen on
+        Posted by yueLng on
         2018-01-18
     </p>
 
@@ -301,6 +275,31 @@ nginx模型操作系统的设计，因此可以归结为三点：（1）以多�
         </h3>
         <div class="post-content-preview">
             计算机科学1.谷歌推荐的技术能力提升指南CS课程入门、了解其他语言、测试代码、培养逻辑推理和学习数学离散知识、深刻理解操作系统、学习UX设计、学习人工智能、学习如何构建编译器、了解密码学、并行编程、与其他程序员一起开发项目。2.hackr.ioShare and discover the best programming tutorials and courses online.3.图说设计......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2018-01-18
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2018/01/18/collection/somesource/">
+        <h2 class="post-title">
+            一些有用的资源
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            平时在网上闲逛，看到一些可能会有用的一些资源记录在此
+
+计算机领域论文集合 GitHub - papers-we-love/papers-we-love: Papers from the computer science community to read and discuss. 
+分布式资料 Qix/ds.md at master · ty4z2008/Qix · GitHub 
+程序员......
         </div>
     </a>
     <p class="post-meta">
@@ -357,16 +356,15 @@ nginx模型操作系统的设计，因此可以归结为三点：（1）以多�
 
 <div class="post-preview">
 
-    <a href="/2018/01/18/language/lua/">
+    <a href="/2018/01/18/distributed_system/sequence/">
         <h2 class="post-title">
-            Lua
+            sequence
         </h2>
         <h3 class="post-subtitle">
-             "lua开发"
+             "分布式发号器"
         </h3>
         <div class="post-content-preview">
-            lua语法相对简洁
-参考资料Lua原来这么好用
+            参考资料如何做一个靠谱的发号器万亿级调用系统：微信序列号生成器架构设计及演变
 ...
         </div>
     </a>
@@ -380,15 +378,16 @@ nginx模型操作系统的设计，因此可以归结为三点：（1）以多�
 
 <div class="post-preview">
 
-    <a href="/2018/01/18/distributed_system/sequence/">
+    <a href="/2018/01/18/language/lua/">
         <h2 class="post-title">
-            sequence
+            Lua
         </h2>
         <h3 class="post-subtitle">
-             "分布式发号器"
+             "lua开发"
         </h3>
         <div class="post-content-preview">
-            参考资料如何做一个靠谱的发号器万亿级调用系统：微信序列号生成器架构设计及演变
+            lua语法相对简洁
+参考资料Lua原来这么好用
 ...
         </div>
     </a>
@@ -468,11 +467,11 @@ Java, c++, Python, Javanano，Ruby，Objective-C, 和 C# Go
                             
                         
                             
-                            <a href="/tags/#collection" title="collection" rel="5">collection</a>
+                            <a href="/tags/#computer_science" title="computer_science" rel="7">computer_science</a>
                             
                         
                             
-                            <a href="/tags/#computer_science" title="computer_science" rel="7">computer_science</a>
+                            <a href="/tags/#collection" title="collection" rel="5">collection</a>
                             
                         
                             
@@ -498,15 +497,19 @@ Java, c++, Python, Javanano，Ruby，Objective-C, 和 C# Go
                             
                         
                             
-                            <a href="/tags/#language" title="language" rel="8">language</a>
-                            
-                        
-                            
                             <a href="/tags/#life_is_short" title="life_is_short" rel="4">life_is_short</a>
                             
                         
                             
+                            <a href="/tags/#language" title="language" rel="8">language</a>
+                            
+                        
+                            
                             <a href="/tags/#operation" title="operation" rel="2">operation</a>
+                            
+                        
+                            
+                            <a href="/tags/#reading" title="reading" rel="2">reading</a>
                             
                         
                             
@@ -515,14 +518,6 @@ Java, c++, Python, Javanano，Ruby，Objective-C, 和 C# Go
                         
                             
                             <a href="/tags/#product" title="product" rel="5">product</a>
-                            
-                        
-                            
-                            <a href="/tags/#reading" title="reading" rel="2">reading</a>
-                            
-                        
-                            
-                            <a href="/tags/#social_science" title="social_science" rel="2">social_science</a>
                             
                         
                             
@@ -535,6 +530,10 @@ Java, c++, Python, Javanano，Ruby，Objective-C, 和 C# Go
                         
                             
                             <a href="/tags/#thinking" title="thinking" rel="8">thinking</a>
+                            
+                        
+                            
+                            <a href="/tags/#social_science" title="social_science" rel="2">social_science</a>
                             
                         
                     </div>
