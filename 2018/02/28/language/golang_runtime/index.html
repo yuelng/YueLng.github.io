@@ -13,11 +13,11 @@
 
     <title>
         
-          生活-美食(知乎谢雄猫君 - YueLng的博客 | YueLng&#39;s Blog
+          golang Runtime底层学习 - YueLng的博客 | YueLng&#39;s Blog
         
     </title>
 
-    <link rel="canonical" href="http://yuelng.github.io/2016/03/30/life_is_short/life_xiexiongmao/">
+    <link rel="canonical" href="http://yuelng.github.io/2018/02/28/language/golang_runtime/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -161,7 +161,7 @@
 <!-- Post Header -->
 <style type="text/css">
     header.intro-header{
-        background-image: url('http://ogcxtlv6r.bkt.clouddn.com/17-12-16/89744702.jpg')
+        background-image: url('http://ogcxtlv6r.bkt.clouddn.com/17-12-18/57927760.jpg')
     }
 </style>
 <header class="intro-header" >
@@ -171,14 +171,14 @@
                 <div class="post-heading">
                     <div class="tags">
                         
-                          <a class="tag" href="/tags/#life_is_short" title="life_is_short">life_is_short</a>
+                          <a class="tag" href="/tags/#language" title="language">language</a>
                         
                     </div>
-                    <h1>生活-美食(知乎谢雄猫君</h1>
-                    <h2 class="subheading"></h2>
+                    <h1>golang Runtime底层学习</h1>
+                    <h2 class="subheading">runtime</h2>
                     <span class="meta">
-                        Posted by YueLng Chen on
-                        2016-03-30
+                        Posted by yueLng on
+                        2018-02-28
                     </span>
                 </div>
             </div>
@@ -197,79 +197,18 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h3 id="谢熊猫君记录"><a href="#谢熊猫君记录" class="headerlink" title="谢熊猫君记录"></a>谢熊猫君记录</h3><h4 id="意大利面"><a href="#意大利面" class="headerlink" title="意大利面"></a>意大利面</h4><ul>
-<li>牛肉碎</li>
-<li>有西餐holy trinity之称的洋葱、胡萝卜和西芹</li>
-<li>番茄酱（切记要用tomato puree或者tomato paste，</li>
-<li>Tagliatelle或者Fettucine这种宽的意面</li>
-<li>奶酪（mozzarella或者parmesan），牛奶，橄榄油</li>
-</ul>
-<p>酱：</p>
-<ol>
-<li>胡萝卜，西芹切丁，洋葱切碎，</li>
-<li>放橄榄油，先炒洋葱至透明</li>
-<li>放胡萝卜和西芹，炒热，下牛肉碎，变色</li>
-<li>下番茄酱，如果牛肉有腥味加酒</li>
-<li>倒牛奶，小火煮至3-4个小时，让牛肉将其他食材的味道都吸收</li>
-<li>中途干了就加牛奶，最后是Ragu alla Bolognese</li>
-</ol>
-<hr>
-<p>面：</p>
-<ol>
-<li>盐水煮沸，下意面</li>
-<li>橄榄油、奶酪和意面炒匀，注意加点刚刚得盐水，不要炒干</li>
-</ol>
-<h4 id="香肠-牛津之行"><a href="#香肠-牛津之行" class="headerlink" title="香肠-牛津之行"></a>香肠-牛津之行</h4><p>食材市场（菜市场都可以叫的这么文艺~ 德国黑啤，酱用凤尾鱼和茴香调味，牛津传统香肠，配菜：紫甘蓝，青豆，土豆泥，酱汁</p>
-<ol>
-<li>前餐：热面包，涂上黄油，配着汤吃。汤是用番茄和红椒打制的基本款西班牙凉汤（gazpacho）</li>
-<li>主菜：猪排，配菜是一大盘胡萝卜、黄瓜和烤土豆</li>
-<li>甜品：带葡萄干的苹果派</li>
-</ol>
-<h4 id="烤肉"><a href="#烤肉" class="headerlink" title="烤肉"></a>烤肉</h4><ul>
-<li>五花肉先泡盐水，也可以加入其它调料糖、丁香、姜、香叶、花椒、大料和干辣椒。（冷盐水</li>
-<li>或者抹调味料，盐、黑胡椒、五香粉或者混合香料，皮划菱形戳小孔，皮上抹白醋，并铺一层盐</li>
-<li>放入烤箱烤，温度计查看肉的温度，是否全熟。休息十分钟，让肉充分吸收汁水</li>
-</ul>
-<h4 id="咖喱饭"><a href="#咖喱饭" class="headerlink" title="咖喱饭"></a>咖喱饭</h4><ul>
-<li>牛肉，土豆，洋葱，胡萝卜，咖喱粉（日式咖喱或者印度咖喱</li>
-</ul>
-<ol>
-<li>牛肉切丁，较大块，焯水洗净。</li>
-<li>土豆，胡萝卜切丁，洋葱切碎</li>
-<li>橄榄油炒洋葱，放咖喱，土豆，胡萝卜</li>
-<li>不稠可以自己勾芡</li>
-<li>一碗饭然后可以拌入刚刚做好的咖喱酱</li>
-</ol>
-<h4 id="炸猪排"><a href="#炸猪排" class="headerlink" title="炸猪排"></a>炸猪排</h4><ul>
-<li>面粉、面包屑、鸡蛋，猪肉</li>
-</ul>
-<ol>
-<li>将猪肉切大片，锤松</li>
-<li>裹粉，顺序是，蛋液—面粉—蛋液—面包屑（或者面粉）</li>
-<li>面粉的调配 面粉，盐（一杯粉放两茶勺盐），黑胡椒粉，别的调味料和一些香料</li>
-<li>下锅炸吧</li>
-</ol>
-<h4 id="迷迭香炸鸡-Thomas-Keller"><a href="#迷迭香炸鸡-Thomas-Keller" class="headerlink" title="迷迭香炸鸡(Thomas Keller"></a>迷迭香炸鸡(Thomas Keller</h4><ul>
-<li>小洋葱1个、大蒜2个、菜油1/2茶匙、盐2汤匙、迷迭香2-3枝、水500毫升、柠檬1个</li>
-<li>鸡腿4个、鸡翅（去掉翼尖）4个、普通面粉210克、黑胡椒粉1.5汤匙、盐1汤匙、辣椒粉1汤匙、</li>
-<li>泡打粉1汤匙、白脱牛奶（buttermilk 1 Cup）、菜油、炸迷迭香、柠檬皮擦丝</li>
-</ul>
-<p>腌制</p>
-<ol>
-<li>将洋葱切丝、蒜捣碎。中火，炒至洋葱呈半透明色；</li>
-<li>加入2汤匙盐，迷迭香，继续炒30秒左右，加入水，把柠檬汁挤进去</li>
-<li>转小火，微微地把盐搅匀溶解，然后把锅移开，自然冷却后放入冰箱冷藏。</li>
-<li>把鸡块放入保鲜袋或者其他袋子，保证鸡块都泡在水里；</li>
-<li>放入冰箱，至少冷藏8小时，最多24小时，不时把袋子转个方向以保证鸡块均匀入味。</li>
-</ol>
-<p>炸鸡</p>
-<ol>
-<li>将鸡块捞出，凉水冲洗，晾干或者用厨房纸吸干表面的水，或者放入冰箱冻一天</li>
-<li>混合面粉、泡打粉、黑胡椒、盐、辣椒粉，把混合好的粉平均分到两个碗里；</li>
-<li>裹粉，顺序是，面粉调料-牛奶-面粉再取一个碗</li>
-<li>开始下锅炸吧</li>
-</ol>
-<p>谢熊猫君-蛋炒饭<br>隔夜饭，止水，调味<br>（未完待续）<br>迷迭香炸鸡出处：<br>知乎-如何做出好吃的炸鸡-尔雅 <a href="https://www.zhihu.com/question/21348277/answer/17962227" target="_blank" rel="external">https://www.zhihu.com/question/21348277/answer/17962227</a></p>
+                <h3 id="导读"><a href="#导读" class="headerlink" title="导读"></a>导读</h3><p>引入<br>这个系列深入剖析 Runtime 三大组件，内存分配器、垃圾回收器、Goroutine 调度。</p>
+<p>内容介绍<br>现在用几句话概括这个系列的内容。</p>
+<p>内存管理涉及两个核心问题，第一是快速分配，第二是适可而止。Go 语言基于 tcmalloc 实现的内存分配器，tcmalloc 就是 Google 开发的快速内存分配器，它本身就是基于并发设计的，目的是找到相对比较好的平衡，既有很高的性能同时内存消耗不会太夸张。Go 语言使用了 Heap、Central、Cache 三级机构实现分解锁，两级平衡，既照顾了快速分配同时又照顾了内存节约。</p>
+<p>Go 语言垃圾回收器使用三色标记的方式扫描标记对象，使用写屏障模式实现并发标记和并发清理，使用控制器辅助回收一系列的措施做到垃圾回收。垃圾回收器只是一种辅助装置，它从来不是核心装置它只是辅助回收，它没有办法让程序变的很好，只不过现在不需要用代码时时刻刻去关心释放内存，但是它永远不可能让程序变的更好，因为它不够聪明。</p>
+<p>Go 语言提供的 Goroutine 模型相对设计的相当不错的，Goroutine 本身就是基于并发设计的。如果有一个虚拟机的话，必须要有处理器，各种各样的运行的并发任务和具体执行机构线程，处理器的数量决定了并发的任务数量，通过相关的命令创建大量的任务。Goroutine 这样的 G、M、P 模型实际上就为了摆脱对操作系统层面上的依赖，不用考虑线程，不用考虑并发对于核的处理。</p>
+<p>Go 语言的 Channel 模型只能在进程内进行通讯，在各种各样的算法里面频繁的使用，显然比内存共享要花的代价大很多，但是它的抽象层面可以做到解耦。Channel 模型根本不需要对方是谁，只要约定好格式化数据放到某个通道里去，在通道上面与使用者无关，这实际上都是架构层面上的解耦。</p>
+<p>同步模块中提供了互斥锁（Mutex）、读写锁（RWMutex）、条件锁（Cond）、信号量（Semaphore）、自旋锁（SpinLock）、原子操作（Atomic），平常开发中肯定会使用锁这样概念，为了数据竞争我们需要加个锁，他们有不同的性能差别，也就意味着不同的锁适合用在不同的场合。</p>
+<p>内容大纲<br>系统模块（内存管理、垃圾回收、Goroutine 调度）：</p>
+<p>自主实现内存管理<br>内存管理面临的问题<br>Go 基于 tcmalloc 实现的内存分配器工作原理<br>如何释放物理内存<br>垃圾回收常用方式：引用计数、代龄、标记清理<br>垃圾回收何时启动？如何避免内存膨胀，避免影响性能<br>Go 三色标记 + 写屏障模式如何实现并发标记和并发清理<br>控制器和辅助回收的作用<br>Goroutine 调度 G、M、P 模型<br>如何创建 Goroutine<br>如何启动并发任务<br>调度器如何执行<br>M/P 对应关系<br>分段栈的问题是什么<br>连续栈如何实现<br>连续栈回收<br>连续栈扩张问题演示<br>系统监控的用途<br>强制垃圾回收<br>释放物理内存<br>抢占调度<br>处理系统调用<br>I/O 事件<br>并发模块（进程、线程、协程、通信、同步）：</p>
+<p>进程、线程的区别<br>系统线程和用户线程的区别<br>CPU 时间片分配方式<br>协程基本原理、优点和缺点<br>上下文切换以及对性能的影响<br>通道基本原理<br>同步通道和异步通道的区别<br>Goroutine 资源泄漏<br>常见同步方式<br>互斥锁（Mutex）<br>读写锁（RWMutex）<br>条件锁（Cond）<br>信号量（Semaphore）<br>自旋锁（SpinLock）<br>原子操作（Atomic）<br>单核和多核指令是否原子<br>如何实现原子操作<br>CAS（Compare-and-swap）<br>用原子操作实现自旋锁</p>
+<h3 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h3><p>本节内容：</p>
+<p>自主实现内存管理<br>内存管理面临的问题<br>Go 基于 tcmalloc 实现的内存分配器工作原理<br>如何释放物理内存</p>
 
 
                 <hr>
@@ -278,13 +217,9 @@
 
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/2016/03/30/system_design/system_design/" data-toggle="tooltip" data-placement="top" title="笔记-系统设计">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/2015/11/25/language/study_shell/" data-toggle="tooltip" data-placement="top" title="python的装饰器与JavaScript中的闭包">Next Post &rarr;</a>
+                            <a href="/2018/02/27/system_design/cache/" data-toggle="tooltip" data-placement="top" title="缓存系统的设计">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -331,7 +266,7 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#life_is_short" title="life_is_short">life_is_short</a>
+                          <a class="tag" href="/tags/#language" title="language">language</a>
                         
                     </div>
                 </section>
@@ -361,8 +296,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "tamchen";
-    var disqus_identifier = "http://yuelng.github.io/2016/03/30/life_is_short/life_xiexiongmao/";
-    var disqus_url = "http://yuelng.github.io/2016/03/30/life_is_short/life_xiexiongmao/";
+    var disqus_identifier = "http://yuelng.github.io/2018/02/28/language/golang_runtime/";
+    var disqus_url = "http://yuelng.github.io/2018/02/28/language/golang_runtime/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
