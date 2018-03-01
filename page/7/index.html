@@ -96,13 +96,6 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
                             <a href="/about/">About</a>
                         </li>
                         
@@ -111,6 +104,13 @@
                         
                         <li>
                             <a href="/archives/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -233,27 +233,6 @@
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/computer_science/study_flooding/">
-        <h2 class="post-title">
-            SYN洪泛攻击的原理与实现
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            设计原理SYN-Flood是目前最流行的DDoS攻击手段，DDoS只是洪水攻击的一个种类。其实还有其它种类的洪水攻击。以前的DoS手段在向分布式这一阶段发展的过程中也经历了逐步淘汰的过程。SYN-Flood的攻击效果最好，故众黑客不约而同选择它。以下了解一下SYN-Flood的详细情况。Syn Flood利用了TCP/IP协议的固有漏洞。面向连接的TCP三次握手是Syn Flood存在的基础......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
     <a href="/2017/11/30/computer_science/study_algorithm/">
         <h2 class="post-title">
             相似距离算法
@@ -266,6 +245,27 @@
 一、EuclideanDistanceSimilarity: 欧氏距离相似度原理：利用欧式距离d定义的相似度s，s=1 / (1+d)。
 范围：[0,1]，值越大，说明d越小，也就是距离越近，则相似度越大。
 说明：同皮尔森相似度一样，该相似度也没有考虑重叠数对结果的影响，同样地，Mahout通过增加一个枚举类型（Weighting）的参数来使得重叠数也成为计......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/30/computer_science/study_flooding/">
+        <h2 class="post-title">
+            SYN洪泛攻击的原理与实现
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            设计原理SYN-Flood是目前最流行的DDoS攻击手段，DDoS只是洪水攻击的一个种类。其实还有其它种类的洪水攻击。以前的DoS手段在向分布式这一阶段发展的过程中也经历了逐步淘汰的过程。SYN-Flood的攻击效果最好，故众黑客不约而同选择它。以下了解一下SYN-Flood的详细情况。Syn Flood利用了TCP/IP协议的固有漏洞。面向连接的TCP三次握手是Syn Flood存在的基础......
         </div>
     </a>
     <p class="post-meta">
@@ -300,28 +300,6 @@
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/distributed_system/study_distribute_item/">
-        <h2 class="post-title">
-            分布式系统要点记录
-        </h2>
-        <h3 class="post-subtitle">
-             "微服务的惯用架构"
-        </h3>
-        <div class="post-content-preview">
-            The Twelve Factor AppThe Twelve Factor App网关聚合服务 提供restful接口grpc 内网调用服务发现，使用etcd自动服务注册服务配置，使用etcd存储配置服务快速部署服务logging记录服务调用链的追踪服务质量的监控，响应时间缓存的应用
-典型架构缓存、消息、搜索Nginx+Tornado+mysql+pythonNginx+rest.li+r......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
     <a href="/2017/11/30/distributed_system/raft/">
         <h2 class="post-title">
             分布式系统的一致性算法-raft
@@ -341,6 +319,28 @@ Safety
 大多数数据一致才会被提交我们在写入数据的时候，一定会保证至少 quorum 的节点都成功被写入了数据，才会认为这次写入是成功的。
 Raft 使用的是 Log Replication + State Machine 的方式来处理分布式数据的一致性问题，这也是现在的通用做法
 三个节点允许一个节点失败五个节点......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/30/distributed_system/study_distribute_item/">
+        <h2 class="post-title">
+            分布式系统要点记录
+        </h2>
+        <h3 class="post-subtitle">
+             "微服务的惯用架构"
+        </h3>
+        <div class="post-content-preview">
+            The Twelve Factor AppThe Twelve Factor App网关聚合服务 提供restful接口grpc 内网调用服务发现，使用etcd自动服务注册服务配置，使用etcd存储配置服务快速部署服务logging记录服务调用链的追踪服务质量的监控，响应时间缓存的应用
+典型架构缓存、消息、搜索Nginx+Tornado+mysql+pythonNginx+rest.li+r......
         </div>
     </a>
     <p class="post-meta">
@@ -471,6 +471,8 @@ SHOW PROCESSLIST 查看数据库连接，看哪个连接导致锁表kill id   //
                             
                         
                             
+                        
+                            
                             <a href="/tags/#database" title="database" rel="3">database</a>
                             
                         
@@ -479,9 +481,7 @@ SHOW PROCESSLIST 查看数据库连接，看哪个连接导致锁表kill id   //
                             
                         
                             
-                        
-                            
-                            <a href="/tags/#devops" title="devops" rel="4">devops</a>
+                            <a href="/tags/#devops" title="devops" rel="5">devops</a>
                             
                         
                             
@@ -513,6 +513,10 @@ SHOW PROCESSLIST 查看数据库连接，看哪个连接导致锁表kill id   //
                             
                         
                             
+                            <a href="/tags/#social_science" title="social_science" rel="2">social_science</a>
+                            
+                        
+                            
                             <a href="/tags/#surrounding" title="surrounding" rel="9">surrounding</a>
                             
                         
@@ -522,10 +526,6 @@ SHOW PROCESSLIST 查看数据库连接，看哪个连接导致锁表kill id   //
                         
                             
                             <a href="/tags/#thinking" title="thinking" rel="8">thinking</a>
-                            
-                        
-                            
-                            <a href="/tags/#social_science" title="social_science" rel="2">social_science</a>
                             
                         
                     </div>

@@ -96,13 +96,6 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
                             <a href="/about/">About</a>
                         </li>
                         
@@ -111,6 +104,13 @@
                         
                         <li>
                             <a href="/archives/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -213,6 +213,31 @@ How to do distributed locking这篇文......
 
 <div class="post-preview">
 
+    <a href="/2018/01/18/database/dead_lock/">
+        <h2 class="post-title">
+            数据库死锁问题
+        </h2>
+        <h3 class="post-subtitle">
+             "dead lock"
+        </h3>
+        <div class="post-content-preview">
+            事务的隔离级别，各个数据库实现的都不同。
+
+未提交读(Read Uncommitted)：允许脏读，也就是可能读取到其他会话中未提交事务修改的数据
+提交读(Read Committed)：只能读取到已经提交的数据。Oracle等多数数据库默认都是该级别
+可重复读(Repeated Read)：可重复读。在同一个事务内的查询都是事务开始时刻一致的，InnoDB默认级别。在SQL标准中，该隔离级......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2018-01-18
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/2018/01/18/devops/study_environment/">
         <h2 class="post-title">
             基础服务环境搭建
@@ -239,19 +264,16 @@ storm集群搭建一些架构可行的架构：Flume + Kafka + Strom + Hbase 使
 
 <div class="post-preview">
 
-    <a href="/2018/01/18/database/dead_lock/">
+    <a href="/2018/01/18/data_science/data/">
         <h2 class="post-title">
-            数据库死锁问题
+            数据科学
         </h2>
         <h3 class="post-subtitle">
-             "dead lock"
+             "data science"
         </h3>
         <div class="post-content-preview">
-            事务的隔离级别，各个数据库实现的都不同。
-
-未提交读(Read Uncommitted)：允许脏读，也就是可能读取到其他会话中未提交事务修改的数据
-提交读(Read Committed)：只能读取到已经提交的数据。Oracle等多数数据库默认都是该级别
-可重复读(Repeated Read)：可重复读。在同一个事务内的查询都是事务开始时刻一致的，InnoDB默认级别。在SQL标准中，该隔离级......
+            前端慌不慌？用深度学习自动生成HTML代码致研究者：2018 AI研究趋势|机器之心
+https://distill.pub/What are the best, insightful blogs about data, including how businesses are using data?linkWhat are some actual projects that data sc......
         </div>
     </a>
     <p class="post-meta">
@@ -293,20 +315,23 @@ nginx模型操作系统的设计，因此可以归结为三点：（1）以多�
 
 <div class="post-preview">
 
-    <a href="/2018/01/18/data_science/data/">
+    <a href="/2018/01/18/collection/somesource/">
         <h2 class="post-title">
-            数据科学
+            一些有用的资源
         </h2>
         <h3 class="post-subtitle">
-             "data science"
+            
         </h3>
         <div class="post-content-preview">
-            前端慌不慌？用深度学习自动生成HTML代码致研究者：2018 AI研究趋势|机器之心
-https://distill.pub/What are the best, insightful blogs about data, including how businesses are using data?linkWhat are some actual projects that data sc......
+            平时在网上闲逛，看到一些可能会有用的一些资源记录在此
+
+计算机领域论文集合 GitHub - papers-we-love/papers-we-love: Papers from the computer science community to read and discuss. 
+分布式资料 Qix/ds.md at master · ty4z2008/Qix · GitHub 
+程序员......
         </div>
     </a>
     <p class="post-meta">
-        Posted by yueLng on
+        Posted by YueLng Chen on
         2018-01-18
     </p>
 
@@ -324,31 +349,6 @@ https://distill.pub/What are the best, insightful blogs about data, including ho
         </h3>
         <div class="post-content-preview">
             计算机科学1.谷歌推荐的技术能力提升指南CS课程入门、了解其他语言、测试代码、培养逻辑推理和学习数学离散知识、深刻理解操作系统、学习UX设计、学习人工智能、学习如何构建编译器、了解密码学、并行编程、与其他程序员一起开发项目。2.hackr.ioShare and discover the best programming tutorials and courses online.3.图说设计......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2018-01-18
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2018/01/18/collection/somesource/">
-        <h2 class="post-title">
-            一些有用的资源
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            平时在网上闲逛，看到一些可能会有用的一些资源记录在此
-
-计算机领域论文集合 GitHub - papers-we-love/papers-we-love: Papers from the computer science community to read and discuss. 
-分布式资料 Qix/ds.md at master · ty4z2008/Qix · GitHub 
-程序员......
         </div>
     </a>
     <p class="post-meta">
@@ -476,6 +476,8 @@ https://distill.pub/What are the best, insightful blogs about data, including ho
                             
                         
                             
+                        
+                            
                             <a href="/tags/#database" title="database" rel="3">database</a>
                             
                         
@@ -484,9 +486,7 @@ https://distill.pub/What are the best, insightful blogs about data, including ho
                             
                         
                             
-                        
-                            
-                            <a href="/tags/#devops" title="devops" rel="4">devops</a>
+                            <a href="/tags/#devops" title="devops" rel="5">devops</a>
                             
                         
                             
@@ -518,6 +518,10 @@ https://distill.pub/What are the best, insightful blogs about data, including ho
                             
                         
                             
+                            <a href="/tags/#social_science" title="social_science" rel="2">social_science</a>
+                            
+                        
+                            
                             <a href="/tags/#surrounding" title="surrounding" rel="9">surrounding</a>
                             
                         
@@ -527,10 +531,6 @@ https://distill.pub/What are the best, insightful blogs about data, including ho
                         
                             
                             <a href="/tags/#thinking" title="thinking" rel="8">thinking</a>
-                            
-                        
-                            
-                            <a href="/tags/#social_science" title="social_science" rel="2">social_science</a>
                             
                         
                     </div>
