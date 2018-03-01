@@ -103,14 +103,14 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -190,20 +190,43 @@
 
 <div class="post-preview">
 
-    <a href="/2017/03/30/operation/basic_oprate/">
+    <a href="/2017/03/30/devops/deploy_kubernetes/">
         <h2 class="post-title">
-            记录常用的配置
+            Golang微服务部署在kubernetes
         </h2>
         <h3 class="post-subtitle">
-             "配置"
+             "关于开发与部署流程"
         </h3>
         <div class="post-content-preview">
-            ####项目部署执行openplay_backend requirement.txt 中却少raven
-在跑run.py时，debug配置文件下却少sentry，将product环境下的sentry添加即可
-####项目基础架构
+            
+“What I cannot create, I do not understand. – Richard Feynman”
 
-总共分为球员版player，管理员admin，用户user，统计stats，网页web，五个部分
-项目之间的关系：五个部分全都是基于tornado API项目开发......
+微服务部署是一个难题，包括了一系列开发中的实际问题。例如是否将所有微服务代码放在一个git仓库还是分git仓库，是否需要公共代码（这里的公共代码指的是与业务逻辑无关在任何项目中都可以即开即用的脚手架代码），部署方式是否使用jenkins自动化部署还是自己写个脚本，......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2017-03-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/03/30/language/ruby_dev_env/">
+        <h2 class="post-title">
+            ruby开发环境的搭建
+        </h2>
+        <h3 class="post-subtitle">
+             "ruby开发"
+        </h3>
+        <div class="post-content-preview">
+            ruby开发环境
+Mac OS本身自带ruby在系统目录 /System/Library/Frameworks/Ruby.framework/Versions/Current12345# 通过homebrew安装ruby最新版brew updatebrew install ruby# 安装railsgem install rails
+
+
+...
         </div>
     </a>
     <p class="post-meta">
@@ -228,61 +251,6 @@
 简介FriendFeed使用了一款使用Python编写的，相对简单的非阻塞式Web服务器。它的特点在于非阻塞服务器和epoll的运用，这个Web框架还包含了一些相关的有用工具和优化。
 以下是经典的“Hello, world”示例：
 123456789101112131415import tornado.ioloopimport tornado.webclass ......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2017-03-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/03/30/computer_science/algorithm/">
-        <h2 class="post-title">
-            算法
-        </h2>
-        <h3 class="post-subtitle">
-             "算法"
-        </h3>
-        <div class="post-content-preview">
-            
-
-穷举=树型搜索
-递归=树型搜索+剪枝
-动态规划=树型搜索+剪枝+节点合并
-因此算法效率：动态规划&gt;递归&gt;穷举。
-
-
-
-递归与分治策略
-一个直接或间接地调用自身的算法称为递归算法。
-分治算法的模式如下：
-12345678910Divide_and_Conquer(P)&#123;    if(|P|&lt;=n0)    Adhoc(P);//Adhoc(P)是基本子算法   ......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2017-03-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/03/30/computer_science/network/">
-        <h2 class="post-title">
-            计算机网络
-        </h2>
-        <h3 class="post-subtitle">
-             "计算机网络"
-        </h3>
-        <div class="post-content-preview">
-            TCP四次挥手过程
-TCP是面向连接的服务；三次握手（建立连接）和四次挥手（关闭连接）；使用滑动窗口机制进行流量控制；TCP要保证在所有可能的情况下使得所有的数据都能够被投递，当你关闭一个socket时，主动关闭一端的socket将进入TIME_WAIT状态，而被动关闭一方则转入CLOSED状态，这的确能够保证所有的数据都被传输。1）首先A B端的TCP进程都处于established状态，......
         </div>
     </a>
     <p class="post-meta">
@@ -325,19 +293,75 @@ TCP是面向连接的服务；三次握手（建立连接）和四次挥手（�
 
 <div class="post-preview">
 
-    <a href="/2017/03/30/language/ruby_dev_env/">
+    <a href="/2017/03/30/computer_science/network/">
         <h2 class="post-title">
-            ruby开发环境的搭建
+            计算机网络
         </h2>
         <h3 class="post-subtitle">
-             "ruby开发"
+             "计算机网络"
         </h3>
         <div class="post-content-preview">
-            ruby开发环境
-Mac OS本身自带ruby在系统目录 /System/Library/Frameworks/Ruby.framework/Versions/Current12345# 通过homebrew安装ruby最新版brew updatebrew install ruby# 安装railsgem install rails
+            TCP四次挥手过程
+TCP是面向连接的服务；三次握手（建立连接）和四次挥手（关闭连接）；使用滑动窗口机制进行流量控制；TCP要保证在所有可能的情况下使得所有的数据都能够被投递，当你关闭一个socket时，主动关闭一端的socket将进入TIME_WAIT状态，而被动关闭一方则转入CLOSED状态，这的确能够保证所有的数据都被传输。1）首先A B端的TCP进程都处于established状态，......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2017-03-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/03/30/operation/basic_oprate/">
+        <h2 class="post-title">
+            记录常用的配置
+        </h2>
+        <h3 class="post-subtitle">
+             "配置"
+        </h3>
+        <div class="post-content-preview">
+            ####项目部署执行openplay_backend requirement.txt 中却少raven
+在跑run.py时，debug配置文件下却少sentry，将product环境下的sentry添加即可
+####项目基础架构
+
+总共分为球员版player，管理员admin，用户user，统计stats，网页web，五个部分
+项目之间的关系：五个部分全都是基于tornado API项目开发......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2017-03-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/03/30/computer_science/algorithm/">
+        <h2 class="post-title">
+            算法
+        </h2>
+        <h3 class="post-subtitle">
+             "算法"
+        </h3>
+        <div class="post-content-preview">
+            
+
+穷举=树型搜索
+递归=树型搜索+剪枝
+动态规划=树型搜索+剪枝+节点合并
+因此算法效率：动态规划&gt;递归&gt;穷举。
 
 
-...
+
+递归与分治策略
+一个直接或间接地调用自身的算法称为递归算法。
+分治算法的模式如下：
+12345678910Divide_and_Conquer(P)&#123;    if(|P|&lt;=n0)    Adhoc(P);//Adhoc(P)是基本子算法   ......
         </div>
     </a>
     <p class="post-meta">
@@ -399,28 +423,6 @@ Mac OS本身自带ruby在系统目录 /System/Library/Frameworks/Ruby.framework/
     <p class="post-meta">
         Posted by yueLng on
         2017-03-28
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/02/27/thinking/think_master_function/">
-        <h2 class="post-title">
-            函数式编程
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            概念定义
-In computer science, functional programming is a programming paradigm that treats computation as the evaluation of mathematical functions and avoids state and mutable data.函数式编程是一种编程模型，他将计算机运算......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2017-02-27
     </p>
 
 </div>
@@ -498,13 +500,7 @@ In computer science, functional programming is a programming paradigm that treat
                             
                         
                             
-                        
-                            
                             <a href="/tags/#database" title="database" rel="2">database</a>
-                            
-                        
-                            
-                            <a href="/tags/#devops" title="devops" rel="2">devops</a>
                             
                         
                             
@@ -512,11 +508,13 @@ In computer science, functional programming is a programming paradigm that treat
                             
                         
                             
+                        
+                            
                             <a href="/tags/#financial" title="financial" rel="5">financial</a>
                             
                         
                             
-                            <a href="/tags/#framework" title="framework" rel="3">framework</a>
+                            <a href="/tags/#devops" title="devops" rel="2">devops</a>
                             
                         
                             
@@ -528,15 +526,7 @@ In computer science, functional programming is a programming paradigm that treat
                             
                         
                             
-                            <a href="/tags/#operation" title="operation" rel="2">operation</a>
-                            
-                        
-                            
-                            <a href="/tags/#project" title="project" rel="8">project</a>
-                            
-                        
-                            
-                            <a href="/tags/#surrounding" title="surrounding" rel="9">surrounding</a>
+                            <a href="/tags/#framework" title="framework" rel="3">framework</a>
                             
                         
                             
@@ -544,11 +534,23 @@ In computer science, functional programming is a programming paradigm that treat
                             
                         
                             
-                            <a href="/tags/#system_design" title="system_design" rel="4">system_design</a>
+                            <a href="/tags/#operation" title="operation" rel="2">operation</a>
+                            
+                        
+                            
+                            <a href="/tags/#surrounding" title="surrounding" rel="9">surrounding</a>
                             
                         
                             
                             <a href="/tags/#reading" title="reading" rel="2">reading</a>
+                            
+                        
+                            
+                            <a href="/tags/#system_design" title="system_design" rel="4">system_design</a>
+                            
+                        
+                            
+                            <a href="/tags/#project" title="project" rel="8">project</a>
                             
                         
                             
