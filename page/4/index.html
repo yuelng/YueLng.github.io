@@ -190,24 +190,21 @@
 
 <div class="post-preview">
 
-    <a href="/2018/01/18/devops/study_environment/">
+    <a href="/2018/01/18/distributed_system/lock/">
         <h2 class="post-title">
-            基础服务环境搭建
+            lock
         </h2>
         <h3 class="post-subtitle">
-            
+             "lock"
         </h3>
         <div class="post-content-preview">
-            这篇文章主要是针对大数据平台的搭建，主要包括的内容有
-
-vagrant虚拟机环境搭建
-Hadoop集群搭建
-memcached集群搭建
-storm集群搭建一些架构可行的架构：Flume + Kafka + Strom + Hbase 使用vagrant搭建系统安装上 http://www.vagrantbox.es/ 找下载需要的 box ， 譬如 Ubuntu 14.10（based on......
+            Linux中的锁机制golang中的锁实现etcd实现分布式锁使用POSIX实现分布式锁
+分布式锁是有租期的&gt;某服务在获取分布式锁之后，进行操作，然后这操作耗时大于锁的过期时间，如果执行操作不知道自己已经过期，就会引起相应的问题。是获得分布式锁的同时是否需要加入特定的机制，如果未在过期时间内完成操作，则将整个过程置为失败
+How to do distributed locking这篇文......
         </div>
     </a>
     <p class="post-meta">
-        Posted by YueLng Chen on
+        Posted by yueLng on
         2018-01-18
     </p>
 
@@ -241,23 +238,20 @@ storm集群搭建一些架构可行的架构：Flume + Kafka + Strom + Hbase 使
 
 <div class="post-preview">
 
-    <a href="/2018/01/18/computer_science/study_server/">
+    <a href="/2018/01/18/devops/study_environment/">
         <h2 class="post-title">
-            服务器端编程基础积累
+            基础服务环境搭建
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            UNIX I/O模型
-阻塞IO
-非阻塞IO
-IO多路复用
-信号驱动IO
-异步IO
+            这篇文章主要是针对大数据平台的搭建，主要包括的内容有
 
-nginx模型操作系统的设计，因此可以归结为三点：（1）以多进程形式，允许多个任务同时运行；（2）以多线程形式，允许单个任务分成不同的部分运行；（3）提供协调机制，一方面防止进程之间和线程之间产生冲突，另一方面允许进程之间和线程之间共享资源。
-...
+vagrant虚拟机环境搭建
+Hadoop集群搭建
+memcached集群搭建
+storm集群搭建一些架构可行的架构：Flume + Kafka + Strom + Hbase 使用vagrant搭建系统安装上 http://www.vagrantbox.es/ 找下载需要的 box ， 譬如 Ubuntu 14.10（based on......
         </div>
     </a>
     <p class="post-meta">
@@ -284,6 +278,35 @@ https://distill.pub/What are the best, insightful blogs about data, including ho
     </a>
     <p class="post-meta">
         Posted by yueLng on
+        2018-01-18
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2018/01/18/computer_science/study_server/">
+        <h2 class="post-title">
+            服务器端编程基础积累
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            UNIX I/O模型
+阻塞IO
+非阻塞IO
+IO多路复用
+信号驱动IO
+异步IO
+
+nginx模型操作系统的设计，因此可以归结为三点：（1）以多进程形式，允许多个任务同时运行；（2）以多线程形式，允许单个任务分成不同的部分运行；（3）提供协调机制，一方面防止进程之间和线程之间产生冲突，另一方面允许进程之间和线程之间共享资源。
+...
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
         2018-01-18
     </p>
 
@@ -382,28 +405,6 @@ https://distill.pub/What are the best, insightful blogs about data, including ho
 
 <div class="post-preview">
 
-    <a href="/2018/01/18/distributed_system/sequence/">
-        <h2 class="post-title">
-            sequence
-        </h2>
-        <h3 class="post-subtitle">
-             "分布式发号器"
-        </h3>
-        <div class="post-content-preview">
-            参考资料如何做一个靠谱的发号器万亿级调用系统：微信序列号生成器架构设计及演变
-...
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2018-01-18
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
     <a href="/2018/01/18/language/lua/">
         <h2 class="post-title">
             Lua
@@ -476,7 +477,15 @@ https://distill.pub/What are the best, insightful blogs about data, including ho
                             
                         
                             
-                            <a href="/tags/#database" title="database" rel="2">database</a>
+                            <a href="/tags/#devops" title="devops" rel="4">devops</a>
+                            
+                        
+                            
+                            <a href="/tags/#database" title="database" rel="3">database</a>
+                            
+                        
+                            
+                            <a href="/tags/#financial" title="financial" rel="5">financial</a>
                             
                         
                             
@@ -486,11 +495,7 @@ https://distill.pub/What are the best, insightful blogs about data, including ho
                             
                         
                             
-                            <a href="/tags/#financial" title="financial" rel="5">financial</a>
-                            
-                        
-                            
-                            <a href="/tags/#devops" title="devops" rel="2">devops</a>
+                            <a href="/tags/#framework" title="framework" rel="3">framework</a>
                             
                         
                             
@@ -502,7 +507,7 @@ https://distill.pub/What are the best, insightful blogs about data, including ho
                             
                         
                             
-                            <a href="/tags/#framework" title="framework" rel="3">framework</a>
+                            <a href="/tags/#project" title="project" rel="8">project</a>
                             
                         
                             
@@ -510,15 +515,7 @@ https://distill.pub/What are the best, insightful blogs about data, including ho
                             
                         
                             
-                            <a href="/tags/#operation" title="operation" rel="2">operation</a>
-                            
-                        
-                            
                             <a href="/tags/#surrounding" title="surrounding" rel="9">surrounding</a>
-                            
-                        
-                            
-                            <a href="/tags/#reading" title="reading" rel="2">reading</a>
                             
                         
                             
@@ -526,11 +523,11 @@ https://distill.pub/What are the best, insightful blogs about data, including ho
                             
                         
                             
-                            <a href="/tags/#project" title="project" rel="8">project</a>
+                            <a href="/tags/#thinking" title="thinking" rel="8">thinking</a>
                             
                         
                             
-                            <a href="/tags/#thinking" title="thinking" rel="8">thinking</a>
+                            <a href="/tags/#reading" title="reading" rel="2">reading</a>
                             
                         
                             
