@@ -96,7 +96,7 @@
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -110,7 +110,7 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
@@ -234,6 +234,27 @@
 
 <div class="post-preview">
 
+    <a href="/2017/12/12/distributed_system/mq/">
+        <h2 class="post-title">
+            消息队列
+        </h2>
+        <h3 class="post-subtitle">
+             "消息队列"
+        </h3>
+        <div class="post-content-preview">
+            kafka问题描述：kafka 重复消费的问题，每次重启服务，都从broker拉取offset，拉到旧的消息解决：消费者每次从broker拉取数据，消费之后都会自动commit，自动commit有一个定时机制，但是并不保证一定提交成功，例如在commit的时候，程序崩溃（例如重启的情况在重启后，消费者会拉取最新的offset作为消费的起点，sarama默认的initial offset 为O......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2017-12-12
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/2017/12/12/distributed_system/trace/">
         <h2 class="post-title">
             分布式系统追踪
@@ -256,27 +277,6 @@
 
 
 入库消息的结构组成，traceID、层级表示、调用方法、调用时......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2017-12-12
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/12/12/distributed_system/mq/">
-        <h2 class="post-title">
-            消息队列
-        </h2>
-        <h3 class="post-subtitle">
-             "消息队列"
-        </h3>
-        <div class="post-content-preview">
-            kafka问题描述：kafka 重复消费的问题，每次重启服务，都从broker拉取offset，拉到旧的消息解决：消费者每次从broker拉取数据，消费之后都会自动commit，自动commit有一个定时机制，但是并不保证一定提交成功，例如在commit的时候，程序崩溃（例如重启的情况在重启后，消费者会拉取最新的offset作为消费的起点，sarama默认的initial offset 为O......
         </div>
     </a>
     <p class="post-meta">
@@ -504,13 +504,13 @@ Monitor your data作为程序员，我们开发一个后台服务，大家有没
                             
                         
                             
-                        
-                            
                             <a href="/tags/#database" title="database" rel="3">database</a>
                             
                         
                             
                             <a href="/tags/#distribution_system" title="distribution_system" rel="16">distribution_system</a>
+                            
+                        
                             
                         
                             
@@ -550,15 +550,15 @@ Monitor your data作为程序员，我们开发一个后台服务，大家有没
                             
                         
                             
-                            <a href="/tags/#social_science" title="social_science" rel="2">social_science</a>
-                            
-                        
-                            
                             <a href="/tags/#system_design" title="system_design" rel="4">system_design</a>
                             
                         
                             
                             <a href="/tags/#thinking" title="thinking" rel="8">thinking</a>
+                            
+                        
+                            
+                            <a href="/tags/#social_science" title="social_science" rel="2">social_science</a>
                             
                         
                     </div>
