@@ -103,14 +103,14 @@
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
@@ -190,18 +190,20 @@
 
 <div class="post-preview">
 
-    <a href="/2017/03/30/devops/deploy_kubernetes/">
+    <a href="/2017/03/30/operation/basic_oprate/">
         <h2 class="post-title">
-            Golang微服务部署在kubernetes
+            记录常用的配置
         </h2>
         <h3 class="post-subtitle">
-             "关于开发与部署流程"
+             "配置"
         </h3>
         <div class="post-content-preview">
-            
-“What I cannot create, I do not understand. – Richard Feynman”
+            ####项目部署执行openplay_backend requirement.txt 中却少raven
+在跑run.py时，debug配置文件下却少sentry，将product环境下的sentry添加即可
+####项目基础架构
 
-微服务部署是一个难题，包括了一系列开发中的实际问题。例如是否将所有微服务代码放在一个git仓库还是分git仓库，是否需要公共代码（这里的公共代码指的是与业务逻辑无关在任何项目中都可以即开即用的脚手架代码），部署方式是否使用jenkins自动化部署还是自己写个脚本，......
+总共分为球员版player，管理员admin，用户user，统计stats，网页web，五个部分
+项目之间的关系：五个部分全都是基于tornado API项目开发......
         </div>
     </a>
     <p class="post-meta">
@@ -323,32 +325,6 @@ TCP是面向连接的服务；三次握手（建立连接）和四次挥手（�
 
 <div class="post-preview">
 
-    <a href="/2017/03/30/operation/basic_oprate/">
-        <h2 class="post-title">
-            记录常用的配置
-        </h2>
-        <h3 class="post-subtitle">
-             "配置"
-        </h3>
-        <div class="post-content-preview">
-            ####项目部署执行openplay_backend requirement.txt 中却少raven
-在跑run.py时，debug配置文件下却少sentry，将product环境下的sentry添加即可
-####项目基础架构
-
-总共分为球员版player，管理员admin，用户user，统计stats，网页web，五个部分
-项目之间的关系：五个部分全都是基于tornado API项目开发......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2017-03-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
     <a href="/2017/03/30/language/ruby_dev_env/">
         <h2 class="post-title">
             ruby开发环境的搭建
@@ -430,6 +406,28 @@ Mac OS本身自带ruby在系统目录 /System/Library/Frameworks/Ruby.framework/
 
 <div class="post-preview">
 
+    <a href="/2017/02/27/thinking/think_master_function/">
+        <h2 class="post-title">
+            函数式编程
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            概念定义
+In computer science, functional programming is a programming paradigm that treats computation as the evaluation of mathematical functions and avoids state and mutable data.函数式编程是一种编程模型，他将计算机运算......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2017-02-27
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/2016/09/09/project/project_distribute/">
         <h2 class="post-title">
             基于开源项目众推的Python实现
@@ -492,11 +490,11 @@ Mac OS本身自带ruby在系统目录 /System/Library/Frameworks/Ruby.framework/
                             
                         
                             
-                            <a href="/tags/#computer_science" title="computer_science" rel="7">computer_science</a>
+                            <a href="/tags/#collection" title="collection" rel="5">collection</a>
                             
                         
                             
-                            <a href="/tags/#collection" title="collection" rel="5">collection</a>
+                            <a href="/tags/#computer_science" title="computer_science" rel="7">computer_science</a>
                             
                         
                             
@@ -506,11 +504,11 @@ Mac OS本身自带ruby在系统目录 /System/Library/Frameworks/Ruby.framework/
                             
                         
                             
-                            <a href="/tags/#distribution_system" title="distribution_system" rel="16">distribution_system</a>
+                            <a href="/tags/#devops" title="devops" rel="2">devops</a>
                             
                         
                             
-                            <a href="/tags/#devops" title="devops" rel="2">devops</a>
+                            <a href="/tags/#distribution_system" title="distribution_system" rel="16">distribution_system</a>
                             
                         
                             
@@ -522,11 +520,11 @@ Mac OS本身自带ruby在系统目录 /System/Library/Frameworks/Ruby.framework/
                             
                         
                             
-                            <a href="/tags/#life_is_short" title="life_is_short" rel="4">life_is_short</a>
+                            <a href="/tags/#language" title="language" rel="8">language</a>
                             
                         
                             
-                            <a href="/tags/#language" title="language" rel="8">language</a>
+                            <a href="/tags/#life_is_short" title="life_is_short" rel="4">life_is_short</a>
                             
                         
                             
@@ -534,15 +532,7 @@ Mac OS本身自带ruby在系统目录 /System/Library/Frameworks/Ruby.framework/
                             
                         
                             
-                            <a href="/tags/#reading" title="reading" rel="2">reading</a>
-                            
-                        
-                            
                             <a href="/tags/#project" title="project" rel="8">project</a>
-                            
-                        
-                            
-                            <a href="/tags/#product" title="product" rel="5">product</a>
                             
                         
                             
@@ -550,7 +540,15 @@ Mac OS本身自带ruby在系统目录 /System/Library/Frameworks/Ruby.framework/
                             
                         
                             
+                            <a href="/tags/#product" title="product" rel="5">product</a>
+                            
+                        
+                            
                             <a href="/tags/#system_design" title="system_design" rel="4">system_design</a>
+                            
+                        
+                            
+                            <a href="/tags/#reading" title="reading" rel="2">reading</a>
                             
                         
                             
