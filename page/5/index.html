@@ -190,6 +190,28 @@
 
 <div class="post-preview">
 
+    <a href="/2018/01/18/distributed_system/sequence/">
+        <h2 class="post-title">
+            sequence
+        </h2>
+        <h3 class="post-subtitle">
+             "分布式发号器"
+        </h3>
+        <div class="post-content-preview">
+            参考资料如何做一个靠谱的发号器万亿级调用系统：微信序列号生成器架构设计及演变
+...
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2018-01-18
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/2018/01/18/language/lua/">
         <h2 class="post-title">
             Lua
@@ -328,7 +350,10 @@ HTTP/2......
 性能与优化
 单元测试
 
-概念定义...
+概念定义
+QPS（TPS）：每秒钟 request/事务 数量，在互联网领域，指每秒响应请求数（指http请求）；
+吞吐量：单位时间内处理的请求数量（通常由QPS与并发数决定）；
+响应时间：系统对一个请求做出响应的平均时间。例如系统处理一个HTTP请求需要200ms，这个200ms就是系统的响应时间（我认为这里应该仅包含处理时间，网络传......
         </div>
     </a>
     <p class="post-meta">
@@ -408,30 +433,6 @@ RPC调用分类
 </div>
 <hr>
 
-<div class="post-preview">
-
-    <a href="/2017/12/28/database/operation/">
-        <h2 class="post-title">
-            数据库连接与操作
-        </h2>
-        <h3 class="post-subtitle">
-            golang mysql
-        </h3>
-        <div class="post-content-preview">
-            连接与连接池database/sql是golang的标准库之一，它提供了一系列接口方法，用于访问关系数据库。
-
-sql.DB类型代表了数据库，golang中的连接来自内部实现的连接池，连接的建立是惰性的，只有需要连接的时候，连接池才会帮你创建。
-sql.Result表示结果集，sql.Rows表示查询返回多行数据的结果集，sql.Row表示单行结果集，对于插入更新和删除对应的结果集是sql.......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2017-12-28
-    </p>
-
-</div>
-<hr>
-
 
 
 <!-- Pager -->
@@ -479,9 +480,7 @@ sql.Result表示结果集，sql.Rows表示查询返回多行数据的结果集�
                             
                         
                             
-                            <a href="/tags/#computer_science" title="computer_science" rel="7">computer_science</a>
-                            
-                        
+                            <a href="/tags/#computer_science" title="computer_science" rel="8">computer_science</a>
                             
                         
                             
@@ -494,10 +493,6 @@ sql.Result表示结果集，sql.Rows表示查询返回多行数据的结果集�
                         
                             
                             <a href="/tags/#devops" title="devops" rel="5">devops</a>
-                            
-                        
-                            
-                            <a href="/tags/#financial" title="financial" rel="5">financial</a>
                             
                         
                             
@@ -521,11 +516,7 @@ sql.Result表示结果集，sql.Rows表示查询返回多行数据的结果集�
                             
                         
                             
-                            <a href="/tags/#reading" title="reading" rel="2">reading</a>
-                            
-                        
-                            
-                            <a href="/tags/#social_science" title="social_science" rel="2">social_science</a>
+                            <a href="/tags/#thinking" title="thinking" rel="8">thinking</a>
                             
                         
                             
@@ -537,7 +528,17 @@ sql.Result表示结果集，sql.Rows表示查询返回多行数据的结果集�
                             
                         
                             
-                            <a href="/tags/#thinking" title="thinking" rel="8">thinking</a>
+                        
+                            
+                            <a href="/tags/#financial" title="financial" rel="5">financial</a>
+                            
+                        
+                            
+                            <a href="/tags/#reading" title="reading" rel="2">reading</a>
+                            
+                        
+                            
+                            <a href="/tags/#social_science" title="social_science" rel="2">social_science</a>
                             
                         
                     </div>

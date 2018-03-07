@@ -190,6 +190,36 @@
 
 <div class="post-preview">
 
+    <a href="/2017/11/30/puduct/study_monitor/">
+        <h2 class="post-title">
+            数据驱动开发与产品
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            不谋万世者，不足以谋一时；不谋全局者，不足以谋一隅
+Monitor your data作为程序员，我们开发一个后台服务，大家有没有测试过以下数据
+
+这个服务能够承受多少的 QPS（每秒访问量）？
+平均响应时间和 99% 的响应时间是多少？
+如果服务器压力增加，我们能不能通过简单的加机器来解决，需要加多少台机器？
+当前线上服务瓶颈在哪里？
+按当前的增长速度，多久我们得需要加机器？
+
+技术关注点......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/2017/11/30/language/study_python/">
         <h2 class="post-title">
             python学习
@@ -286,12 +316,34 @@
             
         </h3>
         <div class="post-content-preview">
-            1.摘要今天看了新浪新兵训练营的一些资料，整理下关于程序员最基础的知识————关于编码主要内容包括，什么是烂代码，什么是好代码，好代码需要注意什么，如何做出优雅的设计，如何规划合理的架构编码主要是给人看的，其次才是给机器看的。
-2.关于烂代码写出烂代码很容易，入行时很容易被鼓吹要把主要精力放在ABCD（需求文档/功能设计/架构设计/理解原理）上，写代码只是实现想法的工具。在这样的指导思想下，......
+            1.摘要今天看了新浪新兵训练营的一些资料，整理下关于程序员最基础的知识————关于编码主要内容包括，什么是烂代码，什么是好代码，好代码需要注意什么，如何做出优雅的设计，如何规划合理的架构编码主要是给人看的，其次才是给机器看的。第一个保证用户逻辑是对的，第二个保证这算法写法性能最好的，第三保证相关成本是最低的包括内存分配成本垃圾回收成本
+2.关于烂代码写出烂代码很容易，入行时很容易被鼓吹要把主......
         </div>
     </a>
     <p class="post-meta">
         Posted by YueLng Chen on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/30/distributed_system/study_distribute_item/">
+        <h2 class="post-title">
+            分布式系统要点记录
+        </h2>
+        <h3 class="post-subtitle">
+             "微服务的惯用架构"
+        </h3>
+        <div class="post-content-preview">
+            The Twelve Factor AppThe Twelve Factor App网关聚合服务 提供restful接口grpc 内网调用服务发现，使用etcd自动服务注册服务配置，使用etcd存储配置服务快速部署服务logging记录服务调用链的追踪服务质量的监控，响应时间缓存的应用
+典型架构缓存、消息、搜索Nginx+Tornado+mysql+pythonNginx+rest.li+r......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
         2017-11-30
     </p>
 
@@ -319,28 +371,6 @@ Safety
 大多数数据一致才会被提交我们在写入数据的时候，一定会保证至少 quorum 的节点都成功被写入了数据，才会认为这次写入是成功的。
 Raft 使用的是 Log Replication + State Machine 的方式来处理分布式数据的一致性问题，这也是现在的通用做法
 三个节点允许一个节点失败五个节点......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/distributed_system/study_distribute_item/">
-        <h2 class="post-title">
-            分布式系统要点记录
-        </h2>
-        <h3 class="post-subtitle">
-             "微服务的惯用架构"
-        </h3>
-        <div class="post-content-preview">
-            The Twelve Factor AppThe Twelve Factor App网关聚合服务 提供restful接口grpc 内网调用服务发现，使用etcd自动服务注册服务配置，使用etcd存储配置服务快速部署服务logging记录服务调用链的追踪服务质量的监控，响应时间缓存的应用
-典型架构缓存、消息、搜索Nginx+Tornado+mysql+pythonNginx+rest.li+r......
         </div>
     </a>
     <p class="post-meta">
@@ -396,30 +426,6 @@ SHOW PROCESSLIST 查看数据库连接，看哪个连接导致锁表kill id   //
 </div>
 <hr>
 
-<div class="post-preview">
-
-    <a href="/2017/10/16/puduct/wegame/">
-        <h2 class="post-title">
-            使用商业画布分析WeGame商业模式设计
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            
-“来自人人都是产品经理”
-
-作为WeGame团队的一颗螺丝钉，在WeGame全量上线之际，和大家分享分享在这大半年时间里我们都在做一个什么样的WeGame，WeGame在一个UI开发同学眼中又是什么样子呢？我们爬山，除了兴趣、健身、社交，可能更多的是为了登高而望远，看得远了，见得多了，我们的掌握的信息和优势自然而然就会更丰富和明显。　　山底站久了，那我们就快快爬到山顶看看WeGame到底都......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by 任寒韬 on
-        2017-10-16
-    </p>
-
-</div>
-<hr>
-
 
 
 <!-- Pager -->
@@ -467,9 +473,7 @@ SHOW PROCESSLIST 查看数据库连接，看哪个连接导致锁表kill id   //
                             
                         
                             
-                            <a href="/tags/#computer_science" title="computer_science" rel="7">computer_science</a>
-                            
-                        
+                            <a href="/tags/#computer_science" title="computer_science" rel="8">computer_science</a>
                             
                         
                             
@@ -482,10 +486,6 @@ SHOW PROCESSLIST 查看数据库连接，看哪个连接导致锁表kill id   //
                         
                             
                             <a href="/tags/#devops" title="devops" rel="5">devops</a>
-                            
-                        
-                            
-                            <a href="/tags/#financial" title="financial" rel="5">financial</a>
                             
                         
                             
@@ -509,11 +509,7 @@ SHOW PROCESSLIST 查看数据库连接，看哪个连接导致锁表kill id   //
                             
                         
                             
-                            <a href="/tags/#reading" title="reading" rel="2">reading</a>
-                            
-                        
-                            
-                            <a href="/tags/#social_science" title="social_science" rel="2">social_science</a>
+                            <a href="/tags/#thinking" title="thinking" rel="8">thinking</a>
                             
                         
                             
@@ -525,7 +521,17 @@ SHOW PROCESSLIST 查看数据库连接，看哪个连接导致锁表kill id   //
                             
                         
                             
-                            <a href="/tags/#thinking" title="thinking" rel="8">thinking</a>
+                        
+                            
+                            <a href="/tags/#financial" title="financial" rel="5">financial</a>
+                            
+                        
+                            
+                            <a href="/tags/#reading" title="reading" rel="2">reading</a>
+                            
+                        
+                            
+                            <a href="/tags/#social_science" title="social_science" rel="2">social_science</a>
                             
                         
                     </div>

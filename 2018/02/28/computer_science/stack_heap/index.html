@@ -13,11 +13,11 @@
 
     <title>
         
-          golang Runtime底层学习 - YueLng的博客 | YueLng&#39;s Blog
+          stack &amp;&amp; heap - YueLng的博客 | YueLng&#39;s Blog
         
     </title>
 
-    <link rel="canonical" href="http://yuelng.github.io/2018/02/28/language/golang_runtime/">
+    <link rel="canonical" href="http://yuelng.github.io/2018/02/28/computer_science/stack_heap/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -161,7 +161,7 @@
 <!-- Post Header -->
 <style type="text/css">
     header.intro-header{
-        background-image: url('http://ogcxtlv6r.bkt.clouddn.com/17-12-18/57927760.jpg')
+        background-image: url('http://ogcxtlv6r.bkt.clouddn.com/18-3-1/94305183.jpg')
     }
 </style>
 <header class="intro-header" >
@@ -171,10 +171,10 @@
                 <div class="post-heading">
                     <div class="tags">
                         
-                          <a class="tag" href="/tags/#language" title="language">language</a>
+                          <a class="tag" href="/tags/#computer_science" title="computer_science">computer_science</a>
                         
                     </div>
-                    <h1>golang Runtime底层学习</h1>
+                    <h1>stack &amp;&amp; heap</h1>
                     <h2 class="subheading">runtime</h2>
                     <span class="meta">
                         Posted by yueLng on
@@ -197,24 +197,8 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h3 id="导读"><a href="#导读" class="headerlink" title="导读"></a>导读</h3><p>引入<br>这个系列深入剖析 Runtime 三大组件，内存分配器、垃圾回收器、Goroutine 调度。</p>
-<p>内容介绍<br>现在用几句话概括这个系列的内容。</p>
-<p>内存管理涉及两个核心问题，第一是快速分配，第二是适可而止。Go 语言基于 tcmalloc 实现的内存分配器，tcmalloc 就是 Google 开发的快速内存分配器，它本身就是基于并发设计的，目的是找到相对比较好的平衡，既有很高的性能同时内存消耗不会太夸张。Go 语言使用了 Heap、Central、Cache 三级机构实现分解锁，两级平衡，既照顾了快速分配同时又照顾了内存节约。</p>
-<p>Go 语言垃圾回收器使用三色标记的方式扫描标记对象，使用写屏障模式实现并发标记和并发清理，使用控制器辅助回收一系列的措施做到垃圾回收。垃圾回收器只是一种辅助装置，它从来不是核心装置它只是辅助回收，它没有办法让程序变的很好，只不过现在不需要用代码时时刻刻去关心释放内存，但是它永远不可能让程序变的更好，因为它不够聪明。</p>
-<p>Go 语言提供的 Goroutine 模型相对设计的相当不错的，Goroutine 本身就是基于并发设计的。如果有一个虚拟机的话，必须要有处理器，各种各样的运行的并发任务和具体执行机构线程，处理器的数量决定了并发的任务数量，通过相关的命令创建大量的任务。Goroutine 这样的 G、M、P 模型实际上就为了摆脱对操作系统层面上的依赖，不用考虑线程，不用考虑并发对于核的处理。</p>
-<p>Go 语言的 Channel 模型只能在进程内进行通讯，在各种各样的算法里面频繁的使用，显然比内存共享要花的代价大很多，但是它的抽象层面可以做到解耦。Channel 模型根本不需要对方是谁，只要约定好格式化数据放到某个通道里去，在通道上面与使用者无关，这实际上都是架构层面上的解耦。</p>
-<p>同步模块中提供了互斥锁（Mutex）、读写锁（RWMutex）、条件锁（Cond）、信号量（Semaphore）、自旋锁（SpinLock）、原子操作（Atomic），平常开发中肯定会使用锁这样概念，为了数据竞争我们需要加个锁，他们有不同的性能差别，也就意味着不同的锁适合用在不同的场合。</p>
-<p>内容大纲<br>系统模块（内存管理、垃圾回收、Goroutine 调度）：</p>
-<p>自主实现内存管理<br>内存管理面临的问题<br>Go 基于 tcmalloc 实现的内存分配器工作原理<br>如何释放物理内存<br>垃圾回收常用方式：引用计数、代龄、标记清理<br>垃圾回收何时启动？如何避免内存膨胀，避免影响性能<br>Go 三色标记 + 写屏障模式如何实现并发标记和并发清理<br>控制器和辅助回收的作用<br>Goroutine 调度 G、M、P 模型<br>如何创建 Goroutine<br>如何启动并发任务<br>调度器如何执行<br>M/P 对应关系<br>分段栈的问题是什么<br>连续栈如何实现<br>连续栈回收<br>连续栈扩张问题演示<br>系统监控的用途<br>强制垃圾回收<br>释放物理内存<br>抢占调度<br>处理系统调用<br>I/O 事件<br>并发模块（进程、线程、协程、通信、同步）：</p>
-<p>进程、线程的区别<br>系统线程和用户线程的区别<br>CPU 时间片分配方式<br>协程基本原理、优点和缺点<br>上下文切换以及对性能的影响<br>通道基本原理<br>同步通道和异步通道的区别<br>Goroutine 资源泄漏<br>常见同步方式<br>互斥锁（Mutex）<br>读写锁（RWMutex）<br>条件锁（Cond）<br>信号量（Semaphore）<br>自旋锁（SpinLock）<br>原子操作（Atomic）<br>单核和多核指令是否原子<br>如何实现原子操作<br>CAS（Compare-and-swap）<br>用原子操作实现自旋锁</p>
-<h3 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h3><p>本节内容：</p>
-<p>自主实现内存管理<br>内存管理面临的问题<br>Go 基于 tcmalloc 实现的内存分配器工作原理<br>如何释放物理内存</p>
-<p>操作系统为何不进行内存管理，不同的应用，不同编程语言，不好控制，职责分清更加重要<br>语言层面实现内存分配的好处，第一减少系统调用带来的系统开销，第二自己实现内存复用体系，第三可以和垃圾回收器配合。</p>
-<p>所以现在的流程是分配内存时候，首先检查 Cache 里有没有，如果有的话直接返回，如果没有的话去检查应该去哪个门店，从门店取回一批，一批是 10 个，Go 语言在初始化时候建立一个静态表，通过这个表查出来到底需要多少个，这个数字基于大量的统计得到的，有些语言根据程序运行期动态调整这个数字。从 Central 里面去取，如果 Central 正好有这样的资源，那就拿回来，如果 Central 没有，它就去 Heap 中去取大块自由块，切回，如果 Heap 没有多余的自由块，去操作系统 OS 申请。</p>
-<ul>
-<li>快速分配，实现lock-free减少锁，另外实现批处理来实现快速的性能，</li>
-<li>是实现内存节约避免快速消耗，通过GC触发将cache中多余的内存返回central，另外central之间的相互平衡，如有闲散资源，则将该资源交给Heap</li>
-</ul>
+                <p>堆和栈基本形式<br>golang中的内存分配 基于tcmalloc内存分配器</p>
+<h3 id="栈与指针"><a href="#栈与指针" class="headerlink" title="栈与指针"></a>栈与指针</h3><h3 id="参考内容"><a href="#参考内容" class="headerlink" title="参考内容"></a>参考内容</h3><p><a href="https://mp.weixin.qq.com/s/_m7WgJEF-MPL5aVzelOymQ" target="_blank" rel="external">计算机体系 – 栈与堆</a><br><a href="https://engineers.sg/video/go-concurrency-live-gophercon-sg-2017--1746" target="_blank" rel="external">Escape Analysis and Memory Profiling - GopherCon SG 2017</a><br><a href="https://studygolang.com/articles/12443" target="_blank" rel="external">Go语言机制之栈和指针</a><br><a href="https://studygolang.com/articles/12444" target="_blank" rel="external">Go语言机制之逃逸分析</a><br><a href="https://studygolang.com/articles/12445" target="_blank" rel="external">Go 语言机制之内存剖析</a><br><a href="https://www.ardanlabs.com/blog/2017/06/design-philosophy-on-data-and-semantics.html" target="_blank" rel="external">Design Philosophy On Data And Semantics</a></p>
 
 
                 <hr>
@@ -223,9 +207,13 @@
 
                 <ul class="pager">
                     
+                        <li class="previous">
+                            <a href="/2018/02/28/language/golang_runtime/" data-toggle="tooltip" data-placement="top" title="golang Runtime底层学习">&larr; Previous Post</a>
+                        </li>
+                    
                     
                         <li class="next">
-                            <a href="/2018/02/28/computer_science/stack_heap/" data-toggle="tooltip" data-placement="top" title="stack && heap">Next Post &rarr;</a>
+                            <a href="/2018/02/27/system_design/cache/" data-toggle="tooltip" data-placement="top" title="缓存系统的设计">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -272,7 +260,7 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#language" title="language">language</a>
+                          <a class="tag" href="/tags/#computer_science" title="computer_science">computer_science</a>
                         
                     </div>
                 </section>
@@ -302,8 +290,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "tamchen";
-    var disqus_identifier = "http://yuelng.github.io/2018/02/28/language/golang_runtime/";
-    var disqus_url = "http://yuelng.github.io/2018/02/28/language/golang_runtime/";
+    var disqus_identifier = "http://yuelng.github.io/2018/02/28/computer_science/stack_heap/";
+    var disqus_url = "http://yuelng.github.io/2018/02/28/computer_science/stack_heap/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
