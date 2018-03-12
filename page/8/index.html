@@ -190,6 +190,29 @@
 
 <div class="post-preview">
 
+    <a href="/2017/11/28/database/database/">
+        <h2 class="post-title">
+            数据库原理、实践
+        </h2>
+        <h3 class="post-subtitle">
+             "数据库原理、实践"
+        </h3>
+        <div class="post-content-preview">
+            数据库实践数据库并发查询下 导致巨大时延？
+SHOW PROCESSLIST 查看数据库连接，看哪个连接导致锁表kill id   //杀掉被锁的表
+如何使用online DDL 增加字段MySQL Online DDL - 腾讯云社区 - 腾讯云没有使用 online DDL选项主库增加了字段，通过binlog 同步到从库执行alter 操作 会导致锁表，锁表导致set old_alter......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2017-11-28
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/2017/11/27/distributed_system/service_discovery/">
         <h2 class="post-title">
             服务发现与配置
@@ -310,70 +333,45 @@ Hackintosh简介与法律问题Hackintosh是在非苹果硬件上安装运行苹
 
 <div class="post-preview">
 
-    <a href="/2017/03/30/distributed_system/engineering/">
+    <a href="/2017/03/30/language/ruby_dev_env/">
         <h2 class="post-title">
-            后端代码工程
+            ruby开发环境的搭建
+        </h2>
+        <h3 class="post-subtitle">
+             "ruby开发"
+        </h3>
+        <div class="post-content-preview">
+            ruby开发环境
+Mac OS本身自带ruby在系统目录 /System/Library/Frameworks/Ruby.framework/Versions/Current12345# 通过homebrew安装ruby最新版brew updatebrew install ruby# 安装railsgem install rails
+
+
+...
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2017-03-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/03/30/devops/basic_oprate/">
+        <h2 class="post-title">
+            记录常用的配置
         </h2>
         <h3 class="post-subtitle">
              "配置"
         </h3>
         <div class="post-content-preview">
-            
-“Yeah It’s on. ”
+            ####项目部署执行openplay_backend requirement.txt 中却少raven
+在跑run.py时，debug配置文件下却少sentry，将product环境下的sentry添加即可
+####项目基础架构
 
-
-配置文件
-程序内内置配置项的初始默认值
-配置文件中的配置项值可以覆盖(override)程序内配置项的默认值。
-命令行选项和参数值具有最高优先级，可以override前两层的配置项值。
-
-错误处理golang内置两种错误处理方式，error与panic，error是逻辑上程序可控制可预见的错误，而panic则相对于error是比较严重的错误。在通常的项......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2017-03-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/03/30/framework/tornado/">
-        <h2 class="post-title">
-            Tornado Pyhton web框架介绍
-        </h2>
-        <h3 class="post-subtitle">
-             "tornado为何这么快"
-        </h3>
-        <div class="post-content-preview">
-            ##Tornado直接读代码
-简介FriendFeed使用了一款使用Python编写的，相对简单的非阻塞式Web服务器。它的特点在于非阻塞服务器和epoll的运用，这个Web框架还包含了一些相关的有用工具和优化。
-以下是经典的“Hello, world”示例：
-123456789101112131415import tornado.ioloopimport tornado.webclass ......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2017-03-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/03/30/computer_science/network/">
-        <h2 class="post-title">
-            计算机网络
-        </h2>
-        <h3 class="post-subtitle">
-             "计算机网络"
-        </h3>
-        <div class="post-content-preview">
-            TCP四次挥手过程
-TCP是面向连接的服务；三次握手（建立连接）和四次挥手（关闭连接）；使用滑动窗口机制进行流量控制；TCP要保证在所有可能的情况下使得所有的数据都能够被投递，当你关闭一个socket时，主动关闭一端的socket将进入TIME_WAIT状态，而被动关闭一方则转入CLOSED状态，这的确能够保证所有的数据都被传输。1）首先A B端的TCP进程都处于established状态，......
+总共分为球员版player，管理员admin，用户user，统计stats，网页web，五个部分
+项目之间的关系：五个部分全都是基于tornado API项目开发......
         </div>
     </a>
     <p class="post-meta">
@@ -419,19 +417,18 @@ TCP是面向连接的服务；三次握手（建立连接）和四次挥手（�
 
 <div class="post-preview">
 
-    <a href="/2017/03/30/language/ruby_dev_env/">
+    <a href="/2017/03/30/framework/tornado/">
         <h2 class="post-title">
-            ruby开发环境的搭建
+            Tornado Pyhton web框架介绍
         </h2>
         <h3 class="post-subtitle">
-             "ruby开发"
+             "tornado为何这么快"
         </h3>
         <div class="post-content-preview">
-            ruby开发环境
-Mac OS本身自带ruby在系统目录 /System/Library/Frameworks/Ruby.framework/Versions/Current12345# 通过homebrew安装ruby最新版brew updatebrew install ruby# 安装railsgem install rails
-
-
-...
+            ##Tornado直接读代码
+简介FriendFeed使用了一款使用Python编写的，相对简单的非阻塞式Web服务器。它的特点在于非阻塞服务器和epoll的运用，这个Web框架还包含了一些相关的有用工具和优化。
+以下是经典的“Hello, world”示例：
+123456789101112131415import tornado.ioloopimport tornado.webclass ......
         </div>
     </a>
     <p class="post-meta">
@@ -493,7 +490,7 @@ Mac OS本身自带ruby在系统目录 /System/Library/Frameworks/Ruby.framework/
                             
                         
                             
-                            <a href="/tags/#database" title="database" rel="3">database</a>
+                            <a href="/tags/#database" title="database" rel="4">database</a>
                             
                         
                             
@@ -509,6 +506,8 @@ Mac OS本身自带ruby在系统目录 /System/Library/Frameworks/Ruby.framework/
                             
                         
                             
+                        
+                            
                             <a href="/tags/#language" title="language" rel="8">language</a>
                             
                         
@@ -517,13 +516,7 @@ Mac OS本身自带ruby在系统目录 /System/Library/Frameworks/Ruby.framework/
                             
                         
                             
-                        
-                            
                             <a href="/tags/#financial" title="financial" rel="5">financial</a>
-                            
-                        
-                            
-                            <a href="/tags/#project" title="project" rel="8">project</a>
                             
                         
                             
@@ -531,7 +524,15 @@ Mac OS本身自带ruby在系统目录 /System/Library/Frameworks/Ruby.framework/
                             
                         
                             
+                            <a href="/tags/#project" title="project" rel="8">project</a>
+                            
+                        
+                            
                             <a href="/tags/#surrounding" title="surrounding" rel="9">surrounding</a>
+                            
+                        
+                            
+                            <a href="/tags/#social_science" title="social_science" rel="2">social_science</a>
                             
                         
                             
@@ -544,10 +545,6 @@ Mac OS本身自带ruby在系统目录 /System/Library/Frameworks/Ruby.framework/
                         
                             
                             <a href="/tags/#reading" title="reading" rel="2">reading</a>
-                            
-                        
-                            
-                            <a href="/tags/#social_science" title="social_science" rel="2">social_science</a>
                             
                         
                     </div>

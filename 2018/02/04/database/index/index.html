@@ -13,11 +13,11 @@
 
     <title>
         
-          数据库死锁问题 - YueLng的博客 | YueLng&#39;s Blog
+          数据库索引学习 - YueLng的博客 | YueLng&#39;s Blog
         
     </title>
 
-    <link rel="canonical" href="http://yuelng.github.io/2018/01/18/database/dead_lock/">
+    <link rel="canonical" href="http://yuelng.github.io/2018/02/04/database/index/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -161,7 +161,7 @@
 <!-- Post Header -->
 <style type="text/css">
     header.intro-header{
-        background-image: url('http://ogcxtlv6r.bkt.clouddn.com/17-12-26/19881284.jpg')
+        background-image: url('http://ogcxtlv6r.bkt.clouddn.com/18-3-12/14311946.jpg')
     }
 </style>
 <header class="intro-header" >
@@ -174,11 +174,11 @@
                           <a class="tag" href="/tags/#database" title="database">database</a>
                         
                     </div>
-                    <h1>数据库死锁问题</h1>
-                    <h2 class="subheading"> &quot;dead lock&quot;</h2>
+                    <h1>数据库索引学习</h1>
+                    <h2 class="subheading"> &quot;The index&quot;</h2>
                     <span class="meta">
                         Posted by yueLng on
-                        2018-01-18
+                        2018-02-04
                     </span>
                 </div>
             </div>
@@ -197,16 +197,18 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>事务的隔离级别，各个数据库实现的都不同。</p>
-<ol>
-<li>未提交读(Read Uncommitted)：允许脏读，也就是可能读取到其他会话中未提交事务修改的数据</li>
-<li>提交读(Read Committed)：只能读取到已经提交的数据。Oracle等多数数据库默认都是该级别</li>
-<li>可重复读(Repeated Read)：可重复读。在同一个事务内的查询都是事务开始时刻一致的，InnoDB默认级别。在SQL标准中，该隔离级别消除了不可重复读，但是还存在幻象读</li>
-<li>串行读(Serializable)：完全串行化的读，每次读都需要获得表级共享锁，读写相互都会阻塞（SQLite）</li>
-</ol>
-<h3 id="数据库死锁问题"><a href="#数据库死锁问题" class="headerlink" title="数据库死锁问题"></a>数据库死锁问题</h3><ul>
-<li><a href="http://825635381.iteye.com/blog/2339434" target="_blank" rel="external">一次mysql死锁的排查过程</a></li>
-</ul>
+                <p>单列索引，即一个索引只包含单个列，一个表可以有多个单列索引，但这不是组合索引。 组合索引，即一个索引包含多个列。 创建索引时，你需要确保该索引是应用在 SQL 查询语句的条件(一般作为WHERE 子句的条件)。 实际上，索引也是一张表，该表保存了主键与索引字段，并指向实体表的记录。创建组合索引会按照最左前缀的原则建立多个索引，例如abcd索引，会分别建立abcd、abc、ab、a四个索引</p>
+<blockquote>
+<p>CREATE INDEX indexName ON mytable(username(length));<br>ALTER table tableName ADD INDEX indexName(columnName)</p>
+</blockquote>
+<h3 id="为什么使用索引"><a href="#为什么使用索引" class="headerlink" title="为什么使用索引"></a>为什么使用索引</h3><p>在无索引的情况下，MySQL会扫描整张表来查找符合sql条件的记录，其时间开销与表中数据量呈正相关。对关系型数据表中的某些字段建索引可以极大提高查询速度</p>
+<p>对于MySQL的Innodb储存引擎来说，大部分类型的index均以B-Tree数据结构的变种B+Tree来存储（MEMORY类型的表还支持hash类型的索引）。B-Tree是数据库或文件系统中常用的一种数据结构，它是一种N叉平衡树，这种树结构保证了同层节点保存的key有序，对于某个节点来说，其左子树保存的所有key均小于该节点保存的key，其右子树保存的所有key均大于该节点保存的key。此外，在工程实现上，还结合操作系统的局部性原理做了很多优化，总之，b-tree的各种特性或优化技巧能保证：1) 查询磁盘记录时，读盘次数最少；2) 任何insert和delete操作对树结构的影响均很小；3) 树本身的rebalance操作很高效。</p>
+<h3 id="建索引的原则"><a href="#建索引的原则" class="headerlink" title="建索引的原则"></a>建索引的原则</h3><p>1.最左前缀匹配原则，非常重要的原则，mysql会一直向右匹配直到遇到范围查询(&gt;、&lt;、between、like)就停止匹配，比如a = 1 and b = 2 and c &gt; 3 and d = 4 如果建立(a,b,c,d)顺序的索引，d是用不到索引的，如果建立(a,b,d,c)的索引则都可以用到，a,b,d的顺序可以任意调整。<br>2.=和in可以乱序，比如a = 1 and b = 2 and c = 3 建立(a,b,c)索引可以任意顺序，mysql的查询优化器会帮你优化成索引可以识别的形式<br>3.尽量选择区分度高的列作为索引,区分度的公式是count(distinct col)/count(*)，表示字段不重复的比例，比例越大我们扫描的记录数越少，唯一键的区分度是1，而一些状态、性别字段可能在大数据面前区分度就是0，那可能有人会问，这个比例有什么经验值吗？使用场景不同，这个值也很难确定，一般需要join的字段我们都要求是0.1以上，即平均1条扫描10条记录<br>4.索引列不能参与计算，保持列“干净”，比如from_unixtime(create_time) = ’2014-05-29’就不能使用到索引，原因很简单，b+树中存的都是数据表中的字段值，但进行检索时，需要把所有元素都应用函数才能比较，显然成本太大。所以语句应该写成create_time = unix_timestamp(’2014-05-29’);<br>5.尽量的扩展索引，不要新建索引。比如表中已经有a的索引，现在要加(a,b)的索引，那么只需要修改原来的索引即可</p>
+<h3 id="使用索引的场景"><a href="#使用索引的场景" class="headerlink" title="使用索引的场景"></a>使用索引的场景</h3><p>MySQL在以下操作场景下会使用索引：<br>1) 快速查找符合where条件的记录<br>2) 快速确定候选集。若where条件使用了多个索引字段，则MySQL会优先使用能使候选记录集规模最小的那个索引，以便尽快淘汰不符合条件的记录。<br>3) 如果表中存在几个字段构成的联合索引，则查找记录时，这个联合索引的最左前缀匹配字段也会被自动作为索引来加速查找。<br>例如，若为某表创建了3个字段(c1, c2, c3)构成的联合索引，则(c1), (c1, c2), (c1, c2, c3)均会作为索引，(c2, c3)就不会被作为索引，而(c1, c3)其实只利用到c1索引。<br>4) 多表做join操作时会使用索引（如果参与join的字段在这些表中均建立了索引的话）<br>5) 若某字段已建立索引，求该字段的min()或max()时，MySQL会使用索引<br>6) 对建立了索引的字段做sort或group操作时，MySQL会使用索引</p>
+<h3 id="哪些语句会用到索引"><a href="#哪些语句会用到索引" class="headerlink" title="哪些语句会用到索引"></a>哪些语句会用到索引</h3><p>1) B-Tree可被用于sql中对列做比较的表达式，如=, &gt;, &gt;=, &lt;, &lt;=及between操作</p>
+<p>2) 若like语句的条件是不以通配符开头的常量串，MySQL也会使用索引<br>比如，SELECT <em> FROM tbl_name WHERE key_col LIKE ‘Patrick%’或SELECT </em> FROM tbl_name WHERE key_col LIKE ‘Pat%_ck%’可以利用索引，而SELECT <em> FROM tbl_name WHERE key_col LIKE ‘%Patrick%’（以通配符开头）和SELECT </em> FROM tbl_name WHERE key_col LIKE other_col（like条件不是常量串）无法利用索引。<br>对于形如LIKE ‘%string%’的sql语句，若通配符后面的string长度大于3，则MySQL会利用Turbo Boyer-Moore algorithm算法进行查找。<br>3) 若已对名为col_name的列建了索引，则形如”col_name is null”的SQL会用到索引</p>
+<p>4) 对于联合索引，sql条件中的最左前缀匹配字段会用到索引，示例请参考本文第2节第3条对联合索引的说明<br>5) 若sql语句中的where条件不只1个条件，则MySQL会进行Index Merge优化来缩小候选集范围</p>
+<h3 id="参考内容"><a href="#参考内容" class="headerlink" title="参考内容"></a>参考内容</h3><p><a href="http://www.runoob.com/mysql/mysql-index.html" target="_blank" rel="external">MySQL 索引</a><br><a href="https://tech.meituan.com/mysql-index.html" target="_blank" rel="external">MySQL索引原理及慢查询优化</a><br><a href="https://dev.mysql.com/doc/refman/5.5/en/explain-output.html" target="_blank" rel="external">explain output</a><br><a href="https://book.douban.com/subject/23008813/" target="_blank" rel="external">高性能MySQL</a></p>
 
 
                 <hr>
@@ -216,12 +218,12 @@
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/2018/01/18/distributed_system/lock/" data-toggle="tooltip" data-placement="top" title="lock">&larr; Previous Post</a>
+                            <a href="/2018/02/07/financial/report/" data-toggle="tooltip" data-placement="top" title="财务报告分析">&larr; Previous Post</a>
                         </li>
                     
                     
                         <li class="next">
-                            <a href="/2018/01/18/devops/study_environment/" data-toggle="tooltip" data-placement="top" title="基础服务环境搭建">Next Post &rarr;</a>
+                            <a href="/2018/02/02/financial/economic/" data-toggle="tooltip" data-placement="top" title="经济学知识">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -298,8 +300,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "tamchen";
-    var disqus_identifier = "http://yuelng.github.io/2018/01/18/database/dead_lock/";
-    var disqus_url = "http://yuelng.github.io/2018/01/18/database/dead_lock/";
+    var disqus_identifier = "http://yuelng.github.io/2018/02/04/database/index/";
+    var disqus_url = "http://yuelng.github.io/2018/02/04/database/index/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
