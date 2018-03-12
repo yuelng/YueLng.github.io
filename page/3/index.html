@@ -96,14 +96,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -190,6 +190,57 @@
 
 <div class="post-preview">
 
+    <a href="/2018/01/18/distributed_system/data_intensive/">
+        <h2 class="post-title">
+            Designing Data-Intensive Applications
+        </h2>
+        <h3 class="post-subtitle">
+             "some note"
+        </h3>
+        <div class="post-content-preview">
+            可用性可扩展性可维护性容错容错，这个词的理解，书面意思就是可以容下错误，不让错误再次扩张，让这个错误产生的影响在一个固定的边界之内在工作中，降级、限流、熔断器、超时重试等都是常见的容错方法
+抗量
+使用并发如何抗住大并发的场景，充分利用golang的goroutine并发性能，利用并发执行缩短总体服务响应时间，针对耗时严重的服务，使用消息队列进行缓冲。
+脱离DB使用分库分表、读写分离，使用re......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2018-01-18
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2018/01/18/thinking/study_software/">
+        <h2 class="post-title">
+            团队项目开发与规范
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            计算机专业的三个维度
+
+基础体系，基础理论、算法与架构
+工程，业界常用方法，实际项目，开源项目
+前沿与未来，保持对新技术的灵敏度，论文
+
+个人理解团队是因为有相同的目标才聚集在一起，所有在做一个项目的开始，要让所有成员认同项目的前景。团队的大小个人认为最多20个人。虽然说很有必要保证规范化，但是我认为按部就班只能扼杀人的创造力，但是一些的必要的流程规范还是要的，也就是下面说的开发流程规范，有......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2018-01-18
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/2018/01/18/thinking/think_work/">
         <h2 class="post-title">
             软件工程与自我修养
@@ -215,33 +266,6 @@ Component-Driven dev 模块驱动开发
 测试驱动开发
 数据驱动开发
 ......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2018-01-18
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2018/01/18/thinking/study_software/">
-        <h2 class="post-title">
-            团队项目开发与规范
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            计算机专业的三个维度
-
-基础体系，基础理论、算法与架构
-工程，业界常用方法，实际项目，开源项目
-前沿与未来，保持对新技术的灵敏度，论文
-
-个人理解团队是因为有相同的目标才聚集在一起，所有在做一个项目的开始，要让所有成员认同项目的前景。团队的大小个人认为最多20个人。虽然说很有必要保证规范化，但是我认为按部就班只能扼杀人的创造力，但是一些的必要的流程规范还是要的，也就是下面说的开发流程规范，有......
         </div>
     </a>
     <p class="post-meta">
@@ -368,30 +392,6 @@ Json Web Token(JWT)JSON Web Token (JWT) 是目前应用最为广泛的 token 格
 
 <div class="post-preview">
 
-    <a href="/2018/01/18/surrounding/script/">
-        <h2 class="post-title">
-            脚本基础
-        </h2>
-        <h3 class="post-subtitle">
-             "记录一些常用的脚本"
-        </h3>
-        <div class="post-content-preview">
-            Script#随手记
-:w !sudo tee %   VIM sudo 命令for line in $(cat twitter.env)doexport $linedone
-这种写法主要是为了让你的程序在不同的系统上都能适用。1#!/usr/bin/env perl
-不管你的perl是在/usr/bin/perl还是/usr/local/bin/perl，#!/usr/bin/env pe......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2018-01-18
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
     <a href="/2018/01/18/surrounding/document/">
         <h2 class="post-title">
             学习方法论
@@ -424,24 +424,22 @@ paradigm shift。是否对......
 
 <div class="post-preview">
 
-    <a href="/2018/01/18/life_is_short/life/">
+    <a href="/2018/01/18/surrounding/script/">
         <h2 class="post-title">
-            吃喝玩乐
+            脚本基础
         </h2>
         <h3 class="post-subtitle">
-            人生苦短、为欢几何？
+             "记录一些常用的脚本"
         </h3>
         <div class="post-content-preview">
-            广州旅游手册
-看经济学人大西洋周刊纽约客
-讲究吃喝玩乐
-吃蔡澜江献珠：一生寻真味广州白斩鸡、盐焗鸡、潮汕牛肉火锅、虾仔净云吞烤鸡、烤肋排、羊肉
-喝啤酒、白酒、酸梅汤、柠檬梅子绿夺命大乌苏 1000ml 50绝对伏特加  螺丝起子
-玩乐体育运动 玩车 玩音乐“一个人如连玩都玩不好，还可能把工作干好吗？！” –王世襄秋斗蟋蟀，冬怀鸣虫，钩鹰逐兔，挈狗捉獾，皆乐之不疲，而养鸽飞放更是不受节令限制的......
+            Script#随手记
+:w !sudo tee %   VIM sudo 命令for line in $(cat twitter.env)doexport $linedone
+这种写法主要是为了让你的程序在不同的系统上都能适用。1#!/usr/bin/env perl
+不管你的perl是在/usr/bin/perl还是/usr/local/bin/perl，#!/usr/bin/env pe......
         </div>
     </a>
     <p class="post-meta">
-        Posted by YueLng Chen on
+        Posted by yueLng on
         2018-01-18
     </p>
 
@@ -487,15 +485,15 @@ paradigm shift。是否对......
                     <div class="tags">
                         
                             
-                            <a href="/tags/#coding" title="coding" rel="3">coding</a>
-                            
-                        
-                            
                             <a href="/tags/#collection" title="collection" rel="5">collection</a>
                             
                         
                             
                             <a href="/tags/#computer_science" title="computer_science" rel="8">computer_science</a>
+                            
+                        
+                            
+                            <a href="/tags/#coding" title="coding" rel="3">coding</a>
                             
                         
                             
@@ -511,15 +509,21 @@ paradigm shift。是否对......
                             
                         
                             
-                            <a href="/tags/#framework" title="framework" rel="3">framework</a>
-                            
-                        
-                            
                             <a href="/tags/#language" title="language" rel="8">language</a>
                             
                         
                             
-                            <a href="/tags/#life_is_short" title="life_is_short" rel="4">life_is_short</a>
+                            <a href="/tags/#framework" title="framework" rel="3">framework</a>
+                            
+                        
+                            
+                            <a href="/tags/#financial" title="financial" rel="5">financial</a>
+                            
+                        
+                            
+                        
+                            
+                            <a href="/tags/#life_is_short" title="life_is_short" rel="5">life_is_short</a>
                             
                         
                             
@@ -531,7 +535,7 @@ paradigm shift。是否对......
                             
                         
                             
-                            <a href="/tags/#thinking" title="thinking" rel="8">thinking</a>
+                            <a href="/tags/#reading" title="reading" rel="2">reading</a>
                             
                         
                             
@@ -543,13 +547,7 @@ paradigm shift。是否对......
                             
                         
                             
-                        
-                            
-                            <a href="/tags/#financial" title="financial" rel="5">financial</a>
-                            
-                        
-                            
-                            <a href="/tags/#reading" title="reading" rel="2">reading</a>
+                            <a href="/tags/#thinking" title="thinking" rel="8">thinking</a>
                             
                         
                             

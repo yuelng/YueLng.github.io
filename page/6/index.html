@@ -96,14 +96,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -190,6 +190,29 @@
 
 <div class="post-preview">
 
+    <a href="/2018/01/02/codeing/reverie/">
+        <h2 class="post-title">
+            如何写好代码
+        </h2>
+        <h3 class="post-subtitle">
+             "how coding"
+        </h3>
+        <div class="post-content-preview">
+            writing efficient programsprogramming pearlsmore programming pearlsthe pragmatic programmingthe practice of programming
+编写可读代码的艺术
+...
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2018-01-02
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/2017/12/28/database/operation/">
         <h2 class="post-title">
             数据库连接与操作
@@ -258,27 +281,6 @@ sql.Result表示结果集，sql.Rows表示查询返回多行数据的结果集�
 
 <div class="post-preview">
 
-    <a href="/2017/12/12/distributed_system/mq/">
-        <h2 class="post-title">
-            消息队列
-        </h2>
-        <h3 class="post-subtitle">
-             "消息队列"
-        </h3>
-        <div class="post-content-preview">
-            kafka问题描述：kafka 重复消费的问题，每次重启服务，都从broker拉取offset，拉到旧的消息解决：消费者每次从broker拉取数据，消费之后都会自动commit，自动commit有一个定时机制，但是并不保证一定提交成功，例如在commit的时候，程序崩溃（例如重启的情况在重启后，消费者会拉取最新的offset作为消费的起点，sarama默认的initial offset 为O......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2017-12-12
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
     <a href="/2017/12/12/distributed_system/trace/">
         <h2 class="post-title">
             分布式系统追踪
@@ -301,6 +303,27 @@ sql.Result表示结果集，sql.Rows表示查询返回多行数据的结果集�
 
 
 入库消息的结构组成，traceID、层级表示、调用方法、调用时......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2017-12-12
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/12/12/distributed_system/mq/">
+        <h2 class="post-title">
+            消息队列
+        </h2>
+        <h3 class="post-subtitle">
+             "消息队列"
+        </h3>
+        <div class="post-content-preview">
+            kafka问题描述：kafka 重复消费的问题，每次重启服务，都从broker拉取offset，拉到旧的消息解决：消费者每次从broker拉取数据，消费之后都会自动commit，自动commit有一个定时机制，但是并不保证一定提交成功，例如在commit的时候，程序崩溃（例如重启的情况在重启后，消费者会拉取最新的offset作为消费的起点，sarama默认的initial offset 为O......
         </div>
     </a>
     <p class="post-meta">
@@ -414,39 +437,6 @@ sql.Result表示结果集，sql.Rows表示查询返回多行数据的结果集�
 </div>
 <hr>
 
-<div class="post-preview">
-
-    <a href="/2017/11/30/surrounding/markdown/">
-        <h2 class="post-title">
-            markdown基本操作
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            基本符号
-*,-,+ 3个符号效果都一样，这3个符号被称为 Markdown符号
-空白行表示另起一个段落
-`是表示inline代码，tab是用来标记 代码段，分别对应html的code，pre标签
-
-换行
-单一段落( \) 用一个空白行
-连续两个空格 会变成一个 
-连续3个符号，然后是空行，表示 hr横线
-
-标题
-生成h1–h6,在文字前面加上 1–6个# 来实现
-文字加粗是通过 文字左右各......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
 
 
 <!-- Pager -->
@@ -486,15 +476,15 @@ sql.Result表示结果集，sql.Rows表示查询返回多行数据的结果集�
                     <div class="tags">
                         
                             
-                            <a href="/tags/#coding" title="coding" rel="3">coding</a>
-                            
-                        
-                            
                             <a href="/tags/#collection" title="collection" rel="5">collection</a>
                             
                         
                             
                             <a href="/tags/#computer_science" title="computer_science" rel="8">computer_science</a>
+                            
+                        
+                            
+                            <a href="/tags/#coding" title="coding" rel="3">coding</a>
                             
                         
                             
@@ -510,15 +500,21 @@ sql.Result表示结果集，sql.Rows表示查询返回多行数据的结果集�
                             
                         
                             
-                            <a href="/tags/#framework" title="framework" rel="3">framework</a>
-                            
-                        
-                            
                             <a href="/tags/#language" title="language" rel="8">language</a>
                             
                         
                             
-                            <a href="/tags/#life_is_short" title="life_is_short" rel="4">life_is_short</a>
+                            <a href="/tags/#framework" title="framework" rel="3">framework</a>
+                            
+                        
+                            
+                            <a href="/tags/#financial" title="financial" rel="5">financial</a>
+                            
+                        
+                            
+                        
+                            
+                            <a href="/tags/#life_is_short" title="life_is_short" rel="5">life_is_short</a>
                             
                         
                             
@@ -530,7 +526,7 @@ sql.Result表示结果集，sql.Rows表示查询返回多行数据的结果集�
                             
                         
                             
-                            <a href="/tags/#thinking" title="thinking" rel="8">thinking</a>
+                            <a href="/tags/#reading" title="reading" rel="2">reading</a>
                             
                         
                             
@@ -542,13 +538,7 @@ sql.Result表示结果集，sql.Rows表示查询返回多行数据的结果集�
                             
                         
                             
-                        
-                            
-                            <a href="/tags/#financial" title="financial" rel="5">financial</a>
-                            
-                        
-                            
-                            <a href="/tags/#reading" title="reading" rel="2">reading</a>
+                            <a href="/tags/#thinking" title="thinking" rel="8">thinking</a>
                             
                         
                             
