@@ -96,14 +96,14 @@
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
@@ -281,6 +281,27 @@ sql.Result表示结果集，sql.Rows表示查询返回多行数据的结果集�
 
 <div class="post-preview">
 
+    <a href="/2017/12/12/distributed_system/mq/">
+        <h2 class="post-title">
+            消息队列
+        </h2>
+        <h3 class="post-subtitle">
+             "消息队列"
+        </h3>
+        <div class="post-content-preview">
+            kafka问题描述：kafka 重复消费的问题，每次重启服务，都从broker拉取offset，拉到旧的消息解决：消费者每次从broker拉取数据，消费之后都会自动commit，自动commit有一个定时机制，但是并不保证一定提交成功，例如在commit的时候，程序崩溃（例如重启的情况在重启后，消费者会拉取最新的offset作为消费的起点，sarama默认的initial offset 为O......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2017-12-12
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/2017/12/12/distributed_system/trace/">
         <h2 class="post-title">
             分布式系统追踪
@@ -303,27 +324,6 @@ sql.Result表示结果集，sql.Rows表示查询返回多行数据的结果集�
 
 
 入库消息的结构组成，traceID、层级表示、调用方法、调用时......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2017-12-12
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/12/12/distributed_system/mq/">
-        <h2 class="post-title">
-            消息队列
-        </h2>
-        <h3 class="post-subtitle">
-             "消息队列"
-        </h3>
-        <div class="post-content-preview">
-            kafka问题描述：kafka 重复消费的问题，每次重启服务，都从broker拉取offset，拉到旧的消息解决：消费者每次从broker拉取数据，消费之后都会自动commit，自动commit有一个定时机制，但是并不保证一定提交成功，例如在commit的时候，程序崩溃（例如重启的情况在重启后，消费者会拉取最新的offset作为消费的起点，sarama默认的initial offset 为O......
         </div>
     </a>
     <p class="post-meta">
@@ -480,11 +480,11 @@ sql.Result表示结果集，sql.Rows表示查询返回多行数据的结果集�
                             
                         
                             
-                            <a href="/tags/#computer_science" title="computer_science" rel="8">computer_science</a>
+                            <a href="/tags/#coding" title="coding" rel="3">coding</a>
                             
                         
                             
-                            <a href="/tags/#coding" title="coding" rel="3">coding</a>
+                            <a href="/tags/#computer_science" title="computer_science" rel="8">computer_science</a>
                             
                         
                             
@@ -500,7 +500,9 @@ sql.Result表示结果集，sql.Rows表示查询返回多行数据的结果集�
                             
                         
                             
-                            <a href="/tags/#language" title="language" rel="8">language</a>
+                        
+                            
+                            <a href="/tags/#financial" title="financial" rel="5">financial</a>
                             
                         
                             
@@ -508,9 +510,7 @@ sql.Result表示结果集，sql.Rows表示查询返回多行数据的结果集�
                             
                         
                             
-                            <a href="/tags/#financial" title="financial" rel="5">financial</a>
-                            
-                        
+                            <a href="/tags/#language" title="language" rel="8">language</a>
                             
                         
                             
@@ -526,10 +526,6 @@ sql.Result表示结果集，sql.Rows表示查询返回多行数据的结果集�
                             
                         
                             
-                            <a href="/tags/#reading" title="reading" rel="2">reading</a>
-                            
-                        
-                            
                             <a href="/tags/#surrounding" title="surrounding" rel="9">surrounding</a>
                             
                         
@@ -539,6 +535,10 @@ sql.Result表示结果集，sql.Rows表示查询返回多行数据的结果集�
                         
                             
                             <a href="/tags/#thinking" title="thinking" rel="8">thinking</a>
+                            
+                        
+                            
+                            <a href="/tags/#reading" title="reading" rel="2">reading</a>
                             
                         
                             

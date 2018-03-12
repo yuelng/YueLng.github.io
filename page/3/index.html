@@ -96,14 +96,14 @@
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
@@ -214,6 +214,29 @@
 
 <div class="post-preview">
 
+    <a href="/2018/01/18/thinking/think_first/">
+        <h2 class="post-title">
+            把思维好好捋一捋
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            骐骥一跃，不能十步；驽马十驾，功在不舍。
+胡乱扯扯1研究：研究东西，有足够洞察力，研究水准不错2研发：Hack Idea自己有魄力实现，不懂研发的黑客如同不会游泳的海盗3工程：研发出来的需要实战、需要工程化，否则只是玩具，而不能成为真的武器
+关于就业和能力就业实习，还是有压力的。听过学长学姐们的经历，他们有进大公司也有初创企业的，前天还在群里争论是去哪种好，引得一个在初创公司的学长，把月薪都......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2018-01-18
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/2018/01/18/thinking/study_software/">
         <h2 class="post-title">
             团队项目开发与规范
@@ -278,17 +301,19 @@ Component-Driven dev 模块驱动开发
 
 <div class="post-preview">
 
-    <a href="/2018/01/18/thinking/think_first/">
+    <a href="/2018/01/18/system_design/system_design_question/">
         <h2 class="post-title">
-            把思维好好捋一捋
+            系统设计问题归总
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            骐骥一跃，不能十步；驽马十驾，功在不舍。
-胡乱扯扯1研究：研究东西，有足够洞察力，研究水准不错2研发：Hack Idea自己有魄力实现，不懂研发的黑客如同不会游泳的海盗3工程：研发出来的需要实战、需要工程化，否则只是玩具，而不能成为真的武器
-关于就业和能力就业实习，还是有压力的。听过学长学姐们的经历，他们有进大公司也有初创企业的，前天还在群里争论是去哪种好，引得一个在初创公司的学长，把月薪都......
+            重点考察内容面向对象，接口设计，设计模式，数据库表，分布式
+关于高并发系统设计。主要有以下几个关键技术点：缓存，索引，数据分片，锁粒度尽可能小。
+系统设计相关
+Concurrency (threads, deadlock, starvation, consistency, coherence)
+Abstraction (understanding how OS, filesystem, an......
         </div>
     </a>
     <p class="post-meta">
@@ -323,31 +348,6 @@ Component-Driven dev 模块驱动开发
 
 <div class="post-preview">
 
-    <a href="/2018/01/18/system_design/system_design_question/">
-        <h2 class="post-title">
-            系统设计问题归总
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            重点考察内容面向对象，接口设计，设计模式，数据库表，分布式
-关于高并发系统设计。主要有以下几个关键技术点：缓存，索引，数据分片，锁粒度尽可能小。
-系统设计相关
-Concurrency (threads, deadlock, starvation, consistency, coherence)
-Abstraction (understanding how OS, filesystem, an......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2018-01-18
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
     <a href="/2018/01/18/system_design/api/">
         <h2 class="post-title">
             通用API设计
@@ -370,16 +370,18 @@ Json Web Token(JWT)JSON Web Token (JWT) 是目前应用最为广泛的 token 格
 
 <div class="post-preview">
 
-    <a href="/2018/01/18/surrounding/docker/">
+    <a href="/2018/01/18/surrounding/script/">
         <h2 class="post-title">
-            容器部署生态
+            脚本基础
         </h2>
         <h3 class="post-subtitle">
-             "kubernetes、docker"
+             "记录一些常用的脚本"
         </h3>
         <div class="post-content-preview">
-            kubernetes handbook
-...
+            Script#随手记
+:w !sudo tee %   VIM sudo 命令for line in $(cat twitter.env)doexport $linedone
+这种写法主要是为了让你的程序在不同的系统上都能适用。1#!/usr/bin/env perl
+不管你的perl是在/usr/bin/perl还是/usr/local/bin/perl，#!/usr/bin/env pe......
         </div>
     </a>
     <p class="post-meta">
@@ -424,18 +426,16 @@ paradigm shift。是否对......
 
 <div class="post-preview">
 
-    <a href="/2018/01/18/surrounding/script/">
+    <a href="/2018/01/18/surrounding/docker/">
         <h2 class="post-title">
-            脚本基础
+            容器部署生态
         </h2>
         <h3 class="post-subtitle">
-             "记录一些常用的脚本"
+             "kubernetes、docker"
         </h3>
         <div class="post-content-preview">
-            Script#随手记
-:w !sudo tee %   VIM sudo 命令for line in $(cat twitter.env)doexport $linedone
-这种写法主要是为了让你的程序在不同的系统上都能适用。1#!/usr/bin/env perl
-不管你的perl是在/usr/bin/perl还是/usr/local/bin/perl，#!/usr/bin/env pe......
+            kubernetes handbook
+...
         </div>
     </a>
     <p class="post-meta">
@@ -489,11 +489,11 @@ paradigm shift。是否对......
                             
                         
                             
-                            <a href="/tags/#computer_science" title="computer_science" rel="8">computer_science</a>
+                            <a href="/tags/#coding" title="coding" rel="3">coding</a>
                             
                         
                             
-                            <a href="/tags/#coding" title="coding" rel="3">coding</a>
+                            <a href="/tags/#computer_science" title="computer_science" rel="8">computer_science</a>
                             
                         
                             
@@ -509,7 +509,9 @@ paradigm shift。是否对......
                             
                         
                             
-                            <a href="/tags/#language" title="language" rel="8">language</a>
+                        
+                            
+                            <a href="/tags/#financial" title="financial" rel="5">financial</a>
                             
                         
                             
@@ -517,9 +519,7 @@ paradigm shift。是否对......
                             
                         
                             
-                            <a href="/tags/#financial" title="financial" rel="5">financial</a>
-                            
-                        
+                            <a href="/tags/#language" title="language" rel="8">language</a>
                             
                         
                             
@@ -535,10 +535,6 @@ paradigm shift。是否对......
                             
                         
                             
-                            <a href="/tags/#reading" title="reading" rel="2">reading</a>
-                            
-                        
-                            
                             <a href="/tags/#surrounding" title="surrounding" rel="9">surrounding</a>
                             
                         
@@ -548,6 +544,10 @@ paradigm shift。是否对......
                         
                             
                             <a href="/tags/#thinking" title="thinking" rel="8">thinking</a>
+                            
+                        
+                            
+                            <a href="/tags/#reading" title="reading" rel="2">reading</a>
                             
                         
                             
