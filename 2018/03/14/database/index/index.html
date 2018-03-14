@@ -13,11 +13,11 @@
 
     <title>
         
-          分布式系统追踪 - YueLng的博客 | YueLng&#39;s Blog
+          数据库索引学习 - YueLng的博客 | YueLng&#39;s Blog
         
     </title>
 
-    <link rel="canonical" href="http://yuelng.github.io/2018/03/12/distributed_system/trace/">
+    <link rel="canonical" href="http://yuelng.github.io/2018/03/14/database/index/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -161,7 +161,7 @@
 <!-- Post Header -->
 <style type="text/css">
     header.intro-header{
-        background-image: url('http://ogcxtlv6r.bkt.clouddn.com/17-11-30/95014676.jpg')
+        background-image: url('http://ogcxtlv6r.bkt.clouddn.com/18-3-12/14311946.jpg')
     }
 </style>
 <header class="intro-header" >
@@ -171,14 +171,14 @@
                 <div class="post-heading">
                     <div class="tags">
                         
-                          <a class="tag" href="/tags/#distribution_system" title="distribution_system">distribution_system</a>
+                          <a class="tag" href="/tags/#database" title="database">database</a>
                         
                     </div>
-                    <h1>分布式系统追踪</h1>
-                    <h2 class="subheading"> &quot;分布式系统调用链追踪、监控&quot;</h2>
+                    <h1>数据库索引学习</h1>
+                    <h2 class="subheading"> &quot;The index&quot;</h2>
                     <span class="meta">
                         Posted by yueLng on
-                        2018-03-12
+                        2018-03-14
                     </span>
                 </div>
             </div>
@@ -197,36 +197,45 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h3 id="Logging，Metrics-和-Tracing"><a href="#Logging，Metrics-和-Tracing" class="headerlink" title="Logging，Metrics 和 Tracing"></a>Logging，Metrics 和 Tracing</h3><p>单体应用慢慢进化成微服务应用，随之带来的是运维方式的改变。形成了DevOps方式的运维，这一切都是为了提高软件的交付和部署效率。相应的基础的运维服务主要总结为以下三大块，Logging集中的日志管理系统，结构化的日志，统一的查询使得定位问题更加有针对性，Metrics则关注整个系统的各种指标的的变化，集中度量系统主要采集QPS、吞吐量、网络带宽、接口的平均调用时间等等指标，和今天所要说的分布式追踪系统tracing，呈现整个系统各个组件的相互关系与问题的快速定位。</p>
+                <h3 id="索引的存储分类"><a href="#索引的存储分类" class="headerlink" title="索引的存储分类"></a>索引的存储分类</h3><p>索引在本质上是一种数据结构，是在存储引擎中实现的，不同的存储引擎支持不同类型的索引。MySQL目前提供了4种索引</p>
 <ul>
-<li>微服务中如何诊断到耗时服务</li>
-<li>如何定位单点失败</li>
-<li>如何检测并避免循环依赖关系</li>
-<li>如何定位相互调用关系<br><img src="http://ogcxtlv6r.bkt.clouddn.com/18-3-12/98565460.jpg"></li>
+<li>B-Tree 索引：最常见的索引类型，大部分引擎都支持B树索引。B+树索引并不能找到一个键值对应的具体行。b+树索引只能查到被查找数据行所在的页，然后数据库通过把页读入内存，再在内存中查找，最后得到结果</li>
+<li>HASH 索引：只有Memory引擎支持，使用场景简单。</li>
+<li>R-Tree 索引(空间索引)：空间索引是MyISAM的一种特殊索引类型，主要用于地理空间数据类型。</li>
+<li>Full-text (全文索引)：全文索引也是MyISAM的一种特殊索引类型，主要用于全文索引，InnoDB从MYSQL5.6版本提供对全文索引的支持。</li>
 </ul>
-<h3 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h3><p>分布式追踪的关键步骤在于，数据采集，存储与分析展示</p>
-<ul>
-<li>在API接入层，生成全局唯一traceID，并注入到对应的context中</li>
-<li>在每个节点生成spanID，根据traceID和spanID定位某次请求的某服务</li>
-<li>将traceID跟随context注入到下一节点</li>
-<li>入库消息的结构组成，traceID、层级表示、调用方法、调用时间、返回时间<br>custom opentracing </li>
-</ul>
-<p>下图是一个分布式调用的例子<br><img src="http://ogcxtlv6r.bkt.clouddn.com/18-2-7/45201602.jpg"></p>
-<h3 id="opentracing-amp-amp-jaeger"><a href="#opentracing-amp-amp-jaeger" class="headerlink" title="opentracing &amp;&amp; jaeger"></a>opentracing &amp;&amp; jaeger</h3><p>opentracing 是分布式追踪应用中的规范，主要解决了不用分布式追踪系统Api不兼容的问题。<a href="https://link.zhihu.com/?target=http%3A//opentracing.io/" target="_blank" rel="external">规范</a></p>
-<p>关于opentracing jaeger ui展示层<br>接收client的trace span消息，存入到内存map中，并定时清理map中的内容</p>
-<h3 id="jaeger实践"><a href="#jaeger实践" class="headerlink" title="jaeger实践"></a>jaeger实践</h3><p>jaeger是Uber开源的一个分布式追踪系统项目，使用Go语言开发。在实践中主要将数据的采集和数据展示拆分出来，简化了中间的存储过程，采用了内存存储的暂时性方案，修改了相应的源码，这里内存存储主要存在以下几个问题，所以后续还是会将存储落地到数据库。在数据的展示层还是兼容了jaeger本身自有的API接口，但是这块非常的薄弱，只有tracing和关系依赖功能，后续可以在这个系统中加入相应的metrics功能，例如参考Prometheus。</p>
-<ul>
-<li>如果span消息暴增，则会导致周期内写入map中的数据暴增，map会变得很大</li>
-<li>如果在清理过程中阻塞或者是在写入时阻塞，会导致map无法写入或者无法清空</li>
-<li>如果map在清理过程中耗时过长，将导致在清理的过程中，map完全不可写入</li>
-</ul>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
-<li><a href="https://github.com/jaegertracing/jaeger" target="_blank" rel="external">jaegertracing/jaeger</a></li>
-<li><a href="https://wu-sheng.gitbooks.io/opentracing-io/content/pages/quick-start.html" target="_blank" rel="external">opentracing文档中文版</a></li>
-<li><p><a href="https://zhuanlan.zhihu.com/p/34318538" target="_blank" rel="external">开放分布式追踪（OpenTracing）入门与 Jaeger 实现</a></p>
-<p>​</p>
-</li>
-</ul>
+<p>单列索引，即一个索引只包含单个列，一个表可以有多个单列索引，但这不是组合索引。 组合索引，即一个索引包含多个列。 创建索引时，你需要确保该索引是应用在 SQL 查询语句的条件(一般作为WHERE 子句的条件)。 实际上，索引也是一张表，该表保存了主键与索引字段，并指向实体表的记录。创建组合索引会按照最左前缀的原则建立多个索引，例如abcd索引，会分别建立abcd、abc、ab、a四个索引</p>
+<blockquote>
+<p>CREATE INDEX indexName ON mytable(username(length));<br>ALTER table tableName ADD INDEX indexName(columnName)</p>
+</blockquote>
+<h3 id="为什么使用索引"><a href="#为什么使用索引" class="headerlink" title="为什么使用索引"></a>为什么使用索引</h3><p>在无索引的情况下，MySQL会扫描整张表来查找符合sql条件的记录，其时间开销与表中数据量呈正相关。对关系型数据表中的某些字段建索引可以极大提高查询速度</p>
+<p>对于MySQL的Innodb储存引擎来说，大部分类型的index均以B-Tree数据结构的变种B+Tree来存储（MEMORY类型的表还支持hash类型的索引）。B-Tree是数据库或文件系统中常用的一种数据结构，它是一种N叉平衡树，这种树结构保证了同层节点保存的key有序，对于某个节点来说，其左子树保存的所有key均小于该节点保存的key，其右子树保存的所有key均大于该节点保存的key。此外，在工程实现上，还结合操作系统的局部性原理做了很多优化，总之，b-tree的各种特性或优化技巧能保证：1) 查询磁盘记录时，读盘次数最少；2) 任何insert和delete操作对树结构的影响均很小；3) 树本身的rebalance操作很高效。 这里说明下，B-树即为B树</p>
+<h3 id="建索引的原则"><a href="#建索引的原则" class="headerlink" title="建索引的原则"></a>建索引的原则</h3><p>1.最左前缀匹配原则，非常重要的原则，mysql会一直向右匹配直到遇到范围查询(&gt;、&lt;、between、like)就停止匹配，比如a = 1 and b = 2 and c &gt; 3 and d = 4 如果建立(a,b,c,d)顺序的索引，d是用不到索引的，如果建立(a,b,d,c)的索引则都可以用到，a,b,d的顺序可以任意调整。<br>2.=和in可以乱序，比如a = 1 and b = 2 and c = 3 建立(a,b,c)索引可以任意顺序，mysql的查询优化器会帮你优化成索引可以识别的形式<br>3.尽量选择区分度高的列作为索引,区分度的公式是count(distinct col)/count(*)，表示字段不重复的比例，比例越大我们扫描的记录数越少，唯一键的区分度是1，而一些状态、性别字段可能在大数据面前区分度就是0，那可能有人会问，这个比例有什么经验值吗？使用场景不同，这个值也很难确定，一般需要join的字段我们都要求是0.1以上，即平均1条扫描10条记录<br>4.索引列不能参与计算，保持列“干净”，比如from_unixtime(create_time) = ’2014-05-29’就不能使用到索引，原因很简单，b+树中存的都是数据表中的字段值，但进行检索时，需要把所有元素都应用函数才能比较，显然成本太大。所以语句应该写成create_time = unix_timestamp(’2014-05-29’);<br>5.尽量的扩展索引，不要新建索引。比如表中已经有a的索引，现在要加(a,b)的索引，那么只需要修改原来的索引即可</p>
+<h3 id="使用索引的场景"><a href="#使用索引的场景" class="headerlink" title="使用索引的场景"></a>使用索引的场景</h3><p>MySQL在以下操作场景下会使用索引：<br>1) 快速查找符合where条件的记录<br>2) 快速确定候选集。若where条件使用了多个索引字段，则MySQL会优先使用能使候选记录集规模最小的那个索引，以便尽快淘汰不符合条件的记录。<br>3) 如果表中存在几个字段构成的联合索引，则查找记录时，这个联合索引的最左前缀匹配字段也会被自动作为索引来加速查找。<br>例如，若为某表创建了3个字段(c1, c2, c3)构成的联合索引，则(c1), (c1, c2), (c1, c2, c3)均会作为索引，(c2, c3)就不会被作为索引，而(c1, c3)其实只利用到c1索引。<br>4) 多表做join操作时会使用索引（如果参与join的字段在这些表中均建立了索引的话）<br>5) 若某字段已建立索引，求该字段的min()或max()时，MySQL会使用索引<br>6) 对建立了索引的字段做sort或group操作时，MySQL会使用索引</p>
+<h3 id="聚集索引与非聚集索引"><a href="#聚集索引与非聚集索引" class="headerlink" title="聚集索引与非聚集索引"></a>聚集索引与非聚集索引</h3><p>Innodb存储引擎表是索引组织表，即表中数据按主键顺序存放。而聚集索引就是按每张表的主键构造一颗B+树。并且叶节点存放整张表的行记录数据。每张表只能有一个聚集索引（一个主键）。<br>聚集索引的另一个好处是它对于主键的排序查找和范围的速度非常快。叶节点的数据就是我们要找的数据</p>
+<p>辅助索引（也称非聚集索引）。叶级别不包含行的全部数据，叶级别除了包含行的键值以外，每个索引行还包含了一个书签（bookmark），该书签告诉innodb存储引擎，哪里可以找到与索引对应的数据。<br>辅助索引的存在并不影响数据再聚集索引中的组织，因此一个表可以有多个辅助索引。当通过辅助索引查找数据时，innodb会遍历辅助索引并通过叶级别的指针获得指向主键索引的主键。然后再通过主键索引找到一行完整的数据。</p>
+<p>联合索引还是一个B+树，不同的是联合索引键值的数量不是1，而是大于等于2.注意联合索引最左匹配原则，联合索引(col1, col2,col3)也是一棵B+Tree，其非叶子节点存储的是第一个关键字的索引，而叶节点存储的则是三个关键字col1、col2、col3三个关键字的数据，且按照col1、col2、col3的顺序进行排序。为什么会有最左匹配原则，这与联合索引B+树的存储方式相关</p>
+<h3 id="哪些语句会用到索引"><a href="#哪些语句会用到索引" class="headerlink" title="哪些语句会用到索引"></a>哪些语句会用到索引</h3><p>1) B-Tree可被用于sql中对列做比较的表达式，如=, &gt;, &gt;=, &lt;, &lt;=及between操作</p>
+<p>2) 若like语句的条件是不以通配符开头的常量串，MySQL也会使用索引<br>比如，SELECT <em> FROM tbl_name WHERE key_col LIKE ‘Patrick%’或SELECT </em> FROM tbl_name WHERE key_col LIKE ‘Pat%_ck%’可以利用索引，而SELECT <em> FROM tbl_name WHERE key_col LIKE ‘%Patrick%’（以通配符开头）和SELECT </em> FROM tbl_name WHERE key_col LIKE other_col（like条件不是常量串）无法利用索引。<br>对于形如LIKE ‘%string%’的sql语句，若通配符后面的string长度大于3，则MySQL会利用Turbo Boyer-Moore algorithm算法进行查找。<br>3) 若已对名为col_name的列建了索引，则形如”col_name is null”的SQL会用到索引</p>
+<p>4) 对于联合索引，sql条件中的最左前缀匹配字段会用到索引，示例请参考本文第2节第3条对联合索引的说明<br>5) 若sql语句中的where条件不只1个条件，则MySQL会进行Index Merge优化来缩小候选集范围</p>
+<h3 id="索引的选择"><a href="#索引的选择" class="headerlink" title="索引的选择"></a>索引的选择</h3><ol>
+<li>较频繁的作为查询条件的字段应该创建索引</li>
+<li>唯一性太差的字段不适合单独创建索引，即使频繁作为查询条件</li>
+<li>更新非常频繁的字段不适合创建索引</li>
+<li>不会出现在 WHERE 子句中的字段不该创建索引</li>
+</ol>
+<h3 id="主存存取原理-与-磁盘存取原理"><a href="#主存存取原理-与-磁盘存取原理" class="headerlink" title="主存存取原理 与 磁盘存取原理"></a>主存存取原理 与 磁盘存取原理</h3><p>主存的存取过程如下：<br>当系统需要读取主存时，则将地址信号放到地址总线上传给主存，主存读到地址信号后，解析信号并定位到指定存储单元，然后将此存储单元数据放到数据总线上，供其它部件读取。<br>写主存的过程类似，系统将要写入单元地址和数据分别放在地址总线和数据总线上，主存读取两个总线的内容，做相应的写操作。<br>这里可以看出，主存存取的时间仅与存取次数呈线性关系</p>
+<p>当需要从磁盘读取数据时，系统会将数据逻辑地址传给磁盘，磁盘的控制电路按照寻址逻辑将逻辑地址翻译成物理地址，即确定要读的数据在哪个磁道，哪个扇区。为了读取这个扇区的数据，需要将磁头放到这个扇区上方，为了实现这一点，磁头需要移动对准相应磁道，这个过程叫做寻道，所耗费时间叫做寻道时间，然后磁盘旋转将目标扇区旋转到磁头下，这个过程耗费的时间叫做旋转时间。</p>
+<p>局部性原理与磁盘预读：由于存储介质的特性，例外加上机械运动的耗费，导致磁盘读取与主存读取查几个数量级。为了提高效率，就要尽量减少磁盘读取次数，为了达到这个目的，磁盘往往不是严格按需读取，而是每次都会预读，即使只需要一个字节，磁盘也会从这个位置开始，顺序向后读取一定长度的数据放入内存。这样做的理论依据是计算机科学中著名的局部性原理：当一个数据被用到时，其附近的数据也通常会马上被使用。</p>
+<p>预读的长度一般为页（page）的整倍数。页是计算机管理存储器的逻辑块，硬件及操作系统往往将主存和磁盘存储区分割为连续的大小相等的块，每个存储块称为一页（在许多操作系统中，页得大小通常为4k），主存和磁盘以页为单位交换数据。当程序要读取的数据不在主存中时，会触发一个缺页异常，此时系统会向磁盘发出读盘信号，磁盘会找到数据的起始位置并向后连续读取一页或几页载入内存中，然后异常返回，程序继续运行。</p>
+<h3 id="B-B-树索引与局部性原理"><a href="#B-B-树索引与局部性原理" class="headerlink" title="B/B+树索引与局部性原理"></a>B/B+树索引与局部性原理</h3><p>先从B-Tree分析，根据B-Tree的定义，可知检索一次最多需要访问h个节点。数据库系统的设计者巧妙利用了磁盘预读原理，将一个节点的大小设为等于一个页，这样每个节点只需要一次I/O就可以完全载入。为了达到这个目的，在实际实现B-Tree还需要使用如下技巧：</p>
+<p>每次新建节点时，直接申请一个页的空间，这样就保证一个节点物理上也存储在一个页里，加之计算机存储分配都是按页对齐的，就实现了一个node只需一次I/O。</p>
+<p>B-Tree中一次检索最多需要h-1次I/O（根节点常驻内存），渐进复杂度为O(h)=O(logdN)。一般实际应用中，出度d是非常大的数字，通常超过100，因此h非常小（通常不超过3）。</p>
+<h3 id="MYSQL索引实现"><a href="#MYSQL索引实现" class="headerlink" title="MYSQL索引实现"></a>MYSQL索引实现</h3><p>MyISAM索引实现：MyISAM引擎使用B+Tree作为索引结构，叶节点的data域存放的是数据记录的地址。。在MyISAM中，主索引和辅助索引（Secondary key）在结构上没有任何区别，只是主索引要求key是唯一的，而辅助索引的key可以重复。</p>
+<p>InnoDB索引实现：第一个重大区别是InnoDB的数据文件本身就是索引文件。在InnoDB中，表数据文件本身就是按B+Tree组织的一个索引结构，这棵树的叶节点data域保存了完整的数据记录。这个索引的key是数据表的主键，因此InnoDB表数据文件本身就是主索引。叶节点包含了完整的数据记录。这种索引叫做聚集索引，所以innoDB要求表必须有主键<br>第二个与MyISAM索引的不同是InnoDB的辅助索引data域存储相应记录主键的值而不是地址。换句话说，InnoDB的所有辅助索引都引用主键作为data域</p>
+<p>不建议使用过长的字段作为主键，因为所有辅助索引都引用主索引，过长的主索引会令辅助索引变得过大</p>
+<p>用非单调的字段作为主键在InnoDB中不是个好主意，因为InnoDB数据文件本身是一颗B+Tree，非单调的主键会造成在插入新记录时数据文件为了维持B+Tree的特性而频繁的分裂调整，十分低效，而使用自增字段作为主键则是一个很好的选择。</p>
+<h3 id="参考内容"><a href="#参考内容" class="headerlink" title="参考内容"></a>参考内容</h3><p><a href="http://www.runoob.com/mysql/mysql-index.html" target="_blank" rel="external">MySQL 索引</a><br><a href="https://tech.meituan.com/mysql-index.html" target="_blank" rel="external">MySQL索引原理及慢查询优化</a><br><a href="https://dev.mysql.com/doc/refman/5.5/en/explain-output.html" target="_blank" rel="external">explain output</a><br><a href="https://book.douban.com/subject/23008813/" target="_blank" rel="external">高性能MySQL</a><br><a href="http://blog.codinglabs.org/articles/theory-of-mysql-index.html" target="_blank" rel="external">MySQL索引背后的数据结构及算法原理</a><br><a href="http://blog.jobbole.com/111757/" target="_blank" rel="external">漫画算法：什么是 B 树？</a></p>
 
 
                 <hr>
@@ -235,13 +244,9 @@
 
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/2018/03/13/system_design/sequence/" data-toggle="tooltip" data-placement="top" title="sequence-分布式发号器">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/2018/03/12/life_is_short/travel/" data-toggle="tooltip" data-placement="top" title="关于旅行的句子">Next Post &rarr;</a>
+                            <a href="/2018/03/13/system_design/sequence/" data-toggle="tooltip" data-placement="top" title="sequence-分布式发号器">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -288,7 +293,7 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#distribution_system" title="distribution_system">distribution_system</a>
+                          <a class="tag" href="/tags/#database" title="database">database</a>
                         
                     </div>
                 </section>
@@ -318,8 +323,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "tamchen";
-    var disqus_identifier = "http://yuelng.github.io/2018/03/12/distributed_system/trace/";
-    var disqus_url = "http://yuelng.github.io/2018/03/12/distributed_system/trace/";
+    var disqus_identifier = "http://yuelng.github.io/2018/03/14/database/index/";
+    var disqus_url = "http://yuelng.github.io/2018/03/14/database/index/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

@@ -190,6 +190,30 @@
 
 <div class="post-preview">
 
+    <a href="/2018/02/02/system_design/msgpush/">
+        <h2 class="post-title">
+            消息推送入门
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            实时消息推送的几种实现方式相较于手机端的消息推送（一般都是以socket方式实现），web端是基于http协议，很难像tcp一样保持长连接。但随着技术的发展，出现了websocket, comet等新的技术可以达到类似长连接的效果，这些技术大体可分为以下几类：
+
+短轮询。页面端通过js定时异步刷新，这种方式实时效果较差。
+长轮询。页面端通过js异步请求服务端，服务端在接收到请求后，如果该次请......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2018-02-02
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/2018/02/02/system_design/microservice/">
         <h2 class="post-title">
             微服务架构
@@ -270,43 +294,6 @@ He notes thou......
 
 <div class="post-preview">
 
-    <a href="/2018/01/18/thinking/think_work/">
-        <h2 class="post-title">
-            软件工程与自我修养
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            
-动态编程一时爽、代码重构火葬场。 
-
-
-不以赚钱为目的选择学习的内容
-以自己是否能造出轮子来衡量学习的效果
-坚持每天写自己的代码，前十年每天至少6个小时，不包括学习和工作时间
-
-
-
-对所做的事情的理解越深，你就会做的越好。
-服务：将单页面单请求拆分为多个请求，拆分服务
-代码级别的文档，只写别人经常看的文档
-Component-Driven dev 模块驱动开发
-测试驱动开发
-数据驱动开发
-......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2018-01-18
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
     <a href="/2018/01/18/thinking/study_software/">
         <h2 class="post-title">
             团队项目开发与规范
@@ -357,16 +344,31 @@ Component-Driven dev 模块驱动开发
 
 <div class="post-preview">
 
-    <a href="/2018/01/18/thinking/reverie/">
+    <a href="/2018/01/18/thinking/think_work/">
         <h2 class="post-title">
-            reverie
+            软件工程与自我修养
         </h2>
         <h3 class="post-subtitle">
-            遐思
+            
         </h3>
         <div class="post-content-preview">
-            “The more that you read,the more things you will know.The more that you learn,the more places you’ll go.”  ― Dr. Seuss
-从软件系统到业务认知水平我们先从软件系统的演进谈起，谈谈软件系统中的重要组成部分，然后聊聊工程师如何打造系统能力：它们和具体的功能无关 —— 如何使用各种工......
+            
+动态编程一时爽、代码重构火葬场。 
+
+
+不以赚钱为目的选择学习的内容
+以自己是否能造出轮子来衡量学习的效果
+坚持每天写自己的代码，前十年每天至少6个小时，不包括学习和工作时间
+
+
+
+对所做的事情的理解越深，你就会做的越好。
+服务：将单页面单请求拆分为多个请求，拆分服务
+代码级别的文档，只写别人经常看的文档
+Component-Driven dev 模块驱动开发
+测试驱动开发
+数据驱动开发
+......
         </div>
     </a>
     <p class="post-meta">
@@ -404,6 +406,28 @@ Abstraction (understanding how OS, filesystem, an......
 
 <div class="post-preview">
 
+    <a href="/2018/01/18/thinking/reverie/">
+        <h2 class="post-title">
+            reverie
+        </h2>
+        <h3 class="post-subtitle">
+            遐思
+        </h3>
+        <div class="post-content-preview">
+            “The more that you read,the more things you will know.The more that you learn,the more places you’ll go.”  ― Dr. Seuss
+从软件系统到业务认知水平我们先从软件系统的演进谈起，谈谈软件系统中的重要组成部分，然后聊聊工程师如何打造系统能力：它们和具体的功能无关 —— 如何使用各种工......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2018-01-18
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/2018/01/18/system_design/api/">
         <h2 class="post-title">
             通用API设计
@@ -414,28 +438,6 @@ Abstraction (understanding how OS, filesystem, an......
         <div class="post-content-preview">
             
 Json Web Token(JWT)JSON Web Token (JWT) 是目前应用最为广泛的 token 格式，是为了在网络应用环境间传递声明而执行的一种基于 JSON 的开放标准（RFC 7519)。该 token 设计紧凑且安全，特别适用于分布式站点的单点登录、API 网关等场景。JWT 的声明一般被用来在身份提供者和服务提供者间传递被认证的用户身份信息，以便于从资源服务器获取......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2018-01-18
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2018/01/18/surrounding/docker/">
-        <h2 class="post-title">
-            容器部署生态
-        </h2>
-        <h3 class="post-subtitle">
-             "kubernetes、docker"
-        </h3>
-        <div class="post-content-preview">
-            kubernetes handbook
-...
         </div>
     </a>
     <p class="post-meta">
@@ -485,11 +487,11 @@ Json Web Token(JWT)JSON Web Token (JWT) 是目前应用最为广泛的 token 格
                     <div class="tags">
                         
                             
-                            <a href="/tags/#collection" title="collection" rel="5">collection</a>
+                            <a href="/tags/#coding" title="coding" rel="3">coding</a>
                             
                         
                             
-                            <a href="/tags/#coding" title="coding" rel="3">coding</a>
+                            <a href="/tags/#collection" title="collection" rel="5">collection</a>
                             
                         
                             
@@ -497,11 +499,13 @@ Json Web Token(JWT)JSON Web Token (JWT) 是目前应用最为广泛的 token 格
                             
                         
                             
-                            <a href="/tags/#database" title="database" rel="4">database</a>
+                            <a href="/tags/#database" title="database" rel="5">database</a>
                             
                         
                             
-                            <a href="/tags/#distribution_system" title="distribution_system" rel="16">distribution_system</a>
+                            <a href="/tags/#distribution_system" title="distribution_system" rel="15">distribution_system</a>
+                            
+                        
                             
                         
                             
@@ -509,9 +513,7 @@ Json Web Token(JWT)JSON Web Token (JWT) 是目前应用最为广泛的 token 格
                             
                         
                             
-                            <a href="/tags/#framework" title="framework" rel="3">framework</a>
-                            
-                        
+                            <a href="/tags/#financial" title="financial" rel="5">financial</a>
                             
                         
                             
@@ -519,11 +521,11 @@ Json Web Token(JWT)JSON Web Token (JWT) 是目前应用最为广泛的 token 格
                             
                         
                             
-                            <a href="/tags/#life_is_short" title="life_is_short" rel="5">life_is_short</a>
+                            <a href="/tags/#project" title="project" rel="8">project</a>
                             
                         
                             
-                            <a href="/tags/#financial" title="financial" rel="5">financial</a>
+                            <a href="/tags/#life_is_short" title="life_is_short" rel="5">life_is_short</a>
                             
                         
                             
@@ -531,7 +533,7 @@ Json Web Token(JWT)JSON Web Token (JWT) 是目前应用最为广泛的 token 格
                             
                         
                             
-                            <a href="/tags/#project" title="project" rel="8">project</a>
+                            <a href="/tags/#framework" title="framework" rel="3">framework</a>
                             
                         
                             
@@ -539,11 +541,7 @@ Json Web Token(JWT)JSON Web Token (JWT) 是目前应用最为广泛的 token 格
                             
                         
                             
-                            <a href="/tags/#social_science" title="social_science" rel="2">social_science</a>
-                            
-                        
-                            
-                            <a href="/tags/#system_design" title="system_design" rel="4">system_design</a>
+                            <a href="/tags/#system_design" title="system_design" rel="5">system_design</a>
                             
                         
                             
@@ -552,6 +550,10 @@ Json Web Token(JWT)JSON Web Token (JWT) 是目前应用最为广泛的 token 格
                         
                             
                             <a href="/tags/#reading" title="reading" rel="2">reading</a>
+                            
+                        
+                            
+                            <a href="/tags/#social_science" title="social_science" rel="2">social_science</a>
                             
                         
                     </div>

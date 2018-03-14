@@ -13,11 +13,11 @@
 
     <title>
         
-          分布式系统追踪 - YueLng的博客 | YueLng&#39;s Blog
+          sequence-分布式发号器 - YueLng的博客 | YueLng&#39;s Blog
         
     </title>
 
-    <link rel="canonical" href="http://yuelng.github.io/2018/03/12/distributed_system/trace/">
+    <link rel="canonical" href="http://yuelng.github.io/2018/03/13/system_design/sequence/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -161,7 +161,7 @@
 <!-- Post Header -->
 <style type="text/css">
     header.intro-header{
-        background-image: url('http://ogcxtlv6r.bkt.clouddn.com/17-11-30/95014676.jpg')
+        background-image: url('http://ogcxtlv6r.bkt.clouddn.com/18-1-18/49896332.jpg')
     }
 </style>
 <header class="intro-header" >
@@ -171,14 +171,14 @@
                 <div class="post-heading">
                     <div class="tags">
                         
-                          <a class="tag" href="/tags/#distribution_system" title="distribution_system">distribution_system</a>
+                          <a class="tag" href="/tags/#system_design" title="system_design">system_design</a>
                         
                     </div>
-                    <h1>分布式系统追踪</h1>
-                    <h2 class="subheading"> &quot;分布式系统调用链追踪、监控&quot;</h2>
+                    <h1>sequence-分布式发号器</h1>
+                    <h2 class="subheading"></h2>
                     <span class="meta">
                         Posted by yueLng on
-                        2018-03-12
+                        2018-03-13
                     </span>
                 </div>
             </div>
@@ -197,36 +197,40 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h3 id="Logging，Metrics-和-Tracing"><a href="#Logging，Metrics-和-Tracing" class="headerlink" title="Logging，Metrics 和 Tracing"></a>Logging，Metrics 和 Tracing</h3><p>单体应用慢慢进化成微服务应用，随之带来的是运维方式的改变。形成了DevOps方式的运维，这一切都是为了提高软件的交付和部署效率。相应的基础的运维服务主要总结为以下三大块，Logging集中的日志管理系统，结构化的日志，统一的查询使得定位问题更加有针对性，Metrics则关注整个系统的各种指标的的变化，集中度量系统主要采集QPS、吞吐量、网络带宽、接口的平均调用时间等等指标，和今天所要说的分布式追踪系统tracing，呈现整个系统各个组件的相互关系与问题的快速定位。</p>
-<ul>
-<li>微服务中如何诊断到耗时服务</li>
-<li>如何定位单点失败</li>
-<li>如何检测并避免循环依赖关系</li>
-<li>如何定位相互调用关系<br><img src="http://ogcxtlv6r.bkt.clouddn.com/18-3-12/98565460.jpg"></li>
+                <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>什么是分布式发号器，发号器有什么特点，有什么应用场景。在数据库中通常使用数据库自增主键来产生，但是如果不依赖数据库来产生全局唯一ID就需要另外想办法。例如在短网址服务的时候，短网址服务的作用是将一个长而复杂的url转为简短的url，同时短网址也可以转化为源网址。要实现这样的功能关键在如何将长网址与短网址映射，使用压缩或者md5算法是不可取的。简单而有效地做法就是每处理一个长网址就自增计数与长网址对应。利用mysql的主键自增的特性来构建发号器当然是可行的，也有公司采用了这种简单粗暴的方式，而且性能还不错（这里不考虑主备切换）</p>
+<h3 id="注意的点"><a href="#注意的点" class="headerlink" title="注意的点"></a>注意的点</h3><ul>
+<li>保证效率，发号服务应该是QPS很高的服务，所以要保证性能</li>
+<li>保证sequence递增正确，可以容忍错误，例如如果发号器崩溃，发号器不会重复发号</li>
+<li>不受外部环境影响，例如不受本地机器时间的影响，有的采用本地时间作为唯一id控制</li>
 </ul>
-<h3 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h3><p>分布式追踪的关键步骤在于，数据采集，存储与分析展示</p>
-<ul>
-<li>在API接入层，生成全局唯一traceID，并注入到对应的context中</li>
-<li>在每个节点生成spanID，根据traceID和spanID定位某次请求的某服务</li>
-<li>将traceID跟随context注入到下一节点</li>
-<li>入库消息的结构组成，traceID、层级表示、调用方法、调用时间、返回时间<br>custom opentracing </li>
-</ul>
-<p>下图是一个分布式调用的例子<br><img src="http://ogcxtlv6r.bkt.clouddn.com/18-2-7/45201602.jpg"></p>
-<h3 id="opentracing-amp-amp-jaeger"><a href="#opentracing-amp-amp-jaeger" class="headerlink" title="opentracing &amp;&amp; jaeger"></a>opentracing &amp;&amp; jaeger</h3><p>opentracing 是分布式追踪应用中的规范，主要解决了不用分布式追踪系统Api不兼容的问题。<a href="https://link.zhihu.com/?target=http%3A//opentracing.io/" target="_blank" rel="external">规范</a></p>
-<p>关于opentracing jaeger ui展示层<br>接收client的trace span消息，存入到内存map中，并定时清理map中的内容</p>
-<h3 id="jaeger实践"><a href="#jaeger实践" class="headerlink" title="jaeger实践"></a>jaeger实践</h3><p>jaeger是Uber开源的一个分布式追踪系统项目，使用Go语言开发。在实践中主要将数据的采集和数据展示拆分出来，简化了中间的存储过程，采用了内存存储的暂时性方案，修改了相应的源码，这里内存存储主要存在以下几个问题，所以后续还是会将存储落地到数据库。在数据的展示层还是兼容了jaeger本身自有的API接口，但是这块非常的薄弱，只有tracing和关系依赖功能，后续可以在这个系统中加入相应的metrics功能，例如参考Prometheus。</p>
-<ul>
-<li>如果span消息暴增，则会导致周期内写入map中的数据暴增，map会变得很大</li>
-<li>如果在清理过程中阻塞或者是在写入时阻塞，会导致map无法写入或者无法清空</li>
-<li>如果map在清理过程中耗时过长，将导致在清理的过程中，map完全不可写入</li>
-</ul>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
-<li><a href="https://github.com/jaegertracing/jaeger" target="_blank" rel="external">jaegertracing/jaeger</a></li>
-<li><a href="https://wu-sheng.gitbooks.io/opentracing-io/content/pages/quick-start.html" target="_blank" rel="external">opentracing文档中文版</a></li>
-<li><p><a href="https://zhuanlan.zhihu.com/p/34318538" target="_blank" rel="external">开放分布式追踪（OpenTracing）入门与 Jaeger 实现</a></p>
-<p>​</p>
+<h3 id="主要设计"><a href="#主要设计" class="headerlink" title="主要设计"></a>主要设计</h3><ul>
+<li><p>持久化，持久化的方案也跟整个架构是分布式还是集中式相关，如果是分布式需要采用共识算法（例如多机NRW策略），集中式更加容易维护与理解，可以采用etcd作为存储，etcd自身包含一个集群保证，不会丢失数据。发号器可以保证无状态</p>
+</li>
+<li><p>是否全局单调，这样就回到分布式的基本问题CAP问题，既然选择了高可用，那肯定就放弃了分布式，就只能采用主备方案，如何仲裁协调主备，也可以通过etcd服务注册与发现机制实现</p>
+</li>
+<li><p>ID形式，一种是sequence不断递增，另一种基于 Timestamp </p>
 </li>
 </ul>
+<h3 id="微信序列号生成器"><a href="#微信序列号生成器" class="headerlink" title="微信序列号生成器"></a>微信序列号生成器</h3><p>需求：递增的64位整型变量，每个用户都有自己独立的64位sequence空间</p>
+<p>预分配中间层（解决磁盘I/O 问题）</p>
+<ul>
+<li>内存中储存最近一个分配出去的sequence：cur_seq，以及分配上限：max_seq</li>
+<li>分配sequence时，将cur_seq++，同时与分配上限max_seq比较：如果cur_seq &gt; max_seq，将分配上限提升一个步长max_seq += step，并持久化max_seq</li>
+<li>重启时，读出持久化的max_seq，赋值给cur_seq</li>
+</ul>
+<p>分号段共享存储（重启时要读取大量的max_seq数据加载到内存中，每个用户都有max_seq）</p>
+<ul>
+<li>通过uid相邻用户共享同一个max_seq，大幅减少max_seq需要存储的数据，降低IO次数</li>
+</ul>
+<p>工程实现：</p>
+<ul>
+<li><p>把存储层和缓存中间层分成两个模块StoreSvr及AllocSvr。StoreSvr为存储层，利用了多机NRW策略来保证数据持久化后不丢失；AllocSvr则是缓存中间层，部署于多台机器，每台AllocSvr负责若干号段的sequence分配，分摊海量的sequence申请请求。</p>
+</li>
+<li><p>整个系统又按uid范围进行分Set，每个Set都是一个完整的、独立的StoreSvr+AllocSvr子系统。分Set设计目的是为了做灾难隔离，一个Set出现故障只会影响该Set内的用户，而不会影响到其它用户。</p>
+</li>
+</ul>
+<p>容灾备份：主备容灾，嵌入式路由表容灾</p>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><a href="https://tech.youzan.com/id_generator/" target="_blank" rel="external">如何做一个靠谱的发号器</a><br><a href="http://t.cn/RQotT0G" target="_blank" rel="external">万亿级调用系统：微信序列号生成器架构设计及演变</a></p>
 
 
                 <hr>
@@ -236,12 +240,12 @@
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/2018/03/13/system_design/sequence/" data-toggle="tooltip" data-placement="top" title="sequence-分布式发号器">&larr; Previous Post</a>
+                            <a href="/2018/03/14/database/index/" data-toggle="tooltip" data-placement="top" title="数据库索引学习">&larr; Previous Post</a>
                         </li>
                     
                     
                         <li class="next">
-                            <a href="/2018/03/12/life_is_short/travel/" data-toggle="tooltip" data-placement="top" title="关于旅行的句子">Next Post &rarr;</a>
+                            <a href="/2018/03/12/distributed_system/trace/" data-toggle="tooltip" data-placement="top" title="分布式系统追踪">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -288,7 +292,7 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#distribution_system" title="distribution_system">distribution_system</a>
+                          <a class="tag" href="/tags/#system_design" title="system_design">system_design</a>
                         
                     </div>
                 </section>
@@ -318,8 +322,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "tamchen";
-    var disqus_identifier = "http://yuelng.github.io/2018/03/12/distributed_system/trace/";
-    var disqus_url = "http://yuelng.github.io/2018/03/12/distributed_system/trace/";
+    var disqus_identifier = "http://yuelng.github.io/2018/03/13/system_design/sequence/";
+    var disqus_url = "http://yuelng.github.io/2018/03/13/system_design/sequence/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

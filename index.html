@@ -190,6 +190,52 @@
 
 <div class="post-preview">
 
+    <a href="/2018/03/14/database/index/">
+        <h2 class="post-title">
+            数据库索引学习
+        </h2>
+        <h3 class="post-subtitle">
+             "The index"
+        </h3>
+        <div class="post-content-preview">
+            索引的存储分类索引在本质上是一种数据结构，是在存储引擎中实现的，不同的存储引擎支持不同类型的索引。MySQL目前提供了4种索引
+
+B-Tree 索引：最常见的索引类型，大部分引擎都支持B树索引。B+树索引并不能找到一个键值对应的具体行。b+树索引只能查到被查找数据行所在的页，然后数据库通过把页读入内存，再在内存中查找，最后得到结果
+HASH 索引：只有Memory引擎支持，使用场景简单。
+R......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2018-03-14
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2018/03/13/system_design/sequence/">
+        <h2 class="post-title">
+            sequence-分布式发号器
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            简介什么是分布式发号器，发号器有什么特点，有什么应用场景。在数据库中通常使用数据库自增主键来产生，但是如果不依赖数据库来产生全局唯一ID就需要另外想办法。例如在短网址服务的时候，短网址服务的作用是将一个长而复杂的url转为简短的url，同时短网址也可以转化为源网址。要实现这样的功能关键在如何将长网址与短网址映射，使用压缩或者md5算法是不可取的。简单而有效地做法就是每处理一个长网址就自增计数......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2018-03-13
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/2018/03/12/distributed_system/trace/">
         <h2 class="post-title">
             分布式系统追踪
@@ -378,55 +424,6 @@ In computer science, functional programming is a programming paradigm that treat
 </div>
 <hr>
 
-<div class="post-preview">
-
-    <a href="/2018/02/22/computer_science/gc/">
-        <h2 class="post-title">
-            垃圾回收机制
-        </h2>
-        <h3 class="post-subtitle">
-            Garbage collection
-        </h3>
-        <div class="post-content-preview">
-            
-In computer science, garbage collection (GC) is a form of automatic memory management. The garbage collector, or just collector, attempts to reclaim garbage, or memory occupied by objects) that ar......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2018-02-22
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2018/02/16/life_is_short/movie/">
-        <h2 class="post-title">
-            电影艺术
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            
- 挖掘每一部电影、电视剧所反映的现实意义，是观影者的自我修养。
-价值观、剧本、情怀、艺术技巧、制作技术、态度、表演，评价电影价值的排序 —— 张小北
-
-2018至暗时刻 影片讲述英国首相丘吉尔在作为首相期间面临的最重要的审判：是向纳粹妥协做俘虏，还是团结人民群起反抗？丘吉尔将集结整个国家为自由奋战，试图改变世界历史进程，度过黎明前的黑暗。
-太阳照常升起
-2017颠倒乾坤 很多时候一个人站在......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2018-02-16
-    </p>
-
-</div>
-<hr>
-
 
 
 <!-- Pager -->
@@ -462,11 +459,11 @@ In computer science, garbage collection (GC) is a form of automatic memory manag
                     <div class="tags">
                         
                             
-                            <a href="/tags/#collection" title="collection" rel="5">collection</a>
+                            <a href="/tags/#coding" title="coding" rel="3">coding</a>
                             
                         
                             
-                            <a href="/tags/#coding" title="coding" rel="3">coding</a>
+                            <a href="/tags/#collection" title="collection" rel="5">collection</a>
                             
                         
                             
@@ -474,11 +471,13 @@ In computer science, garbage collection (GC) is a form of automatic memory manag
                             
                         
                             
-                            <a href="/tags/#database" title="database" rel="4">database</a>
+                            <a href="/tags/#database" title="database" rel="5">database</a>
                             
                         
                             
-                            <a href="/tags/#distribution_system" title="distribution_system" rel="16">distribution_system</a>
+                            <a href="/tags/#distribution_system" title="distribution_system" rel="15">distribution_system</a>
+                            
+                        
                             
                         
                             
@@ -486,9 +485,7 @@ In computer science, garbage collection (GC) is a form of automatic memory manag
                             
                         
                             
-                            <a href="/tags/#framework" title="framework" rel="3">framework</a>
-                            
-                        
+                            <a href="/tags/#financial" title="financial" rel="5">financial</a>
                             
                         
                             
@@ -496,11 +493,11 @@ In computer science, garbage collection (GC) is a form of automatic memory manag
                             
                         
                             
-                            <a href="/tags/#life_is_short" title="life_is_short" rel="5">life_is_short</a>
+                            <a href="/tags/#project" title="project" rel="8">project</a>
                             
                         
                             
-                            <a href="/tags/#financial" title="financial" rel="5">financial</a>
+                            <a href="/tags/#life_is_short" title="life_is_short" rel="5">life_is_short</a>
                             
                         
                             
@@ -508,7 +505,7 @@ In computer science, garbage collection (GC) is a form of automatic memory manag
                             
                         
                             
-                            <a href="/tags/#project" title="project" rel="8">project</a>
+                            <a href="/tags/#framework" title="framework" rel="3">framework</a>
                             
                         
                             
@@ -516,11 +513,7 @@ In computer science, garbage collection (GC) is a form of automatic memory manag
                             
                         
                             
-                            <a href="/tags/#social_science" title="social_science" rel="2">social_science</a>
-                            
-                        
-                            
-                            <a href="/tags/#system_design" title="system_design" rel="4">system_design</a>
+                            <a href="/tags/#system_design" title="system_design" rel="5">system_design</a>
                             
                         
                             
@@ -529,6 +522,10 @@ In computer science, garbage collection (GC) is a form of automatic memory manag
                         
                             
                             <a href="/tags/#reading" title="reading" rel="2">reading</a>
+                            
+                        
+                            
+                            <a href="/tags/#social_science" title="social_science" rel="2">social_science</a>
                             
                         
                     </div>

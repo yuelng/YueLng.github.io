@@ -13,11 +13,11 @@
 
     <title>
         
-          分布式系统追踪 - YueLng的博客 | YueLng&#39;s Blog
+          mysql学习笔记 - YueLng的博客 | YueLng&#39;s Blog
         
     </title>
 
-    <link rel="canonical" href="http://yuelng.github.io/2018/03/12/distributed_system/trace/">
+    <link rel="canonical" href="http://yuelng.github.io/2017/10/28/database/mysql/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -161,7 +161,7 @@
 <!-- Post Header -->
 <style type="text/css">
     header.intro-header{
-        background-image: url('http://ogcxtlv6r.bkt.clouddn.com/17-11-30/95014676.jpg')
+        background-image: url('http://ogcxtlv6r.bkt.clouddn.com/18-3-14/12043787.jpg')
     }
 </style>
 <header class="intro-header" >
@@ -171,14 +171,14 @@
                 <div class="post-heading">
                     <div class="tags">
                         
-                          <a class="tag" href="/tags/#distribution_system" title="distribution_system">distribution_system</a>
+                          <a class="tag" href="/tags/#database" title="database">database</a>
                         
                     </div>
-                    <h1>分布式系统追踪</h1>
-                    <h2 class="subheading"> &quot;分布式系统调用链追踪、监控&quot;</h2>
+                    <h1>mysql学习笔记</h1>
+                    <h2 class="subheading"></h2>
                     <span class="meta">
                         Posted by yueLng on
-                        2018-03-12
+                        2017-10-28
                     </span>
                 </div>
             </div>
@@ -197,36 +197,28 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h3 id="Logging，Metrics-和-Tracing"><a href="#Logging，Metrics-和-Tracing" class="headerlink" title="Logging，Metrics 和 Tracing"></a>Logging，Metrics 和 Tracing</h3><p>单体应用慢慢进化成微服务应用，随之带来的是运维方式的改变。形成了DevOps方式的运维，这一切都是为了提高软件的交付和部署效率。相应的基础的运维服务主要总结为以下三大块，Logging集中的日志管理系统，结构化的日志，统一的查询使得定位问题更加有针对性，Metrics则关注整个系统的各种指标的的变化，集中度量系统主要采集QPS、吞吐量、网络带宽、接口的平均调用时间等等指标，和今天所要说的分布式追踪系统tracing，呈现整个系统各个组件的相互关系与问题的快速定位。</p>
-<ul>
-<li>微服务中如何诊断到耗时服务</li>
-<li>如何定位单点失败</li>
-<li>如何检测并避免循环依赖关系</li>
-<li>如何定位相互调用关系<br><img src="http://ogcxtlv6r.bkt.clouddn.com/18-3-12/98565460.jpg"></li>
-</ul>
-<h3 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h3><p>分布式追踪的关键步骤在于，数据采集，存储与分析展示</p>
-<ul>
-<li>在API接入层，生成全局唯一traceID，并注入到对应的context中</li>
-<li>在每个节点生成spanID，根据traceID和spanID定位某次请求的某服务</li>
-<li>将traceID跟随context注入到下一节点</li>
-<li>入库消息的结构组成，traceID、层级表示、调用方法、调用时间、返回时间<br>custom opentracing </li>
-</ul>
-<p>下图是一个分布式调用的例子<br><img src="http://ogcxtlv6r.bkt.clouddn.com/18-2-7/45201602.jpg"></p>
-<h3 id="opentracing-amp-amp-jaeger"><a href="#opentracing-amp-amp-jaeger" class="headerlink" title="opentracing &amp;&amp; jaeger"></a>opentracing &amp;&amp; jaeger</h3><p>opentracing 是分布式追踪应用中的规范，主要解决了不用分布式追踪系统Api不兼容的问题。<a href="https://link.zhihu.com/?target=http%3A//opentracing.io/" target="_blank" rel="external">规范</a></p>
-<p>关于opentracing jaeger ui展示层<br>接收client的trace span消息，存入到内存map中，并定时清理map中的内容</p>
-<h3 id="jaeger实践"><a href="#jaeger实践" class="headerlink" title="jaeger实践"></a>jaeger实践</h3><p>jaeger是Uber开源的一个分布式追踪系统项目，使用Go语言开发。在实践中主要将数据的采集和数据展示拆分出来，简化了中间的存储过程，采用了内存存储的暂时性方案，修改了相应的源码，这里内存存储主要存在以下几个问题，所以后续还是会将存储落地到数据库。在数据的展示层还是兼容了jaeger本身自有的API接口，但是这块非常的薄弱，只有tracing和关系依赖功能，后续可以在这个系统中加入相应的metrics功能，例如参考Prometheus。</p>
-<ul>
-<li>如果span消息暴增，则会导致周期内写入map中的数据暴增，map会变得很大</li>
-<li>如果在清理过程中阻塞或者是在写入时阻塞，会导致map无法写入或者无法清空</li>
-<li>如果map在清理过程中耗时过长，将导致在清理的过程中，map完全不可写入</li>
-</ul>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
-<li><a href="https://github.com/jaegertracing/jaeger" target="_blank" rel="external">jaegertracing/jaeger</a></li>
-<li><a href="https://wu-sheng.gitbooks.io/opentracing-io/content/pages/quick-start.html" target="_blank" rel="external">opentracing文档中文版</a></li>
-<li><p><a href="https://zhuanlan.zhihu.com/p/34318538" target="_blank" rel="external">开放分布式追踪（OpenTracing）入门与 Jaeger 实现</a></p>
-<p>​</p>
+                <h3 id="MySQL架构"><a href="#MySQL架构" class="headerlink" title="MySQL架构"></a>MySQL架构</h3><p><img src="http://ogcxtlv6r.bkt.clouddn.com/18-3-14/70046846.jpg"></p>
+<p>第一层：服务层(为客户端服务):为请求做连接处理，授权认证，安全等。<br>第二层：Mysql核心服务层：主要提供，查询解析、分析、优化、缓存以及内置函数，跨存储引擎功能（存储过程、视图、触发器）<br>第三层：存储引擎层，负责数据的存储和提取</p>
+<p><a href="https://www.jianshu.com/p/1f17a496f14e" target="_blank" rel="external">https://www.jianshu.com/p/1f17a496f14e</a></p>
+<ol>
+<li><p>Connectors<br>不同语言与SQL交互。</p>
 </li>
-</ul>
+<li><p>Management Services &amp;Utilities<br>系统管理和控制工具。</p>
+</li>
+<li><p>Connection Pool<br>连接池，管理缓冲用户连接，线程处理所需要的缓存。</p>
+</li>
+<li><p>SQL Interface<br>接受用户的SQL命令，返回用户查询结果，比如 select from 就是调用 sql interface</p>
+</li>
+<li><p>Parser<br>解释器 ,SQL命令传递到解释器的时候会被解释器验证和解析，解释器由Lex和YACC实现(一个很长的脚本)，主要功能，将SQL语句分解成数据结构，并将这个结构传递到后续步骤，以后的SQL语句的传递和处理都是基于这个结构，如果在分解构成中遇到错误，说明这个sql语句是不合理的</p>
+</li>
+<li><p>Optimizer<br>查询优化器，SQL语句在查询之前会使用查询优化器对查询进行优化，他使用的是“选取-投影-连接”进行查询，用一个例子就可以理解：select uid,name from user where gender =1;这个select 查询先根据where语句进行选取，而不是先将表全部查询出来以后再进行gender过滤，这个select 查询先根据uid和name进行属性投影，而不是将属性全部取出以后再进行过滤，将这2个查询条件连接起来生成最终查询结果。</p>
+</li>
+<li><p>Cache和Buffer查询缓存<br>这个查询缓存有命中的查询结果，查询语句就可以直接去查询缓存中取数据，这个缓存机制由一系列小缓存组成，比如表缓存，记录缓存，key缓存，权限缓存</p>
+</li>
+<li><p>Enginee<br>存储引擎，存储引擎是MySql和文件打交道的具体子系统，MySQL的存储引擎是插件式的，它根据MySql AB公司提供的文件访问层的一个抽象接口来定制一种文件访问机制(这个访问机制就叫做存储引擎)，一个库中不同表使用不同的存储引擎也是允许的。</p>
+</li>
+</ol>
+<h3 id="参考内容"><a href="#参考内容" class="headerlink" title="参考内容"></a>参考内容</h3><p><a href="https://book.douban.com/subject/23008813/" target="_blank" rel="external">高性能MySQL</a><br><a href="https://segmentfault.com/a/1190000004472428" target="_blank" rel="external">MySQL架构</a></p>
 
 
                 <hr>
@@ -236,12 +228,12 @@
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/2018/03/13/system_design/sequence/" data-toggle="tooltip" data-placement="top" title="sequence-分布式发号器">&larr; Previous Post</a>
+                            <a href="/2017/11/27/distributed_system/service_discovery/" data-toggle="tooltip" data-placement="top" title="服务发现与配置">&larr; Previous Post</a>
                         </li>
                     
                     
                         <li class="next">
-                            <a href="/2018/03/12/life_is_short/travel/" data-toggle="tooltip" data-placement="top" title="关于旅行的句子">Next Post &rarr;</a>
+                            <a href="/2017/10/16/puduct/wegame/" data-toggle="tooltip" data-placement="top" title="使用商业画布分析WeGame商业模式设计">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -288,7 +280,7 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#distribution_system" title="distribution_system">distribution_system</a>
+                          <a class="tag" href="/tags/#database" title="database">database</a>
                         
                     </div>
                 </section>
@@ -318,8 +310,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "tamchen";
-    var disqus_identifier = "http://yuelng.github.io/2018/03/12/distributed_system/trace/";
-    var disqus_url = "http://yuelng.github.io/2018/03/12/distributed_system/trace/";
+    var disqus_identifier = "http://yuelng.github.io/2017/10/28/database/mysql/";
+    var disqus_url = "http://yuelng.github.io/2017/10/28/database/mysql/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
