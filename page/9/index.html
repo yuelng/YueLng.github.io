@@ -223,20 +223,16 @@
 
 <div class="post-preview">
 
-    <a href="/2017/03/30/devops/basic_oprate/">
+    <a href="/2017/03/30/computer_science/network/">
         <h2 class="post-title">
-            记录常用的配置
+            计算机网络
         </h2>
         <h3 class="post-subtitle">
-             "配置"
+             "计算机网络"
         </h3>
         <div class="post-content-preview">
-            ####项目部署执行openplay_backend requirement.txt 中却少raven
-在跑run.py时，debug配置文件下却少sentry，将product环境下的sentry添加即可
-####项目基础架构
-
-总共分为球员版player，管理员admin，用户user，统计stats，网页web，五个部分
-项目之间的关系：五个部分全都是基于tornado API项目开发......
+            TCP四次挥手过程
+TCP是面向连接的服务；三次握手（建立连接）和四次挥手（关闭连接）；使用滑动窗口机制进行流量控制；TCP要保证在所有可能的情况下使得所有的数据都能够被投递，当你关闭一个socket时，主动关闭一端的socket将进入TIME_WAIT状态，而被动关闭一方则转入CLOSED状态，这的确能够保证所有的数据都被传输。1）首先A B端的TCP进程都处于established状态，......
         </div>
     </a>
     <p class="post-meta">
@@ -249,19 +245,24 @@
 
 <div class="post-preview">
 
-    <a href="/2017/03/30/language/ruby_dev_env/">
+    <a href="/2017/03/30/distributed_system/engineering/">
         <h2 class="post-title">
-            ruby开发环境的搭建
+            后端代码工程
         </h2>
         <h3 class="post-subtitle">
-             "ruby开发"
+             "配置"
         </h3>
         <div class="post-content-preview">
-            ruby开发环境
-Mac OS本身自带ruby在系统目录 /System/Library/Frameworks/Ruby.framework/Versions/Current12345# 通过homebrew安装ruby最新版brew updatebrew install ruby# 安装railsgem install rails
+            
+“Yeah It’s on. ”
 
 
-...
+配置文件
+程序内内置配置项的初始默认值
+配置文件中的配置项值可以覆盖(override)程序内配置项的默认值。
+命令行选项和参数值具有最高优先级，可以override前两层的配置项值。
+
+错误处理golang内置两种错误处理方式，error与panic，error是逻辑上程序可控制可预见的错误，而panic则相对于error是比较严重的错误。在通常的项......
         </div>
     </a>
     <p class="post-meta">
@@ -409,21 +410,19 @@ bla......
 
 <div class="post-preview">
 
-    <a href="/2016/03/30/collection/note_category/">
+    <a href="/2016/03/30/system_design/system_design/">
         <h2 class="post-title">
-            操作技能目录
+            笔记-系统设计
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            
-“Any organization that design a system(defined broadly) will produce a design whose structure is a copy of the organization’s communication structureConway’s Law
-
-
-Linux开发
-Python开发
-爬虫开发使用豆瓣的接口，使用爬......
+            九章算法的系统设计班http://www.jiuzhang.com/course/2/
+网站系统架构，搜索引擎系统，数据库系统，分布式系统开源软件架构，
+重点考察内容面向对象，接口设计，设计模式，数据库表，分布式
+关于高并发系统设计。主要有以下几个关键技术点：缓存，索引，数据分片，锁粒度尽可能小。
+分布式系统分布式系统由独立的服务器通过网络松散耦合组成的特点：可扩展性核心理念：多台服务器协同......
         </div>
     </a>
     <p class="post-meta">
@@ -536,10 +535,6 @@ Tagliatelle或者Fettucine这种宽的意面
                             
                         
                             
-                            <a href="/tags/#framework" title="framework" rel="3">framework</a>
-                            
-                        
-                            
                             <a href="/tags/#language" title="language" rel="8">language</a>
                             
                         
@@ -553,6 +548,10 @@ Tagliatelle或者Fettucine这种宽的意面
                         
                             
                             <a href="/tags/#product" title="product" rel="5">product</a>
+                            
+                        
+                            
+                            <a href="/tags/#framework" title="framework" rel="3">framework</a>
                             
                         
                             
