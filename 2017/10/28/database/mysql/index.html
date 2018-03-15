@@ -96,14 +96,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -218,7 +218,48 @@
 <li><p>Enginee<br>存储引擎，存储引擎是MySql和文件打交道的具体子系统，MySQL的存储引擎是插件式的，它根据MySql AB公司提供的文件访问层的一个抽象接口来定制一种文件访问机制(这个访问机制就叫做存储引擎)，一个库中不同表使用不同的存储引擎也是允许的。</p>
 </li>
 </ol>
-<h3 id="参考内容"><a href="#参考内容" class="headerlink" title="参考内容"></a>参考内容</h3><p><a href="https://book.douban.com/subject/23008813/" target="_blank" rel="external">高性能MySQL</a><br><a href="https://segmentfault.com/a/1190000004472428" target="_blank" rel="external">MySQL架构</a></p>
+<h3 id="多版本并发控制MVCC：Multi-Version-Concurrent-Control"><a href="#多版本并发控制MVCC：Multi-Version-Concurrent-Control" class="headerlink" title="多版本并发控制MVCC：Multi-Version Concurrent Control"></a>多版本并发控制MVCC：Multi-Version Concurrent Control</h3><p>MVCC是为了实现数据库的并发控制而设计的一种协议。要实现并发控制基本上都是通过锁实现的，跟我们通常的理解一样，我们可以用读锁与写锁来控制数据的一致性，但是这样做保证不了高并发的需求，因为它实现的是<code>读写串行化</code>, 因此诞生了一种与基于锁的并发控制LBCC（Lock-Based Concurrent Control）相对的MVCC，有更优越的并发性能。</p>
+<p>几乎所有的RDBMC都支持MVCC，它的好处是，读不加锁，读写不冲突，读操作可以分为两类，快照读（snapshot read）和当前读（current read）快照读，读取的是记录的可见版本（可能是历史版本，即最新数据可能正在被执行的事务修改），不会对返回的记录加锁。而当前读（current read）读取的是记录的最新版本，并且会返回对返回的记录加锁，保证其他事务不会并发修改这条记录。</p>
+<p>在MySQL InnoDB中，简单的select操作，如 select * from table where ? 都属于快照读；属于当前读的包含以下操作：</p>
+<ul>
+<li>select * from table where ? lock in share mode; （加S锁）</li>
+<li>select * from table where ? for update; （加X锁，下同）</li>
+<li>insert, update, delete操作</li>
+</ul>
+<p>需要注意的是，以上需要加X锁的都是当前读，而普通的select（除了for update）都是快照读，每次insert、update、delete之前都是会进行一次当前读的，这个时候会上锁，防止其他事务对某些行数据的修改，从而造成数据的不一致性。我们广义上说的幻读现象是通过MVCC解决的，意思是通过MVCC的快照读可以使得事务返回相同的数据集</p>
+<h3 id="隔离级别"><a href="#隔离级别" class="headerlink" title="隔离级别"></a>隔离级别</h3><p>在SQL标准中定义了四种隔离级别，低级别的隔离可以执行更高级别的并发，性能好，但是会出现脏读和幻读的现象。</p>
+<p>-脏读（dirty read）：两个事务，一个事务读取到了另一个事务未提交的数据，这便是脏读。<br>-幻读（phantom read）：两个事务，事务A与事务B，事务A在自己执行的过程中，执行了两次相同查询，第一次查询事务B未提交，第二次查询事务B已提交，从而造成两次查询结果不一样，这个其实被称为不可重复读；如果事务B是一个会影响查询结果的insert操作，则好像新多出来的行像幻觉一样，因此被称为幻读。其他事务的提交会影响在同一个事务中的重复查询结果。</p>
+<p>以下是SQL中定义的四种标准隔离级别</p>
+<ol>
+<li>未提交读(Read Uncommitted)：可以读取未提交的记录。会出现脏读。</li>
+<li>提交读(Read Committed)： 事务中只能看到已提交的修改。不可重复读，会出现幻读。（在InnoDB中，会加行所，但是不会加间隙锁）该隔离级别是大多数数据库系统的默认隔离级别，但是MySQL的则是RR。</li>
+<li>可重复读(Repeated Read)：在InnoDB中是这样的：RR隔离级别保证对读取到的记录加锁 (记录锁)，同时保证对读取的范围加锁，新的满足查询条件的记录不能够插入 (间隙锁)，因此不存在幻读现象。但是标准的RR只能保证在同一事务中多次读取同样记录的结果是一致的，而无法解决幻读问题。InnoDB的幻读解决是依靠MVCC的实现机制做到的。</li>
+<li>串行读(Serializable)：完全串行化的读，每次读都需要获得表级共享锁，读写相互都会阻塞（SQLite）</li>
+</ol>
+<h3 id="Innodb的优势"><a href="#Innodb的优势" class="headerlink" title="Innodb的优势"></a>Innodb的优势</h3><ol>
+<li>DML操作遵循ACID模型，通过commit, rollback和奔溃恢复的事务特性保护用户数据。</li>
+<li>提供行级锁和一致性读，提高了并发性和性能。</li>
+<li>每个表都有一个主键索引，使用聚簇索引的方式组织数据，减少主键查询的IO，提高基于主键的查询语句。</li>
+<li>InnoDB采用MVCC支持高并发，默认隔离级别是REPEATABLE READ(可重复读), 并且通过next-key </li>
+<li>locking策略防止幻读的出现。间隙锁使得Innodb不仅仅锁定查询涉及的行，还会对索引中的间隙进行锁定，以防止幻影行的插入。</li>
+<li>InnoDB是基于聚簇索引建立的，聚簇索引对主键查询有很高的性能。但是二级索引(Secondary index, 非主键索引)中必须包含主键列。<br>innodb的高性能的原因:</li>
+</ol>
+<ul>
+<li>Insert Buffer</li>
+<li>异步IO</li>
+<li>Double write</li>
+<li>Adaptive Hash Index</li>
+</ul>
+<h3 id="Innodb实现MVCC"><a href="#Innodb实现MVCC" class="headerlink" title="Innodb实现MVCC"></a>Innodb实现MVCC</h3><p>　MVCC可以认为是行级锁的一个变种，它可以在很多情况下避免加锁操作，因此开销更低。MVCC的实现大都都实现了非阻塞的读操作，写操作也只锁定必要的行。InnoDB的MVCC实现，是通过保存数据在某个时间点的快照来实现的。一个事务，不管其执行多长时间，其内部看到的数据是一致的。也就是事务在执行的过程中不会相互影响。下面我们简述一下MVCC在InnoDB中的实现。</p>
+<p>　　InnoDB的MVCC，通过在每行记录后面保存两个隐藏的列来实现：一个保存了行的创建时间，一个保存行的过期时间（删除时间），当然，这里的时间并不是时间戳，而是系统版本号，每开始一个新的事务，系统版本号就会递增。在RR隔离级别下，MVCC的操作如下：</p>
+<ol>
+<li>select操作。a. InnoDB只查找版本早于（包含等于）当前事务版本的数据行。可以确保事务读取的行，要么是事务开始前就已存在，或者事务自身插入或修改的记录。b. 行的删除版本要么未定义，要么大于当前事务版本号。可以确保事务读取的行，在事务开始之前未删除。</li>
+<li>insert操作。将新插入的行保存当前版本号为行版本号。</li>
+<li>delete操作。将删除的行保存当前版本号为删除标识。</li>
+<li>update操作。变为insert和delete操作的组合，insert的行保存当前版本号为行版本号，delete则保存当前版本号到原来的行作为删除标识。<br>　　由于旧数据并不真正的删除，所以必须对这些数据进行清理，innodb会开启一个后台线程执行清理工作，具体的规则是将删除版本号小于当前系统版本的行删除，这个过程叫做purge。</li>
+</ol>
+<h3 id="参考内容"><a href="#参考内容" class="headerlink" title="参考内容"></a>参考内容</h3><p><a href="https://book.douban.com/subject/23008813/" target="_blank" rel="external">高性能MySQL</a><br><a href="https://segmentfault.com/a/1190000004472428" target="_blank" rel="external">MySQL架构</a><br><a href="https://liuzhengyang.github.io/2016/09/25/mysqlinnodb/" target="_blank" rel="external">mysql、innodb和加锁分析</a><br><a href="https://www.cnblogs.com/yelbosh/p/5813865.html
+[Mysql加锁处理分析](http://hedengcheng.com/?p=771" target="_blank" rel="external">MySQL的并发控制与加锁分析</a></p>
 
 
                 <hr>

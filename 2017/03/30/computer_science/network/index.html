@@ -96,14 +96,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -213,7 +213,19 @@
 <li>HTTP/2设计了复杂的优先级排定规则，帮助浏览器首先请求最急需的文件，而NGINX已经支持（SPDY的方案要简单一些）。</li>
 <li><a href="https://laike9m.com/blog/rfc7540-bi-ji-yi-gai-shu,102/" target="_blank" rel="external">RFC7540 笔记（一）——概述 - laike9m’s blog</a> HTTP/2的RFC文档</li>
 </ol>
-<h3 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a>TCP</h3><p> <a href="http://jm.taobao.org/2017/06/08/20170608/" target="_blank" rel="external">就是要你懂 TCP</a><br><a href="http://jm.taobao.org/2017/05/25/525-1/" target="_blank" rel="external">关于TCP 半连接队列和全连接队列</a></p>
+<h3 id="HTTPS交互过程"><a href="#HTTPS交互过程" class="headerlink" title="HTTPS交互过程"></a>HTTPS交互过程</h3><ol>
+<li>客户端发送“ClientHello”消息，消息包含 SSL 的版本、客户端支持的加密套件和数据压缩算法及随机数1。</li>
+<li>服务器响应“ServerHello”消息，消息包含选定的加密套件、选定的数据压缩方法、会话标识，数字证书及另一个随机数2。</li>
+<li>客户端（ Web 浏览器）验证服务器的SSL数字证书的有效性，不通过则提示警告。</li>
+<li>客户端发送“客户端密钥交换”消息。此消息包含 pre-master secret（用于生成对称加密密钥生的随机数3）。</li>
+<li>客户端使用一系列加密运算将 [随机数1 随机数2 随机数3] 转化为 master secret，其中将派生出所有用于加密和消息认证的密钥。</li>
+<li>服务器使用一系列加密运算将 [随机数1 随机数2 随机数3] 转化为 master secret，其中将派生出所有用于加密和消息认证的密钥。</li>
+<li>客户端发出“更改密码规范”通知服务器端之后使用协商好的对称加密算法及密钥通信。</li>
+<li>服务器发出“更改密码规范”通知客户端之后使用协商好的对称加密算法及密钥通信。</li>
+<li>SSL握手结束，使用对称加密算法进行加密通信。</li>
+</ol>
+<h3 id="关于http返回状态"><a href="#关于http返回状态" class="headerlink" title="关于http返回状态"></a>关于http返回状态</h3><p>302和301的区别就在于：302重定向是临时的，下次浏览器访问同样是访问原链接。而301重定向是持久的。下次浏览器会直接访问新链接。所以当确定某域名下已经实现了 HTTPS，可采用301重定向。</p>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><a href="http://jm.taobao.org/2017/06/08/20170608/" target="_blank" rel="external">就是要你懂 TCP</a><br><a href="http://jm.taobao.org/2017/05/25/525-1/" target="_blank" rel="external">关于TCP 半连接队列和全连接队列</a><br><a href="https://tech.youzan.com/web-https-engineering/" target="_blank" rel="external">浅谈推进全站 HTTPS 项目-工程篇</a></p>
 
 
                 <hr>
@@ -223,7 +235,7 @@
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/2017/03/30/computer_science/algorithm/" data-toggle="tooltip" data-placement="top" title="算法">&larr; Previous Post</a>
+                            <a href="/2017/03/30/devops/basic_oprate/" data-toggle="tooltip" data-placement="top" title="记录常用的配置">&larr; Previous Post</a>
                         </li>
                     
                     
