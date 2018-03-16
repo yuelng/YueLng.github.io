@@ -96,14 +96,14 @@
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
@@ -192,19 +192,17 @@
 
     <a href="/2018/03/16/computer_science/network_coding/">
         <h2 class="post-title">
-            Untitled
+            计算机网络编程
         </h2>
         <h3 class="post-subtitle">
-            
+             "network coding"
         </h3>
         <div class="post-content-preview">
-            
-layout:     posttitle:      “计算机网络编程”subtitle:   “ \”network coding\””date:       2018-03-16 16:24:47author:     “yueLng”header-img: http://ogcxtlv6r.bkt.clouddn.com/18-3-16/37874625.jpgtags:
-- co......
+            基本概念用户空间与内核空间现在操作系统都是采用虚拟存储器，那么对32位操作系统而言，它的寻址空间（虚拟存储空间）为4G（2的32次方）。操作系统的核心是内核，独立于普通的应用程序，可以访问受保护的内存空间，也有访问底层硬件设备的所有权限。为了保证用户进程不能直接操作内核（kernel），保证内核的安全，操心系统将虚拟空间划分为两部分，一部分为内核空间，一部分为用户空间。针对linux操作系统......
         </div>
     </a>
     <p class="post-meta">
-        Posted by YueLng Chen on
+        Posted by yueLng on
         2018-03-16
     </p>
 
@@ -307,17 +305,17 @@ R......
 
 <div class="post-preview">
 
-    <a href="/2018/02/28/language/golang_runtime/">
+    <a href="/2018/02/28/computer_science/stack_heap/">
         <h2 class="post-title">
-            golang Runtime底层学习
+            stack && heap
         </h2>
         <h3 class="post-subtitle">
             runtime
         </h3>
         <div class="post-content-preview">
-            导读引入这个系列深入剖析 Runtime 三大组件，内存分配器、垃圾回收器、Goroutine 调度。
-内容介绍现在用几句话概括这个系列的内容。
-内存管理涉及两个核心问题，第一是快速分配，第二是适可而止。Go 语言基于 tcmalloc 实现的内存分配器，tcmalloc 就是 Google 开发的快速内存分配器，它本身就是基于并发设计的，目的是找到相对比较好的平衡，既有很高的性能同时内存消......
+            堆和栈基本形式golang中的内存分配 基于tcmalloc内存分配器
+栈与指针参考内容计算机体系 – 栈与堆Escape Analysis and Memory Profiling - GopherCon SG 2017Go语言机制之栈和指针Go语言机制之逃逸分析Go 语言机制之内存剖析Design Philosophy On Data And Semantics
+...
         </div>
     </a>
     <p class="post-meta">
@@ -330,17 +328,17 @@ R......
 
 <div class="post-preview">
 
-    <a href="/2018/02/28/computer_science/stack_heap/">
+    <a href="/2018/02/28/language/golang_runtime/">
         <h2 class="post-title">
-            stack && heap
+            golang Runtime底层学习
         </h2>
         <h3 class="post-subtitle">
             runtime
         </h3>
         <div class="post-content-preview">
-            堆和栈基本形式golang中的内存分配 基于tcmalloc内存分配器
-栈与指针参考内容计算机体系 – 栈与堆Escape Analysis and Memory Profiling - GopherCon SG 2017Go语言机制之栈和指针Go语言机制之逃逸分析Go 语言机制之内存剖析Design Philosophy On Data And Semantics
-...
+            导读引入这个系列深入剖析 Runtime 三大组件，内存分配器、垃圾回收器、Goroutine 调度。
+内容介绍现在用几句话概括这个系列的内容。
+内存管理涉及两个核心问题，第一是快速分配，第二是适可而止。Go 语言基于 tcmalloc 实现的内存分配器，tcmalloc 就是 Google 开发的快速内存分配器，它本身就是基于并发设计的，目的是找到相对比较好的平衡，既有很高的性能同时内存消......
         </div>
     </a>
     <p class="post-meta">
@@ -470,13 +468,11 @@ A hig......
                             
                         
                             
-                            <a href="/tags/#computer_science" title="computer_science" rel="8">computer_science</a>
-                            
-                        
-                            
                             <a href="/tags/#collection" title="collection" rel="5">collection</a>
                             
                         
+                            
+                            <a href="/tags/#computer_science" title="computer_science" rel="9">computer_science</a>
                             
                         
                             
@@ -484,11 +480,13 @@ A hig......
                             
                         
                             
-                            <a href="/tags/#devops" title="devops" rel="5">devops</a>
-                            
                         
                             
                             <a href="/tags/#distribution_system" title="distribution_system" rel="15">distribution_system</a>
+                            
+                        
+                            
+                            <a href="/tags/#devops" title="devops" rel="5">devops</a>
                             
                         
                             
@@ -516,11 +514,11 @@ A hig......
                             
                         
                             
-                            <a href="/tags/#system_design" title="system_design" rel="5">system_design</a>
+                            <a href="/tags/#reading" title="reading" rel="2">reading</a>
                             
                         
                             
-                            <a href="/tags/#thinking" title="thinking" rel="8">thinking</a>
+                            <a href="/tags/#social_science" title="social_science" rel="2">social_science</a>
                             
                         
                             
@@ -528,11 +526,11 @@ A hig......
                             
                         
                             
-                            <a href="/tags/#reading" title="reading" rel="2">reading</a>
+                            <a href="/tags/#system_design" title="system_design" rel="5">system_design</a>
                             
                         
                             
-                            <a href="/tags/#social_science" title="social_science" rel="2">social_science</a>
+                            <a href="/tags/#thinking" title="thinking" rel="8">thinking</a>
                             
                         
                     </div>
