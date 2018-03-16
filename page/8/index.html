@@ -190,6 +190,28 @@
 
 <div class="post-preview">
 
+    <a href="/2017/11/30/distributed_system/study_distribute_item/">
+        <h2 class="post-title">
+            分布式系统要点记录
+        </h2>
+        <h3 class="post-subtitle">
+             "微服务的惯用架构"
+        </h3>
+        <div class="post-content-preview">
+            The Twelve Factor AppThe Twelve Factor App网关聚合服务 提供restful接口grpc 内网调用服务发现，使用etcd自动服务注册服务配置，使用etcd存储配置服务快速部署服务logging记录服务调用链的追踪服务质量的监控，响应时间缓存的应用
+典型架构缓存、消息、搜索Nginx+Tornado+mysql+pythonNginx+rest.li+r......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/2017/11/28/database/database/">
         <h2 class="post-title">
             数据库原理、实践
@@ -201,6 +223,28 @@
             数据库实践数据库并发查询下 导致巨大时延？
 SHOW PROCESSLIST 查看数据库连接，看哪个连接导致锁表kill id   //杀掉被锁的表
 如何使用online DDL 增加字段MySQL Online DDL - 腾讯云社区 - 腾讯云没有使用 online DDL选项主库增加了字段，通过binlog 同步到从库执行alter 操作 会导致锁表，锁表导致set old_alter......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2017-11-28
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/28/database/redis/">
+        <h2 class="post-title">
+            redis学习笔记
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            redis简介Redis是一个开源的Key-Value存储，但又不仅仅是Key-Value存储，用官网上的话来说，Redis是一个数据结构存储，可用作数据库、缓存和消息中间件。相对于传统的Key-Value存储Memcached来说，Redis具有如下特点：
+速度快丰富的数据结构，除String之外，还有List、Hash、Set、Sorted Set单线程，避免了线程切换和锁的性能消耗原子......
         </div>
     </a>
     <p class="post-meta">
@@ -360,76 +404,16 @@ Hackintosh简介与法律问题Hackintosh是在非苹果硬件上安装运行苹
 
 <div class="post-preview">
 
-    <a href="/2017/03/30/computer_science/algorithm/">
+    <a href="/2017/03/30/computer_science/network/">
         <h2 class="post-title">
-            算法
+            计算机网络
         </h2>
         <h3 class="post-subtitle">
-             "算法"
+             "计算机网络"
         </h3>
         <div class="post-content-preview">
-            
-
-穷举=树型搜索
-递归=树型搜索+剪枝
-动态规划=树型搜索+剪枝+节点合并
-因此算法效率：动态规划&gt;递归&gt;穷举。
-
-
-
-递归与分治策略
-一个直接或间接地调用自身的算法称为递归算法。
-分治算法的模式如下：
-12345678910Divide_and_Conquer(P)&#123;    if(|P|&lt;=n0)    Adhoc(P);//Adhoc(P)是基本子算法   ......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2017-03-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/03/30/framework/tornado/">
-        <h2 class="post-title">
-            Tornado Pyhton web框架介绍
-        </h2>
-        <h3 class="post-subtitle">
-             "tornado为何这么快"
-        </h3>
-        <div class="post-content-preview">
-            ##Tornado直接读代码
-简介FriendFeed使用了一款使用Python编写的，相对简单的非阻塞式Web服务器。它的特点在于非阻塞服务器和epoll的运用，这个Web框架还包含了一些相关的有用工具和优化。
-以下是经典的“Hello, world”示例：
-123456789101112131415import tornado.ioloopimport tornado.webclass ......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2017-03-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/03/30/language/ruby_dev_env/">
-        <h2 class="post-title">
-            ruby开发环境的搭建
-        </h2>
-        <h3 class="post-subtitle">
-             "ruby开发"
-        </h3>
-        <div class="post-content-preview">
-            ruby开发环境
-Mac OS本身自带ruby在系统目录 /System/Library/Frameworks/Ruby.framework/Versions/Current12345# 通过homebrew安装ruby最新版brew updatebrew install ruby# 安装railsgem install rails
-
-
-...
+            TCP四次挥手过程
+TCP是面向连接的服务；三次握手（建立连接）和四次挥手（关闭连接）；使用滑动窗口机制进行流量控制；TCP要保证在所有可能的情况下使得所有的数据都能够被投递，当你关闭一个socket时，主动关闭一端的socket将进入TIME_WAIT状态，而被动关闭一方则转入CLOSED状态，这的确能够保证所有的数据都被传输。1）首先A B端的TCP进程都处于established状态，......
         </div>
     </a>
     <p class="post-meta">
@@ -483,25 +467,25 @@ Mac OS本身自带ruby在系统目录 /System/Library/Frameworks/Ruby.framework/
                             
                         
                             
-                            <a href="/tags/#collection" title="collection" rel="5">collection</a>
-                            
-                        
-                            
                             <a href="/tags/#computer_science" title="computer_science" rel="8">computer_science</a>
                             
                         
                             
-                            <a href="/tags/#database" title="database" rel="5">database</a>
+                            <a href="/tags/#collection" title="collection" rel="5">collection</a>
                             
                         
                             
                         
                             
-                            <a href="/tags/#distribution_system" title="distribution_system" rel="15">distribution_system</a>
+                            <a href="/tags/#database" title="database" rel="6">database</a>
                             
                         
                             
                             <a href="/tags/#devops" title="devops" rel="5">devops</a>
+                            
+                        
+                            
+                            <a href="/tags/#distribution_system" title="distribution_system" rel="15">distribution_system</a>
                             
                         
                             
@@ -529,11 +513,11 @@ Mac OS本身自带ruby在系统目录 /System/Library/Frameworks/Ruby.framework/
                             
                         
                             
-                            <a href="/tags/#reading" title="reading" rel="2">reading</a>
+                            <a href="/tags/#system_design" title="system_design" rel="5">system_design</a>
                             
                         
                             
-                            <a href="/tags/#social_science" title="social_science" rel="2">social_science</a>
+                            <a href="/tags/#thinking" title="thinking" rel="8">thinking</a>
                             
                         
                             
@@ -541,11 +525,11 @@ Mac OS本身自带ruby在系统目录 /System/Library/Frameworks/Ruby.framework/
                             
                         
                             
-                            <a href="/tags/#system_design" title="system_design" rel="5">system_design</a>
+                            <a href="/tags/#reading" title="reading" rel="2">reading</a>
                             
                         
                             
-                            <a href="/tags/#thinking" title="thinking" rel="8">thinking</a>
+                            <a href="/tags/#social_science" title="social_science" rel="2">social_science</a>
                             
                         
                     </div>
