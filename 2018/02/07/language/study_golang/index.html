@@ -222,7 +222,6 @@
 <h3 id="进阶"><a href="#进阶" class="headerlink" title="进阶"></a>进阶</h3><ol>
 <li>基本数据结构 map channel<br><a href="https://guidao.github.io/go_map.html" target="_blank" rel="external">go_map</a></li>
 <li><a href="https://github.com/dgryski/go-perfbook/blob/master/performance.md" target="_blank" rel="external">Thoughts on Go performance optimization</a></li>
-<li>​</li>
 </ol>
 <p><a href="https://garbagecollected.org/2017/02/22/go-range-loop-internals/" target="_blank" rel="external">Go Range Loop Internals</a><br>in Go, everything you assign, you copy.<br>slices are syntactic sugar for a struct holding a pointer to the backing array</p>
 <ul>
@@ -244,52 +243,38 @@
 <h3 id="标准库"><a href="#标准库" class="headerlink" title="标准库"></a>标准库</h3><p>context</p>
 <p><code>Context</code>包，专门用来简化 对于处理单个请求的多个 goroutine 之间与 请求域的数据、取消信号、截止时间等相关操作。它是一种简单的超时和取消机制， 保证了临界区数据 (比如安全凭证) 在不同的 Go 项目中顺利传递。</p>
 <p>Context 的调用应该是链式的，通过<code>WithCancel</code>，<code>WithDeadline</code>，<code>WithTimeout</code>或<code>WithValue</code>派生出新的 Context。当父 Context 被取消时，其派生的所有 Context 都将取消。</p>
-<h3 id="外部库"><a href="#外部库" class="headerlink" title="外部库"></a>外部库</h3><h3 id="Writing-high-performance-go"><a href="#Writing-high-performance-go" class="headerlink" title="Writing high performance go"></a>Writing high performance go</h3><ol>
-<li><p>Performance measurement and profiling</p>
-<blockquote>
+<h3 id="Writing-high-performance-go"><a href="#Writing-high-performance-go" class="headerlink" title="Writing high performance go"></a>Writing high performance go</h3><ol>
+<li>Performance measurement and profiling<blockquote>
 <p>“Don’t guess,measure”<br>use pprof</p>
 </blockquote>
 </li>
-<li><p>Benchmarking</p>
-</li>
+<li>Benchmarking</li>
 <li>Memory management and GC tuning</li>
 <li>Concurrency</li>
 </ol>
-<p><a href="https://segment.com/blog/allocation-efficiency-in-high-performance-go-services/" target="_blank" rel="external">Allocation Efficiency in High-Performance Go Services</a></p>
-<p><a href="https://github.com/dgryski/go-perfbook/blob/master/performance.md" target="_blank" rel="external">Writing and Optimizing Go code</a></p>
-<p><a href="https://www.youtube.com/watch?v=N3PWzBeLX2M" target="_blank" rel="external">Profiling and Optimizing Go</a></p>
-<p>channel 的效率并不高，内部使用锁实现</p>
-<p>跨进程通信会是问题，扩展性不强</p>
-<p>不能持久化，容易丢数据</p>
+<p><a href="https://segment.com/blog/allocation-efficiency-in-high-performance-go-services/" target="_blank" rel="external">Allocation Efficiency in High-Performance Go Services</a><br><a href="https://github.com/dgryski/go-perfbook/blob/master/performance.md" target="_blank" rel="external">Writing and Optimizing Go code</a><br><a href="https://www.youtube.com/watch?v=N3PWzBeLX2M" target="_blank" rel="external">Profiling and Optimizing Go</a><br>channel 的效率并不高，内部使用锁实现<br>跨进程通信会是问题，扩展性不强<br>不能持久化，容易丢数据</p>
 <h3 id="Advance-Golang"><a href="#Advance-Golang" class="headerlink" title="Advance Golang"></a>Advance Golang</h3><ol>
-<li><p>引导与初始化</p>
-<p>所有 init 函数都在同一个 goroutine 内执行。所有 init 函数结束后才会执行 main.main 函数。    </p>
-</li>
-<li><p>内存分配</p>
-<p><a href="http://blog.csdn.net/chosen0ne/article/details/9338591" target="_blank" rel="external">TCMalloc小记</a></p>
-<p>mmap     虚拟存储器的相关知识 Golang 编译器支持逃逸分析(escape analysis)，它会在编译期通过构建调用图来分析局部变量是否会被外部引用，从而决定是否可直接分配在栈上,你或许见过 “Zero Garbage” 这个说法，其目的就是避免在堆上的分配行为，从而减小垃圾回收压力，提升性能。另外，做性能测试时使用 go test -benchmem 参数可以输出堆分配次数统计</p>
-</li>
-<li><p>垃圾回收</p>
-</li>
-<li><p>并发调度 goroutine</p>
-</li>
-<li><p>通道 channel</p>
-</li>
-<li><p>延迟 defer</p>
-</li>
-<li><p>析构？</p>
-</li>
-<li><p>缓存池 sync pool</p>
-</li>
+<li>引导与初始化<br>所有 init 函数都在同一个 goroutine 内执行。所有 init 函数结束后才会执行 main.main 函数。    </li>
+<li>内存分配<br><a href="http://blog.csdn.net/chosen0ne/article/details/9338591" target="_blank" rel="external">TCMalloc小记</a><br>mmap     虚拟存储器的相关知识 Golang 编译器支持逃逸分析(escape analysis)，它会在编译期通过构建调用图来分析局部变量是否会被外部引用，从而决定是否可直接分配在栈上,你或许见过 “Zero Garbage” 这个说法，其目的就是避免在堆上的分配行为，从而减小垃圾回收压力，提升性能。另外，做性能测试时使用 go test -benchmem 参数可以输出堆分配次数统计</li>
+<li>垃圾回收</li>
+<li>并发调度 goroutine</li>
+<li>通道 channel</li>
+<li>延迟 defer</li>
+<li>析构？</li>
+<li>缓存池 sync pool</li>
 </ol>
-<h3 id="相关问题"><a href="#相关问题" class="headerlink" title="相关问题"></a>相关问题</h3><p>1.说说为什么同样实现一个“hello world”，Go编译出来的程序一般会比C/C++要大？<br>关键字：跨平台 静态链接编译 依赖库 自带runtime<br><a href="https://blog.golang.org/go1.7-binary-size" target="_blank" rel="external">Smaller Go 1.7 binaries</a></p>
-<p>2.说说channel的实现.（核心，拓展问题：通信常用手段，阻塞非阻塞，同步异步的区别，select／poll/epoll等等）<br><a href="https://www.youtube.com/watch?v=KBZlN0izeiY&amp;t=10s" target="_blank" rel="external">Kavya Joshi - Understanding Channels</a></p>
-<p>3.goruntine是怎么调度的？与进程，线程的关系。（核心，拓展问题，进程，线程，协程区别，死锁，操作系统等等）<br><a href="https://www.youtube.com/watch?v=zbFDjCHzN50" target="_blank" rel="external">https://www.youtube.com/watch?v=zbFDjCHzN50</a></p>
-<p>4.如何理解“不要通过共享内存来通信，要通过通信来共享内存”这句话？（关于代码和设计）<br>关键字：高内聚低耦合 消息机制 channel 结合场景</p>
-<p>5.说说排查Go问题的经历，都用到了什么工具，有什么看法？（经验，排查问题思路和能力，个人觉得排查问题重要的是有没有思路方法，不见得什么最有效）</p>
-<p>6.Go目前的GC策略是什么？之前是什么？怎么改进的？（拓展问题：关于GC算法，内存分配等等）<br><a href="https://blog.golang.org/go15gc" target="_blank" rel="external">Go GC: Prioritizing low latency and simplicity</a></p>
-<p>7.Go的错误和异常的处理机制怎么样<br>计算机中的错误都是可预见的，例如文件打开错误，并不需要特定的语言结构，使用if/else就可以<br>golang提供了error的interface，使用error类型的数据返回对错误的描述</p>
-<p>7.你喜欢Go吗？说出目前它的三个以上缺点？（是不是真的喜欢，关注，能说出缺点最重要）<br><a href="https://github.com/ksimka/go-is-not-good" target="_blank" rel="external">go-is-not-good</a><br><a href="http://www.yinwang.org/blog-cn/2014/04/18/golang" target="_blank" rel="external">对 Go 语言的综合评价</a><br><a href="https://www.youtube.com/watch?v=_Id9bFkjaDc" target="_blank" rel="external">golang sucks</a><br>routime库性能是否达到要求，defer、mutex、chan、select等特性<br>goroutine带来的高并发并不是新特性，性能上是不是有待提高<br>golang GC内存管理器性能无法满足要求，是否真的能替代C或C++的底层工作<br>是否需要泛型generics，官方认为go的核心在于保持简洁性，对任何会导致语言难以理解的特性，持有怀疑的态度，并且在实践中证明泛型用处并不多</p>
+<h3 id="相关问题"><a href="#相关问题" class="headerlink" title="相关问题"></a>相关问题</h3><ol>
+<li>说说为什么同样实现一个“hello world”，Go编译出来的程序一般会比C/C++要大？<br>关键字：跨平台 静态链接编译 依赖库 自带runtime<br><a href="https://blog.golang.org/go1.7-binary-size" target="_blank" rel="external">Smaller Go 1.7 binaries</a></li>
+<li>说说channel的实现.（核心，拓展问题：通信常用手段，阻塞非阻塞，同步异步的区别，select／poll/epoll等等）<br><a href="https://www.youtube.com/watch?v=KBZlN0izeiY&amp;t=10s" target="_blank" rel="external">Kavya Joshi - Understanding Channels</a></li>
+<li>goruntine是怎么调度的？与进程，线程的关系。（核心，拓展问题，进程，线程，协程区别，死锁，操作系统等等）<br><a href="https://www.youtube.com/watch?v=zbFDjCHzN50" target="_blank" rel="external">https://www.youtube.com/watch?v=zbFDjCHzN50</a></li>
+<li><p>如何理解“不要通过共享内存来通信，要通过通信来共享内存”这句话？（关于代码和设计）<br>关键字：高内聚低耦合 消息机制 channel 结合场景</p>
+</li>
+<li><p>说说排查Go问题的经历，都用到了什么工具，有什么看法？（经验，排查问题思路和能力，个人觉得排查问题重要的是有没有思路方法，不见得什么最有效）</p>
+</li>
+<li>Go目前的GC策略是什么？之前是什么？怎么改进的？（拓展问题：关于GC算法，内存分配等等）<br><a href="https://blog.golang.org/go15gc" target="_blank" rel="external">Go GC: Prioritizing low latency and simplicity</a></li>
+<li>Go的错误和异常的处理机制怎么样<br>计算机中的错误都是可预见的，例如文件打开错误，并不需要特定的语言结构，使用if/else就可以<br>golang提供了error的interface，使用error类型的数据返回对错误的描述</li>
+<li>你喜欢Go吗？说出目前它的三个以上缺点？（是不是真的喜欢，关注，能说出缺点最重要）<br><a href="https://github.com/ksimka/go-is-not-good" target="_blank" rel="external">go-is-not-good</a><br><a href="http://www.yinwang.org/blog-cn/2014/04/18/golang" target="_blank" rel="external">对 Go 语言的综合评价</a><br><a href="https://www.youtube.com/watch?v=_Id9bFkjaDc" target="_blank" rel="external">golang sucks</a><br>routime库性能是否达到要求，defer、mutex、chan、select等特性，goroutine带来的高并发并不是新特性，性能上是不是有待提高，golang GC内存管理器性能无法满足要求，是否真的能替代C或C++的底层工作，是否需要泛型generics，官方认为go的核心在于保持简洁性，对任何会导致语言难以理解的特性，持有怀疑的态度，并且在实践中证明泛型用处并不多</li>
+</ol>
 <h3 id="面试问题"><a href="#面试问题" class="headerlink" title="面试问题"></a>面试问题</h3><ul>
 <li><a href="https://zhuanlan.zhihu.com/interview" target="_blank" rel="external">golang面试笔试题</a></li>
 <li><a href="https://www.zhihu.com/question/67846139" target="_blank" rel="external">如果你是一个Golang面试官，你会问哪些问题？</a></li>
