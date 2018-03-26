@@ -13,11 +13,11 @@
 
     <title>
         
-          众推 - YueLng的博客 | YueLng&#39;s Blog
+          Golang同步机制的实现 - YueLng的博客 | YueLng&#39;s Blog
         
     </title>
 
-    <link rel="canonical" href="http://yuelng.github.io/2015/09/25/project/project_zhongtui/">
+    <link rel="canonical" href="http://yuelng.github.io/2018/03/26/language/synchronous/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -161,7 +161,7 @@
 <!-- Post Header -->
 <style type="text/css">
     header.intro-header{
-        background-image: url('http://ogcxtlv6r.bkt.clouddn.com/17-12-16/89744702.jpg')
+        background-image: url('http://ogcxtlv6r.bkt.clouddn.com/18-3-26/64654759.jpg')
     }
 </style>
 <header class="intro-header" >
@@ -171,14 +171,14 @@
                 <div class="post-heading">
                     <div class="tags">
                         
-                          <a class="tag" href="/tags/#project" title="project">project</a>
+                          <a class="tag" href="/tags/#language" title="language">language</a>
                         
                     </div>
-                    <h1>众推</h1>
+                    <h1>Golang同步机制的实现</h1>
                     <h2 class="subheading"></h2>
                     <span class="meta">
                         Posted by yueLng on
-                        2015-09-25
+                        2018-03-26
                     </span>
                 </div>
             </div>
@@ -197,16 +197,39 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1 id="zhongtui-python"><a href="#zhongtui-python" class="headerlink" title="zhongtui_python"></a>zhongtui_python</h1><p>系统基于开源项目众推，功能形式上类似今日头条</p>
-<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>在开源中国闲逛时发现了这个项目-众推，是一个以Hadoop分布思想为基础类今日头条的开源项目。虽然该项目将去重过滤、文本分类单独出来，但是我认为这都属于数据处理部分。所以我将整个项目的核心划分为三个部分：分布式爬虫、数据清洗与处理、web工程。分别也对应了数据的采集、处理和展示。该项目没有继续下去，可能是因为这个项目不够吸引人，创意不是很好，但是我认为这个项目是当前所有互联网项目技术架构的通用骨架，而本人也正在恶补分布式、机器学习等知识，也想拿Python写一个项目练手，所以就有这个项目，这个项目还处于资料收集、技术储备阶段。</p>
-<h2 id="关于系统架构"><a href="#关于系统架构" class="headerlink" title="关于系统架构"></a>关于系统架构</h2><p>SOA面向服务架构大概是现在架构的通用标准，这种架构的最大优势在于高内聚、低耦合，在UNIX的设计思想中也体现了这一点。SOA在我看来就是模块化，而模块之间的通信则是通过RPC或者消息系统，以我现在的理解，将RPC用在模块内的通信，而消息系统则用在不同模块之间。<br><a id="more"></a></p>
-<h2 id="分布式爬虫部分"><a href="#分布式爬虫部分" class="headerlink" title="分布式爬虫部分"></a>分布式爬虫部分</h2><p>网络爬虫的基本工作原理： 1）从一个初始URL集合中挑选一个URL，下载该URL对应的页面；<br>2）解析该页面，从该页面中抽取出其包含的URL集合，接下来将抽取的URL集合再添加到初始URL集合中；<br>3）重复前两个过程，直到爬虫达到某种停止标准为止。<br>爬虫中需要重点关注的问题：<br>1）判断要爬取的URL是否爬过，判重使用Bloom Filter，它可以使用固定的内存（不随url的数量而增长）以O(1)的效率判定url是否已经在set中。但是如果这个url不在set中，BF可以100%确定这个url没有看过。但是如果这个url在set中，它会告诉你：这个url应该已经出现过，不过我有2%的不确定性。<br>2）分布式爬取（维护分布式队列）<br>我们把这100台中的99台运算能力较小的机器叫作slave，另外一台较大的机器叫作master，那么回顾上面代码中的url_queue，如果我们能把这个queue放到这台master机器上，所有的slave都可以通过网络跟master联通，每当一个slave完成下载一个网页，就向master请求一个新的网页来抓取。而每次slave新抓到一个网页，就把这个网页上所有的链接送到master的queue里去。同样，bloom filter也放到master上，但是现在master只发送确定没有被访问过的url给slave。Bloom Filter放到master的内存里，而被访问过的url放到运行在master上的Redis里，这样保证所有操作都是O(1)。<br>主要参考Fourinone国产四不像的分布式模型。</p>
-<h2 id="数据处理部分"><a href="#数据处理部分" class="headerlink" title="数据处理部分"></a>数据处理部分</h2><p>数据的存储采用纯文本模型，索引项格式为<br>页面号码|页面大小|URL文本大小|抓取时间文本大小|URL文本|抓取时间文本</p>
-<h2 id="web工程部分"><a href="#web工程部分" class="headerlink" title="web工程部分"></a>web工程部分</h2><h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ol>
-<li><a href="https://github.com/darkrho/scrapy-redis" target="_blank" rel="external">scrapy-redis</a>Redis-based components for scrapy that allows distributed crawling</li>
-<li><a href="http://www.zhihu.com/question/20899988" target="_blank" rel="external">如何入门Python爬虫</a></li>
-<li><a href="https://github.com/gnemoug/distribute_crawler" target="_blank" rel="external">distribute_crawler</a>使用scrapy,redis, mongodb,graphite实现的一个分布式网络爬虫,底层存储mongodb集群,分布式使用redis实现, 爬虫状态显示使用graphite实现。</li>
-</ol>
+                <p>转自<a href="http://ga0.github.io/golang/2015/10/11/golang-sync.html" target="_blank" rel="external">Golang同步机制的实现</a>Golang的提供的同步机制有sync模块下的Mutex、WaitGroup以及语言自身提供的chan等。 这些同步的方法都是以runtime中实现的底层同步机制（cas、atomic、spinlock、sem）为基础的， 本文主要探讨Golang底层的同步机制如何实现。</p>
+<h4 id="cas、atomic"><a href="#cas、atomic" class="headerlink" title="cas、atomic"></a>cas、atomic</h4><p>cas(Compare And Swap)和原子运算是其他同步机制的基础， 在runtime/asm_xxx.s(xxx代表系统架构，比如amd64)中实现。amd64架构的系统中， 主要通过两条汇编语句来实现，一个是LOCK、一个是CMPXCHG。</p>
+<p>LOCK是一个指令前缀，其后必须跟一条“读-改-写”的指令，比如INC、XCHG、CMPXCHG等。 这条指令对CPU缓存的访问将是排他的。</p>
+<p>CMPXCHG是完成CAS动作的指令。 把LOCK和CMPXCHG一起使用，就达到了原子CAS的功能。</p>
+<p>atomic操作也是通过LOCK和其他算术操作（XADD、ORB等）组合来实现。</p>
+<h4 id="自旋锁"><a href="#自旋锁" class="headerlink" title="自旋锁"></a>自旋锁</h4><p>Golang中的自旋锁用来实现其他类型的锁，自旋锁的作用和互斥量类似，不同点在于，它不是通过休眠来使进程阻塞，而是在获得锁之前一直处于忙等状态（自旋），从而避免了进程（或者</p>
+<p>和自旋锁相关的函数有sync_runtime_canSpin和sync_runtime_doSpin，前者用来判断当前是否可以进行自旋，后者执行自旋操作。二者通常一起使用。</p>
+<p>sync_runtime_canSpin函数中在以下四种情况返回false</p>
+<ul>
+<li>已经执行了很多次</li>
+<li>是单核CPU</li>
+<li>没有其他正在运行的P</li>
+<li>当前P的G队列为空</li>
+</ul>
+<p>条件1避免长时间自旋浪费CPU的情况。</p>
+<p>条件2、3用来保证除了当前在运行的Goroutine之外，还有其他Goroutine在运行。</p>
+<p>条件4是避免自旋锁等待的条件是由当前P的其他G来触发，这样会导致 在自旋变得没有意义，因为条件永远无法触发。</p>
+<p>sync_runtime_doSpin会调用procyield函数，该函数也是汇编语言实现。函数内部循环调用PAUSE指令。PAUSE指令什么都不做，但是会消耗CPU时间，在执行PAUSE指令时， CPU不会对他做不必要的优化。</p>
+<h4 id="信号量"><a href="#信号量" class="headerlink" title="信号量"></a>信号量</h4><p>按照runtime/sema.go中的注释：</p>
+<blockquote>
+<p>Think of them as a way to implement sleep and wakeup</p>
+</blockquote>
+<p>Golang中的sema，提供了休眠和唤醒Goroutine的功能。</p>
+<p>semacquire函数首先检查信号量是否为0：如果大于0，让信号量减一，返回；如果等于0，就调用goparkunlock函数，把当前Goroutine放入该sema的等待队列，并把他设为等待状态。</p>
+<p>semrelease函数首先让信号量加一，然后检查是否有正在等待的Goroutine： 如果没有，直接返回；如果有，调用goready函数唤醒一个Goroutine。</p>
+<h4 id="sync-Mutex"><a href="#sync-Mutex" class="headerlink" title="sync/Mutex"></a>sync/Mutex</h4><p>Mutex拥有Lock、Unlock两个方法，主要的实现思想都体现在Lock函数中。</p>
+<p>Lock执行时，分三种情况：</p>
+<ul>
+<li>无冲突 通过CAS操作把当前状态设置为加锁状态；</li>
+<li>有冲突 开始自旋，并等待锁释放，如果其他Goroutine在这段时间内释放了该锁， 直接获得该锁；如果没有释放，进入3；</li>
+<li>有冲突，且已经过了自旋阶段 通过调用semacquire函数来让当前Goroutine进入等待状态。</li>
+</ul>
+<p>无冲突时是最简单的情况；有冲突时，首先进行自旋，是从效率方面考虑的， 因为大多数的Mutex保护的代码段都很短，经过短暂的自旋就可以获得；如果自旋等待无果，就只好通过信号量来让当前 Goroutine进入等待了。</p>
 
 
                 <hr>
@@ -215,13 +238,9 @@
 
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/2015/11/06/project/project_volunteer/" data-toggle="tooltip" data-placement="top" title="义工平台说明">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/2015/07/25/project/study_shadowsocks/" data-toggle="tooltip" data-placement="top" title="shadowrocket">Next Post &rarr;</a>
+                            <a href="/2018/03/23/thinking/evolution/" data-toggle="tooltip" data-placement="top" title="Self evolution">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -268,7 +287,7 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#project" title="project">project</a>
+                          <a class="tag" href="/tags/#language" title="language">language</a>
                         
                     </div>
                 </section>
@@ -298,8 +317,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "tamchen";
-    var disqus_identifier = "http://yuelng.github.io/2015/09/25/project/project_zhongtui/";
-    var disqus_url = "http://yuelng.github.io/2015/09/25/project/project_zhongtui/";
+    var disqus_identifier = "http://yuelng.github.io/2018/03/26/language/synchronous/";
+    var disqus_url = "http://yuelng.github.io/2018/03/26/language/synchronous/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
