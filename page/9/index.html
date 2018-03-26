@@ -190,6 +190,39 @@
 
 <div class="post-preview">
 
+    <a href="/2017/03/30/computer_science/algorithm/">
+        <h2 class="post-title">
+            算法
+        </h2>
+        <h3 class="post-subtitle">
+             "算法"
+        </h3>
+        <div class="post-content-preview">
+            
+
+穷举=树型搜索
+递归=树型搜索+剪枝
+动态规划=树型搜索+剪枝+节点合并
+因此算法效率：动态规划&gt;递归&gt;穷举。
+
+
+
+递归与分治策略
+一个直接或间接地调用自身的算法称为递归算法。
+分治算法的模式如下：
+12345678910Divide_and_Conquer(P)&#123;    if(|P|&lt;=n0)    Adhoc(P);//Adhoc(P)是基本子算法   ......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2017-03-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/2017/03/30/language/ruby_dev_env/">
         <h2 class="post-title">
             ruby开发环境的搭建
@@ -203,6 +236,52 @@ Mac OS本身自带ruby在系统目录 /System/Library/Frameworks/Ruby.framework/
 
 
 ...
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2017-03-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/03/30/framework/tornado/">
+        <h2 class="post-title">
+            Tornado Pyhton web框架介绍
+        </h2>
+        <h3 class="post-subtitle">
+             "tornado为何这么快"
+        </h3>
+        <div class="post-content-preview">
+            ##Tornado直接读代码
+简介FriendFeed使用了一款使用Python编写的，相对简单的非阻塞式Web服务器。它的特点在于非阻塞服务器和epoll的运用，这个Web框架还包含了一些相关的有用工具和优化。
+以下是经典的“Hello, world”示例：
+123456789101112131415import tornado.ioloopimport tornado.webclass ......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2017-03-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/03/30/computer_science/network/">
+        <h2 class="post-title">
+            计算机网络
+        </h2>
+        <h3 class="post-subtitle">
+             "计算机网络"
+        </h3>
+        <div class="post-content-preview">
+            TCP四次挥手过程
+TCP是面向连接的服务；三次握手（建立连接）和四次挥手（关闭连接）；使用滑动窗口机制进行流量控制；TCP要保证在所有可能的情况下使得所有的数据都能够被投递，当你关闭一个socket时，主动关闭一端的socket将进入TIME_WAIT状态，而被动关闭一方则转入CLOSED状态，这的确能够保证所有的数据都被传输。1）首先A B端的TCP进程都处于established状态，......
         </div>
     </a>
     <p class="post-meta">
@@ -241,28 +320,6 @@ Mac OS本身自带ruby在系统目录 /System/Library/Frameworks/Ruby.framework/
 
 <div class="post-preview">
 
-    <a href="/2017/03/30/computer_science/network/">
-        <h2 class="post-title">
-            计算机网络
-        </h2>
-        <h3 class="post-subtitle">
-             "计算机网络"
-        </h3>
-        <div class="post-content-preview">
-            TCP四次挥手过程
-TCP是面向连接的服务；三次握手（建立连接）和四次挥手（关闭连接）；使用滑动窗口机制进行流量控制；TCP要保证在所有可能的情况下使得所有的数据都能够被投递，当你关闭一个socket时，主动关闭一端的socket将进入TIME_WAIT状态，而被动关闭一方则转入CLOSED状态，这的确能够保证所有的数据都被传输。1）首先A B端的TCP进程都处于established状态，......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2017-03-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
     <a href="/2017/03/30/distributed_system/engineering/">
         <h2 class="post-title">
             后端代码工程
@@ -281,39 +338,6 @@ TCP是面向连接的服务；三次握手（建立连接）和四次挥手（�
 命令行选项和参数值具有最高优先级，可以override前两层的配置项值。
 
 错误处理golang内置两种错误处理方式，error与panic，error是逻辑上程序可控制可预见的错误，而panic则相对于error是比较严重的错误。在通常的项......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2017-03-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/03/30/computer_science/algorithm/">
-        <h2 class="post-title">
-            算法
-        </h2>
-        <h3 class="post-subtitle">
-             "算法"
-        </h3>
-        <div class="post-content-preview">
-            
-
-穷举=树型搜索
-递归=树型搜索+剪枝
-动态规划=树型搜索+剪枝+节点合并
-因此算法效率：动态规划&gt;递归&gt;穷举。
-
-
-
-递归与分治策略
-一个直接或间接地调用自身的算法称为递归算法。
-分治算法的模式如下：
-12345678910Divide_and_Conquer(P)&#123;    if(|P|&lt;=n0)    Adhoc(P);//Adhoc(P)是基本子算法   ......
         </div>
     </a>
     <p class="post-meta">
@@ -434,31 +458,6 @@ bla......
 </div>
 <hr>
 
-<div class="post-preview">
-
-    <a href="/2016/03/30/language/python_dev_env/">
-        <h2 class="post-title">
-            python开发环境搭建
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            homebrew安装与基本使用1，homebrew简介
-homebrew是Mac OSX上的包管理工具，类似于linux中的apt，yum等等，能在mac中方便地安装软件或者卸载软件。
-2，homebrew安装
-1ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)
-3......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2016-03-30
-    </p>
-
-</div>
-<hr>
-
 
 
 <!-- Pager -->
@@ -510,21 +509,15 @@ homebrew是Mac OSX上的包管理工具，类似于linux中的apt，yum等等，
                             
                         
                             
-                            <a href="/tags/#database" title="database" rel="6">database</a>
-                            
-                        
-                            
-                        
-                            
-                            <a href="/tags/#distribution_system" title="distribution_system" rel="15">distribution_system</a>
-                            
-                        
-                            
                             <a href="/tags/#devops" title="devops" rel="5">devops</a>
                             
                         
                             
-                            <a href="/tags/#financial" title="financial" rel="5">financial</a>
+                            <a href="/tags/#database" title="database" rel="6">database</a>
+                            
+                        
+                            
+                            <a href="/tags/#distribution_system" title="distribution_system" rel="15">distribution_system</a>
                             
                         
                             
@@ -552,11 +545,11 @@ homebrew是Mac OSX上的包管理工具，类似于linux中的apt，yum等等，
                             
                         
                             
-                            <a href="/tags/#social_science" title="social_science" rel="2">social_science</a>
+                            <a href="/tags/#thinking" title="thinking" rel="9">thinking</a>
                             
                         
                             
-                            <a href="/tags/#surrounding" title="surrounding" rel="9">surrounding</a>
+                            <a href="/tags/#financial" title="financial" rel="5">financial</a>
                             
                         
                             
@@ -564,7 +557,13 @@ homebrew是Mac OSX上的包管理工具，类似于linux中的apt，yum等等，
                             
                         
                             
-                            <a href="/tags/#thinking" title="thinking" rel="8">thinking</a>
+                            <a href="/tags/#surrounding" title="surrounding" rel="9">surrounding</a>
+                            
+                        
+                            
+                        
+                            
+                            <a href="/tags/#social_science" title="social_science" rel="2">social_science</a>
                             
                         
                     </div>

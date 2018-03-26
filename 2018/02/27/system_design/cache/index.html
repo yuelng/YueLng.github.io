@@ -215,6 +215,11 @@
 <li>W-TinyLFU lfu的问题在于，过去经常使用的数据也会长期保存，为解决这问题，添加一个时间窗口</li>
 </ol>
 <h3 id="Cache-concurrency"><a href="#Cache-concurrency" class="headerlink" title="Cache concurrency"></a>Cache concurrency</h3><p>缓存的并发问题，It falls into the classic reader-writer problem，普遍的做法是加锁，显然会损失性能，一个解决办法是为缓存分区，每一分区内包含一个锁，这里还是存在热点分区上锁的频率远大于其他分区。另一个选择是使用提交日志，保存所有变更到日志，异步执行再执行所有日志，在数据库设计中是一种常见做法。</p>
+<ol>
+<li>A single transaction coordinator</li>
+<li>Many transaction coordinators, with an elected master via Paxos or Raft consensus algorithm</li>
+<li>Deletion of elements from memcached on DB updates</li>
+</ol>
 <h3 id="Distributed-cache-system"><a href="#Distributed-cache-system" class="headerlink" title="Distributed cache system"></a>Distributed cache system</h3><p>分布式缓存系统，主要在于调度算法，The general strategy is to keep a hash table that maps each resource to the corresponding machine <a href="https://en.wikipedia.org/wiki/Memcached" target="_blank" rel="external">Memcached</a>.</p>
 <h3 id="缓存更新的套路"><a href="#缓存更新的套路" class="headerlink" title="缓存更新的套路"></a>缓存更新的套路</h3><p><a href="https://coolshell.cn/articles/17416.html" target="_blank" rel="external">缓存更新的套路</a> Cache aside, Read through, Write through, Write behind caching</p>
 <ol>
@@ -222,11 +227,7 @@
 </ol>
 <ul>
 <li>失效：应用程序先从cache取数据，没有得到，则从数据库中取数据，成功后，放到缓存中。</li>
-</ul>
-<ul>
 <li>命中：应用程序从cache中取数据，取到后返回。</li>
-</ul>
-<ul>
 <li>更新：先把数据存到数据库中，成功后，再让缓存失效。</li>
 </ul>
 <ol>
@@ -238,27 +239,30 @@
 <li>Write behind caching 在更新数据的时候，只更新缓存，不更新数据库，而我们的缓存会异步地批量更新数据库。这个设计的好处就是让数据的I/O操作飞快无比（因为直接操作内存嘛 ）</li>
 </ol>
 <p><img src="https://coolshell.cn/wp-content/uploads/2016/07/Write-back_with_write-allocation.png"></p>
-<p>### </p>
-<p>Concurrency-safe golang caching library with expiration capabilities <a href="https://github.com/muesli/cache2go" target="_blank" rel="external">cache2go</a><br>concurrentcache是一款golang的内存缓存库，多Segment设计，支持不同Segment间并发写入，提高读写性能。<a href="https://github.com/jiachuhuang/concurrentcache" target="_blank" rel="external">concurrentcache</a><br>groupcache is a caching and cache-filling library, intended as a replacement for memcached in many cases.<a href="https://github.com/golang/groupcache" target="_blank" rel="external">groupcache</a></p>
-<p>memcache、redis 深入理解</p>
-<ul>
-<li>缓存模块从无到有，要如何设计？</li>
-<li>要考虑哪些因素？</li>
-<li>如何方式设计不足？</li>
-<li>如何防止设计过度？</li>
-<li>如何满足实际需求？</li>
-<li>要明确哪些问题，才能逐步的完善出一套实现方案？</li>
-</ul>
-<p>缓存更新的基本套路</p>
-<p>为什么说命名和缓存失效是计算机科学里面最难应付的两件事<br>命名使用剪短词语来描述系统/接口/变量的功用 甚至实现原理，在本质上是一种表达能力<br>缓存和背后的存储描述的是同一状态，但操作却是分开的，缓存问题本质上异步系统状态同步问题，CAP理论详细解释了原因</p>
-<p>缓存穿透的问题，</p>
-<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><a href="http://blog.gainlo.co/index.php/2016/05/17/design-a-cache-system/?nsukey=tQuWTQi7ya2utq9ksm1%2BY5zbcffYqipa8qsA8YI4ZaN18tmysOEIl3TbWx4m6cB9Zh0DIeWxWUq2rlDm60HxZYIyiiF5SzYN1oabzX4i95z3v531A1hK0bVQwVlNbpQJUEqYMftflLmq8hHohqxTD7NTAKSsb%2B1D5i%2BTVhxvSg%2FcpDedAIGf%2F20EVD8tLY%2Fd%2Bu0qD%2BiYswMO2inasnUxUA%3D%3D" target="_blank" rel="external">Design a Cache System</a></p>
-<p><a href="https://www.usenix.org/system/files/conference/nsdi13/nsdi13-final170_update.pdf" target="_blank" rel="external">Scaling Memcache at Facebook</a></p>
-<p><a href="https://en.wikipedia.org/wiki/Cache_replacement_policies#LRU" target="_blank" rel="external">Cache_replacement_policies</a></p>
-<p><a href="http://ifeve.com/concurrency-cache-cross/" target="_blank" rel="external">缓存穿透、缓存并发、缓存失效之思路变迁 | 并发编程网 – ifeve.com</a></p>
-<p><a href="http://www.infoq.com/cn/news/2014/12/zhihu-architecture-evolution" target="_blank" rel="external">从0到100——知乎架构变迁史</a><br>如何设计redis缓存点赞数据<br><a href="https://redis.io/topics/twitter-clone" target="_blank" rel="external">https://redis.io/topics/twitter-clone</a><br><a href="https://dslztx.github.io/blog/2016/07/28/Redis%E4%BD%BF%E7%94%A8%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" target="_blank" rel="external">Redis使用最佳实践 | dslztx</a><br><a href="http://www.infoq.com/cn/articles/weibo-relation-service-with-redis" target="_blank" rel="external">微博关系服务与Redis的故事</a><br><a href="http://coolshell.cn/articles/17416.html" target="_blank" rel="external">缓存更新的套路 | | 酷 壳 - CoolShell</a><br> <a href="https://content.pivotal.io/blog/using-redis-at-pinterest-for-billions-of-relationships" target="_blank" rel="external">Using Redis at Pinterest for Billions of Relationships</a><br><a href="https://mp.weixin.qq.com/s?__biz=MzI5MDEwNTYxNw==&amp;mid=2649427611&amp;idx=1&amp;sn=4fec4edc495a0abaea8225d3c65e7c14&amp;scene=1&amp;srcid=0525KPChixh8ZUFaJ8bCWOQg#wechat_redirect" target="_blank" rel="external">【第135期 Redis 11种应用场景</a><br><a href="https://timyang.net/data/redis-misunderstanding/" target="_blank" rel="external">Redis几个认识误区 – 后端技术 by Tim Yang</a><br><a href="https://www.youtube.com/watch?v=UH7wkvcf0ys&amp;t=9s" target="_blank" rel="external">Facebook and memcached - Tech Talk - YouTube</a><br><a href="https://www.oschina.net/translate/scaling-memcache-facebook" target="_blank" rel="external">Facebook 对 Memcache 伸缩性的增强 - 技术翻译 - 开源中国社区</a><br><a href="https://tech.meituan.com/cache_about.html" target="_blank" rel="external">缓存那些事 -</a><br><a href="http://www.infoq.com/cn/articles/cache-coherency-primer" target="_blank" rel="external">缓存一致性（Cache Coherency）入门</a><br><a href="https://www.zhihu.com/question/37747712" target="_blank" rel="external">缓存方案如何设计才能切合业务需求？ - 知乎</a><br><a href="http://www.lecloud.net/tagged/scalability" target="_blank" rel="external">Le Cloud Blog</a><br><a href="https://dbarobin.com/2017/05/27/ha-of-redis/" target="_blank" rel="external">Redis 高可用架构最佳实践 | 温国兵的随想录</a><br><a href="https://content.pivotal.io/blog/using-redis-at-pinterest-for-billions-of-relationships" target="_blank" rel="external">https://content.pivotal.io/blog/using-redis-at-pinterest-for-billions-of-relationships</a><br><a href="http://www.alibuybuy.com/posts/16841.html" target="_blank" rel="external">解剖Twitter：Twitter系统架构设计分析 | 互联网的那点事</a><br>使用多个HashSet存储，key为gameID value为userID set集合<br>关注游戏，取消关注，获取某游戏下关注的人，获取某人关注的所有游戏<br><a href="http://www.cnblogs.com/lengyuhong/archive/2012/05/26/2507498.html" target="_blank" rel="external">分布式系统缓存设计浅析 - lengyuhong - 博客园</a><br> <a href="http://www.10tiao.com/html/175/201704/2653548504/1.html" target="_blank" rel="external">如何设计API的限流(Rate Limit)功能：4种类型限流器图解</a><br><a href="http://xiaorui.cc/2016/10/23/%E9%AB%98%E5%8F%AF%E7%94%A8%E6%9C%8D%E5%8A%A1%E9%99%90%E9%A2%91%E4%B8%8E%E9%99%8D%E7%BA%A7%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF-%E4%B8%8A/" target="_blank" rel="external">高可用服务限频与降级那些事儿 上 | 峰云就她了</a></p>
-<p><a href="https://www.zhihu.com/question/27738066" target="_blank" rel="external">如何用redis/memcache做Mysql缓存层?</a><br><a href="http://www.infoq.com/cn/articles/thinking-about-distributed-cache-redis" target="_blank" rel="external">面对缓存，有哪些问题需要思考？</a><br><a href="https://www.zhihu.com/question/37747712" target="_blank" rel="external">缓存方案如何设计才能切合业务需求？</a></p>
-<p><a href="https://www.quora.com/Why-does-Facebook-use-delete-to-remove-the-key-value-pair-in-Memcached-instead-of-updating-the-Memcached-during-write-request-to-the-backend" target="_blank" rel="external">Why-does-Facebook-use-delete-to-remove-the-key-value-pair-in-Memcached-instead-of-updating-the-Memcached-during-write-request-to-the-backend</a></p>
+<h3 id="cache-lib"><a href="#cache-lib" class="headerlink" title="cache lib"></a>cache lib</h3><p>Concurrency-safe golang caching library with expiration capabilities <a href="https://github.com/muesli/cache2go" target="_blank" rel="external">cache2go</a><br>concurrentcache是一款golang的内存缓存库，多Segment设计，支持不同Segment间并发写入，提高读写性能。<a href="https://github.com/jiachuhuang/concurrentcache" target="_blank" rel="external">concurrentcache</a><br>groupcache is a caching and cache-filling library, intended as a replacement for memcached in many cases.<a href="https://github.com/golang/groupcache" target="_blank" rel="external">groupcache</a></p>
+<h3 id="Scaling-Memcache-at-Facebook"><a href="#Scaling-Memcache-at-Facebook" class="headerlink" title="Scaling Memcache at Facebook"></a>Scaling Memcache at Facebook</h3><p>Facebook采用了一系列memcached实例组成分布式memcache，基本的工作模式是：读请求首先发送给Memcache，如果请求未命中，则查询数据库，查询数据库成功后更新Memcache。写请求直接发送给数据库，成功后要删除Memcache中对应的数据。</p>
+<h4 id="降低延迟"><a href="#降低延迟" class="headerlink" title="降低延迟"></a>降低延迟</h4><p>利用memcache优化的原理是简单的，但是在工程实践上需要考虑更多细节，Facebook的缓存数据是分布在各个实例中的，同样请求也是并行地分配到各个实例，所以这里针对这样的情况，如何保证负载均衡、如何减少连接通讯的成本，如何控制一个memcached实例的工作量，使得其不会崩溃或者产生高延迟就是一个很重要的问题。Facebook的工程师的改进如下： </p>
+<ol>
+<li><p>对于服务器对Memcached连接的三种操作，get， set， delete，其中get是使用UDP进行通讯，只要set和delete才是使用可靠的TCP通讯。UDP的通讯成本显著低于TCP，因为UDP不需要提前建立连接，也没有诸如拥塞控制，重连等机制。在比较良好的通讯情况下，UDP的通讯失败率（通讯失败指丢包或者乱序包）也相对较低</p>
+</li>
+<li><p>服务器端对收到的一堆请求进行有向拓扑图分析，选出独立的请求，将多个独立请求进行打包，进行访问。Batching也是降低成本的常见技巧。</p>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3></li>
+<li><p>为了避免整个系统内进行的并发请求数过高，以及单个的实例可能成为热点，Memcache自己在连接的客户端上设置了类似TCP的拥塞控制的方法，也就是一个滑动窗口。每次只发送窗口内的请求，并逐步滑动窗口。窗口的大小和总体延迟也有重要的关系</p>
+</li>
+</ol>
+<h4 id="减少负荷"><a href="#减少负荷" class="headerlink" title="减少负荷"></a>减少负荷</h4><p>所谓减少负荷（reduce load），指的是尽可能减少对数据库的访问。数据库的修改都是必须的，但是查询未必是必须的，也就是数据库查询是有可能减少的。提供Memcache处理并发请求的能力，也可以有效地减少数据库的负担。</p>
+<ol>
+<li>租约，解决两个问题，Stale set，就是一个client拿着过期的数据往memcache里塞，第二个问题是Thundering Herd Problem. </li>
+</ol>
+<p>每次cache miss，memcache会给客户端返回一个token，告诉它我这没有数据，你去取数据，取完拿这个token来更新我这的数据。如果有多个客户端同时读，同时cache miss，那么它们就会同时收到各自的token。但是，在接受数据更新的时候，比如A，B先后拿到一个token，A拿Token更新完之后，B再拿Token过来更新就不认了。如果系统收到了一个delete请求，那么啥token都不管用了</p>
+<p>再进一步，我们可以限制发token的频率，比如每10秒最多发一个。然后对于那些拿不到token的，既然有别人去拿数据去了，何必让它们再去拿？就让它们等待一小段时间再重试。大部分时候，更新后的数据在几毫秒后就来了，它们再重试就是cache hit了。</p>
+<ol>
+<li><p>资源池。所谓的池，指的其实是资源的分区，对于数据中的不同的访问模式，根据模式进行资源分区。例如缓存未命中的代价小，但是访问频次高的键放入一个小池，缓存未命中代价高，但访问频次低的键放入一个大池。</p>
+</li>
+<li><p>数据复制(Replication)最后一个降低负载的手段是在每个Pool内进行Replication。想象如下情景：我们有一台memcache机器，可以支持500K/s的请求率(request rate)。现在我们想要支持1M/s的请求，怎么办？加一台机器，然后把数据平分，两台机器一人一半</p>
+</li>
+</ol>
+<h3 id="参考资料-1"><a href="#参考资料-1" class="headerlink" title="参考资料"></a>参考资料</h3><p><a href="http://blog.gainlo.co/index.php/2016/05/17/design-a-cache-system/?nsukey=tQuWTQi7ya2utq9ksm1%2BY5zbcffYqipa8qsA8YI4ZaN18tmysOEIl3TbWx4m6cB9Zh0DIeWxWUq2rlDm60HxZYIyiiF5SzYN1oabzX4i95z3v531A1hK0bVQwVlNbpQJUEqYMftflLmq8hHohqxTD7NTAKSsb%2B1D5i%2BTVhxvSg%2FcpDedAIGf%2F20EVD8tLY%2Fd%2Bu0qD%2BiYswMO2inasnUxUA%3D%3D" target="_blank" rel="external">Design a Cache System</a><br><a href="https://www.usenix.org/system/files/conference/nsdi13/nsdi13-final170_update.pdf" target="_blank" rel="external">Scaling Memcache at Facebook</a><br><a href="https://zhuanlan.zhihu.com/p/20761071" target="_blank" rel="external">Scaling Memcache in Facebook 笔记</a><br><a href="https://en.wikipedia.org/wiki/Cache_replacement_policies#LRU" target="_blank" rel="external">Cache_replacement_policies</a><br><a href="http://ifeve.com/concurrency-cache-cross/" target="_blank" rel="external">缓存穿透、缓存并发、缓存失效之思路变迁 | 并发编程网 – ifeve.com</a><br><a href="http://www.infoq.com/cn/news/2014/12/zhihu-architecture-evolution" target="_blank" rel="external">从0到100——知乎架构变迁史</a><br>如何设计redis缓存点赞数据<br><a href="https://redis.io/topics/twitter-clone" target="_blank" rel="external">https://redis.io/topics/twitter-clone</a><br><a href="https://dslztx.github.io/blog/2016/07/28/Redis%E4%BD%BF%E7%94%A8%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" target="_blank" rel="external">Redis使用最佳实践 | dslztx</a><br><a href="http://www.infoq.com/cn/articles/weibo-relation-service-with-redis" target="_blank" rel="external">微博关系服务与Redis的故事</a><br><a href="http://coolshell.cn/articles/17416.html" target="_blank" rel="external">缓存更新的套路 | | 酷 壳 - CoolShell</a><br> <a href="https://content.pivotal.io/blog/using-redis-at-pinterest-for-billions-of-relationships" target="_blank" rel="external">Using Redis at Pinterest for Billions of Relationships</a><br><a href="https://mp.weixin.qq.com/s?__biz=MzI5MDEwNTYxNw==&amp;mid=2649427611&amp;idx=1&amp;sn=4fec4edc495a0abaea8225d3c65e7c14&amp;scene=1&amp;srcid=0525KPChixh8ZUFaJ8bCWOQg#wechat_redirect" target="_blank" rel="external">【第135期 Redis 11种应用场景</a><br><a href="https://timyang.net/data/redis-misunderstanding/" target="_blank" rel="external">Redis几个认识误区 – 后端技术 by Tim Yang</a><br><a href="https://www.youtube.com/watch?v=UH7wkvcf0ys&amp;t=9s" target="_blank" rel="external">Facebook and memcached - Tech Talk - YouTube</a><br><a href="https://www.oschina.net/translate/scaling-memcache-facebook" target="_blank" rel="external">Facebook 对 Memcache 伸缩性的增强 - 技术翻译 - 开源中国社区</a><br><a href="https://tech.meituan.com/cache_about.html" target="_blank" rel="external">缓存那些事 -</a><br><a href="http://www.infoq.com/cn/articles/cache-coherency-primer" target="_blank" rel="external">缓存一致性（Cache Coherency）入门</a><br><a href="https://www.zhihu.com/question/37747712" target="_blank" rel="external">缓存方案如何设计才能切合业务需求？ - 知乎</a><br><a href="http://www.lecloud.net/tagged/scalability" target="_blank" rel="external">Le Cloud Blog</a><br><a href="https://dbarobin.com/2017/05/27/ha-of-redis/" target="_blank" rel="external">Redis 高可用架构最佳实践 | 温国兵的随想录</a><br><a href="https://content.pivotal.io/blog/using-redis-at-pinterest-for-billions-of-relationships" target="_blank" rel="external">https://content.pivotal.io/blog/using-redis-at-pinterest-for-billions-of-relationships</a><br><a href="http://www.alibuybuy.com/posts/16841.html" target="_blank" rel="external">解剖Twitter：Twitter系统架构设计分析 | 互联网的那点事</a><br>使用多个HashSet存储，key为gameID value为userID set集合<br>关注游戏，取消关注，获取某游戏下关注的人，获取某人关注的所有游戏<br><a href="http://www.cnblogs.com/lengyuhong/archive/2012/05/26/2507498.html" target="_blank" rel="external">分布式系统缓存设计浅析 - lengyuhong - 博客园</a><br> <a href="http://www.10tiao.com/html/175/201704/2653548504/1.html" target="_blank" rel="external">如何设计API的限流(Rate Limit)功能：4种类型限流器图解</a><br><a href="http://xiaorui.cc/2016/10/23/%E9%AB%98%E5%8F%AF%E7%94%A8%E6%9C%8D%E5%8A%A1%E9%99%90%E9%A2%91%E4%B8%8E%E9%99%8D%E7%BA%A7%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF-%E4%B8%8A/" target="_blank" rel="external">高可用服务限频与降级那些事儿 上 | 峰云就她了</a><br><a href="https://www.zhihu.com/question/27738066" target="_blank" rel="external">如何用redis/memcache做Mysql缓存层?</a><br><a href="http://www.infoq.com/cn/articles/thinking-about-distributed-cache-redis" target="_blank" rel="external">面对缓存，有哪些问题需要思考？</a><br><a href="https://www.zhihu.com/question/37747712" target="_blank" rel="external">缓存方案如何设计才能切合业务需求？</a><br><a href="https://www.quora.com/Why-does-Facebook-use-delete-to-remove-the-key-value-pair-in-Memcached-instead-of-updating-the-Memcached-during-write-request-to-the-backend" target="_blank" rel="external">Why-does-Facebook-use-delete-to-remove-the-key-value-pair-in-Memcached-instead-of-updating-the-Memcached-during-write-request-to-the-backend</a></p>
 
 
                 <hr>
@@ -268,7 +272,7 @@
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/2018/02/28/language/golang_runtime/" data-toggle="tooltip" data-placement="top" title="golang Runtime底层学习">&larr; Previous Post</a>
+                            <a href="/2018/02/28/computer_science/stack_heap/" data-toggle="tooltip" data-placement="top" title="stack && heap">&larr; Previous Post</a>
                         </li>
                     
                     

@@ -212,6 +212,37 @@
 
 <div class="post-preview">
 
+    <a href="/2017/11/30/distributed_system/raft/">
+        <h2 class="post-title">
+            分布式系统的一致性算法-raft
+        </h2>
+        <h3 class="post-subtitle">
+             "如何解决集群内共识的问题"
+        </h3>
+        <div class="post-content-preview">
+            
+Leader Election
+
+Log Replication
+
+Safety 
+
+
+大多数数据一致才会被提交我们在写入数据的时候，一定会保证至少 quorum 的节点都成功被写入了数据，才会认为这次写入是成功的。
+Raft 使用的是 Log Replication + State Machine 的方式来处理分布式数据的一致性问题，这也是现在的通用做法
+三个节点允许一个节点失败五个节点......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/2017/11/28/database/database/">
         <h2 class="post-title">
             数据库原理、实践
@@ -244,7 +275,10 @@ SHOW PROCESSLIST 查看数据库连接，看哪个连接导致锁表kill id   //
         </h3>
         <div class="post-content-preview">
             redis简介Redis是一个开源的Key-Value存储，但又不仅仅是Key-Value存储，用官网上的话来说，Redis是一个数据结构存储，可用作数据库、缓存和消息中间件。相对于传统的Key-Value存储Memcached来说，Redis具有如下特点：
-速度快丰富的数据结构，除String之外，还有List、Hash、Set、Sorted Set单线程，避免了线程切换和锁的性能消耗原子......
+
+速度快
+丰富的数据结构，除String之外，还有List、Hash、Set、Sorted Set
+单线程，避免了线程切换和锁的性能消......
         </div>
     </a>
     <p class="post-meta">
@@ -402,30 +436,6 @@ Supervisor是一款Linux下的进程管理软件。最主要的两个功能是:
 </div>
 <hr>
 
-<div class="post-preview">
-
-    <a href="/2017/03/30/framework/tornado/">
-        <h2 class="post-title">
-            Tornado Pyhton web框架介绍
-        </h2>
-        <h3 class="post-subtitle">
-             "tornado为何这么快"
-        </h3>
-        <div class="post-content-preview">
-            ##Tornado直接读代码
-简介FriendFeed使用了一款使用Python编写的，相对简单的非阻塞式Web服务器。它的特点在于非阻塞服务器和epoll的运用，这个Web框架还包含了一些相关的有用工具和优化。
-以下是经典的“Hello, world”示例：
-123456789101112131415import tornado.ioloopimport tornado.webclass ......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2017-03-30
-    </p>
-
-</div>
-<hr>
-
 
 
 <!-- Pager -->
@@ -477,21 +487,15 @@ Supervisor是一款Linux下的进程管理软件。最主要的两个功能是:
                             
                         
                             
-                            <a href="/tags/#database" title="database" rel="6">database</a>
-                            
-                        
-                            
-                        
-                            
-                            <a href="/tags/#distribution_system" title="distribution_system" rel="15">distribution_system</a>
-                            
-                        
-                            
                             <a href="/tags/#devops" title="devops" rel="5">devops</a>
                             
                         
                             
-                            <a href="/tags/#financial" title="financial" rel="5">financial</a>
+                            <a href="/tags/#database" title="database" rel="6">database</a>
+                            
+                        
+                            
+                            <a href="/tags/#distribution_system" title="distribution_system" rel="15">distribution_system</a>
                             
                         
                             
@@ -519,11 +523,11 @@ Supervisor是一款Linux下的进程管理软件。最主要的两个功能是:
                             
                         
                             
-                            <a href="/tags/#social_science" title="social_science" rel="2">social_science</a>
+                            <a href="/tags/#thinking" title="thinking" rel="9">thinking</a>
                             
                         
                             
-                            <a href="/tags/#surrounding" title="surrounding" rel="9">surrounding</a>
+                            <a href="/tags/#financial" title="financial" rel="5">financial</a>
                             
                         
                             
@@ -531,7 +535,13 @@ Supervisor是一款Linux下的进程管理软件。最主要的两个功能是:
                             
                         
                             
-                            <a href="/tags/#thinking" title="thinking" rel="8">thinking</a>
+                            <a href="/tags/#surrounding" title="surrounding" rel="9">surrounding</a>
+                            
+                        
+                            
+                        
+                            
+                            <a href="/tags/#social_science" title="social_science" rel="2">social_science</a>
                             
                         
                     </div>
