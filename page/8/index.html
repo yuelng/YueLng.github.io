@@ -96,14 +96,14 @@
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
@@ -190,18 +190,15 @@
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/computer_science/study_algorithm/">
+    <a href="/2017/11/30/computer_science/study_flooding/">
         <h2 class="post-title">
-            相似距离算法
+            SYN洪泛攻击的原理与实现
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            相似距离算法是推荐算法的一部分。
-一、EuclideanDistanceSimilarity: 欧氏距离相似度原理：利用欧式距离d定义的相似度s，s=1 / (1+d)。
-范围：[0,1]，值越大，说明d越小，也就是距离越近，则相似度越大。
-说明：同皮尔森相似度一样，该相似度也没有考虑重叠数对结果的影响，同样地，Mahout通过增加一个枚举类型（Weighting）的参数来使得重叠数也成为计......
+            设计原理SYN-Flood是目前最流行的DDoS攻击手段，DDoS只是洪水攻击的一个种类。其实还有其它种类的洪水攻击。以前的DoS手段在向分布式这一阶段发展的过程中也经历了逐步淘汰的过程。SYN-Flood的攻击效果最好，故众黑客不约而同选择它。以下了解一下SYN-Flood的详细情况。Syn Flood利用了TCP/IP协议的固有漏洞。面向连接的TCP三次握手是Syn Flood存在的基础......
         </div>
     </a>
     <p class="post-meta">
@@ -236,31 +233,6 @@
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/distributed_system/study_distribute_item/">
-        <h2 class="post-title">
-            分布式系统要点记录
-        </h2>
-        <h3 class="post-subtitle">
-             "微服务的惯用架构"
-        </h3>
-        <div class="post-content-preview">
-            CAP 理论
-
-Consistency：所有客户端看到的同样的数据。这里所说的 consistency，是指 atomic consistency (linearizability)。
-Availability：每个客户端任何时候都可以读写。
-Partition tolerance：当网络出现 partition（split brain）时，系统仍旧可以工作。换句话说，为了能够支持 Part......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
     <a href="/2017/11/30/distributed_system/raft/">
         <h2 class="post-title">
             分布式系统的一致性算法
@@ -275,6 +247,31 @@ Partition tolerance：当网络出现 partition（split brain）时，系统仍�
 
 故障模型
 Crash-stop Failures：故名思议，一旦发生故障，节点就停止提供服务，并且不......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/30/distributed_system/study_distribute_item/">
+        <h2 class="post-title">
+            分布式系统要点记录
+        </h2>
+        <h3 class="post-subtitle">
+             "微服务的惯用架构"
+        </h3>
+        <div class="post-content-preview">
+            CAP 理论
+
+Consistency：所有客户端看到的同样的数据。这里所说的 consistency，是指 atomic consistency (linearizability)。
+Availability：每个客户端任何时候都可以读写。
+Partition tolerance：当网络出现 partition（split brain）时，系统仍旧可以工作。换句话说，为了能够支持 Part......
         </div>
     </a>
     <p class="post-meta">
@@ -473,11 +470,13 @@ Hackintosh简介与法律问题Hackintosh是在非苹果硬件上安装运行苹
                             
                         
                             
-                            <a href="/tags/#computer_science" title="computer_science" rel="9">computer_science</a>
+                            <a href="/tags/#coding" title="coding" rel="2">coding</a>
                             
                         
                             
-                            <a href="/tags/#database" title="database" rel="6">database</a>
+                            <a href="/tags/#computer_science" title="computer_science" rel="9">computer_science</a>
+                            
+                        
                             
                         
                             
@@ -485,7 +484,7 @@ Hackintosh简介与法律问题Hackintosh是在非苹果硬件上安装运行苹
                             
                         
                             
-                            <a href="/tags/#coding" title="coding" rel="2">coding</a>
+                            <a href="/tags/#database" title="database" rel="6">database</a>
                             
                         
                             
@@ -494,6 +493,10 @@ Hackintosh简介与法律问题Hackintosh是在非苹果硬件上安装运行苹
                         
                             
                             <a href="/tags/#distributed_system" title="distributed_system" rel="12">distributed_system</a>
+                            
+                        
+                            
+                            <a href="/tags/#financial" title="financial" rel="5">financial</a>
                             
                         
                             
@@ -517,7 +520,7 @@ Hackintosh简介与法律问题Hackintosh是在非苹果硬件上安装运行苹
                             
                         
                             
-                            <a href="/tags/#system_design" title="system_design" rel="5">system_design</a>
+                            <a href="/tags/#reading" title="reading" rel="2">reading</a>
                             
                         
                             
@@ -525,21 +528,15 @@ Hackintosh简介与法律问题Hackintosh是在非苹果硬件上安装运行苹
                             
                         
                             
-                        
-                            
-                            <a href="/tags/#financial" title="financial" rel="5">financial</a>
-                            
-                        
-                            
-                            <a href="/tags/#thinking" title="thinking" rel="9">thinking</a>
-                            
-                        
-                            
                             <a href="/tags/#social_science" title="social_science" rel="2">social_science</a>
                             
                         
                             
-                            <a href="/tags/#reading" title="reading" rel="2">reading</a>
+                            <a href="/tags/#system_design" title="system_design" rel="5">system_design</a>
+                            
+                        
+                            
+                            <a href="/tags/#thinking" title="thinking" rel="9">thinking</a>
                             
                         
                     </div>

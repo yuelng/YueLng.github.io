@@ -13,7 +13,7 @@
 
     <title>
         
-          lock - YueLng的博客 | YueLng&#39;s Blog
+          分布式锁的实现 - YueLng的博客 | YueLng&#39;s Blog
         
     </title>
 
@@ -96,14 +96,14 @@
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
@@ -174,8 +174,8 @@
                           <a class="tag" href="/tags/#distributed_system" title="distributed_system">distributed_system</a>
                         
                     </div>
-                    <h1>lock</h1>
-                    <h2 class="subheading"> &quot;lock&quot;</h2>
+                    <h1>分布式锁的实现</h1>
+                    <h2 class="subheading"> &quot;distributed lock&quot;</h2>
                     <span class="meta">
                         Posted by yueLng on
                         2018-01-18
@@ -197,7 +197,10 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h4 id="Chubby"><a href="#Chubby" class="headerlink" title="Chubby"></a>Chubby</h4><p>分布式锁包含三个基本问题，分别是一致性协议、分布式锁的实现、分布式锁的使用</p>
+                <blockquote>
+<p>In computer science, a lock or mutex (from mutual exclusion) is a synchronization mechanism for enforcing limits on access to a resource in an environment where there are many threads of execution. A lock is designed to enforce a mutual exclusion concurrency control policy.</p>
+</blockquote>
+<h4 id="Chubby"><a href="#Chubby" class="headerlink" title="Chubby"></a>Chubby</h4><p>分布式锁包含三个基本问题，分别是一致性协议、分布式锁的实现、分布式锁的使用</p>
 <ul>
 <li>一致性协议：chubby采用有强主的Multi-Paxos，参考<a href="http://140.123.102.14:8080/reportSys/file/paper/lei/lei_5_paper.pdf" target="_blank" rel="external">Paxos Made Simple</a></li>
 <li>分布式锁的实现：</li>
