@@ -13,7 +13,7 @@
 
     <title>
         
-          分布式系统的一致性算法-raft - YueLng的博客 | YueLng&#39;s Blog
+          分布式系统的一致性算法 - YueLng的博客 | YueLng&#39;s Blog
         
     </title>
 
@@ -96,13 +96,6 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
                             <a href="/archives/">Archives</a>
                         </li>
                         
@@ -111,6 +104,13 @@
                         
                         <li>
                             <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -171,10 +171,10 @@
                 <div class="post-heading">
                     <div class="tags">
                         
-                          <a class="tag" href="/tags/#distribution_system" title="distribution_system">distribution_system</a>
+                          <a class="tag" href="/tags/#distributed_system" title="distributed_system">distributed_system</a>
                         
                     </div>
-                    <h1>分布式系统的一致性算法-raft</h1>
+                    <h1>分布式系统的一致性算法</h1>
                     <h2 class="subheading"> &quot;如何解决集群内共识的问题&quot;</h2>
                     <span class="meta">
                         Posted by yueLng on
@@ -197,24 +197,50 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <ol>
-<li><p>Leader Election<br><img src="http://ogcxtlv6r.bkt.clouddn.com/17-12-27/68747776.jpg"></p>
+                <p>一致性协议或共识算法所针对的问题，简单来说就是要保证</p>
+<blockquote>
+<p>即使发生网络或节点异常，整个集群依然能够像单机一样提供一致的服务，即在每次成功操作时都可以看到其之前的所有成功操作按顺序完成。<br>用 2PC 是因为要支持分布式事务，用 Raft 是要支持强一致的复制。这两个解决的不是一个问题  — 申砾</p>
+</blockquote>
+<h3 id="故障模型"><a href="#故障模型" class="headerlink" title="故障模型"></a>故障模型</h3><ul>
+<li>Crash-stop Failures：故名思议，一旦发生故障，节点就停止提供服务，并且不会恢复。这种故障模型中的节点都按照正确的逻辑运行，可能宕机，可能网络中断，可能延迟增加，但结果总是正确的；</li>
+<li>Crash-recovery Failures：相对于crash-stop failures，这种故障模型允许节点在故障发生后恢复，恢复时可能需要一些持久化的数据恢复状态（Omission Failures）；</li>
+<li>Byzantine Failures：这种故障模型需要处理拜占庭问题，因此也是最难应对的，相对于上面的两种故障模型，不仅仅节点宕机或网络故障会发生，节点还有可能返回随机或恶意的结果，甚至有可能影响其他节点的正常运行。</li>
+</ul>
+<p>Paxos、Raft基于Crash-recovery Failures，因此适用于安全的网络环境，被在内网服务的存储或协调服务大量使用；PBFT（Practical Byzantine Fault Tolerance）和区块链则是基于Byzantine Failures，面向更复杂的网络环境。</p>
+<h3 id="Raft"><a href="#Raft" class="headerlink" title="Raft"></a>Raft</h3><p>Raft 使用的是 Log Replication + State Machine 的方式来处理分布式数据的一致性问题，这也是现在的通用做法</p>
+<ol>
+<li><p>Leader Election<br>如何保证任何时候最多只有一个Leader节点，以及当Leader节点异常时如何尽快的选择出新的Leader节点。这里由raft的状态机保证<br><img src="http://ogcxtlv6r.bkt.clouddn.com/17-12-27/68747776.jpg"></p>
 </li>
-<li><p>Log Replication<br><img src="http://ogcxtlv6r.bkt.clouddn.com/17-12-27/26365677.jpg"></p>
-</li>
-<li><p>Safety </p>
+<li><p>Log Replication<br><img src="http://ogcxtlv6r.bkt.clouddn.com/17-12-27/26365677.jpg"><br>为了能保证后续Leader节点变化后依然能够使得整个集群对外保持一致</p>
 </li>
 </ol>
-<p>大多数数据一致才会被提交<br>我们在写入数据的时候，一定会保证至少 quorum 的节点都成功被写入了数据，才会认为这次写入是成功的。</p>
-<p>Raft 使用的是 Log Replication + State Machine 的方式来处理分布式数据的一致性问题，这也是现在的通用做法</p>
-<p>三个节点允许一个节点失败<br>五个节点允许两个节点失败</p>
+<ul>
+<li>Follower以与Leader节点相同的顺序依次执行每个成功提案;</li>
+<li>每个成功提交的提案必须有足够多的成功副本，来保证后续的访问一致</li>
+</ul>
+<p>上图描述了一个raft提案的执行过程</p>
+<ul>
+<li>Leader收到Client的请求，写入本地Log，之后并行地向所有Follower通过AppendEntry请求发送该Log Entry；</li>
+<li>Follower对收到的Entry进行验证，包括验证其之前的一条Log Entry项是不是和Leader相同，验证成功后写入本地Log并返回Leader成功；</li>
+<li>Leader收到超过半数的Follower答复成功后，将当前Log Commit（如写入状态机），之后返回客户端成功；</li>
+<li>后续的AppendEntry及HeartBeat都会携带主的Commit位置，Follower会提交该位置之前的所有Log Entry。</li>
+</ul>
+<ol>
+<li>Safety </li>
+</ol>
+<ul>
+<li>Raft限制新Leader一定是当前Log最新的节点，即其拥有最多最大term的Log Entry</li>
+<li>我们在写入数据的时候，一定会保证至少 quorum 的节点都成功被写入了数据，才会认为这次写入是成功的。</li>
+</ul>
+<ol>
+<li>other memo</li>
+</ol>
+<p>三个节点允许一个节点失败，五个节点允许两个节点失败</p>
 <p>所有操作都是通过Leader节点，所以etcd可能会有单点问题？</p>
 <p>raft节点的状态转换</p>
 <p>为什么raft算法在确定可用节点数量时不用考虑拜占庭将军问题</p>
 <p>拜占庭问题中提出，允许n个节点宕机还能提供正常服务的分布式架构，需要的总节点数量为3n+1，而Raft只需要2n+1就可以了。其主要原因在于，拜占庭将军问题中存在数据欺骗的现象，而etcd中假设所有的节点都是诚实的。etcd在竞选前需要告诉别的节点自身的term编号以及前一轮term最终结束时的index值，这些数据都是准确的，其他节点可以根据这些值决定是否投票。另外，etcd严格限制Leader到Follower这样的数据流向保证数据一致不会出错。</p>
-<p>用 2PC 是因为要支持分布式事务，用 Raft 是要支持强一致的复制。这两个解决的不是一个问题  — 申砾</p>
-<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><a href="http://thesecretlivesofdata.com/raft/" target="_blank" rel="external">raft动画</a><br><a href="https://raft.github.io/" target="_blank" rel="external">The Raft Consensus Algorithm</a><br><a href="https://github.com/maemual/raft-zh_cn/blob/master/raft-zh_cn.md" target="_blank" rel="external">寻找一种易于理解的一致性算法(论文中文版)</a><br><a href="http://catkang.github.io/2017/06/30/raft-subproblem.html" target="_blank" rel="external">Raft和它的三个子问题</a><br><a href="https://mp.weixin.qq.com/s/1rz-sV5tg97OuQ04rDwScQ" target="_blank" rel="external">深入浅出 Raft - Membership Change</a><br><a href="https://mp.weixin.qq.com/s?__biz=MzI3NDIxNTQyOQ==&amp;mid=2247485387&amp;idx=2&amp;sn=dd8790a8a07b09cbe76e463931f839d9" target="_blank" rel="external">深入浅出 Raft - 基本概念</a><br><a href="https://mp.weixin.qq.com/s?__biz=MzI3NDIxNTQyOQ==&amp;mid=2247485422&amp;idx=2&amp;sn=21ac47e0010331412a31cc424cefbf13" target="_blank" rel="external">深入浅出 Raft - Optimization</a><br><a href="https://mp.weixin.qq.com/s?__biz=MzI3NDIxNTQyOQ==&amp;mid=2247485414&amp;idx=1&amp;sn=598e3e734b7a59bc0763f3e67c2602a7" target="_blank" rel="external">深入浅出 Raft - Leader 选举</a></p>
-<p><a href="http://thesecretlivesofdata.com/raft/" target="_blank" rel="external">Raft</a> <a href="https://mp.weixin.qq.com/s?__biz=MzI3NDIxNTQyOQ==&amp;mid=2247485387&amp;idx=2&amp;sn=dd8790a8a07b09cbe76e463931f839d9&amp;chksm=eb1620a1dc61a9b70f9a942862583cf9abf2d928b136f1be0d7cbaada507b61e81fef8724b8a&amp;scene=21#wechat_redirect" target="_blank" rel="external">深入浅出 Raft - 基本概念</a><br><a href="http://www.d-kai.me/go-raft%E5%AE%9E%E7%8E%B0/" target="_blank" rel="external">go-raft实现 – 再见</a><br><a href="https://github.com/coreos/etcd/tree/master/raft" target="_blank" rel="external">etcd/raft at master · coreos/etcd · GitHub</a><br><a href="https://github.com/hashicorp/raft" target="_blank" rel="external">GitHub - hashicorp/raft: Golang implementation of the Raft consensus protocol</a></p>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><a href="http://thesecretlivesofdata.com/raft/" target="_blank" rel="external">raft动画</a><br><a href="https://raft.github.io/" target="_blank" rel="external">The Raft Consensus Algorithm</a><br><a href="https://github.com/maemual/raft-zh_cn/blob/master/raft-zh_cn.md" target="_blank" rel="external">寻找一种易于理解的一致性算法(论文中文版)</a><br><a href="http://catkang.github.io/2017/06/30/raft-subproblem.html" target="_blank" rel="external">Raft和它的三个子问题</a><br><a href="https://mp.weixin.qq.com/s/1rz-sV5tg97OuQ04rDwScQ" target="_blank" rel="external">深入浅出 Raft - Membership Change</a><br><a href="https://mp.weixin.qq.com/s?__biz=MzI3NDIxNTQyOQ==&amp;mid=2247485387&amp;idx=2&amp;sn=dd8790a8a07b09cbe76e463931f839d9" target="_blank" rel="external">深入浅出 Raft - 基本概念</a><br><a href="https://mp.weixin.qq.com/s?__biz=MzI3NDIxNTQyOQ==&amp;mid=2247485422&amp;idx=2&amp;sn=21ac47e0010331412a31cc424cefbf13" target="_blank" rel="external">深入浅出 Raft - Optimization</a><br><a href="https://mp.weixin.qq.com/s?__biz=MzI3NDIxNTQyOQ==&amp;mid=2247485414&amp;idx=1&amp;sn=598e3e734b7a59bc0763f3e67c2602a7" target="_blank" rel="external">深入浅出 Raft - Leader 选举</a><br><a href="http://thesecretlivesofdata.com/raft/" target="_blank" rel="external">Raft</a> <a href="https://mp.weixin.qq.com/s?__biz=MzI3NDIxNTQyOQ==&amp;mid=2247485387&amp;idx=2&amp;sn=dd8790a8a07b09cbe76e463931f839d9&amp;chksm=eb1620a1dc61a9b70f9a942862583cf9abf2d928b136f1be0d7cbaada507b61e81fef8724b8a&amp;scene=21#wechat_redirect" target="_blank" rel="external">深入浅出 Raft - 基本概念</a><br><a href="http://www.d-kai.me/go-raft%E5%AE%9E%E7%8E%B0/" target="_blank" rel="external">go-raft实现 – 再见</a><br><a href="https://github.com/coreos/etcd/tree/master/raft" target="_blank" rel="external">etcd/raft at master · coreos/etcd · GitHub</a><br><a href="https://github.com/hashicorp/raft" target="_blank" rel="external">GitHub - hashicorp/raft: Golang implementation of the Raft consensus protocol</a><br><a href="http://catkang.github.io/2018/03/24/paxos-pbft-pow.html" target="_blank" rel="external">从Paxos到区块链</a></p>
 
 
                 <hr>
@@ -276,7 +302,7 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#distribution_system" title="distribution_system">distribution_system</a>
+                          <a class="tag" href="/tags/#distributed_system" title="distributed_system">distributed_system</a>
                         
                     </div>
                 </section>

@@ -96,13 +96,6 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
                             <a href="/archives/">Archives</a>
                         </li>
                         
@@ -111,6 +104,13 @@
                         
                         <li>
                             <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -171,7 +171,7 @@
                 <div class="post-heading">
                     <div class="tags">
                         
-                          <a class="tag" href="/tags/#distribution_system" title="distribution_system">distribution_system</a>
+                          <a class="tag" href="/tags/#distributed_system" title="distributed_system">distributed_system</a>
                         
                     </div>
                     <h1>分布式系统要点记录</h1>
@@ -197,7 +197,13 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h2 id="The-Twelve-Factor-App"><a href="#The-Twelve-Factor-App" class="headerlink" title="The Twelve Factor App"></a>The Twelve Factor App</h2><p><a href="https://12factor.net/zh_cn/" target="_blank" rel="external">The Twelve Factor App</a><br>网关聚合服务 提供restful接口<br>grpc 内网调用<br>服务发现，使用etcd自动服务注册<br>服务配置，使用etcd存储配置<br>服务快速部署<br>服务logging记录<br>服务调用链的追踪<br>服务质量的监控，响应时间<br>缓存的应用</p>
+                <h2 id="CAP-理论"><a href="#CAP-理论" class="headerlink" title="CAP 理论"></a>CAP 理论</h2><p><img src="http://ogcxtlv6r.bkt.clouddn.com/18-3-26/77510384.jpg"></p>
+<ul>
+<li>Consistency：所有客户端看到的同样的数据。这里所说的 consistency，是指 atomic consistency (linearizability)。</li>
+<li>Availability：每个客户端任何时候都可以读写。</li>
+<li>Partition tolerance：当网络出现 partition（split brain）时，系统仍旧可以工作。换句话说，为了能够支持 Partition tolerance，系统需要能够容忍任意多的消息的丢失。</li>
+</ul>
+<h2 id="The-Twelve-Factor-App"><a href="#The-Twelve-Factor-App" class="headerlink" title="The Twelve Factor App"></a>The Twelve Factor App</h2><p><a href="https://12factor.net/zh_cn/" target="_blank" rel="external">The Twelve Factor App</a><br>网关聚合服务 提供restful接口<br>grpc 内网调用<br>服务发现，使用etcd自动服务注册<br>服务配置，使用etcd存储配置<br>服务快速部署<br>服务logging记录<br>服务调用链的追踪<br>服务质量的监控，响应时间<br>缓存的应用</p>
 <h2 id="典型架构"><a href="#典型架构" class="headerlink" title="典型架构"></a>典型架构</h2><p>缓存、消息、搜索<br>Nginx+Tornado+mysql+python<br>Nginx+rest.li+redis+mysql+python+RPC(Thrift)+Zookeeper+Notification Queue</p>
 <ul>
 <li>nginx负载均衡的标配</li>
@@ -247,7 +253,11 @@
 <li>熟悉和理解异步开发框架或模型</li>
 </ul>
 <h2 id="RPC"><a href="#RPC" class="headerlink" title="RPC"></a>RPC</h2><p>RPC通讯框架Thrift</p>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>1.<a href="http://blog.jobbole.com/88301/" target="_blank" rel="external">学习笔记：The Log（我所读过的最好的一篇分布式技术文章）</a>kafka, log, 分布式, 数据库<br>2.<a href="http://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying" target="_blank" rel="external">log：每个工程师都应该知道实时数据的统一抽象</a>源文，出自LinkedIn</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a href="http://blog.jobbole.com/88301/" target="_blank" rel="external">学习笔记：The Log（我所读过的最好的一篇分布式技术文章）</a>kafka, log, 分布式, 数据库</li>
+<li><a href="http://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying" target="_blank" rel="external">log：每个工程师都应该知道实时数据的统一抽象</a>源文，出自LinkedIn</li>
+<li><a href="https://mp.weixin.qq.com/s/J11Us4RE37fthUxsoDzW5Q" target="_blank" rel="external">陈天-谈谈分布式系统</a></li>
+</ul>
 
 
                 <hr>
@@ -262,7 +272,7 @@
                     
                     
                         <li class="next">
-                            <a href="/2017/11/30/distributed_system/raft/" data-toggle="tooltip" data-placement="top" title="分布式系统的一致性算法-raft">Next Post &rarr;</a>
+                            <a href="/2017/11/30/distributed_system/raft/" data-toggle="tooltip" data-placement="top" title="分布式系统的一致性算法">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -309,7 +319,7 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#distribution_system" title="distribution_system">distribution_system</a>
+                          <a class="tag" href="/tags/#distributed_system" title="distributed_system">distributed_system</a>
                         
                     </div>
                 </section>

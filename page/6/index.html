@@ -96,13 +96,6 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
                             <a href="/archives/">Archives</a>
                         </li>
                         
@@ -111,6 +104,13 @@
                         
                         <li>
                             <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -187,6 +187,34 @@
             
                 <!-- Main Content -->
 
+
+<div class="post-preview">
+
+    <a href="/2018/01/15/framework/grpc/">
+        <h2 class="post-title">
+            深入了解gRPC
+        </h2>
+        <h3 class="post-subtitle">
+             "grpc"
+        </h3>
+        <div class="post-content-preview">
+            gRPC是基于HTTP/2协议的，要想了解gRPC，就需要理解HTTP/2协议
+HTTP/1.x 的问题
+
+Parser 1.x是基于文本协议的，对机器并不友好，所以读取HTTP header 会耗费性能
+Request/Response 1.x 一问一答的固定交互模式，必须等待连接返回，因此网络连接效率不高
+push 推送一般用Long polling或者websocket
+
+HTTP/2......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2018-01-15
+    </p>
+
+</div>
+<hr>
 
 <div class="post-preview">
 
@@ -404,27 +432,6 @@ sql.Result表示结果集，sql.Rows表示查询返回多行数据的结果集�
 </div>
 <hr>
 
-<div class="post-preview">
-
-    <a href="/2017/12/12/distributed_system/mq/">
-        <h2 class="post-title">
-            消息队列
-        </h2>
-        <h3 class="post-subtitle">
-             "消息队列"
-        </h3>
-        <div class="post-content-preview">
-            kafka问题描述：kafka 重复消费的问题，每次重启服务，都从broker拉取offset，拉到旧的消息解决：消费者每次从broker拉取数据，消费之后都会自动commit，自动commit有一个定时机制，但是并不保证一定提交成功，例如在commit的时候，程序崩溃（例如重启的情况在重启后，消费者会拉取最新的offset作为消费的起点，sarama默认的initial offset 为O......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2017-12-12
-    </p>
-
-</div>
-<hr>
-
 
 
 <!-- Pager -->
@@ -464,10 +471,6 @@ sql.Result表示结果集，sql.Rows表示查询返回多行数据的结果集�
                     <div class="tags">
                         
                             
-                            <a href="/tags/#coding" title="coding" rel="3">coding</a>
-                            
-                        
-                            
                             <a href="/tags/#collection" title="collection" rel="5">collection</a>
                             
                         
@@ -480,7 +483,11 @@ sql.Result表示结果集，sql.Rows表示查询返回多行数据的结果集�
                             
                         
                             
-                            <a href="/tags/#distribution_system" title="distribution_system" rel="15">distribution_system</a>
+                            <a href="/tags/#distribution_system" title="distribution_system" rel="5">distribution_system</a>
+                            
+                        
+                            
+                            <a href="/tags/#coding" title="coding" rel="2">coding</a>
                             
                         
                             
@@ -488,9 +495,7 @@ sql.Result表示结果集，sql.Rows表示查询返回多行数据的结果集�
                             
                         
                             
-                        
-                            
-                            <a href="/tags/#financial" title="financial" rel="5">financial</a>
+                            <a href="/tags/#distributed_system" title="distributed_system" rel="12">distributed_system</a>
                             
                         
                             
@@ -514,11 +519,17 @@ sql.Result表示结果集，sql.Rows表示查询返回多行数据的结果集�
                             
                         
                             
+                            <a href="/tags/#system_design" title="system_design" rel="5">system_design</a>
+                            
+                        
+                            
                             <a href="/tags/#surrounding" title="surrounding" rel="9">surrounding</a>
                             
                         
                             
-                            <a href="/tags/#system_design" title="system_design" rel="5">system_design</a>
+                        
+                            
+                            <a href="/tags/#financial" title="financial" rel="5">financial</a>
                             
                         
                             
@@ -526,11 +537,11 @@ sql.Result表示结果集，sql.Rows表示查询返回多行数据的结果集�
                             
                         
                             
-                            <a href="/tags/#reading" title="reading" rel="2">reading</a>
+                            <a href="/tags/#social_science" title="social_science" rel="2">social_science</a>
                             
                         
                             
-                            <a href="/tags/#social_science" title="social_science" rel="2">social_science</a>
+                            <a href="/tags/#reading" title="reading" rel="2">reading</a>
                             
                         
                     </div>

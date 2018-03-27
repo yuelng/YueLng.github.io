@@ -96,13 +96,6 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
                             <a href="/archives/">Archives</a>
                         </li>
                         
@@ -111,6 +104,13 @@
                         
                         <li>
                             <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -190,7 +190,33 @@
 
 <div class="post-preview">
 
-    <a href="/2018/01/18/database/dead_lock/">
+    <a href="/2018/01/18/devops/study_environment/">
+        <h2 class="post-title">
+            基础服务环境搭建
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            这篇文章主要是针对大数据平台的搭建，主要包括的内容有
+
+vagrant虚拟机环境搭建
+Hadoop集群搭建
+memcached集群搭建
+storm集群搭建一些架构可行的架构：Flume + Kafka + Strom + Hbase 使用vagrant搭建系统安装上 http://www.vagrantbox.es/ 找下载需要的 box ， 譬如 Ubuntu 14.10（based on......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2018-01-18
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2018/01/18/database/lock/">
         <h2 class="post-title">
             数据库加锁分析
         </h2>
@@ -265,6 +291,27 @@ nginx模型操作系统的设计，因此可以归结为三点：（1）以多�
 
 <div class="post-preview">
 
+    <a href="/2018/01/18/collection/source_all/">
+        <h2 class="post-title">
+            常用的资源
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            计算机科学1.谷歌推荐的技术能力提升指南CS课程入门、了解其他语言、测试代码、培养逻辑推理和学习数学离散知识、深刻理解操作系统、学习UX设计、学习人工智能、学习如何构建编译器、了解密码学、并行编程、与其他程序员一起开发项目。2.hackr.ioShare and discover the best programming tutorials and courses online.3.图说设计......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2018-01-18
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/2018/01/18/collection/somesource/">
         <h2 class="post-title">
             一些有用的资源
@@ -278,27 +325,6 @@ nginx模型操作系统的设计，因此可以归结为三点：（1）以多�
 计算机领域论文集合 GitHub - papers-we-love/papers-we-love: Papers from the computer science community to read and discuss. 
 分布式资料 Qix/ds.md at master · ty4z2008/Qix · GitHub 
 程序员......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2018-01-18
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2018/01/18/collection/source_all/">
-        <h2 class="post-title">
-            常用的资源
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            计算机科学1.谷歌推荐的技术能力提升指南CS课程入门、了解其他语言、测试代码、培养逻辑推理和学习数学离散知识、深刻理解操作系统、学习UX设计、学习人工智能、学习如何构建编译器、了解密码学、并行编程、与其他程序员一起开发项目。2.hackr.ioShare and discover the best programming tutorials and courses online.3.图说设计......
         </div>
     </a>
     <p class="post-meta">
@@ -401,34 +427,6 @@ Java, c++, Python, Javanano，Ruby，Objective-C, 和 C# Go
 </div>
 <hr>
 
-<div class="post-preview">
-
-    <a href="/2018/01/15/framework/grpc/">
-        <h2 class="post-title">
-            深入了解gRPC
-        </h2>
-        <h3 class="post-subtitle">
-             "grpc"
-        </h3>
-        <div class="post-content-preview">
-            gRPC是基于HTTP/2协议的，要想了解gRPC，就需要理解HTTP/2协议
-HTTP/1.x 的问题
-
-Parser 1.x是基于文本协议的，对机器并不友好，所以读取HTTP header 会耗费性能
-Request/Response 1.x 一问一答的固定交互模式，必须等待连接返回，因此网络连接效率不高
-push 推送一般用Long polling或者websocket
-
-HTTP/2......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2018-01-15
-    </p>
-
-</div>
-<hr>
-
 
 
 <!-- Pager -->
@@ -468,10 +466,6 @@ HTTP/2......
                     <div class="tags">
                         
                             
-                            <a href="/tags/#coding" title="coding" rel="3">coding</a>
-                            
-                        
-                            
                             <a href="/tags/#collection" title="collection" rel="5">collection</a>
                             
                         
@@ -484,7 +478,11 @@ HTTP/2......
                             
                         
                             
-                            <a href="/tags/#distribution_system" title="distribution_system" rel="15">distribution_system</a>
+                            <a href="/tags/#distribution_system" title="distribution_system" rel="5">distribution_system</a>
+                            
+                        
+                            
+                            <a href="/tags/#coding" title="coding" rel="2">coding</a>
                             
                         
                             
@@ -492,9 +490,7 @@ HTTP/2......
                             
                         
                             
-                        
-                            
-                            <a href="/tags/#financial" title="financial" rel="5">financial</a>
+                            <a href="/tags/#distributed_system" title="distributed_system" rel="12">distributed_system</a>
                             
                         
                             
@@ -518,11 +514,17 @@ HTTP/2......
                             
                         
                             
+                            <a href="/tags/#system_design" title="system_design" rel="5">system_design</a>
+                            
+                        
+                            
                             <a href="/tags/#surrounding" title="surrounding" rel="9">surrounding</a>
                             
                         
                             
-                            <a href="/tags/#system_design" title="system_design" rel="5">system_design</a>
+                        
+                            
+                            <a href="/tags/#financial" title="financial" rel="5">financial</a>
                             
                         
                             
@@ -530,11 +532,11 @@ HTTP/2......
                             
                         
                             
-                            <a href="/tags/#reading" title="reading" rel="2">reading</a>
+                            <a href="/tags/#social_science" title="social_science" rel="2">social_science</a>
                             
                         
                             
-                            <a href="/tags/#social_science" title="social_science" rel="2">social_science</a>
+                            <a href="/tags/#reading" title="reading" rel="2">reading</a>
                             
                         
                     </div>
