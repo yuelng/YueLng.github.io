@@ -103,14 +103,14 @@
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
@@ -203,6 +203,7 @@
 <li>隔离性(isolation)通常来说，一个事务在最终提交前对其他事务是不可见的。为满足不同的并发场景，定义了不同的隔离级别，从低到高是读未提交，读已提交，可重复读和序列化。序列化能够保证最强的一致性，其他隔离级别的一致性依次将此，并发性更好。读未提交会看到其他事务没有提交的操作，称为脏读。读已提交只能看到其他事务已经提交的修改，但是不能重复读，因为一个事务内两次读看到的结果不同。可重复读解决了不可重复读的问题，但是有幻读的问题，就是在读取某个范围的记录时，其他事务在该范围内插入了新的数据，两次读的结果不一致。InnoDB通过多版本并发控制(MVCC)解决了幻读的问题，可重复读是MySQL的默认隔离级别。序列化是最高的隔离级别，会让事务串行执行，在读取的每一行数据加锁，会造成大量的锁征用。</li>
 <li>持久性(durability) 持久性要保证提交了事务后，即使系统崩溃，修改的数据也不会丢失。持久性也分为不同的级别，通过备份等手段可以提高持久性。</li>
 </ol>
+<h3 id="MVCC"><a href="#MVCC" class="headerlink" title="MVCC"></a>MVCC</h3><p>MVCC其实很类似一个特殊的cas，它保证了涉及到跨多key修改的原子操作语义，这样也可以理解为什么MVCC可以把并发粒度控制得更好。</p>
 <h3 id="SQL分析"><a href="#SQL分析" class="headerlink" title="SQL分析"></a>SQL分析</h3><ol>
 <li><p>SELECT … FROM 是一个快照读，通过读取数据库的一个快照，不会加任何锁，除非将隔离级别设置成了 SERIALIZABLE 。在 SERIALIZABLE 隔离级别下，如果索引是非唯一索引，那么将在相应的记录上加上一个共享的next key锁。如果是唯一索引，只需要在相应记录上加index record lock。</p>
 </li>
@@ -321,9 +322,13 @@
                 <ul class="list-inline">
 
                     
-                        <li><a href="http://www.zenlife.tk/" target="_blank">tiancaiamao</a></li>
+                        <li><a href="http://www.zenlife.tk/" target="_blank">Tiancaiamao</a></li>
                     
                         <li><a href="http://legendtkl.com/" target="_blank">Tao Kelu</a></li>
+                    
+                        <li><a href="http://rocry.com/" target="_blank">Rocry</a></li>
+                    
+                        <li><a href="https://digests.dylanninin.com/" target="_blank">Dylanninin</a></li>
                     
                 </ul>
                 

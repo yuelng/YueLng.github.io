@@ -103,14 +103,14 @@
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
@@ -228,14 +228,47 @@
 <p>当需要从磁盘读取数据时，系统会将数据逻辑地址传给磁盘，磁盘的控制电路按照寻址逻辑将逻辑地址翻译成物理地址，即确定要读的数据在哪个磁道，哪个扇区。为了读取这个扇区的数据，需要将磁头放到这个扇区上方，为了实现这一点，磁头需要移动对准相应磁道，这个过程叫做寻道，所耗费时间叫做寻道时间，然后磁盘旋转将目标扇区旋转到磁头下，这个过程耗费的时间叫做旋转时间。</p>
 <p>局部性原理与磁盘预读：由于存储介质的特性，例外加上机械运动的耗费，导致磁盘读取与主存读取查几个数量级。为了提高效率，就要尽量减少磁盘读取次数，为了达到这个目的，磁盘往往不是严格按需读取，而是每次都会预读，即使只需要一个字节，磁盘也会从这个位置开始，顺序向后读取一定长度的数据放入内存。这样做的理论依据是计算机科学中著名的局部性原理：当一个数据被用到时，其附近的数据也通常会马上被使用。</p>
 <p>预读的长度一般为页（page）的整倍数。页是计算机管理存储器的逻辑块，硬件及操作系统往往将主存和磁盘存储区分割为连续的大小相等的块，每个存储块称为一页（在许多操作系统中，页得大小通常为4k），主存和磁盘以页为单位交换数据。当程序要读取的数据不在主存中时，会触发一个缺页异常，此时系统会向磁盘发出读盘信号，磁盘会找到数据的起始位置并向后连续读取一页或几页载入内存中，然后异常返回，程序继续运行。</p>
-<h3 id="B-B-树索引与局部性原理"><a href="#B-B-树索引与局部性原理" class="headerlink" title="B/B+树索引与局部性原理"></a>B/B+树索引与局部性原理</h3><p>先从B-Tree分析，根据B-Tree的定义，可知检索一次最多需要访问h个节点。数据库系统的设计者巧妙利用了磁盘预读原理，将一个节点的大小设为等于一个页，这样每个节点只需要一次I/O就可以完全载入。为了达到这个目的，在实际实现B-Tree还需要使用如下技巧：</p>
+<h3 id="B-B-树索引与局部性原理"><a href="#B-B-树索引与局部性原理" class="headerlink" title="B/B+树索引与局部性原理"></a>B/B+树索引与局部性原理</h3><p>为了减少磁盘IO次数，我们需要把‘瘦高’的树结构变得‘矮胖’这就是B树的特征之一，B树是一种多路平衡查找树，它的每一个节点最多包含k个孩子，k被称为B树的阶，k的大小取决于磁盘页的大小，<br>基本思想</p>
+<ul>
+<li>保持键值有序，以顺序遍历</li>
+<li>使用层次化的索引来最小化磁盘读取</li>
+<li>使用不完全填充的块来加速插入和删除</li>
+<li>通过优雅的遍历算法来保持索引平衡</li>
+</ul>
+<p>B树的基本特征如下</p>
+<ol>
+<li>根结点至少有两个子女。</li>
+<li>每个中间节点都包含k-1个元素和k个孩子，其中 m/2 &lt;= k &lt;= m</li>
+<li>每一个叶子节点都包含k-1个元素，其中 m/2 &lt;= k &lt;= m</li>
+<li>所有的叶子结点都位于同一层。</li>
+<li>每个节点中的元素从小到大排列，节点当中k-1个元素正好是k个孩子包含的元素的值域分划。</li>
+</ol>
+<p>先从B-Tree分析，根据B-Tree的定义，可知检索一次最多需要访问h个节点。数据库系统的设计者巧妙利用了磁盘预读原理，将一个节点的大小设为等于一个页，这样每个节点只需要一次I/O就可以完全载入。为了达到这个目的，在实际实现B-Tree还需要使用如下技巧：</p>
 <p>每次新建节点时，直接申请一个页的空间，这样就保证一个节点物理上也存储在一个页里，加之计算机存储分配都是按页对齐的，就实现了一个node只需一次I/O。</p>
 <p>B-Tree中一次检索最多需要h-1次I/O（根节点常驻内存），渐进复杂度为O(h)=O(logdN)。一般实际应用中，出度d是非常大的数字，通常超过100，因此h非常小（通常不超过3）。</p>
 <h3 id="MYSQL索引实现"><a href="#MYSQL索引实现" class="headerlink" title="MYSQL索引实现"></a>MYSQL索引实现</h3><p>MyISAM索引实现：MyISAM引擎使用B+Tree作为索引结构，叶节点的data域存放的是数据记录的地址。。在MyISAM中，主索引和辅助索引（Secondary key）在结构上没有任何区别，只是主索引要求key是唯一的，而辅助索引的key可以重复。</p>
 <p>InnoDB索引实现：第一个重大区别是InnoDB的数据文件本身就是索引文件。在InnoDB中，表数据文件本身就是按B+Tree组织的一个索引结构，这棵树的叶节点data域保存了完整的数据记录。这个索引的key是数据表的主键，因此InnoDB表数据文件本身就是主索引。叶节点包含了完整的数据记录。这种索引叫做聚集索引，所以innoDB要求表必须有主键<br>第二个与MyISAM索引的不同是InnoDB的辅助索引data域存储相应记录主键的值而不是地址。换句话说，InnoDB的所有辅助索引都引用主键作为data域</p>
 <p>不建议使用过长的字段作为主键，因为所有辅助索引都引用主索引，过长的主索引会令辅助索引变得过大</p>
 <p>用非单调的字段作为主键在InnoDB中不是个好主意，因为InnoDB数据文件本身是一颗B+Tree，非单调的主键会造成在插入新记录时数据文件为了维持B+Tree的特性而频繁的分裂调整，十分低效，而使用自增字段作为主键则是一个很好的选择。</p>
-<h3 id="参考内容"><a href="#参考内容" class="headerlink" title="参考内容"></a>参考内容</h3><p><a href="http://www.runoob.com/mysql/mysql-index.html" target="_blank" rel="external">MySQL 索引</a><br><a href="https://tech.meituan.com/mysql-index.html" target="_blank" rel="external">MySQL索引原理及慢查询优化</a><br><a href="https://dev.mysql.com/doc/refman/5.5/en/explain-output.html" target="_blank" rel="external">explain output</a><br><a href="https://book.douban.com/subject/23008813/" target="_blank" rel="external">高性能MySQL</a><br><a href="http://blog.codinglabs.org/articles/theory-of-mysql-index.html" target="_blank" rel="external">MySQL索引背后的数据结构及算法原理</a><br><a href="http://blog.jobbole.com/111757/" target="_blank" rel="external">漫画算法：什么是 B 树？</a></p>
+<h3 id="B-树比B树更适合做文件索引的原因"><a href="#B-树比B树更适合做文件索引的原因" class="headerlink" title="B+树比B树更适合做文件索引的原因"></a>B+树比B树更适合做文件索引的原因</h3><p>结构上</p>
+<ul>
+<li>B树中关键字集合分布在整棵树中，叶节点中不包含任何关键字信息，而B+树关键字集合分布在叶子结点中，非叶节点只是叶子结点中关键字的索引；</li>
+<li>B树中任何一个关键字只出现在一个结点中，而B+树中的关键字必须出现在叶节点中，也可能在非叶结点中重复出现；</li>
+</ul>
+<p>性能上</p>
+<ul>
+<li>不同于B树只适合随机检索，B+树同时支持随机检索和顺序检索</li>
+<li>B+树的磁盘读写代价更低。B+树的内部结点并没有指向关键字具体信息的指针</li>
+<li>B+树的查询效率更加稳定</li>
+<li>B-树在提高了磁盘IO性能的同时并没有解决元素遍历的效率低下的问题。B+树的叶子节点使用指针顺序连接在一起，只要遍历叶子节点就可以实现整棵树的遍历。而且在数据库中基于范围的查询是非常频繁的，</li>
+</ul>
+<p>原因</p>
+<ul>
+<li>B+树空间利用率更高，可减少I/O次数，</li>
+<li>增删文件（节点）时，效率更高，因为B+树的叶子节点包含所有关键字，并以有序的链表结构存储</li>
+<li>B+树的查询效率更加稳定</li>
+</ul>
+<h3 id="参考内容"><a href="#参考内容" class="headerlink" title="参考内容"></a>参考内容</h3><p><a href="http://www.runoob.com/mysql/mysql-index.html" target="_blank" rel="external">MySQL 索引</a><br><a href="https://tech.meituan.com/mysql-index.html" target="_blank" rel="external">MySQL索引原理及慢查询优化</a><br><a href="https://dev.mysql.com/doc/refman/5.5/en/explain-output.html" target="_blank" rel="external">explain output</a><br><a href="https://book.douban.com/subject/23008813/" target="_blank" rel="external">高性能MySQL</a><br><a href="http://blog.codinglabs.org/articles/theory-of-mysql-index.html" target="_blank" rel="external">MySQL索引背后的数据结构及算法原理</a><br><a href="http://blog.jobbole.com/111757/" target="_blank" rel="external">漫画算法：什么是 B 树？</a><br><a href="https://blog.csdn.net/mine_song/article/details/63251546" target="_blank" rel="external">B+树比B树更适合做文件索引的原因</a></p>
 
 
                 <hr>
@@ -310,9 +343,13 @@
                 <ul class="list-inline">
 
                     
-                        <li><a href="http://www.zenlife.tk/" target="_blank">tiancaiamao</a></li>
+                        <li><a href="http://www.zenlife.tk/" target="_blank">Tiancaiamao</a></li>
                     
                         <li><a href="http://legendtkl.com/" target="_blank">Tao Kelu</a></li>
+                    
+                        <li><a href="http://rocry.com/" target="_blank">Rocry</a></li>
+                    
+                        <li><a href="https://digests.dylanninin.com/" target="_blank">Dylanninin</a></li>
                     
                 </ul>
                 

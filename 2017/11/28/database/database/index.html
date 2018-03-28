@@ -103,14 +103,14 @@
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
@@ -202,7 +202,9 @@
 <p>如何使用online DDL 增加字段<br><a href="https://www.qcloud.com/community/article/655790" target="_blank" rel="external">MySQL Online DDL - 腾讯云社区 - 腾讯云</a><br>没有使用 online DDL选项<br>主库增加了字段，通过binlog 同步到从库<br>执行alter 操作 会导致锁表，锁表导致<br>set old_alter_table=1; 设置进入onlineDDL 操作<br>[file:AC8E0600-AAAC-448E-A6F0-AECF999D63C6-375-0000098E4BA9BEB8/architecture of a database system.pdf]<br>主从同步是通过binlog进行的，从库有两个线程，一个负责接受binlog日志，一个负责解析日志将数据写入库中。所以主从同步一般是有一定的延时的。</p>
 <p>Alter 锁表时 拿不到写锁 导致alter 语句执行时间过长，导致后面的同步失败<br>为什么alter拿不到锁，select 语句 慢调用 卡住了<br><a href="http://www.fordba.com/" target="_blank" rel="external">For DBA | For dbas</a></p>
 <p>至于读写锁的问题，写锁是排他的，读锁可以多次获得。在Innodb中，锁分为表锁、行锁和间隙锁，具体看你的操作，如果一个插入操作需要锁表，而这时有查询锁住了该表中的一行，自然是需要等待的。<br>？？查询操作是不锁表的</p>
-<p><img src="http://ogcxtlv6r.bkt.clouddn.com/18-1-5/62172389.jpg"></p>
+<h3 id="使用锁还是版本控制来解决并发问题"><a href="#使用锁还是版本控制来解决并发问题" class="headerlink" title="使用锁还是版本控制来解决并发问题"></a>使用锁还是版本控制来解决并发问题</h3><p>两者都是方法和手段，并不冲突和矛盾。锁有很多不同的粒度，比如一把全局的大锁；再比如读写锁，任一时刻如果有写，就不能进行其它操作，而读锁之间相互不影响；我看了好些傻逼的实现都是一把全局大锁，像boltdb，还有leveldb的Go语言封装里面提供的Transaction接口，都是很没节操的。前阵子我还考虑过写一个RangeLock，调整锁的粒度：只有被同步访问到的key之间，才会有锁冲突，比如我在操作A他在操作B，相互是不影响的。遇到锁冲突了会变得复杂，回滚操作必须记得释放之前的锁，加锁也要有点技巧，如果一个操作锁了A去请求B，另一个操作锁了B去请求A，就成环死锁了。</p>
+<p>MVCC也会遇到冲突，冲突时无非两种手段：过一会儿重试或者abort。看！这本质上也是锁，乐观锁悲观锁而已。所以并不是用了MVCC锁的概念就消失了。不过MVCC是个好东西，它比锁可以提供更细粒度的并发。通过读历史版本，让读和写之间的冲突进一步降低。代价当然是问题被搞得更加复杂了。</p>
+<p>如何选择？根据实际的场景具体情况具体去分析。挑选适当的隔离级别，RC/RR/SI。</p>
 <h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ul>
 <li><a href="http://blog.csdn.net/woyantianyi/article/details/51689932" target="_blank" rel="external">Mysql新增字段到大数据表导致锁表 - CSDN博客</a></li>
 <li><a href="http://seanlook.com/2016/05/24/mysql-online-ddl-concept/" target="_blank" rel="external">mysql 5.6 原生Online DDL解析 | Sean’s Notes</a></li>
@@ -219,6 +221,8 @@
 <li><a href="https://blog.jcole.us/2013/01/07/the-physical-structure-of-innodb-index-pages/" target="_blank" rel="external">The physical structure of InnoDB index pages – Jeremy Cole</a></li>
 <li><a href="https://mp.weixin.qq.com/s?__biz=MjM5OTcxMzE0MQ==&amp;mid=207696233&amp;idx=1&amp;sn=660fa3434ddac01b391bbfffa9b14c66#rd" target="_blank" rel="external">如何编写一个分布式数据库</a></li>
 <li>​<a href="http://catkang.github.io/2017/12/17/data-placement.html" target="_blank" rel="external">浅谈分布式存储系统数据分布方法</a></li>
+<li><a href="http://www.zenlife.tk/interview-for-distributed-storage.md" target="_blank" rel="external">怎么做分布式存储的面试</a></li>
+<li><a href="http://ogcxtlv6r.bkt.clouddn.com/18-1-5/62172389.jpg" target="_blank" rel="external">MySQL online ddl操作</a></li>
 </ul>
 
 
@@ -294,9 +298,13 @@
                 <ul class="list-inline">
 
                     
-                        <li><a href="http://www.zenlife.tk/" target="_blank">tiancaiamao</a></li>
+                        <li><a href="http://www.zenlife.tk/" target="_blank">Tiancaiamao</a></li>
                     
                         <li><a href="http://legendtkl.com/" target="_blank">Tao Kelu</a></li>
+                    
+                        <li><a href="http://rocry.com/" target="_blank">Rocry</a></li>
+                    
+                        <li><a href="https://digests.dylanninin.com/" target="_blank">Dylanninin</a></li>
                     
                 </ul>
                 
