@@ -96,14 +96,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -204,21 +204,34 @@
 <p>引用计数的一个缺点在于，需要频繁更新引用计数，另一缺点是引用形成环路造成循环引用，导致计数永远不会零，对象永不会被回收</p>
 <h3 id="追踪式-Trace-Collector"><a href="#追踪式-Trace-Collector" class="headerlink" title="追踪式(Trace-Collector)"></a>追踪式(Trace-Collector)</h3><p>跟踪式就是将所有被管理的对象以引用关系组织成一张有向图，然后从必定不需回收的节点作为根节点(root)出发，trace其引用关系，遍历所有可达节点。只要节点可达就不需回收，如果不可达就要回收。</p>
 <p>跟踪式为自动管理，有以下几种算法：</p>
-<p>Mark-Sweep法（标记清除法）<br>这个算法分为两步，标记和清除。</p>
+<ol>
+<li>Mark-Sweep法（标记清除法）<br>这个算法分为两步，标记和清除。</li>
+</ol>
 <ul>
 <li>标记：从程序的根节点开始， <strong>递归地</strong> 遍历所有对象，将能遍历到的对象打上标记。</li>
 <li>清除：讲所有未标记的的对象当作垃圾销毁。</li>
 </ul>
 <p>但是这个算法也有一个缺陷，就是人们常常说的 STW 问题（Stop The World）。因为算法在标记时必须暂停整个程序，否则其他线程的代码可能会改变对象状态，从而可能把不应该回收的对象当做垃圾收集掉。另外一个问题在于递归遍历整个对象树，当程序中对象逐渐增多，导致gc时间过长。</p>
-<p>Mark-Compact<br>类似标记-清除算法，标记-压缩同样需要标记出所有被引用节点。但是下一步并不是光简单的清除未被引用的节点，还需要将被引用的节点压缩到内存上的一片连续区域，来优化外部碎片问题。</p>
-<p>三色标记法<br>三色标记法是传统 Mark-Sweep 的一个改进，它是一个并发的 GC 算法</p>
+<ol>
+<li><p>Mark-Compact<br>类似标记-清除算法，标记-压缩同样需要标记出所有被引用节点。但是下一步并不是光简单的清除未被引用的节点，还需要将被引用的节点压缩到内存上的一片连续区域，来优化外部碎片问题。</p>
+</li>
+<li><p>三色标记法<br>三色标记法是传统 Mark-Sweep 的一个改进，它是一个并发的 GC 算法,三色标记的一个明显好处是能够让用户程序和 mark 并发的进行，具体可以参考论文：《On-the-fly garbage collection: an exercise in cooperation.》。</p>
+</li>
+</ol>
 <p>黑色:根对象，或者该对象与它的子对象都被扫描<br>灰色:对象本身被扫描,但还没扫描完该对象中的子对象<br>白色:未被扫描对象，扫描完成所有对象之后，最终为白色的为不可达对象，即垃圾对象</p>
 <p>首先创建三个集合：白、灰、黑。<br>将所有对象放入白色集合中。<br>然后从根节点开始遍历所有对象（注意这里<strong>并不递归遍历</strong>），把遍历到的对象从白色集合放入灰色集合。<br>之后遍历灰色集合，将灰色对象引用的对象从白色集合放入灰色集合，之后将此灰色对象放入黑色集合<br>重复上步直到灰色中无任何对象<br>通过write-barrier检测对象有变化，重复以上操作<br>收集所有白色对象（垃圾）</p>
-<p>Generational<br>这种算法按被管理对象的生命周期长短使用不同的算法对其进行管理。如果几次GC触发回收仍都不需回收的对象被认为是常驻内存的对象，被称作老生代对象(old generation)，会被放入老生代区域，使用mark&amp;compact算法对其进行管理。而刚被分配的对象，被称作年轻代对象(young generation)，会被放入年轻代区域，使用copy算法对其进行管理。</p>
+<ol>
+<li>Generational<br>这种算法按被管理对象的生命周期长短使用不同的算法对其进行管理。如果几次GC触发回收仍都不需回收的对象被认为是常驻内存的对象，被称作老生代对象(old generation)，会被放入老生代区域，使用mark&amp;compact算法对其进行管理。而刚被分配的对象，被称作年轻代对象(young generation)，会被放入年轻代区域，使用copy算法对其进行管理。</li>
+</ol>
 <p>所以记住任何时候都应该想办法确保你的对象要么分配在栈上，要么尽可能把多个对象合并让它们重复使用一块内存</p>
+<h3 id="Golang-GC"><a href="#Golang-GC" class="headerlink" title="Golang GC"></a>Golang GC</h3><ol>
+<li>何时触发GC<br>在堆上分配大于 32K byte 对象的时候进行检测此时是否满足垃圾回收条件，如果满足则进行垃圾回收。还有一种是主动垃圾回收，通过调用 runtime.GC()，这是阻塞式的</li>
+</ol>
 <h3 id="参考内容"><a href="#参考内容" class="headerlink" title="参考内容"></a>参考内容</h3><ol>
 <li><a href="https://mp.weixin.qq.com/s/fsF8TdxD1ryhhXrYk0laQw" target="_blank" rel="external">计算机体系 – 垃圾收集器</a></li>
 <li><a href="https://lengzzz.com/note/gc-in-golang" target="_blank" rel="external">golang 垃圾回收机制</a></li>
+<li><a href="http://legendtkl.com/2017/04/28/golang-gc/" target="_blank" rel="external">Golang 垃圾回收剖析</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Garbage_collection_(computer_science" target="_blank" rel="external">Garbage_collection wiki</a>)</li>
 </ol>
 
 
@@ -294,7 +307,9 @@
                 <ul class="list-inline">
 
                     
-                        <li><a href="http://blog.kaijun.rocks" target="_blank">Kaijun&#39;s Blog</a></li>
+                        <li><a href="http://www.zenlife.tk/" target="_blank">tiancaiamao</a></li>
+                    
+                        <li><a href="http://legendtkl.com/" target="_blank">Tao Kelu</a></li>
                     
                 </ul>
                 

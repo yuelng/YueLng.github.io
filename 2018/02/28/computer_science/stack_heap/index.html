@@ -96,14 +96,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -198,7 +198,27 @@
                 post-container">
 
                 <p>堆和栈基本形式<br>golang中的内存分配 基于tcmalloc内存分配器</p>
-<h3 id="栈与指针"><a href="#栈与指针" class="headerlink" title="栈与指针"></a>栈与指针</h3><h3 id="参考内容"><a href="#参考内容" class="headerlink" title="参考内容"></a>参考内容</h3><p><a href="https://mp.weixin.qq.com/s/_m7WgJEF-MPL5aVzelOymQ" target="_blank" rel="external">计算机体系 – 栈与堆</a><br><a href="https://engineers.sg/video/go-concurrency-live-gophercon-sg-2017--1746" target="_blank" rel="external">Escape Analysis and Memory Profiling - GopherCon SG 2017</a><br><a href="https://studygolang.com/articles/12443" target="_blank" rel="external">Go语言机制之栈和指针</a><br><a href="https://studygolang.com/articles/12444" target="_blank" rel="external">Go语言机制之逃逸分析</a><br><a href="https://studygolang.com/articles/12445" target="_blank" rel="external">Go 语言机制之内存剖析</a><br><a href="https://www.ardanlabs.com/blog/2017/06/design-philosophy-on-data-and-semantics.html" target="_blank" rel="external">Design Philosophy On Data And Semantics</a></p>
+<h3 id="栈与指针"><a href="#栈与指针" class="headerlink" title="栈与指针"></a>栈与指针</h3><h3 id="Go逃逸分析"><a href="#Go逃逸分析" class="headerlink" title="Go逃逸分析"></a>Go逃逸分析</h3><p>Golang编译器在决定变量应该分配到堆上还是栈上的过程称为逃逸分析。</p>
+<blockquote>
+<p>From a correctness standpoint, you don’t need to know. Each variable in Go exists as long as there are references to it. The storage location chosen by the implementation is irrelevant to the semantics of the language.</p>
+<p>The storage location does have an effect on writing efficient programs. When possible, the Go compilers will allocate variables that are local to a function in that function’s stack frame. However, if the compiler cannot prove that the variable is not referenced after the function returns, then the compiler must allocate the variable on the garbage-collected heap to avoid dangling pointer errors. Also, if a local variable is very large, it might make more sense to store it on the heap rather than the stack.</p>
+<p>In the current compilers, if a variable has its address taken, that variable is a candidate for allocation on the heap. However, a basic escape analysis recognizes some cases when such variables will not live past the return from the function and can reside on the stack.</p>
+</blockquote>
+<h3 id="Go内存模型"><a href="#Go内存模型" class="headerlink" title="Go内存模型"></a>Go内存模型</h3><p>可以将其看成多级内存分配器</p>
+<ul>
+<li>mcache: per-P cache，可以认为是 local cache。</li>
+<li>mcentral: 全局 cache，mcache 不够用的时候向 mcentral 申请。</li>
+<li>mheap: 当 mcentral 也不够用的时候，通过 mheap 向操作系统申请。</li>
+</ul>
+<h3 id="内存分配流程"><a href="#内存分配流程" class="headerlink" title="内存分配流程"></a>内存分配流程</h3><ol>
+<li>object size &gt; 32K，则使用 mheap 直接分配。</li>
+<li>object size &lt; 16 byte，使用 mcache 的小对象分配器 tiny 直接分配。 （其实 tiny 就是一个指针，暂且这么说吧。）</li>
+<li>object size &gt; 16 byte &amp;&amp; size &lt;=32K byte 时，先使用 mcache 中对应的 size class 分配。</li>
+<li>如果 mcache 对应的 size class 的 span 已经没有可用的块，则向 mcentral 请求。</li>
+<li>如果 mcentral 也没有可用的块，则向 mheap 申请，并切分。</li>
+<li>如果 mheap 也没有合适的 span，则想操作系统申请。</li>
+</ol>
+<h3 id="参考内容"><a href="#参考内容" class="headerlink" title="参考内容"></a>参考内容</h3><p><a href="https://mp.weixin.qq.com/s/_m7WgJEF-MPL5aVzelOymQ" target="_blank" rel="external">计算机体系 – 栈与堆</a><br><a href="https://engineers.sg/video/go-concurrency-live-gophercon-sg-2017--1746" target="_blank" rel="external">Escape Analysis and Memory Profiling - GopherCon SG 2017</a><br><a href="https://studygolang.com/articles/12443" target="_blank" rel="external">Go语言机制之栈和指针</a><br><a href="https://studygolang.com/articles/12444" target="_blank" rel="external">Go语言机制之逃逸分析</a><br><a href="https://studygolang.com/articles/12445" target="_blank" rel="external">Go 语言机制之内存剖析</a><br><a href="https://www.ardanlabs.com/blog/2017/06/design-philosophy-on-data-and-semantics.html" target="_blank" rel="external">Design Philosophy On Data And Semantics</a><br><a href="http://legendtkl.com/2017/04/02/golang-alloc/" target="_blank" rel="external">Golang 内存管理</a></p>
 
 
                 <hr>
@@ -273,7 +293,9 @@
                 <ul class="list-inline">
 
                     
-                        <li><a href="http://blog.kaijun.rocks" target="_blank">Kaijun&#39;s Blog</a></li>
+                        <li><a href="http://www.zenlife.tk/" target="_blank">tiancaiamao</a></li>
+                    
+                        <li><a href="http://legendtkl.com/" target="_blank">Tao Kelu</a></li>
                     
                 </ul>
                 

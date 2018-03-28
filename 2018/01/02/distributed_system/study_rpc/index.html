@@ -96,14 +96,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -197,12 +197,11 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>如果说把一个网站分为三个部分，经典的MVC设计模式，后台分布式实现就是控制层，模块的服务化全都依赖于rpc框架，从阿里的dubbo、Hadoop等，这些大数据框架都有了广泛的应用，本文是个人学习rpc过程中的一些资料积累和个人想法。 </p>
-<h2 id="RPC调用分类"><a href="#RPC调用分类" class="headerlink" title="RPC调用分类"></a>RPC调用分类</h2><ol>
+                <h2 id="RPC调用分类"><a href="#RPC调用分类" class="headerlink" title="RPC调用分类"></a>RPC调用分类</h2><ol>
 <li>同步调用<br>客户方等待调用执行完成并返回结果。</li>
 <li>异步调用<br>客户方调用后不用等待执行结果返回，但依然可以通过回调通知等方式获取返回结果。 若客户方不关心调用返回结果，则变成单向异步调用，单向调用不用返回结果。</li>
 </ol>
-<h2 id="RPC的基本原理"><a href="#RPC的基本原理" class="headerlink" title="RPC的基本原理"></a>RPC的基本原理</h2><p>client 发起调用，框架拦截调用信息，序列化，传输，server端收到调用信息，反序列化，根据调用信息发起实际调用获取结果，再原路返回。</p>
+<h2 id="RPC的基本原理"><a href="#RPC的基本原理" class="headerlink" title="RPC的基本原理"></a>RPC的基本原理</h2><p>client 发起调用，框架拦截调用信息，序列化，传输，server端收到调用信息，反序列化，根据调用信息发起实际调用获取结果，再原路返回。简化跨机器跨进程的服务调用,</p>
 <a id="more"></a>
 <h2 id="RPC问题定义"><a href="#RPC问题定义" class="headerlink" title="RPC问题定义"></a>RPC问题定义</h2><p>比如说，一个方法可能是这样定义的：<br>Employee getEmployeeByName(String fullName)<br>那么：</p>
 <ul>
@@ -303,7 +302,9 @@
                 <ul class="list-inline">
 
                     
-                        <li><a href="http://blog.kaijun.rocks" target="_blank">Kaijun&#39;s Blog</a></li>
+                        <li><a href="http://www.zenlife.tk/" target="_blank">tiancaiamao</a></li>
+                    
+                        <li><a href="http://legendtkl.com/" target="_blank">Tao Kelu</a></li>
                     
                 </ul>
                 

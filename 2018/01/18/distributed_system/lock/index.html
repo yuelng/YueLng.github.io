@@ -96,14 +96,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -200,6 +200,11 @@
                 <blockquote>
 <p>In computer science, a lock or mutex (from mutual exclusion) is a synchronization mechanism for enforcing limits on access to a resource in an environment where there are many threads of execution. A lock is designed to enforce a mutual exclusion concurrency control policy.</p>
 </blockquote>
+<h4 id="操作系统的锁"><a href="#操作系统的锁" class="headerlink" title="操作系统的锁"></a>操作系统的锁</h4><ul>
+<li>硬件：对于单处理器而言，临界区问题好解决：修改共享变量时禁止中断出现。对于多处理器需要计算机系统提供特殊硬件指令以允许能原子地（不可中断地）检查和修改字的内容或交换两个字的内容（比如CAS，compare and swap）</li>
+<li>软件：信号量，一个信号量可以为0（没有保存下来的唤醒次数）或者为正值（表示一个或多个唤醒操作），每个信号量关联一个等待进程列表，如果wait时发现信号量不为正则选择忙等，或者阻塞，进程加入到等待链表，signal()时从等待链表取出进程唤醒。</li>
+<li>锁的种类：互斥所、自旋锁、读写锁（无模式、读模式、写模式）</li>
+</ul>
 <h4 id="Chubby"><a href="#Chubby" class="headerlink" title="Chubby"></a>Chubby</h4><p>分布式锁包含三个基本问题，分别是一致性协议、分布式锁的实现、分布式锁的使用</p>
 <ul>
 <li>一致性协议：chubby采用有强主的Multi-Paxos，参考<a href="http://140.123.102.14:8080/reportSys/file/paper/lei/lei_5_paper.pdf" target="_blank" rel="external">Paxos Made Simple</a></li>
@@ -213,7 +218,7 @@
 <li>使用时间来确定一致性是不科学的，分布式算法不应该依赖任何时间，做任何时间假设</li>
 </ul>
 <p><img src="http://ogcxtlv6r.bkt.clouddn.com/18-1-17/95654560.jpg">&gt;<br>分布式锁是有租期的,某服务在获取分布式锁之后，进行操作，然后这操作耗时大于锁的过期时间，如果执行操作不知道自己已经过期，就会引起相应的问题。<br>是获得分布式锁的同时是否需要加入特定的机制，如果未在过期时间内完成操作，则将整个过程置为失败</p>
-<h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><p><a href="http://zhangtielei.com/posts/blog-redlock-reasoning.html" target="_blank" rel="external">基于Redis的分布式锁到底安全吗（上）</a><br><a href="https://xilidou.com/2017/10/23/Redis%E5%AE%9E%E7%8E%B0%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/" target="_blank" rel="external">Redis实现分布式锁</a><br><a href="https://xilidou.com/2017/10/29/Redis-RedLock-%E5%AE%8C%E7%BE%8E%E7%9A%84%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E4%B9%88%EF%BC%9F/" target="_blank" rel="external">Redis RedLock 完美的分布式锁么？</a><br><a href="http://ifeve.com/redis-lock/" target="_blank" rel="external">用redis构建分布式锁</a><br><a href="https://github.com/go-redsync/redsync" target="_blank" rel="external">golang实现redis分布式锁-GitHub</a><br><a href="https://github.com/DavidCai1993/etcd-lock" target="_blank" rel="external">etcd-lock</a><br><a href="https://github.com/gdm85/distrilock" target="_blank" rel="external">distrilock</a><br><a href="http://catkang.github.io/2017/09/29/chubby.html" target="_blank" rel="external">Chubby的锁服务</a></p>
+<h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><p><a href="https://en.wikipedia.org/wiki/Lock_(computer_science" target="_blank" rel="external">lock wikipedia</a><br><a href="http://zhangtielei.com/posts/blog-redlock-reasoning.html" target="_blank" rel="external">基于Redis的分布式锁到底安全吗（上）</a><br><a href="https://xilidou.com/2017/10/23/Redis%E5%AE%9E%E7%8E%B0%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/" target="_blank" rel="external">Redis实现分布式锁</a><br><a href="https://xilidou.com/2017/10/29/Redis-RedLock-%E5%AE%8C%E7%BE%8E%E7%9A%84%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E4%B9%88%EF%BC%9F/" target="_blank" rel="external">Redis RedLock 完美的分布式锁么？</a><br><a href="http://ifeve.com/redis-lock/" target="_blank" rel="external">用redis构建分布式锁</a><br><a href="https://github.com/go-redsync/redsync" target="_blank" rel="external">golang实现redis分布式锁-GitHub</a><br><a href="https://github.com/DavidCai1993/etcd-lock" target="_blank" rel="external">etcd-lock</a><br><a href="https://github.com/gdm85/distrilock" target="_blank" rel="external">distrilock</a><br><a href="http://catkang.github.io/2017/09/29/chubby.html" target="_blank" rel="external">Chubby的锁服务</a></p>
 
 
                 <hr>
@@ -228,7 +233,7 @@
                     
                     
                         <li class="next">
-                            <a href="/2018/01/18/devops/study_environment/" data-toggle="tooltip" data-placement="top" title="基础服务环境搭建">Next Post &rarr;</a>
+                            <a href="/2018/01/18/database/lock/" data-toggle="tooltip" data-placement="top" title="数据库加锁分析">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -288,7 +293,9 @@
                 <ul class="list-inline">
 
                     
-                        <li><a href="http://blog.kaijun.rocks" target="_blank">Kaijun&#39;s Blog</a></li>
+                        <li><a href="http://www.zenlife.tk/" target="_blank">tiancaiamao</a></li>
+                    
+                        <li><a href="http://legendtkl.com/" target="_blank">Tao Kelu</a></li>
                     
                 </ul>
                 

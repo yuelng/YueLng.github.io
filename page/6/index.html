@@ -96,14 +96,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -304,10 +304,11 @@ QPS（TPS）：每秒钟 request/事务 数量，在互联网领域，指每秒�
             
         </h3>
         <div class="post-content-preview">
-            如果说把一个网站分为三个部分，经典的MVC设计模式，后台分布式实现就是控制层，模块的服务化全都依赖于rpc框架，从阿里的dubbo、Hadoop等，这些大数据框架都有了广泛的应用，本文是个人学习rpc过程中的一些资料积累和个人想法。 
-RPC调用分类
+            RPC调用分类
 同步调用客户方等待调用执行完成并返回结果。
-异步调用客户方调用后不用等待执行结果返回，但依然可以通过回调通知等方式获取返回结果。 若客户方不关......
+异步调用客户方调用后不用等待执行结果返回，但依然可以通过回调通知等方式获取返回结果。 若客户方不关心调用返回结果，则变成单向异步调用，单向调用不用返回结果。
+
+RPC的基本原理client 发起调用，框架拦截调用信息，序列化，传输，server端收到调用信息，反序列化，根据调用信息发起实际调用获取结果，再原路返回。简化跨机器跨进程的......
         </div>
     </a>
     <p class="post-meta">
@@ -475,17 +476,7 @@ sql.Result表示结果集，sql.Rows表示查询返回多行数据的结果集�
                             
                         
                             
-                            <a href="/tags/#coding" title="coding" rel="2">coding</a>
-                            
-                        
-                            
                             <a href="/tags/#computer_science" title="computer_science" rel="9">computer_science</a>
-                            
-                        
-                            
-                        
-                            
-                            <a href="/tags/#distribution_system" title="distribution_system" rel="5">distribution_system</a>
                             
                         
                             
@@ -493,7 +484,11 @@ sql.Result表示结果集，sql.Rows表示查询返回多行数据的结果集�
                             
                         
                             
-                            <a href="/tags/#devops" title="devops" rel="5">devops</a>
+                            <a href="/tags/#distribution_system" title="distribution_system" rel="5">distribution_system</a>
+                            
+                        
+                            
+                            <a href="/tags/#coding" title="coding" rel="2">coding</a>
                             
                         
                             
@@ -501,7 +496,7 @@ sql.Result表示结果集，sql.Rows表示查询返回多行数据的结果集�
                             
                         
                             
-                            <a href="/tags/#financial" title="financial" rel="5">financial</a>
+                            <a href="/tags/#devops" title="devops" rel="5">devops</a>
                             
                         
                             
@@ -513,23 +508,21 @@ sql.Result表示结果集，sql.Rows表示查询返回多行数据的结果集�
                             
                         
                             
-                            <a href="/tags/#life_is_short" title="life_is_short" rel="5">life_is_short</a>
-                            
-                        
-                            
-                            <a href="/tags/#project" title="project" rel="8">project</a>
-                            
-                        
-                            
                             <a href="/tags/#product" title="product" rel="5">product</a>
                             
                         
                             
-                            <a href="/tags/#reading" title="reading" rel="2">reading</a>
+                            <a href="/tags/#surrounding" title="surrounding" rel="9">surrounding</a>
                             
                         
                             
-                            <a href="/tags/#surrounding" title="surrounding" rel="9">surrounding</a>
+                            <a href="/tags/#financial" title="financial" rel="5">financial</a>
+                            
+                        
+                            
+                        
+                            
+                            <a href="/tags/#reading" title="reading" rel="2">reading</a>
                             
                         
                             
@@ -542,6 +535,14 @@ sql.Result表示结果集，sql.Rows表示查询返回多行数据的结果集�
                         
                             
                             <a href="/tags/#thinking" title="thinking" rel="9">thinking</a>
+                            
+                        
+                            
+                            <a href="/tags/#project" title="project" rel="8">project</a>
+                            
+                        
+                            
+                            <a href="/tags/#life_is_short" title="life_is_short" rel="5">life_is_short</a>
                             
                         
                     </div>
@@ -622,7 +623,9 @@ sql.Result表示结果集，sql.Rows表示查询返回多行数据的结果集�
                 <ul class="list-inline">
 
                     
-                        <li><a href="http://blog.kaijun.rocks" target="_blank">Kaijun&#39;s Blog</a></li>
+                        <li><a href="http://www.zenlife.tk/" target="_blank">tiancaiamao</a></li>
+                    
+                        <li><a href="http://legendtkl.com/" target="_blank">Tao Kelu</a></li>
                     
                 </ul>
                 
