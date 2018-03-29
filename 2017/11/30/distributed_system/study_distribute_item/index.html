@@ -197,24 +197,18 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h2 id="CAP-理论"><a href="#CAP-理论" class="headerlink" title="CAP 理论"></a>CAP 理论</h2><p><img src="http://ogcxtlv6r.bkt.clouddn.com/18-3-26/77510384.jpg"></p>
+                <h3 id="CAP-理论"><a href="#CAP-理论" class="headerlink" title="CAP 理论"></a>CAP 理论</h3><p><img src="http://ogcxtlv6r.bkt.clouddn.com/18-3-26/77510384.jpg"></p>
 <ul>
 <li>Consistency：所有客户端看到的同样的数据。这里所说的 consistency，是指 atomic consistency (linearizability)。</li>
 <li>Availability：每个客户端任何时候都可以读写。</li>
 <li>Partition tolerance：当网络出现 partition（split brain）时，系统仍旧可以工作。换句话说，为了能够支持 Partition tolerance，系统需要能够容忍任意多的消息的丢失。</li>
 </ul>
-<h2 id="The-Twelve-Factor-App"><a href="#The-Twelve-Factor-App" class="headerlink" title="The Twelve Factor App"></a>The Twelve Factor App</h2><p><a href="https://12factor.net/zh_cn/" target="_blank" rel="external">The Twelve Factor App</a><br>网关聚合服务 提供restful接口<br>grpc 内网调用<br>服务发现，使用etcd自动服务注册<br>服务配置，使用etcd存储配置<br>服务快速部署<br>服务logging记录<br>服务调用链的追踪<br>服务质量的监控，响应时间<br>缓存的应用</p>
-<h2 id="典型架构"><a href="#典型架构" class="headerlink" title="典型架构"></a>典型架构</h2><p>缓存、消息、搜索<br>Nginx+Tornado+mysql+python<br>Nginx+rest.li+redis+mysql+python+RPC(Thrift)+Zookeeper+Notification Queue</p>
-<ul>
-<li>nginx负载均衡的标配</li>
-<li>rest.li一个restful服务框架，表示前端所有数据从这里交互</li>
-<li>redis可以缓存数据，分布式，mysql数据的持久化</li>
-<li>Python作为主要逻辑层处理</li>
-<li>thrift rpc内部通讯</li>
-<li>zookeeper主要用来查询内部服务地址。<br><img src="/img/uber.png"></li>
-</ul>
-<a id="more"></a>
-<h2 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h2><p>总体而言设计思想是SOA,Public/Private APIs 用 RESTful，不同的service独立性很高。<br>CAP，一致性，可用性，可靠性，一般取后两者。<br>优化架构</p>
+<p>例如：A节点存储x=5,之后A节点离开集群，在它离开后x=10，在重新加入集群后，当有请求A节点的X值，A节点可以选择回应或者不回应，如果选择回应则就是(Available)，如果不选择不回应则就是选择(Consistent)</p>
+<h3 id="Eventual-Consistency"><a href="#Eventual-Consistency" class="headerlink" title="Eventual Consistency"></a>Eventual Consistency</h3><p>分布式数据库必须要有 分区容忍性(Partition Tolerant)，所以主要是在 一致性(Consistent) 和 可用性(Available) 之间做选择。 虽然在 CAP 理论中，选择了 Availability 就不可能得到真正的 Consistency，但是你可以追求 最终一致性(Evental Consistency)</p>
+<p>evental Consistency 背后的思路是：每个系统节点总是 Available 的，同时任何的写(修改数据)操作都会在后台同步给系统的其他节点。 这意味着，在任意时刻，整个系统是Inconsistent(不一致的)，然而从概率上讲，大多数的请求得到的值是准确的。</p>
+<p>互联网的 DNS(域名服务) 就是最终一致性的一个非常好的例子。你注册了一个域名， 这个新域名需要几天的时间才能通知给所有的 DNS 服务器。但是不管什么时候，你能够连接到的任意 DNS 服务器对你来说都是 ‘Available’ 的。</p>
+<h3 id="The-Twelve-Factor-App"><a href="#The-Twelve-Factor-App" class="headerlink" title="The Twelve Factor App"></a>The Twelve Factor App</h3><p><a href="https://12factor.net/zh_cn/" target="_blank" rel="external">The Twelve Factor App</a><br>网关聚合服务 提供restful接口<br>grpc 内网调用<br>服务发现，使用etcd自动服务注册<br>服务配置，使用etcd存储配置<br>服务快速部署<br>服务logging记录<br>服务调用链的追踪<br>服务质量的监控，响应时间<br>缓存的应用</p>
+<h3 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h3><p>总体而言设计思想是SOA,Public/Private APIs 用 RESTful，不同的service独立性很高。<br>CAP，一致性，可用性，可靠性，一般取后两者。<br>优化架构</p>
 <ul>
 <li>数据存储，活跃数据与非活跃数据</li>
 <li>索引，lucene或者solr</li>
@@ -226,7 +220,7 @@
 <li>安全，严格控制内部权限。</li>
 <li>The log</li>
 </ul>
-<h2 id="消息队列"><a href="#消息队列" class="headerlink" title="消息队列"></a>消息队列</h2><p>消息队列的几个优势</p>
+<h3 id="消息队列"><a href="#消息队列" class="headerlink" title="消息队列"></a>消息队列</h3><p>消息队列的几个优势</p>
 <ol>
 <li>解耦，允许独立扩展或修改两边的处理过程</li>
 <li>冗余，插入-获取-删除，只有确定数据被处理，才会将数据从队列中移除</li>
@@ -239,24 +233,25 @@
 <li>理解数据流</li>
 <li>异步通信</li>
 </ol>
-<h2 id="数据科学"><a href="#数据科学" class="headerlink" title="数据科学"></a>数据科学</h2><p>Flume + Kafka + Strom + Hbase </p>
+<h3 id="数据科学"><a href="#数据科学" class="headerlink" title="数据科学"></a>数据科学</h3><p>Flume + Kafka + Strom + Hbase </p>
 <ul>
 <li>挖掘和理解用户的商业需求，通过产品创新和数据分析，促进产品成长； </li>
 <li>海量日志的处理与分析经验； </li>
 <li>数据分析系统架构搭建经验； </li>
 <li>前端、后端、服务器、产品经验</li>
 </ul>
-<h2 id="网络编程"><a href="#网络编程" class="headerlink" title="网络编程"></a>网络编程</h2><ul>
+<h3 id="网络编程"><a href="#网络编程" class="headerlink" title="网络编程"></a>网络编程</h3><ul>
 <li>redis 是单线程异步网络编程的范例，带注释的redis：huangz1990/annotated_redis_source · GitHub</li>
 <li>nginx 多进程网络编程的巅峰，模块化</li>
 <li>memcached 虽然是C++，但是C style的，多线程网络编程的巅峰</li>
 <li>熟悉和理解异步开发框架或模型</li>
 </ul>
-<h2 id="RPC"><a href="#RPC" class="headerlink" title="RPC"></a>RPC</h2><p>RPC通讯框架Thrift</p>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<h3 id="RPC"><a href="#RPC" class="headerlink" title="RPC"></a>RPC</h3><p>RPC通讯框架Thrift</p>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ul>
 <li><a href="http://blog.jobbole.com/88301/" target="_blank" rel="external">学习笔记：The Log（我所读过的最好的一篇分布式技术文章）</a>kafka, log, 分布式, 数据库</li>
 <li><a href="http://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying" target="_blank" rel="external">log：每个工程师都应该知道实时数据的统一抽象</a>源文，出自LinkedIn</li>
 <li><a href="https://mp.weixin.qq.com/s/J11Us4RE37fthUxsoDzW5Q" target="_blank" rel="external">陈天-谈谈分布式系统</a></li>
+<li><a href="https://github.com/free-storm/freestorm.org/blob/master/source/2015-04-23-Eventual-Consistency(%E6%9C%80%E7%BB%88%E4%B8%80%E8%87%B4%E6%80%A7" target="_blank" rel="external">Eventual Consistency</a>.html.md)</li>
 </ul>
 
 
