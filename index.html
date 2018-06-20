@@ -190,6 +190,30 @@
 
 <div class="post-preview">
 
+    <a href="/2018/06/20/database/rust_kv/">
+        <h2 class="post-title">
+            使用 Rust 构建分布式 Key-Value Store
+        </h2>
+        <h3 class="post-subtitle">
+             "kv 系统"
+        </h3>
+        <div class="post-content-preview">
+            引子构建一个分布式 Key-Value Store 并不是一件容易的事情，我们需要考虑很多的问题，首先就是我们的系统到底需要提供什么样的功能，譬如：
+
+一致性：我们是否需要保证整个系统的线性一致性，还是能容忍短时间的数据不一致，只支持最终一致性。
+稳定性：我们能否保证系统 7 x 24 小时稳定运行。系统的可用性是 4 个 9，还有 5 个 9？如果出现了机器损坏等灾难情况，系统能否做的自动......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by pingCAP on
+        2018-06-20
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/2018/03/27/database/distributed/">
         <h2 class="post-title">
             怎样打造一个分布式数据库
@@ -407,29 +431,6 @@ From a correctness standpoint, you don’t need to know. Each variable in Go exi
 </div>
 <hr>
 
-<div class="post-preview">
-
-    <a href="/2018/02/28/language/golang_runtime/">
-        <h2 class="post-title">
-            golang Runtime底层学习
-        </h2>
-        <h3 class="post-subtitle">
-            runtime
-        </h3>
-        <div class="post-content-preview">
-            导读引入这个系列深入剖析 Runtime 三大组件，内存分配器、垃圾回收器、Goroutine 调度。
-内容介绍现在用几句话概括这个系列的内容。
-内存管理涉及两个核心问题，第一是快速分配，第二是适可而止。Go 语言基于 tcmalloc 实现的内存分配器，tcmalloc 就是 Google 开发的快速内存分配器，它本身就是基于并发设计的，目的是找到相对比较好的平衡，既有很高的性能同时内存消......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2018-02-28
-    </p>
-
-</div>
-<hr>
-
 
 
 <!-- Pager -->
@@ -465,11 +466,11 @@ From a correctness standpoint, you don’t need to know. Each variable in Go exi
                     <div class="tags">
                         
                             
-                            <a href="/tags/#collection" title="collection" rel="5">collection</a>
+                            <a href="/tags/#coding" title="coding" rel="2">coding</a>
                             
                         
                             
-                            <a href="/tags/#coding" title="coding" rel="2">coding</a>
+                            <a href="/tags/#collection" title="collection" rel="5">collection</a>
                             
                         
                             
@@ -477,11 +478,11 @@ From a correctness standpoint, you don’t need to know. Each variable in Go exi
                             
                         
                             
-                            <a href="/tags/#distribution_system" title="distribution_system" rel="5">distribution_system</a>
+                            <a href="/tags/#database" title="database" rel="6">database</a>
                             
                         
                             
-                            <a href="/tags/#database" title="database" rel="6">database</a>
+                            <a href="/tags/#distribution_system" title="distribution_system" rel="6">distribution_system</a>
                             
                         
                             
@@ -495,10 +496,6 @@ From a correctness standpoint, you don’t need to know. Each variable in Go exi
                             
                         
                             
-                            <a href="/tags/#distributed_system" title="distributed_system" rel="11">distributed_system</a>
-                            
-                        
-                            
                             <a href="/tags/#framework" title="framework" rel="3">framework</a>
                             
                         
@@ -507,7 +504,15 @@ From a correctness standpoint, you don’t need to know. Each variable in Go exi
                             
                         
                             
+                            <a href="/tags/#distributed_system" title="distributed_system" rel="11">distributed_system</a>
+                            
+                        
+                            
                             <a href="/tags/#life_is_short" title="life_is_short" rel="5">life_is_short</a>
+                            
+                        
+                            
+                            <a href="/tags/#thinking" title="thinking" rel="9">thinking</a>
                             
                         
                             
@@ -515,11 +520,11 @@ From a correctness standpoint, you don’t need to know. Each variable in Go exi
                             
                         
                             
-                            <a href="/tags/#project" title="project" rel="8">project</a>
+                            <a href="/tags/#system_design" title="system_design" rel="5">system_design</a>
                             
                         
                             
-                            <a href="/tags/#thinking" title="thinking" rel="9">thinking</a>
+                            <a href="/tags/#project" title="project" rel="8">project</a>
                             
                         
                             
@@ -528,10 +533,6 @@ From a correctness standpoint, you don’t need to know. Each variable in Go exi
                         
                             
                             <a href="/tags/#reading" title="reading" rel="2">reading</a>
-                            
-                        
-                            
-                            <a href="/tags/#system_design" title="system_design" rel="5">system_design</a>
                             
                         
                             

@@ -190,18 +190,16 @@
 
 <div class="post-preview">
 
-    <a href="/2018/01/18/database/lock/">
+    <a href="/2018/01/18/distributed_system/lock/">
         <h2 class="post-title">
-            数据库加锁分析
+            分布式锁的实现
         </h2>
         <h3 class="post-subtitle">
-             "dead lock"
+             "distributed lock"
         </h3>
         <div class="post-content-preview">
-            数据库事务ACID
-原子性(Atomicity): 一个事务必须被视为一个不可分割的最小工作单元，事务中的操作要么全部执行成功，要么全部失败会滚，不可能只执行其中的一部分。
-一致性(consistency) 数据库总是要从一个一致的状态转换到另一个一致的状态。需要确保当从A减去100时若系统崩溃，账户不会损失100元。
-隔离性(isolation)通常来说，一个事务在最终提交前对其他事务是不......
+            
+In computer science, a lock or mutex (from mutual exclusion) is a synchronization mechanism for enforcing limits on access to a resource in an environment where there are many threads of execution......
         </div>
     </a>
     <p class="post-meta">
@@ -232,6 +230,30 @@ storm集群搭建一些架构可行的架构：Flume + Kafka + Strom + Hbase 使
     </a>
     <p class="post-meta">
         Posted by YueLng Chen on
+        2018-01-18
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2018/01/18/database/lock/">
+        <h2 class="post-title">
+            数据库加锁分析
+        </h2>
+        <h3 class="post-subtitle">
+             "dead lock"
+        </h3>
+        <div class="post-content-preview">
+            数据库事务ACID
+原子性(Atomicity): 一个事务必须被视为一个不可分割的最小工作单元，事务中的操作要么全部执行成功，要么全部失败会滚，不可能只执行其中的一部分。
+一致性(consistency) 数据库总是要从一个一致的状态转换到另一个一致的状态。需要确保当从A减去100时若系统崩溃，账户不会损失100元。
+隔离性(isolation)通常来说，一个事务在最终提交前对其他事务是不......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
         2018-01-18
     </p>
 
@@ -402,31 +424,6 @@ https://distill.pub/What are the best, insightful blogs about data, including ho
 </div>
 <hr>
 
-<div class="post-preview">
-
-    <a href="/2018/01/17/surrounding/encoding/">
-        <h2 class="post-title">
-            编码
-        </h2>
-        <h3 class="post-subtitle">
-             "encoding"
-        </h3>
-        <div class="post-content-preview">
-            Google Protocol Buffer 3protocol buffer3这个版本(被称为proto3)是原有Protocol Buffer 2(被称为proto2)
-
-简化语言，使其容易使用并可以用于更大的编程语言范围
-Java, c++, Python, Javanano，Ruby，Objective-C, 和 C# Go
-增加对Android iOS 系统的支持 基于HTTP/2......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2018-01-17
-    </p>
-
-</div>
-<hr>
-
 
 
 <!-- Pager -->
@@ -466,11 +463,11 @@ Java, c++, Python, Javanano，Ruby，Objective-C, 和 C# Go
                     <div class="tags">
                         
                             
-                            <a href="/tags/#collection" title="collection" rel="5">collection</a>
+                            <a href="/tags/#coding" title="coding" rel="2">coding</a>
                             
                         
                             
-                            <a href="/tags/#coding" title="coding" rel="2">coding</a>
+                            <a href="/tags/#collection" title="collection" rel="5">collection</a>
                             
                         
                             
@@ -478,11 +475,11 @@ Java, c++, Python, Javanano，Ruby，Objective-C, 和 C# Go
                             
                         
                             
-                            <a href="/tags/#distribution_system" title="distribution_system" rel="5">distribution_system</a>
+                            <a href="/tags/#database" title="database" rel="6">database</a>
                             
                         
                             
-                            <a href="/tags/#database" title="database" rel="6">database</a>
+                            <a href="/tags/#distribution_system" title="distribution_system" rel="6">distribution_system</a>
                             
                         
                             
@@ -496,10 +493,6 @@ Java, c++, Python, Javanano，Ruby，Objective-C, 和 C# Go
                             
                         
                             
-                            <a href="/tags/#distributed_system" title="distributed_system" rel="11">distributed_system</a>
-                            
-                        
-                            
                             <a href="/tags/#framework" title="framework" rel="3">framework</a>
                             
                         
@@ -508,7 +501,15 @@ Java, c++, Python, Javanano，Ruby，Objective-C, 和 C# Go
                             
                         
                             
+                            <a href="/tags/#distributed_system" title="distributed_system" rel="11">distributed_system</a>
+                            
+                        
+                            
                             <a href="/tags/#life_is_short" title="life_is_short" rel="5">life_is_short</a>
+                            
+                        
+                            
+                            <a href="/tags/#thinking" title="thinking" rel="9">thinking</a>
                             
                         
                             
@@ -516,11 +517,11 @@ Java, c++, Python, Javanano，Ruby，Objective-C, 和 C# Go
                             
                         
                             
-                            <a href="/tags/#project" title="project" rel="8">project</a>
+                            <a href="/tags/#system_design" title="system_design" rel="5">system_design</a>
                             
                         
                             
-                            <a href="/tags/#thinking" title="thinking" rel="9">thinking</a>
+                            <a href="/tags/#project" title="project" rel="8">project</a>
                             
                         
                             
@@ -529,10 +530,6 @@ Java, c++, Python, Javanano，Ruby，Objective-C, 和 C# Go
                         
                             
                             <a href="/tags/#reading" title="reading" rel="2">reading</a>
-                            
-                        
-                            
-                            <a href="/tags/#system_design" title="system_design" rel="5">system_design</a>
                             
                         
                             

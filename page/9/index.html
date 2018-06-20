@@ -190,6 +190,30 @@
 
 <div class="post-preview">
 
+    <a href="/2017/04/28/devops/hackintosh/">
+        <h2 class="post-title">
+            安装Hackintosh
+        </h2>
+        <h3 class="post-subtitle">
+             "使用unibeast安装黑苹果"
+        </h3>
+        <div class="post-content-preview">
+            
+“硬件选好了，安装都是很容易的”
+
+Hackintosh简介与法律问题Hackintosh是在非苹果硬件上安装运行苹果系统MacOS。这个名字还有一个官方的名字-OSx86，Wikipedia是这样介绍的，OSx86是把苹果公司出品的macOS操作系统在x86架构的非苹果电脑上运行的黑客协作计划，OSx86名字源于macOS系统的原名“OS X”与英特尔处理器架构名“x86”。关于安装黑苹......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2017-04-28
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/2017/03/30/devops/deploy_kubernetes/">
         <h2 class="post-title">
             Golang微服务部署在kubernetes
@@ -202,6 +226,63 @@
 “What I cannot create, I do not understand. – Richard Feynman”
 
 微服务部署是一个难题，包括了一系列开发中的实际问题。例如是否将所有微服务代码放在一个git仓库还是分git仓库，是否需要公共代码（这里的公共代码指的是与业务逻辑无关在任何项目中都可以即开即用的脚手架代码），部署方式是否使用jenkins自动化部署还是自己写个脚本，......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2017-03-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/03/30/computer_science/algorithm/">
+        <h2 class="post-title">
+            算法
+        </h2>
+        <h3 class="post-subtitle">
+             "算法"
+        </h3>
+        <div class="post-content-preview">
+            
+
+穷举=树型搜索
+递归=树型搜索+剪枝
+动态规划=树型搜索+剪枝+节点合并
+因此算法效率：动态规划&gt;递归&gt;穷举。
+
+
+
+递归与分治策略
+一个直接或间接地调用自身的算法称为递归算法。
+分治算法的模式如下：
+12345678910Divide_and_Conquer(P)&#123;    if(|P|&lt;=n0)    Adhoc(P);//Adhoc(P)是基本子算法   ......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2017-03-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/03/30/framework/tornado/">
+        <h2 class="post-title">
+            Tornado Pyhton web框架介绍
+        </h2>
+        <h3 class="post-subtitle">
+             "tornado为何这么快"
+        </h3>
+        <div class="post-content-preview">
+            ##Tornado直接读代码
+简介FriendFeed使用了一款使用Python编写的，相对简单的非阻塞式Web服务器。它的特点在于非阻塞服务器和epoll的运用，这个Web框架还包含了一些相关的有用工具和优化。
+以下是经典的“Hello, world”示例：
+123456789101112131415import tornado.ioloopimport tornado.webclass ......
         </div>
     </a>
     <p class="post-meta">
@@ -317,63 +398,6 @@ TCP是面向连接的服务；三次握手（建立连接）和四次挥手（�
 
 <div class="post-preview">
 
-    <a href="/2017/03/30/computer_science/algorithm/">
-        <h2 class="post-title">
-            算法
-        </h2>
-        <h3 class="post-subtitle">
-             "算法"
-        </h3>
-        <div class="post-content-preview">
-            
-
-穷举=树型搜索
-递归=树型搜索+剪枝
-动态规划=树型搜索+剪枝+节点合并
-因此算法效率：动态规划&gt;递归&gt;穷举。
-
-
-
-递归与分治策略
-一个直接或间接地调用自身的算法称为递归算法。
-分治算法的模式如下：
-12345678910Divide_and_Conquer(P)&#123;    if(|P|&lt;=n0)    Adhoc(P);//Adhoc(P)是基本子算法   ......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2017-03-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/03/30/framework/tornado/">
-        <h2 class="post-title">
-            Tornado Pyhton web框架介绍
-        </h2>
-        <h3 class="post-subtitle">
-             "tornado为何这么快"
-        </h3>
-        <div class="post-content-preview">
-            ##Tornado直接读代码
-简介FriendFeed使用了一款使用Python编写的，相对简单的非阻塞式Web服务器。它的特点在于非阻塞服务器和epoll的运用，这个Web框架还包含了一些相关的有用工具和优化。
-以下是经典的“Hello, world”示例：
-123456789101112131415import tornado.ioloopimport tornado.webclass ......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2017-03-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
     <a href="/2017/03/28/distributed_system/business/">
         <h2 class="post-title">
             微服务的基本架构
@@ -428,27 +452,6 @@ TCP是面向连接的服务；三次握手（建立连接）和四次挥手（�
 </div>
 <hr>
 
-<div class="post-preview">
-
-    <a href="/2016/09/09/project/project_distribute/">
-        <h2 class="post-title">
-            基于开源项目众推的Python实现
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            概述在开源中国闲逛时发现了这个项目-众推，是一个以Hadoop分布思想为基础类今日头条的开源项目。虽然该项目将去重过滤、文本分类单独出来，但是我认为这都属于数据处理部分。所以我将整个项目的核心划分为三个部分：分布式爬虫、数据清洗与处理、web工程。分别也对应了数据的采集、处理和展示。该项目没有继续下去，可能是因为这个项目不够吸引人，创意不是很好，但是我认为这个项目是当前所有互联网项目技术架构......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2016-09-09
-    </p>
-
-</div>
-<hr>
-
 
 
 <!-- Pager -->
@@ -488,11 +491,11 @@ TCP是面向连接的服务；三次握手（建立连接）和四次挥手（�
                     <div class="tags">
                         
                             
-                            <a href="/tags/#collection" title="collection" rel="5">collection</a>
+                            <a href="/tags/#coding" title="coding" rel="2">coding</a>
                             
                         
                             
-                            <a href="/tags/#coding" title="coding" rel="2">coding</a>
+                            <a href="/tags/#collection" title="collection" rel="5">collection</a>
                             
                         
                             
@@ -500,11 +503,11 @@ TCP是面向连接的服务；三次握手（建立连接）和四次挥手（�
                             
                         
                             
-                            <a href="/tags/#distribution_system" title="distribution_system" rel="5">distribution_system</a>
+                            <a href="/tags/#database" title="database" rel="6">database</a>
                             
                         
                             
-                            <a href="/tags/#database" title="database" rel="6">database</a>
+                            <a href="/tags/#distribution_system" title="distribution_system" rel="6">distribution_system</a>
                             
                         
                             
@@ -518,10 +521,6 @@ TCP是面向连接的服务；三次握手（建立连接）和四次挥手（�
                             
                         
                             
-                            <a href="/tags/#distributed_system" title="distributed_system" rel="11">distributed_system</a>
-                            
-                        
-                            
                             <a href="/tags/#framework" title="framework" rel="3">framework</a>
                             
                         
@@ -530,7 +529,15 @@ TCP是面向连接的服务；三次握手（建立连接）和四次挥手（�
                             
                         
                             
+                            <a href="/tags/#distributed_system" title="distributed_system" rel="11">distributed_system</a>
+                            
+                        
+                            
                             <a href="/tags/#life_is_short" title="life_is_short" rel="5">life_is_short</a>
+                            
+                        
+                            
+                            <a href="/tags/#thinking" title="thinking" rel="9">thinking</a>
                             
                         
                             
@@ -538,11 +545,11 @@ TCP是面向连接的服务；三次握手（建立连接）和四次挥手（�
                             
                         
                             
-                            <a href="/tags/#project" title="project" rel="8">project</a>
+                            <a href="/tags/#system_design" title="system_design" rel="5">system_design</a>
                             
                         
                             
-                            <a href="/tags/#thinking" title="thinking" rel="9">thinking</a>
+                            <a href="/tags/#project" title="project" rel="8">project</a>
                             
                         
                             
@@ -551,10 +558,6 @@ TCP是面向连接的服务；三次握手（建立连接）和四次挥手（�
                         
                             
                             <a href="/tags/#reading" title="reading" rel="2">reading</a>
-                            
-                        
-                            
-                            <a href="/tags/#system_design" title="system_design" rel="5">system_design</a>
                             
                         
                             
