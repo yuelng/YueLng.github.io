@@ -190,6 +190,30 @@
 
 <div class="post-preview">
 
+    <a href="/2018/01/18/surrounding/script/">
+        <h2 class="post-title">
+            脚本基础
+        </h2>
+        <h3 class="post-subtitle">
+             "记录一些常用的脚本"
+        </h3>
+        <div class="post-content-preview">
+            Script#随手记
+:w !sudo tee %   VIM sudo 命令for line in $(cat twitter.env)doexport $linedone
+这种写法主要是为了让你的程序在不同的系统上都能适用。1#!/usr/bin/env perl
+不管你的perl是在/usr/bin/perl还是/usr/local/bin/perl，#!/usr/bin/env pe......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2018-01-18
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/2018/01/18/surrounding/docker/">
         <h2 class="post-title">
             容器部署生态
@@ -200,6 +224,38 @@
         <div class="post-content-preview">
             kubernetes handbook
 ...
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2018-01-18
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2018/01/18/surrounding/document/">
+        <h2 class="post-title">
+            学习方法论
+        </h2>
+        <h3 class="post-subtitle">
+             "方法论是在前人的基础上，少走弯路"
+        </h3>
+        <div class="post-content-preview">
+            后端的常见问题
+
+复杂度控制，『软件构建的核心就是控制复杂度』
+存储模型，Designing Data-Intensive Applications
+并发与性能优化，当用户达到一定量级，部分服务的可用性会降低，重写服务
+系统设计 设计发号器、设计 feed 系统、设计缓存系统、设计推荐系统、登录系统、抢票系统
+大数据
+
+如何学习一门新的技术
+为什么学习
+
+paradigm shift。是否对......
         </div>
     </a>
     <p class="post-meta">
@@ -283,30 +339,6 @@ In computer science, a lock or mutex (from mutual exclusion) is a synchronizatio
 
 <div class="post-preview">
 
-    <a href="/2018/01/18/database/lock/">
-        <h2 class="post-title">
-            数据库加锁分析
-        </h2>
-        <h3 class="post-subtitle">
-             "dead lock"
-        </h3>
-        <div class="post-content-preview">
-            数据库事务ACID
-原子性(Atomicity): 一个事务必须被视为一个不可分割的最小工作单元，事务中的操作要么全部执行成功，要么全部失败会滚，不可能只执行其中的一部分。
-一致性(consistency) 数据库总是要从一个一致的状态转换到另一个一致的状态。需要确保当从A减去100时若系统崩溃，账户不会损失100元。
-隔离性(isolation)通常来说，一个事务在最终提交前对其他事务是不......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2018-01-18
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
     <a href="/2018/01/18/devops/study_environment/">
         <h2 class="post-title">
             基础服务环境搭建
@@ -333,27 +365,22 @@ storm集群搭建一些架构可行的架构：Flume + Kafka + Strom + Hbase 使
 
 <div class="post-preview">
 
-    <a href="/2018/01/18/computer_science/study_server/">
+    <a href="/2018/01/18/database/lock/">
         <h2 class="post-title">
-            服务器端编程基础积累
+            数据库加锁分析
         </h2>
         <h3 class="post-subtitle">
-            
+             "dead lock"
         </h3>
         <div class="post-content-preview">
-            UNIX I/O模型
-阻塞IO
-非阻塞IO
-IO多路复用
-信号驱动IO
-异步IO
-
-nginx模型操作系统的设计，因此可以归结为三点：（1）以多进程形式，允许多个任务同时运行；（2）以多线程形式，允许单个任务分成不同的部分运行；（3）提供协调机制，一方面防止进程之间和线程之间产生冲突，另一方面允许进程之间和线程之间共享资源。
-...
+            数据库事务ACID
+原子性(Atomicity): 一个事务必须被视为一个不可分割的最小工作单元，事务中的操作要么全部执行成功，要么全部失败会滚，不可能只执行其中的一部分。
+一致性(consistency) 数据库总是要从一个一致的状态转换到另一个一致的状态。需要确保当从A减去100时若系统崩溃，账户不会损失100元。
+隔离性(isolation)通常来说，一个事务在最终提交前对其他事务是不......
         </div>
     </a>
     <p class="post-meta">
-        Posted by YueLng Chen on
+        Posted by yueLng on
         2018-01-18
     </p>
 
@@ -384,40 +411,23 @@ https://distill.pub/What are the best, insightful blogs about data, including ho
 
 <div class="post-preview">
 
-    <a href="/2018/01/18/collection/source_all/">
+    <a href="/2018/01/18/computer_science/study_server/">
         <h2 class="post-title">
-            常用的资源
+            服务器端编程基础积累
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            计算机科学1.谷歌推荐的技术能力提升指南CS课程入门、了解其他语言、测试代码、培养逻辑推理和学习数学离散知识、深刻理解操作系统、学习UX设计、学习人工智能、学习如何构建编译器、了解密码学、并行编程、与其他程序员一起开发项目。2.hackr.ioShare and discover the best programming tutorials and courses online.3.图说设计......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2018-01-18
-    </p>
+            UNIX I/O模型
+阻塞IO
+非阻塞IO
+IO多路复用
+信号驱动IO
+异步IO
 
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2018/01/18/collection/somesource/">
-        <h2 class="post-title">
-            一些有用的资源
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            平时在网上闲逛，看到一些可能会有用的一些资源记录在此
-
-计算机领域论文集合 GitHub - papers-we-love/papers-we-love: Papers from the computer science community to read and discuss. 
-分布式资料 Qix/ds.md at master · ty4z2008/Qix · GitHub 
-程序员......
+nginx模型操作系统的设计，因此可以归结为三点：（1）以多进程形式，允许多个任务同时运行；（2）以多线程形式，允许单个任务分成不同的部分运行；（3）提供协调机制，一方面防止进程之间和线程之间产生冲突，另一方面允许进程之间和线程之间共享资源。
+...
         </div>
     </a>
     <p class="post-meta">
@@ -467,10 +477,6 @@ https://distill.pub/What are the best, insightful blogs about data, including ho
                     <div class="tags">
                         
                             
-                            <a href="/tags/#coding" title="coding" rel="2">coding</a>
-                            
-                        
-                            
                             <a href="/tags/#collection" title="collection" rel="5">collection</a>
                             
                         
@@ -479,7 +485,11 @@ https://distill.pub/What are the best, insightful blogs about data, including ho
                             
                         
                             
+                            <a href="/tags/#coding" title="coding" rel="2">coding</a>
+                            
                         
+                            
+                            <a href="/tags/#distribution_system" title="distribution_system" rel="6">distribution_system</a>
                             
                         
                             
@@ -487,7 +497,7 @@ https://distill.pub/What are the best, insightful blogs about data, including ho
                             
                         
                             
-                            <a href="/tags/#distribution_system" title="distribution_system" rel="6">distribution_system</a>
+                        
                             
                         
                             
@@ -496,10 +506,6 @@ https://distill.pub/What are the best, insightful blogs about data, including ho
                         
                             
                             <a href="/tags/#financial" title="financial" rel="5">financial</a>
-                            
-                        
-                            
-                            <a href="/tags/#distributed_system" title="distributed_system" rel="11">distributed_system</a>
                             
                         
                             
@@ -515,7 +521,7 @@ https://distill.pub/What are the best, insightful blogs about data, including ho
                             
                         
                             
-                            <a href="/tags/#project" title="project" rel="8">project</a>
+                            <a href="/tags/#distributed_system" title="distributed_system" rel="12">distributed_system</a>
                             
                         
                             
@@ -523,11 +529,7 @@ https://distill.pub/What are the best, insightful blogs about data, including ho
                             
                         
                             
-                            <a href="/tags/#social_science" title="social_science" rel="2">social_science</a>
-                            
-                        
-                            
-                            <a href="/tags/#surrounding" title="surrounding" rel="9">surrounding</a>
+                            <a href="/tags/#project" title="project" rel="8">project</a>
                             
                         
                             
@@ -535,7 +537,15 @@ https://distill.pub/What are the best, insightful blogs about data, including ho
                             
                         
                             
+                            <a href="/tags/#surrounding" title="surrounding" rel="9">surrounding</a>
+                            
+                        
+                            
                             <a href="/tags/#thinking" title="thinking" rel="9">thinking</a>
+                            
+                        
+                            
+                            <a href="/tags/#social_science" title="social_science" rel="2">social_science</a>
                             
                         
                             

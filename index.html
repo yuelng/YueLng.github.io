@@ -190,6 +190,56 @@
 
 <div class="post-preview">
 
+    <a href="/2018/08/28/language/lua/">
+        <h2 class="post-title">
+            Lua
+        </h2>
+        <h3 class="post-subtitle">
+             "lua开发"
+        </h3>
+        <div class="post-content-preview">
+            lua语法相对简洁它最大的特点就是用同步的代码逻辑实现非阻塞的调用，其次它有单进程内的 LRU cache 和进程间的 share DICT cache，而且它是揉合 nginx 和 LuaJIT 而产生的
+参考资料openresty最佳实践
+...
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2018-08-28
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2018/08/27/distributed_system/fun_profit/">
+        <h2 class="post-title">
+            Distributed systems for fun and profit
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            一般来说，我们利用分布式系统是为了：
+
+Storage：扩展存储能力
+Computation：扩展计算能力
+
+分布式系统想要达成的目标Scalability
+“Is the ability of a system,network, or process, to handle a growing amount of work in a capable manner or its ability......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2018-08-27
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/2018/08/13/puduct/experience/">
         <h2 class="post-title">
             技术以外的事
@@ -385,52 +435,6 @@ How To Read A ......
 </div>
 <hr>
 
-<div class="post-preview">
-
-    <a href="/2018/03/14/database/index/">
-        <h2 class="post-title">
-            数据库索引学习
-        </h2>
-        <h3 class="post-subtitle">
-             "The index"
-        </h3>
-        <div class="post-content-preview">
-            索引的存储分类索引在本质上是一种数据结构，是在存储引擎中实现的，不同的存储引擎支持不同类型的索引。MySQL目前提供了4种索引
-
-B-Tree 索引：最常见的索引类型，大部分引擎都支持B树索引。B+树索引并不能找到一个键值对应的具体行。b+树索引只能查到被查找数据行所在的页，然后数据库通过把页读入内存，再在内存中查找，最后得到结果
-HASH 索引：只有Memory引擎支持，使用场景简单。
-R......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2018-03-14
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2018/03/13/system_design/sequence/">
-        <h2 class="post-title">
-            sequence-分布式发号器
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            简介什么是分布式发号器，发号器有什么特点，有什么应用场景。在数据库中通常使用数据库自增主键来产生，但是如果不依赖数据库来产生全局唯一ID就需要另外想办法。例如在短网址服务的时候，短网址服务的作用是将一个长而复杂的url转为简短的url，同时短网址也可以转化为源网址。要实现这样的功能关键在如何将长网址与短网址映射，使用压缩或者md5算法是不可取的。简单而有效地做法就是每处理一个长网址就自增计数......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2018-03-13
-    </p>
-
-</div>
-<hr>
-
 
 
 <!-- Pager -->
@@ -466,10 +470,6 @@ R......
                     <div class="tags">
                         
                             
-                            <a href="/tags/#coding" title="coding" rel="2">coding</a>
-                            
-                        
-                            
                             <a href="/tags/#collection" title="collection" rel="5">collection</a>
                             
                         
@@ -478,7 +478,11 @@ R......
                             
                         
                             
+                            <a href="/tags/#coding" title="coding" rel="2">coding</a>
+                            
                         
+                            
+                            <a href="/tags/#distribution_system" title="distribution_system" rel="6">distribution_system</a>
                             
                         
                             
@@ -486,7 +490,7 @@ R......
                             
                         
                             
-                            <a href="/tags/#distribution_system" title="distribution_system" rel="6">distribution_system</a>
+                        
                             
                         
                             
@@ -495,10 +499,6 @@ R......
                         
                             
                             <a href="/tags/#financial" title="financial" rel="5">financial</a>
-                            
-                        
-                            
-                            <a href="/tags/#distributed_system" title="distributed_system" rel="11">distributed_system</a>
                             
                         
                             
@@ -514,7 +514,7 @@ R......
                             
                         
                             
-                            <a href="/tags/#project" title="project" rel="8">project</a>
+                            <a href="/tags/#distributed_system" title="distributed_system" rel="12">distributed_system</a>
                             
                         
                             
@@ -522,11 +522,7 @@ R......
                             
                         
                             
-                            <a href="/tags/#social_science" title="social_science" rel="2">social_science</a>
-                            
-                        
-                            
-                            <a href="/tags/#surrounding" title="surrounding" rel="9">surrounding</a>
+                            <a href="/tags/#project" title="project" rel="8">project</a>
                             
                         
                             
@@ -534,7 +530,15 @@ R......
                             
                         
                             
+                            <a href="/tags/#surrounding" title="surrounding" rel="9">surrounding</a>
+                            
+                        
+                            
                             <a href="/tags/#thinking" title="thinking" rel="9">thinking</a>
+                            
+                        
+                            
+                            <a href="/tags/#social_science" title="social_science" rel="2">social_science</a>
                             
                         
                             

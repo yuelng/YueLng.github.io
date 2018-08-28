@@ -190,6 +190,61 @@
 
 <div class="post-preview">
 
+    <a href="/2018/02/02/system_design/msgpush/">
+        <h2 class="post-title">
+            消息推送入门
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            实时消息推送的几种实现方式相较于手机端的消息推送（一般都是以socket方式实现），web端是基于http协议，很难像tcp一样保持长连接。但随着技术的发展，出现了websocket, comet等新的技术可以达到类似长连接的效果，这些技术大体可分为以下几类：
+
+短轮询。页面端通过js定时异步刷新，这种方式实时效果较差。
+长轮询。页面端通过js异步请求服务端，服务端在接收到请求后，如果该次请......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2018-02-02
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2018/02/02/system_design/microservice/">
+        <h2 class="post-title">
+            微服务架构
+        </h2>
+        <h3 class="post-subtitle">
+             "微服务架构"
+        </h3>
+        <div class="post-content-preview">
+            微服务组成
+服务注册与发现身份验证与授权服务的伸缩控制反向代理与负载均衡路由控制流量切换日志管理性能度量、监控与调优分布式跟踪过载保护服务降级服务部署与版本升级策略支持错误处理
+golang 微服务微服务的演进
+
+梳理业务边界
+资源隔离部署
+内外网服务隔离
+RPC框架 （序列化、上下文管理超时控制、拦截器鉴权统计限流、服务注册、负载均衡）
+API Gateway
+
+He notes thou......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2018-02-02
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/2018/01/29/reading/conflict/">
         <h2 class="post-title">
             《社会冲突》读书笔记
@@ -326,6 +381,28 @@ Component-Driven dev 模块驱动开发
 
 <div class="post-preview">
 
+    <a href="/2018/01/18/thinking/reverie/">
+        <h2 class="post-title">
+            reverie
+        </h2>
+        <h3 class="post-subtitle">
+            遐思
+        </h3>
+        <div class="post-content-preview">
+            “The more that you read,the more things you will know.The more that you learn,the more places you’ll go.”  ― Dr. Seuss
+从软件系统到业务认知水平我们先从软件系统的演进谈起，谈谈软件系统中的重要组成部分，然后聊聊工程师如何打造系统能力：它们和具体的功能无关 —— 如何使用各种工......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2018-01-18
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/2018/01/18/system_design/system_design_question/">
         <h2 class="post-title">
             系统设计问题归总
@@ -351,28 +428,6 @@ Abstraction (understanding how OS, filesystem, an......
 
 <div class="post-preview">
 
-    <a href="/2018/01/18/thinking/reverie/">
-        <h2 class="post-title">
-            reverie
-        </h2>
-        <h3 class="post-subtitle">
-            遐思
-        </h3>
-        <div class="post-content-preview">
-            “The more that you read,the more things you will know.The more that you learn,the more places you’ll go.”  ― Dr. Seuss
-从软件系统到业务认知水平我们先从软件系统的演进谈起，谈谈软件系统中的重要组成部分，然后聊聊工程师如何打造系统能力：它们和具体的功能无关 —— 如何使用各种工......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2018-01-18
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
     <a href="/2018/01/18/system_design/api/">
         <h2 class="post-title">
             通用API设计
@@ -383,62 +438,6 @@ Abstraction (understanding how OS, filesystem, an......
         <div class="post-content-preview">
             
 Json Web Token(JWT)JSON Web Token (JWT) 是目前应用最为广泛的 token 格式，是为了在网络应用环境间传递声明而执行的一种基于 JSON 的开放标准（RFC 7519)。该 token 设计紧凑且安全，特别适用于分布式站点的单点登录、API 网关等场景。JWT 的声明一般被用来在身份提供者和服务提供者间传递被认证的用户身份信息，以便于从资源服务器获取......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2018-01-18
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2018/01/18/surrounding/script/">
-        <h2 class="post-title">
-            脚本基础
-        </h2>
-        <h3 class="post-subtitle">
-             "记录一些常用的脚本"
-        </h3>
-        <div class="post-content-preview">
-            Script#随手记
-:w !sudo tee %   VIM sudo 命令for line in $(cat twitter.env)doexport $linedone
-这种写法主要是为了让你的程序在不同的系统上都能适用。1#!/usr/bin/env perl
-不管你的perl是在/usr/bin/perl还是/usr/local/bin/perl，#!/usr/bin/env pe......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2018-01-18
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2018/01/18/surrounding/document/">
-        <h2 class="post-title">
-            学习方法论
-        </h2>
-        <h3 class="post-subtitle">
-             "方法论是在前人的基础上，少走弯路"
-        </h3>
-        <div class="post-content-preview">
-            后端的常见问题
-
-复杂度控制，『软件构建的核心就是控制复杂度』
-存储模型，Designing Data-Intensive Applications
-并发与性能优化，当用户达到一定量级，部分服务的可用性会降低，重写服务
-系统设计 设计发号器、设计 feed 系统、设计缓存系统、设计推荐系统、登录系统、抢票系统
-大数据
-
-如何学习一门新的技术
-为什么学习
-
-paradigm shift。是否对......
         </div>
     </a>
     <p class="post-meta">
@@ -488,10 +487,6 @@ paradigm shift。是否对......
                     <div class="tags">
                         
                             
-                            <a href="/tags/#coding" title="coding" rel="2">coding</a>
-                            
-                        
-                            
                             <a href="/tags/#collection" title="collection" rel="5">collection</a>
                             
                         
@@ -500,7 +495,11 @@ paradigm shift。是否对......
                             
                         
                             
+                            <a href="/tags/#coding" title="coding" rel="2">coding</a>
+                            
                         
+                            
+                            <a href="/tags/#distribution_system" title="distribution_system" rel="6">distribution_system</a>
                             
                         
                             
@@ -508,7 +507,7 @@ paradigm shift。是否对......
                             
                         
                             
-                            <a href="/tags/#distribution_system" title="distribution_system" rel="6">distribution_system</a>
+                        
                             
                         
                             
@@ -517,10 +516,6 @@ paradigm shift。是否对......
                         
                             
                             <a href="/tags/#financial" title="financial" rel="5">financial</a>
-                            
-                        
-                            
-                            <a href="/tags/#distributed_system" title="distributed_system" rel="11">distributed_system</a>
                             
                         
                             
@@ -536,7 +531,7 @@ paradigm shift。是否对......
                             
                         
                             
-                            <a href="/tags/#project" title="project" rel="8">project</a>
+                            <a href="/tags/#distributed_system" title="distributed_system" rel="12">distributed_system</a>
                             
                         
                             
@@ -544,11 +539,7 @@ paradigm shift。是否对......
                             
                         
                             
-                            <a href="/tags/#social_science" title="social_science" rel="2">social_science</a>
-                            
-                        
-                            
-                            <a href="/tags/#surrounding" title="surrounding" rel="9">surrounding</a>
+                            <a href="/tags/#project" title="project" rel="8">project</a>
                             
                         
                             
@@ -556,7 +547,15 @@ paradigm shift。是否对......
                             
                         
                             
+                            <a href="/tags/#surrounding" title="surrounding" rel="9">surrounding</a>
+                            
+                        
+                            
                             <a href="/tags/#thinking" title="thinking" rel="9">thinking</a>
+                            
+                        
+                            
+                            <a href="/tags/#social_science" title="social_science" rel="2">social_science</a>
                             
                         
                             

@@ -13,11 +13,11 @@
 
     <title>
         
-          数据库加锁分析 - YueLng的博客 | YueLng&#39;s Blog
+          Distributed systems for fun and profit - YueLng的博客 | YueLng&#39;s Blog
         
     </title>
 
-    <link rel="canonical" href="http://yuelng.github.io/2018/01/18/database/lock/">
+    <link rel="canonical" href="http://yuelng.github.io/2018/08/27/distributed_system/fun_profit/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -161,7 +161,7 @@
 <!-- Post Header -->
 <style type="text/css">
     header.intro-header{
-        background-image: url('http://ogcxtlv6r.bkt.clouddn.com/17-12-26/19881284.jpg')
+        background-image: url('http://ogcxtlv6r.bkt.clouddn.com/18-8-28/28048052.jpg')
     }
 </style>
 <header class="intro-header" >
@@ -171,14 +171,14 @@
                 <div class="post-heading">
                     <div class="tags">
                         
-                          <a class="tag" href="/tags/#database" title="database">database</a>
+                          <a class="tag" href="/tags/#distributed_system" title="distributed_system">distributed_system</a>
                         
                     </div>
-                    <h1>数据库加锁分析</h1>
-                    <h2 class="subheading"> &quot;dead lock&quot;</h2>
+                    <h1>Distributed systems for fun and profit</h1>
+                    <h2 class="subheading"></h2>
                     <span class="meta">
                         Posted by yueLng on
-                        2018-01-18
+                        2018-08-27
                     </span>
                 </div>
             </div>
@@ -197,56 +197,73 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h3 id="数据库事务ACID"><a href="#数据库事务ACID" class="headerlink" title="数据库事务ACID"></a>数据库事务ACID</h3><ol>
-<li>原子性(Atomicity): 一个事务必须被视为一个不可分割的最小工作单元，事务中的操作要么全部执行成功，要么全部失败会滚，不可能只执行其中的一部分。</li>
-<li>一致性(consistency) 数据库总是要从一个一致的状态转换到另一个一致的状态。需要确保当从A减去100时若系统崩溃，账户不会损失100元。</li>
-<li>隔离性(isolation)通常来说，一个事务在最终提交前对其他事务是不可见的。为满足不同的并发场景，定义了不同的隔离级别，从低到高是读未提交，读已提交，可重复读和序列化。序列化能够保证最强的一致性，其他隔离级别的一致性依次将此，并发性更好。读未提交会看到其他事务没有提交的操作，称为脏读。读已提交只能看到其他事务已经提交的修改，但是不能重复读，因为一个事务内两次读看到的结果不同。可重复读解决了不可重复读的问题，但是有幻读的问题，就是在读取某个范围的记录时，其他事务在该范围内插入了新的数据，两次读的结果不一致。InnoDB通过多版本并发控制(MVCC)解决了幻读的问题，可重复读是MySQL的默认隔离级别。序列化是最高的隔离级别，会让事务串行执行，在读取的每一行数据加锁，会造成大量的锁征用。</li>
-<li>持久性(durability) 持久性要保证提交了事务后，即使系统崩溃，修改的数据也不会丢失。持久性也分为不同的级别，通过备份等手段可以提高持久性。</li>
-</ol>
-<h3 id="MVCC"><a href="#MVCC" class="headerlink" title="MVCC"></a>MVCC</h3><p>MVCC其实很类似一个特殊的cas，它保证了涉及到跨多key修改的原子操作语义，这样也可以理解为什么MVCC可以把并发粒度控制得更好。</p>
-<h3 id="SQL分析"><a href="#SQL分析" class="headerlink" title="SQL分析"></a>SQL分析</h3><ol>
-<li><p>SELECT … FROM 是一个快照读，通过读取数据库的一个快照，不会加任何锁，除非将隔离级别设置成了 SERIALIZABLE 。在 SERIALIZABLE 隔离级别下，如果索引是非唯一索引，那么将在相应的记录上加上一个共享的next key锁。如果是唯一索引，只需要在相应记录上加index record lock。</p>
+                <p>一般来说，我们利用分布式系统是为了：</p>
+<ul>
+<li>Storage：扩展存储能力</li>
+<li>Computation：扩展计算能力</li>
+</ul>
+<h3 id="分布式系统想要达成的目标"><a href="#分布式系统想要达成的目标" class="headerlink" title="分布式系统想要达成的目标"></a>分布式系统想要达成的目标</h3><h4 id="Scalability"><a href="#Scalability" class="headerlink" title="Scalability"></a>Scalability</h4><blockquote>
+<p>“Is the ability of a system,network, or process, to handle a growing amount of work in a capable manner or its ability to be enlarged to accommodate that growth。”</p>
+</blockquote>
+<ul>
+<li>Size scalability：增加nodes，可以使系统线性增长，增加dataset不会增加latency</li>
+<li>Geographic scalability：地理位置扩展</li>
+<li>Administrative scalability：增加nodes不应该增加administrative costs</li>
+</ul>
+<h4 id="Performance-and-latency"><a href="#Performance-and-latency" class="headerlink" title="Performance(and latency)"></a>Performance(and latency)</h4><blockquote>
+<p>“Is characterized by the amount of useful work accomplished by a computer system compared to the time and resources used.”</p>
+</blockquote>
+<ul>
+<li>Low latency： 延迟</li>
+<li>High throughout：吞吐量</li>
+<li>Low utilization of computing resource: 资源利用率</li>
+</ul>
+<h4 id="Availability"><a href="#Availability" class="headerlink" title="Availability"></a>Availability</h4><blockquote>
+<p>“The proportion of time a system is in a functioning condition. If a user cannot access the system, it is said to be unavailable.”</p>
+</blockquote>
+<h4 id="Fault-tolerance"><a href="#Fault-tolerance" class="headerlink" title="Fault tolerance"></a>Fault tolerance</h4><blockquote>
+<p>“Ability of a system to behave in a well-defined manner once faults occur”</p>
+</blockquote>
+<h3 id="分布式系统中的模型"><a href="#分布式系统中的模型" class="headerlink" title="分布式系统中的模型"></a>分布式系统中的模型</h3><ul>
+<li>System model (asynchronous / synchronous)</li>
+<li>Failure model: (crash-fail, partitions, Byzantine)</li>
+<li>Consistency model:(strong, weak, eventual)<br>理想状态下，我们想让分布式系统“表现得好像一个单系统”。但事与愿违，不同种类的failures让这个目标实现起来很困难。比如当出现partition（分区）的时候，你是要为了availability接受用户请求呢，还是为了safety拒绝用户。关于权衡分布式系统各个方面的表现，最著名的就是CAP理论。</li>
+</ul>
+<h3 id="分布式系统常用技术"><a href="#分布式系统常用技术" class="headerlink" title="分布式系统常用技术"></a>分布式系统常用技术</h3><h4 id="Partition-and-Replicate"><a href="#Partition-and-Replicate" class="headerlink" title="Partition and Replicate"></a>Partition and Replicate</h4><ol>
+<li><p>Partition：把数据且分开，便于并行处理。限制数据块大小，提高处理效率，数据分块，提高可用性。</p>
 </li>
-<li><p>SELECT … FROM … LOCK IN SHARE MODE 语句在所有索引扫描范围的索引记录上加上共享的next key锁。如果是唯一索引，只需要在相应记录上加index record lock。</p>
-</li>
-<li><p>SELECT … FROM … FOR UPDATE 语句在所有索引扫描范围的索引记录上加上排他的next key锁。如果是唯一索引，只需要在相应记录上加index record lock。这将堵塞其他会话利用SELECT … FROM … LOCK IN SHARE MODE 读取相同的记录，但是快照读将忽略记录上的锁。</p>
-</li>
-<li><p>UPDATE … WHERE …语句在所有索引扫描范围的索引记录上加上排他的next key锁。如果是唯一索引，只需要在相应记录上加index record lock。</p>
-</li>
-</ol>
-<p>当UPDATE 操作修改主键记录的时候，将在相应的二级索引上加上隐式的锁。当进行重复键检测的时候，将会在插入新的二级索引记录之前，在其二级索引上加上一把共享锁。</p>
-<ol>
-<li><p>DELETE FROM … WHERE … 语句在所有索引扫描范围的索引记录上加上排他的next key锁。如果是唯一索引，只需要在相应记录上加index record lock。</p>
-</li>
-<li><p>INSERT 语句将在插入的记录上加一把排他锁，这个锁是一个index-record lock，并不是next-key 锁，因此就没有gap 锁，他将不会阻止其他会话在该条记录之前的gap插入记录。</p>
-</li>
-</ol>
-<p>在插入记录之前，将会加上一种叫做 insert intention gap 的 gap 锁。这个 insert intention gap表示他有意向在这个index gap插入记录，如果其他会话在这个index gap中插入的位置不相同，那么将不需要等待。假设存在索引记录4和7，会话A要插入记录5，会话B要插入记录6，每个会话在插入记录之前都需要锁定4和7之间gap，但是他们彼此不会互相堵塞，因为插入的位置不相同。</p>
-<p>如果出现了重复键错误，将在重复键上加一个共享锁。如果会话1插入一条记录，没有提交，他会在该记录上加上排他锁，会话2和会话3都尝试插入该重复记录，那么他们都会被堵塞，会话2和会话3将尝试在该记录上加一个共享锁。如果此时会话1回滚，将发生死锁。</p>
-<p>为什么会发生死锁呢？当会话1进行回滚的时候，记录上的排他锁释放了，会话2和会话3都获得了共享锁。然后会话2和会话3都想要获得排他锁，进而发生了死锁。<br>会话1在该记录上拥有一把排他锁，会话2和会话3都碰到了重复记录，因此都在申请共享锁。当会话1提交之后，会话1释放了排他锁，之后的会话2会话3先后获得了共享锁，此时他们发生了死锁，因为会话2和会话3都无法或者排他锁，因为彼此都占用了该记录的共享锁。</p>
-<ol>
-<li><p>INSERT … ON DUPLICATE KEY UPDATE 和普通的INSERT并不相同。如果碰到重复键值，INSERT … ON DUPLICATE KEY UPDATE 将在记录上加排他的 next-key锁。</p>
-</li>
-<li><p>REPLACE 在没有碰到重复键值的时候和普通的INSERT是一样的，如果碰到重复键，将在记录上加一个排他的 next-key锁。</p>
-</li>
-<li><p>INSERT INTO T SELECT … FROM S WHERE … 语句在插入T表的每条记录上加上 index record lock 。如果隔离级别是 READ COMMITTED, 或者启用了 innodb_locks_unsafe_for_binlog 且事务隔离级别不是SERIALIZABLE，那么innodb将通过快照读取表S(no locks)。否则，innodb将在S的记录上加共享的next-key锁。</p>
-</li>
-</ol>
-<p>CREATE TABLE … SELECT … 和 INSERT INTO T SELECT … FROM S WHERE … 一样，在S上加共享的next-key锁或者进行快照读取（(no locks）</p>
-<ol>
-<li><p>REPLACE INTO t SELECT … FROM s WHERE … 和 UPDATE t … WHERE col IN (SELECT … FROM s …) 中的select 部分将在表s上加共享的next-key锁。</p>
-</li>
-<li><p>当碰到有自增列的表的时候，innodb在自增列的索引最后面加上一个排他锁，叫AUTO-INC table lock 。AUTO-INC table lock会在语句执行完成后进行释放，而不是事务结束。如果AUTO-INC table lock被一个会话占有，那么其他会话将无法在该表中插入数据。innodb可以预先获取sql需要多少自增的大小，而不需要去申请锁，更多设置请参考参数innodb_autoinc_lock_mode.</p>
+<li><p>Replication：把数据拷贝多份便于availability、performance、fault tolerance，防止丢数据，缓解慢I/O和慢查询，但是会带来一致性问题，强一致和弱一致。</p>
 </li>
 </ol>
-<p>12.如果一张表的外键约束被启用了，任何在该表上的插入、更新、删除都将需要加共享的 record-level locks来检查是否满足约束。如果约束检查失败，innodb也会加上共享的 record-level locks。</p>
-<ol>
-<li>lock tables 是用来加表级锁，但是是MySQL的server层来加这把锁的。当innodb_table_locks = 1 (the default) 以及 autocommit = 0的时候，innodb能够感知表锁，同时server层了解到innodb已经加了row-level locks。否则，innodb将无法自动检测到死锁，同时server无法确定是否有行级锁，导致当其他会话占用行级锁的时候还能获得表锁。</li>
+<h3 id="Up-and-down-the-level-of-abstraction"><a href="#Up-and-down-the-level-of-abstraction" class="headerlink" title="Up and down the level of abstraction"></a>Up and down the level of abstraction</h3><ol>
+<li><p>System model<br>System model 是为了抽象地描述一个分布式系统的特征。它一组assumptions，包括了各种特性</p>
+</li>
+<li><p>Nodes in the system model<br>Nodes 是用来执行程序，储存数据，提供时钟的。它可以执行一系列的指令。</p>
+</li>
+<li><p>Communication link between nodes<br>用来描述信道，最多常用的设定是，一个系统中的不同节点之间有不同的信道，每个信道是FIFO的，每条接受到的消息必须是发送过的，消息不能丢失。</p>
+</li>
+<li><p>Timing / Ordering assumptions<br>Synchronous：一条消息有确认的延迟上限，Asynchronous： 一条消息没有确定的延迟上限。</p>
+</li>
+<li><p>The consensus problem<br>Consensus 问题就是所有的节点对某个值打成了共识。Agreement: 所有正常的节点都同意，Integrity：所有的正常节点只能对最多一个值打成一致，Termination：最终总会达成一致，Validity：最终达成一致的值必须是V1到Vn其中一个, 如果所有初始值都是vx, 那么最终结果也必须是vx.</p>
+</li>
+<li><p>FLP and CAP<br>FLP:在异步通信场景，即使只有一个进程失败，也没有任何算法能保证非失败进程达到一致性！<br>CAP:Consistency, availability, partition tolerance不能同时达到</p>
+</li>
+<li><p>Consistency model<br>Strong consistency models (capable of maintaining a single copy)<br>1.Linearizable consistency: 每个节点按原有的时间顺序执行指令，2.Sequential consistency：每个节点按同样的时间顺序执行指令</p>
+</li>
 </ol>
-<h3 id="数据库死锁问题"><a href="#数据库死锁问题" class="headerlink" title="数据库死锁问题"></a>数据库死锁问题</h3><ul>
-<li><a href="http://825635381.iteye.com/blog/2339434" target="_blank" rel="external">一次mysql死锁的排查过程</a></li>
-<li><a href="http://www.fordba.com/locks-set-by-different-sql-statements-in-innodb.html" target="_blank" rel="external">MySQL innodb中各种SQL语句加锁分析</a></li>
-<li><a href="http://hedengcheng.com/?p=771" target="_blank" rel="external">MySQL 加锁处理分析 何登成</a></li>
+<p>Weak consistency models(not strong)<br>1.Client-centric consistency，2.Causal consistency，3.Eventual consistency</p>
+<h3 id="Time-and-order"><a href="#Time-and-order" class="headerlink" title="Time and order"></a>Time and order</h3><p>本章讲了一个分布式系统中的时间和顺序。对于order，定义的是先后顺序。而对于time来说，除了先后顺序以外，还包含了interpretation（如何解释时间），duration（定义事件间隔）</p>
+<h4 id="Order"><a href="#Order" class="headerlink" title="Order"></a>Order</h4><p>Partial order 与 total order，也就是偏序和全序的关系。全序就是任何两个元素能比较大小，而偏序不一定，比如A包含B，则说A大于B，但存在集合互不包含，两个集合就无法比较大小。</p>
+<h4 id="Time"><a href="#Time" class="headerlink" title="Time"></a>Time</h4><p>Global clock：对应模型Synchronous，支持Total Order，分布式中所有节点都共享一个时钟，任意两个操作可以被赋予顺序。<br>Local clock：对应模型Partially synchronous，一种Partial order. 本地有序，跨节点之间的事件是无序的。不能比较两个节点上的时间戳<br>No clock：对应模型Asynchronous：另一种Partial order. 本地有序，远程需要交互才能确定顺序。提供了偏序，可以确定本地顺序，跨节点需要由message change来确定</p>
+<h4 id="分布式系统中order和time的作用"><a href="#分布式系统中order和time的作用" class="headerlink" title="分布式系统中order和time的作用"></a>分布式系统中order和time的作用</h4><p>order：确定操作顺序可以确保正确性，可以解决争夺资源时候的顺序问题，global clock可以确定整个系统的order，没有global clock，需要通过communication来确定<br>time：可以用在failure detector，确定high latency 或者 link is down</p>
+<h4 id="系统中逻辑时钟"><a href="#系统中逻辑时钟" class="headerlink" title="系统中逻辑时钟"></a>系统中逻辑时钟</h4><p>Lamport clock<br>Vector clock<br>Failure detector：failure detector用 “heartbeat messages” 和 “timers” 来实现。即不断发送“心跳信息”之后计算时间。而衡量Failure detector，有两个重要特性: completeness 和 accuracy.</p>
+<h3 id="Replication：preventing-divergence"><a href="#Replication：preventing-divergence" class="headerlink" title="Replication：preventing divergence"></a>Replication：preventing divergence</h3><p>synchronous replication、asynchronous replication</p>
+<p>Replication methods that prevent divergence (single copy systems)<br>Replication methods that risk divergence (multi-master systems)<br>Single copy system让整个系统“表现的像是一个节点”。每当部分节点宕机，系统可以保证只有一个active的值，还有，可以保证这个值被大家接受（其实就是consensus问题）</p>
+<h4 id="Primary-Backup"><a href="#Primary-Backup" class="headerlink" title="Primary/Backup"></a>Primary/Backup</h4><p>Single, static master<br>Replicated log, slaves are not involved in executing operations<br>No bounds on replication delay<br>Not partition tolerant<br>Manual/ad-hoc failover, not fault tolerant, “hot backup”</p>
+<h4 id="2PC"><a href="#2PC" class="headerlink" title="2PC"></a>2PC</h4><p>Unanimous vote: commit or abort<br>Static master<br>2PC cannot survive simultaneous failure of the coordinator and a node during a commit<br>Not partition tolerant, tail latency sensitive</p>
+<h4 id="Paxos"><a href="#Paxos" class="headerlink" title="Paxos"></a>Paxos</h4><p>Majority vote<br>Dynamic master<br>Robust to n/2-1 simultaneous failures as part of protocol<br>Less sensitive to tail latency</p>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ul>
+<li><a href="https://nicky-chen.github.io/distrubuted/cap-base-flp.html" target="_blank" rel="external">分布式之【CAP理论、BASE理论 、FLP不可能定理】</a></li>
 </ul>
 
 
@@ -257,12 +274,12 @@
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/2018/01/18/devops/study_environment/" data-toggle="tooltip" data-placement="top" title="基础服务环境搭建">&larr; Previous Post</a>
+                            <a href="/2018/08/28/language/lua/" data-toggle="tooltip" data-placement="top" title="Lua">&larr; Previous Post</a>
                         </li>
                     
                     
                         <li class="next">
-                            <a href="/2018/01/18/data_science/data/" data-toggle="tooltip" data-placement="top" title="数据科学">Next Post &rarr;</a>
+                            <a href="/2018/08/13/puduct/experience/" data-toggle="tooltip" data-placement="top" title="技术以外的事">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -309,7 +326,7 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#database" title="database">database</a>
+                          <a class="tag" href="/tags/#distributed_system" title="distributed_system">distributed_system</a>
                         
                     </div>
                 </section>
@@ -345,8 +362,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "tamchen";
-    var disqus_identifier = "http://yuelng.github.io/2018/01/18/database/lock/";
-    var disqus_url = "http://yuelng.github.io/2018/01/18/database/lock/";
+    var disqus_identifier = "http://yuelng.github.io/2018/08/27/distributed_system/fun_profit/";
+    var disqus_url = "http://yuelng.github.io/2018/08/27/distributed_system/fun_profit/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
