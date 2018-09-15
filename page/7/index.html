@@ -96,14 +96,14 @@
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
@@ -187,6 +187,31 @@
             
                 <!-- Main Content -->
 
+
+<div class="post-preview">
+
+    <a href="/2018/01/02/distributed_system/study_rpc/">
+        <h2 class="post-title">
+            RPC远程过程调用
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            RPC调用分类
+同步调用客户方等待调用执行完成并返回结果。
+异步调用客户方调用后不用等待执行结果返回，但依然可以通过回调通知等方式获取返回结果。 若客户方不关心调用返回结果，则变成单向异步调用，单向调用不用返回结果。
+
+RPC的基本原理client 发起调用，框架拦截调用信息，序列化，传输，server端收到调用信息，反序列化，根据调用信息发起实际调用获取结果，再原路返回。简化跨机器跨进程的......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2018-01-02
+    </p>
+
+</div>
+<hr>
 
 <div class="post-preview">
 
@@ -404,39 +429,6 @@ sql.Result表示结果集，sql.Rows表示查询返回多行数据的结果集�
 </div>
 <hr>
 
-<div class="post-preview">
-
-    <a href="/2017/11/30/surrounding/markdown/">
-        <h2 class="post-title">
-            markdown基本操作
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            基本符号
-*,-,+ 3个符号效果都一样，这3个符号被称为 Markdown符号
-空白行表示另起一个段落
-`是表示inline代码，tab是用来标记 代码段，分别对应html的code，pre标签
-
-换行
-单一段落( \) 用一个空白行
-连续两个空格 会变成一个 
-连续3个符号，然后是空行，表示 hr横线
-
-标题
-生成h1–h6,在文字前面加上 1–6个# 来实现
-文字加粗是通过 文字左右各......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
 
 
 <!-- Pager -->
@@ -476,19 +468,15 @@ sql.Result表示结果集，sql.Rows表示查询返回多行数据的结果集�
                     <div class="tags">
                         
                             
-                            <a href="/tags/#coding" title="coding" rel="2">coding</a>
-                            
-                        
-                            
                             <a href="/tags/#collection" title="collection" rel="5">collection</a>
                             
                         
                             
+                            <a href="/tags/#coding" title="coding" rel="2">coding</a>
+                            
+                        
+                            
                             <a href="/tags/#computer_science" title="computer_science" rel="9">computer_science</a>
-                            
-                        
-                            
-                        
                             
                         
                             
@@ -508,15 +496,19 @@ sql.Result表示结果集，sql.Rows表示查询返回多行数据的结果集�
                             
                         
                             
+                        
+                            
                             <a href="/tags/#financial" title="financial" rel="5">financial</a>
                             
                         
                             
-                            <a href="/tags/#language" title="language" rel="9">language</a>
-                            
                         
                             
                             <a href="/tags/#framework" title="framework" rel="3">framework</a>
+                            
+                        
+                            
+                            <a href="/tags/#language" title="language" rel="10">language</a>
                             
                         
                             
@@ -528,11 +520,7 @@ sql.Result表示结果集，sql.Rows表示查询返回多行数据的结果集�
                             
                         
                             
-                            <a href="/tags/#reading" title="reading" rel="2">reading</a>
-                            
-                        
-                            
-                            <a href="/tags/#social_science" title="social_science" rel="2">social_science</a>
+                            <a href="/tags/#product" title="product" rel="5">product</a>
                             
                         
                             
@@ -544,11 +532,15 @@ sql.Result表示结果集，sql.Rows表示查询返回多行数据的结果集�
                             
                         
                             
-                            <a href="/tags/#product" title="product" rel="5">product</a>
+                            <a href="/tags/#thinking" title="thinking" rel="9">thinking</a>
                             
                         
                             
-                            <a href="/tags/#thinking" title="thinking" rel="9">thinking</a>
+                            <a href="/tags/#social_science" title="social_science" rel="2">social_science</a>
+                            
+                        
+                            
+                            <a href="/tags/#reading" title="reading" rel="2">reading</a>
                             
                         
                     </div>
