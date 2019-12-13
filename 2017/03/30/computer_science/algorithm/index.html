@@ -219,7 +219,7 @@
 <li>子问题独立：当前被选择的子问题两两互不影响的情况叫做“子问题独立”。</li>
 </ol>
 <p>动态规划的实质是分治思想和解决冗余，因此，动态规划是一种将问题实例分解为更小的、相似的子问题，并存储子问题的解而避免计算重复的子问题，以解决最优化问题的算法策略</p>
-<ol>
+<ol start="2">
 <li><p>贪心算法</p>
 <p>贪心算法总是作出在当前看来是最好的选择。也就是说，贪心算法并不从整体最优上加</p>
 <p>以考虑，它所作出的选择只是在某种意义上的局部最优选择。贪心算法不是对所有问题都能<br>得到整体最优解，但对范围相当广泛的许多问题它能产生整体最优解或是整体最优解的近似<br>解。</p>
@@ -233,7 +233,7 @@
 <p>&emsp;&emsp;用回溯法搜索子集树的一般算法可描述为：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">Backtrack</span><span class="params">(<span class="keyword">int</span> t)</span></span>&#123;</div><div class="line">    <span class="keyword">if</span>(t&gt;n)</div><div class="line">        Output(x);</div><div class="line">    <span class="keyword">else</span></div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=n;i++)&#123;</div><div class="line">            x[t]=h(i);</div><div class="line">            <span class="keyword">if</span>(Constraint(t)&amp;&amp;Bounds(t))</div><div class="line">            Backtrack(t+<span class="number">1</span>);</div><div class="line">        &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>&emsp;&emsp;用回溯法搜索排列树的一般算法可描述为：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">Backtrack</span><span class="params">(<span class="keyword">int</span> t)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span>(t&gt;n)</div><div class="line">        Output(x);</div><div class="line">    <span class="keyword">else</span></div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=t;i&lt;=n;i++)&#123;</div><div class="line">            Swap(x[t],x[i]);</div><div class="line">            <span class="keyword">if</span>(Constraint(t)&amp;&amp;Bounds(t))</div><div class="line">            Backtrack(t+<span class="number">1</span>);</div><div class="line">            Swap(x[t],x[i]);</div><div class="line">        &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>4.分支界限法<br>&emsp;&emsp;分为队列式(FIFO)分支界限法和优先队列式分支界限法。</p>
-<ol>
+<ol start="5">
 <li>概率算法</li>
 </ol>
 
@@ -245,12 +245,12 @@
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/2017/03/30/devops/basic_oprate/" data-toggle="tooltip" data-placement="top" title="记录常用的配置">&larr; Previous Post</a>
+                            <a href="/2017/03/30/computer_science/network/" data-toggle="tooltip" data-placement="top" title="计算机网络">&larr; Previous Post</a>
                         </li>
                     
                     
                         <li class="next">
-                            <a href="/2017/03/28/puduct/app_common/" data-toggle="tooltip" data-placement="top" title="基本APP产品配置">Next Post &rarr;</a>
+                            <a href="/2017/03/30/devops/basic_oprate/" data-toggle="tooltip" data-placement="top" title="记录常用的配置">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -440,7 +440,7 @@
 
                 </ul>
                 <p class="copyright text-muted">
-                    Copyright &copy; YueLng&#39;s Blog 2018
+                    Copyright &copy; YueLng&#39;s Blog 2019
                     <br>
                     Theme by <a href="http://huangxuan.me">Hux</a>
                     <span style="display: inline-block; margin: 0 5px;">

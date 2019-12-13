@@ -206,7 +206,7 @@
 <li>项目的技术有tornado，mongodb，redis保存token，推送信息使用leancloud服务，云存储使用青云。</li>
 </ul>
 <p>####项目bug修复流程<br>1，查看phabricator的bug</p>
-<p>git remote add origin git@github.com:michaelliao/learngit.git<br>git push origin –delete serverfix</p>
+<p>git remote add origin <a href="mailto:git@github.com" target="_blank" rel="external">git@github.com</a>:michaelliao/learngit.git<br>git push origin –delete serverfix</p>
 <p>添加远程仓库</p>
 <p>2，git下开始修复bug，改代码，写readme，并提交</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">git checkout dev</div><div class="line">git stash                    ##将现场保存起来</div><div class="line">git checkout staging         ##切换到staging暂存分支，一般在这个分支上做bugfix</div><div class="line">git checkout -b issue-101    ##新建bug分支在staging分支上</div><div class="line">git add xxx xxxx             ##添加</div><div class="line">git commit -m &quot;fix bug 101&quot;  ##提交</div><div class="line">git checkout staging         ##切换到staging分支</div><div class="line">git merge --mo-ff -m &quot;merged bug fix 101&quot; issue-101f ##合并bug分支</div><div class="line">git branch -d issue-101      ##删除分支</div><div class="line">git push origin staging       ##推送</div><div class="line">git checkout dev</div><div class="line">git stash list               ##查看保存的现场内容</div><div class="line">git stash apply              ##恢复现场，或者使用git stash pop</div><div class="line">git log -p                   ##查看commit历史</div><div class="line">git log -p xxx.js            ##查看文件提价历史</div><div class="line">git blame app.js             ##查看文件最后被谁修改了</div></pre></td></tr></table></figure>
@@ -217,8 +217,8 @@
 <p>:10,20s/^/#/g<br>表示将10-20行添加注释，同理取消注释为：<br>:10,20s/^#//g</p>
 <p>vim 格式化代码操作，gg跳到件首行，＝格式化  G到最后一行<br>tar -xzf tmp/etc.tar.gz 解压<br>tar -zxvf /tmp/etc.tar.gz</p>
 <p>tar -zcvf xx.tar.gz /hello<br>scp tamchen@staging:/home/xxx.tar 本地目录</p>
-<p>scp Dalaran@192.168.240.74:~/Development/go/src/xx.zip . // 下载</p>
-<p>scp /home/lnmp0.4.tar.gz root@www.vpser.net:/root/lnmp0.4.tar.gz</p>
+<p>scp <a href="mailto:Dalaran@192.168.240.74" target="_blank" rel="external">Dalaran@192.168.240.74</a>:~/Development/go/src/xx.zip . // 下载</p>
+<p>scp /home/lnmp0.4.tar.gz <a href="mailto:root@www.vpser.net" target="_blank" rel="external">root@www.vpser.net</a>:/root/lnmp0.4.tar.gz</p>
 <p>mongorestore /dump</p>
 <p>配置virtualenvwrapper</p>
 <p>export WORKON_HOME=$HOME/code/.virtualenvs<br>export PROJECT_HOME=$HOME/code<br>export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python<br>export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv<br>export VIRTUALENVWRAPPER_VIRTUALENV_ARGS=’–no-site-packages’</p>
@@ -332,12 +332,12 @@
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/2017/03/30/computer_science/network/" data-toggle="tooltip" data-placement="top" title="计算机网络">&larr; Previous Post</a>
+                            <a href="/2017/03/30/computer_science/algorithm/" data-toggle="tooltip" data-placement="top" title="算法">&larr; Previous Post</a>
                         </li>
                     
                     
                         <li class="next">
-                            <a href="/2017/03/30/computer_science/algorithm/" data-toggle="tooltip" data-placement="top" title="算法">Next Post &rarr;</a>
+                            <a href="/2017/03/30/framework/tornado/" data-toggle="tooltip" data-placement="top" title="Tornado Pyhton web框架介绍">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -527,7 +527,7 @@
 
                 </ul>
                 <p class="copyright text-muted">
-                    Copyright &copy; YueLng&#39;s Blog 2018
+                    Copyright &copy; YueLng&#39;s Blog 2019
                     <br>
                     Theme by <a href="http://huangxuan.me">Hux</a>
                     <span style="display: inline-block; margin: 0 5px;">

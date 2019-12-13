@@ -190,6 +190,28 @@
 
 <div class="post-preview">
 
+    <a href="/2017/11/30/system_design/study_model/">
+        <h2 class="post-title">
+            设计模式简要介绍
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            创建型模式简单工厂模式简单工厂模式的要点在于：当你需要什么，只需要传入一个正确的参数，就可以获取你所需要的对象，而无须知道其创建细节。1KeyGenerator keyGen=KeyGenerator.getInstance("DESede");//获取不同加密算法的密钥生成器
+工厂方法模式工厂父类负责定义创建产品对象的公共接口，而工厂子类则负责生成具体的产品对象，这样做的目的是将产品类的实......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/2017/11/30/surrounding/markdown/">
         <h2 class="post-title">
             markdown基本操作
@@ -296,18 +318,15 @@ Monitor your data作为程序员，我们开发一个后台服务，大家有没
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/computer_science/study_algorithm/">
+    <a href="/2017/11/30/computer_science/study_flooding/">
         <h2 class="post-title">
-            相似距离算法
+            SYN洪泛攻击的原理与实现
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            相似距离算法是推荐算法的一部分。
-一、EuclideanDistanceSimilarity: 欧氏距离相似度原理：利用欧式距离d定义的相似度s，s=1 / (1+d)。
-范围：[0,1]，值越大，说明d越小，也就是距离越近，则相似度越大。
-说明：同皮尔森相似度一样，该相似度也没有考虑重叠数对结果的影响，同样地，Mahout通过增加一个枚举类型（Weighting）的参数来使得重叠数也成为计......
+            设计原理SYN-Flood是目前最流行的DDoS攻击手段，DDoS只是洪水攻击的一个种类。其实还有其它种类的洪水攻击。以前的DoS手段在向分布式这一阶段发展的过程中也经历了逐步淘汰的过程。SYN-Flood的攻击效果最好，故众黑客不约而同选择它。以下了解一下SYN-Flood的详细情况。Syn Flood利用了TCP/IP协议的固有漏洞。面向连接的TCP三次握手是Syn Flood存在的基础......
         </div>
     </a>
     <p class="post-meta">
@@ -320,15 +339,18 @@ Monitor your data作为程序员，我们开发一个后台服务，大家有没
 
 <div class="post-preview">
 
-    <a href="/2017/11/30/computer_science/study_flooding/">
+    <a href="/2017/11/30/computer_science/study_algorithm/">
         <h2 class="post-title">
-            SYN洪泛攻击的原理与实现
+            相似距离算法
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            设计原理SYN-Flood是目前最流行的DDoS攻击手段，DDoS只是洪水攻击的一个种类。其实还有其它种类的洪水攻击。以前的DoS手段在向分布式这一阶段发展的过程中也经历了逐步淘汰的过程。SYN-Flood的攻击效果最好，故众黑客不约而同选择它。以下了解一下SYN-Flood的详细情况。Syn Flood利用了TCP/IP协议的固有漏洞。面向连接的TCP三次握手是Syn Flood存在的基础......
+            相似距离算法是推荐算法的一部分。
+一、EuclideanDistanceSimilarity: 欧氏距离相似度原理：利用欧式距离d定义的相似度s，s=1 / (1+d)。
+范围：[0,1]，值越大，说明d越小，也就是距离越近，则相似度越大。
+说明：同皮尔森相似度一样，该相似度也没有考虑重叠数对结果的影响，同样地，Mahout通过增加一个枚举类型（Weighting）的参数来使得重叠数也成为计......
         </div>
     </a>
     <p class="post-meta">
@@ -410,31 +432,6 @@ SHOW PROCESSLIST 查看数据库连接，看哪个连接导致锁表kill id   //
 </div>
 <hr>
 
-<div class="post-preview">
-
-    <a href="/2017/11/28/database/redis/">
-        <h2 class="post-title">
-            redis学习笔记
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            redis简介Redis是一个开源的Key-Value存储，但又不仅仅是Key-Value存储，用官网上的话来说，Redis是一个数据结构存储，可用作数据库、缓存和消息中间件。相对于传统的Key-Value存储Memcached来说，Redis具有如下特点：
-
-速度快
-丰富的数据结构，除String之外，还有List、Hash、Set、Sorted Set
-单线程，避免了线程切换和锁的性能消......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2017-11-28
-    </p>
-
-</div>
-<hr>
-
 
 
 <!-- Pager -->
@@ -474,11 +471,11 @@ SHOW PROCESSLIST 查看数据库连接，看哪个连接导致锁表kill id   //
                     <div class="tags">
                         
                             
-                            <a href="/tags/#collection" title="collection" rel="5">collection</a>
+                            <a href="/tags/#coding" title="coding" rel="2">coding</a>
                             
                         
                             
-                            <a href="/tags/#coding" title="coding" rel="2">coding</a>
+                            <a href="/tags/#collection" title="collection" rel="5">collection</a>
                             
                         
                             
@@ -498,19 +495,13 @@ SHOW PROCESSLIST 查看数据库连接，看哪个连接导致锁表kill id   //
                             
                         
                             
-                            <a href="/tags/#distributed_system" title="distributed_system" rel="12">distributed_system</a>
-                            
                         
+                            
+                            <a href="/tags/#framework" title="framework" rel="3">framework</a>
                             
                         
                             
                             <a href="/tags/#financial" title="financial" rel="5">financial</a>
-                            
-                        
-                            
-                        
-                            
-                            <a href="/tags/#framework" title="framework" rel="3">framework</a>
                             
                         
                             
@@ -522,11 +513,17 @@ SHOW PROCESSLIST 查看数据库连接，看哪个连接导致锁表kill id   //
                             
                         
                             
+                            <a href="/tags/#product" title="product" rel="5">product</a>
+                            
+                        
+                            
                             <a href="/tags/#project" title="project" rel="8">project</a>
                             
                         
                             
-                            <a href="/tags/#product" title="product" rel="5">product</a>
+                            <a href="/tags/#distributed_system" title="distributed_system" rel="12">distributed_system</a>
+                            
+                        
                             
                         
                             
@@ -542,11 +539,11 @@ SHOW PROCESSLIST 查看数据库连接，看哪个连接导致锁表kill id   //
                             
                         
                             
-                            <a href="/tags/#social_science" title="social_science" rel="2">social_science</a>
+                            <a href="/tags/#reading" title="reading" rel="3">reading</a>
                             
                         
                             
-                            <a href="/tags/#reading" title="reading" rel="2">reading</a>
+                            <a href="/tags/#social_science" title="social_science" rel="2">social_science</a>
                             
                         
                     </div>
@@ -700,7 +697,7 @@ SHOW PROCESSLIST 查看数据库连接，看哪个连接导致锁表kill id   //
 
                 </ul>
                 <p class="copyright text-muted">
-                    Copyright &copy; YueLng&#39;s Blog 2018
+                    Copyright &copy; YueLng&#39;s Blog 2019
                     <br>
                     Theme by <a href="http://huangxuan.me">Hux</a>
                     <span style="display: inline-block; margin: 0 5px;">

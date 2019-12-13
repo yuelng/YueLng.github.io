@@ -230,12 +230,12 @@
 <li>命中：应用程序从cache中取数据，取到后返回。</li>
 <li>更新：先把数据存到数据库中，成功后，再让缓存失效。</li>
 </ul>
-<ol>
+<ol start="2">
 <li>Read through 应用认为后端就是一个单一的存储，而存储自己维护自己的cache</li>
 <li>Write through 不过是在更新数据时发生。当有数据更新的时候，如果没有命中缓存，直接更新数据库，然后返回。如果命中了缓存，则更新缓存，然后再由Cache自己更新数据库（这是一个同步操作）</li>
 </ol>
 <p><img src="https://coolshell.cn/wp-content/uploads/2016/07/460px-Write-through_with_no-write-allocation.svg_.png"> </p>
-<ol>
+<ol start="4">
 <li>Write behind caching 在更新数据的时候，只更新缓存，不更新数据库，而我们的缓存会异步地批量更新数据库。这个设计的好处就是让数据的I/O操作飞快无比（因为直接操作内存嘛 ）</li>
 </ol>
 <p><img src="https://coolshell.cn/wp-content/uploads/2016/07/Write-back_with_write-allocation.png"></p>
@@ -256,7 +256,7 @@
 </ol>
 <p>每次cache miss，memcache会给客户端返回一个token，告诉它我这没有数据，你去取数据，取完拿这个token来更新我这的数据。如果有多个客户端同时读，同时cache miss，那么它们就会同时收到各自的token。但是，在接受数据更新的时候，比如A，B先后拿到一个token，A拿Token更新完之后，B再拿Token过来更新就不认了。如果系统收到了一个delete请求，那么啥token都不管用了</p>
 <p>再进一步，我们可以限制发token的频率，比如每10秒最多发一个。然后对于那些拿不到token的，既然有别人去拿数据去了，何必让它们再去拿？就让它们等待一小段时间再重试。大部分时候，更新后的数据在几毫秒后就来了，它们再重试就是cache hit了。</p>
-<ol>
+<ol start="2">
 <li><p>资源池。所谓的池，指的其实是资源的分区，对于数据中的不同的访问模式，根据模式进行资源分区。例如缓存未命中的代价小，但是访问频次高的键放入一个小池，缓存未命中代价高，但访问频次低的键放入一个大池。</p>
 </li>
 <li><p>数据复制(Replication)最后一个降低负载的手段是在每个Pool内进行Replication。想象如下情景：我们有一台memcache机器，可以支持500K/s的请求率(request rate)。现在我们想要支持1M/s的请求，怎么办？加一台机器，然后把数据平分，两台机器一人一半</p>
@@ -467,7 +467,7 @@
 
                 </ul>
                 <p class="copyright text-muted">
-                    Copyright &copy; YueLng&#39;s Blog 2018
+                    Copyright &copy; YueLng&#39;s Blog 2019
                     <br>
                     Theme by <a href="http://huangxuan.me">Hux</a>
                     <span style="display: inline-block; margin: 0 5px;">
