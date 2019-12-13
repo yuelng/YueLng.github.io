@@ -190,29 +190,25 @@
 
 <div class="post-preview">
 
-    <a href="/2018/09/15/reading/style/">
+    <a href="/2019/12/13/life_is_short/life/">
         <h2 class="post-title">
-            《编程风格》读书笔记
+            吃喝玩乐
         </h2>
         <h3 class="post-subtitle">
-            学习编程风格最好的方法应该是去读源代码
+            人生苦短、为欢几何？
         </h3>
         <div class="post-content-preview">
-            悠久历史
-
-往日的美好，内存约束下的写法
-forth风格基本风格
-单片风格，由上往下瀑布流的写法
-食谱风格，分割各个函数，共享全局变量，各个函数只对全局变量进行处理
-流水线风格，每个函数都有明确的输入输出，消除全局变量
-高尔夫风格，尽量使用已有的基础库函数组合
-无限镜像风格，使用递归的方式进行处理，考虑是否调用栈过深，导致栈溢出，是否有尾递归优化
-骨牌风格，每个函数最后参数是函数，传入的参数......
+            广州旅游手册
+看经济学人大西洋周刊纽约客
+讲究吃喝玩乐
+吃蔡澜江献珠：一生寻真味广州白斩鸡、盐焗鸡、潮汕牛肉火锅、虾仔净云吞烤鸡、烤肋排、羊肉
+喝啤酒、白酒、酸梅汤、柠檬梅子绿夺命大乌苏 1000ml 50绝对伏特加  螺丝起子
+玩乐体育运动 玩车 玩音乐“一个人如连玩都玩不好，还可能把工作干好吗？！” –王世襄秋斗蟋蟀，冬怀鸣虫，钩鹰逐兔，挈狗捉獾，皆乐之不疲，而养鸽飞放更是不受节令限制的......
         </div>
     </a>
     <p class="post-meta">
         Posted by YueLng Chen on
-        2018-09-15
+        2019-12-13
     </p>
 
 </div>
@@ -220,22 +216,68 @@ forth风格基本风格
 
 <div class="post-preview">
 
-    <a href="/2018/08/28/language/lua/">
+    <a href="/2019/12/13/distributed_system/data_intensive/">
         <h2 class="post-title">
-            Lua
+            Designing Data-Intensive Applications
         </h2>
         <h3 class="post-subtitle">
-             "lua开发"
+             "some note"
         </h3>
         <div class="post-content-preview">
-            lua语法相对简洁它最大的特点就是用同步的代码逻辑实现非阻塞的调用，其次它有单进程内的 LRU cache 和进程间的 share DICT cache，而且它是揉合 nginx 和 LuaJIT 而产生的
-参考资料openresty最佳实践
+            可用性可扩展性可维护性容错容错，这个词的理解，书面意思就是可以容下错误，不让错误再次扩张，让这个错误产生的影响在一个固定的边界之内在工作中，降级、限流、熔断器、超时重试等都是常见的容错方法
+抗量
+使用并发如何抗住大并发的场景，充分利用golang的goroutine并发性能，利用并发执行缩短总体服务响应时间，针对耗时严重的服务，使用消息队列进行缓冲。
+脱离DB使用分库分表、读写分离，使用re......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2019-12-13
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2019/12/13/distributed_system/lock/">
+        <h2 class="post-title">
+            分布式锁的实现
+        </h2>
+        <h3 class="post-subtitle">
+             "distributed lock"
+        </h3>
+        <div class="post-content-preview">
+            
+In computer science, a lock or mutex (from mutual exclusion) is a synchronization mechanism for enforcing limits on access to a resource in an environment where there are many threads of execution......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2019-12-13
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2019/12/13/codeing/reverie/">
+        <h2 class="post-title">
+            如何写好代码
+        </h2>
+        <h3 class="post-subtitle">
+             "how coding"
+        </h3>
+        <div class="post-content-preview">
+            writing efficient programsprogramming pearlsmore programming pearlsthe pragmatic programmingthe practice of programming
+编写可读代码的艺术
 ...
         </div>
     </a>
     <p class="post-meta">
         Posted by yueLng on
-        2018-08-28
+        2019-12-13
     </p>
 
 </div>
@@ -243,20 +285,27 @@ forth风格基本风格
 
 <div class="post-preview">
 
-    <a href="/2018/08/28/language/php/">
+    <a href="/2019/12/13/thinking/evolution/">
         <h2 class="post-title">
-            PHP
+            Self evolution
         </h2>
         <h3 class="post-subtitle">
-            世界上最好的语言
+            自我进化
         </h3>
         <div class="post-content-preview">
-            以php脚本为例，当web服务器遇到匹配的php结尾的uri请求时，会启动php解释器，并把客户端发送的相关的数据（比如，用户请求的uri，相应的get和post的数据等）通过环境变量传递给php解释器，然后php解释器根据这些环境变量在解析脚本的时候设置$_GET, $_POST, $_SERVER等全局变量以供脚本使用，然后解析整个脚本内容，html原样输出，php代码执行输出，得到最后......
+            how do you invest in you own learning?
+Read blog posts
+Go to conferences
+Read books
+Watch talks while washing the dishes
+Build side projects using the technologies you want to learn
+
+How To Read A ......
         </div>
     </a>
     <p class="post-meta">
         Posted by yueLng on
-        2018-08-28
+        2019-12-13
     </p>
 
 </div>
@@ -264,49 +313,21 @@ forth风格基本风格
 
 <div class="post-preview">
 
-    <a href="/2018/08/27/distributed_system/fun_profit/">
+    <a href="/2019/12/13/thinking/reverie/">
         <h2 class="post-title">
-            Distributed systems for fun and profit
+            reverie
         </h2>
         <h3 class="post-subtitle">
-            
+            遐思
         </h3>
         <div class="post-content-preview">
-            一般来说，我们利用分布式系统是为了：
-
-Storage：扩展存储能力
-Computation：扩展计算能力
-
-分布式系统想要达成的目标Scalability
-“Is the ability of a system,network, or process, to handle a growing amount of work in a capable manner or its ability......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2018-08-27
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2018/08/13/puduct/experience/">
-        <h2 class="post-title">
-            技术以外的事
-        </h2>
-        <h3 class="post-subtitle">
-            产品-运营-推广
-        </h3>
-        <div class="post-content-preview">
-            产品-运营-推广如何做运营第一，依据不同的产品发展阶段，或当前占据市场份额的大小来判定运营策略和运营规划如何制定；第二，依据不同的产品形态和业务类型，来判定运营策略和运营规划如何制定。
-纯互联网类产品，产品永远是根基，要给自己团队及产品一些时间用心打磨（抖音打磨了7个月，才加大市场端投入），前期不要过度追求用户数量。尽力保持产品调性，维护好产品内部氛围，小心翼翼的探索和拓展产品边界。
-产品的......
+            “The more that you read,the more things you will know.The more that you learn,the more places you’ll go.”  ― Dr. Seuss
+从软件系统到业务认知水平我们先从软件系统的演进谈起，谈谈软件系统中的重要组成部分，然后聊聊工程师如何打造系统能力：它们和具体的功能无关 —— 如何使用各种工......
         </div>
     </a>
     <p class="post-meta">
         Posted by YueLng Chen on
-        2018-08-13
+        2019-12-13
     </p>
 
 </div>
@@ -314,25 +335,28 @@ Computation：扩展计算能力
 
 <div class="post-preview">
 
-    <a href="/2018/08/01/distributed_system/study_distribute_item/">
+    <a href="/2019/12/13/system_design/cache/">
         <h2 class="post-title">
-            分布式系统学习
+            缓存系统的设计
         </h2>
         <h3 class="post-subtitle">
-             "微服务的惯用架构"
+             "缓存系统的设计"
         </h3>
         <div class="post-content-preview">
-            what‘t distributed
-“A distributed system is a model in which components located on networked computers communicate and coordinate their actions by passing messages.”   – Wikipedia
+            
+计算机访问数据经常会呈现出局部性原理，局部性原理又包括空间局部性和时间局部性。空间局部性就是说，计算机访问数据，而其存储在邻近的数据也经常会被访问。时间局部性就是说，在相对的一小段时间内，计算机经常会访问相同的数据。
 
-CAP 理论
-
-一致性  all......
+关注点
+缓存时长（复杂多维度的计算）
+缓存失效处理（按时失效，事件失效，主动更新）
+缓存键（Hash 和方便人工干预）
+缓存内容及数据结构的选择
+缓存雪崩的处理（指当缓存服......
         </div>
     </a>
     <p class="post-meta">
         Posted by yueLng on
-        2018-08-01
+        2019-12-13
     </p>
 
 </div>
@@ -340,22 +364,30 @@ CAP 理论
 
 <div class="post-preview">
 
-    <a href="/2018/07/22/culture/xuzhiyuan-madong/">
+    <a href="/2019/12/13/system_design/microservice/">
         <h2 class="post-title">
-            许知远对话马东
+            微服务架构
         </h2>
         <h3 class="post-subtitle">
-            饭馆老板与美食家的对话
+             "微服务架构"
         </h3>
         <div class="post-content-preview">
-            马东的经历基本上都是在跟现实死磕，许知远的愤怒一直都是书斋里愤怒
+            微服务组成
+服务注册与发现身份验证与授权服务的伸缩控制反向代理与负载均衡路由控制流量切换日志管理性能度量、监控与调优分布式跟踪过载保护服务降级服务部署与版本升级策略支持错误处理
+golang 微服务微服务的演进
 
-一个心里有很多苦的人，你夸他通透。我是觉得这就跟你冲着一个胖子说你吃了好多饭啊的感觉差不多。简直不给人面子。两个文化人，一个访谈节目。一个是捉襟见肘的饭馆老板。一个是吃遍山珍海味的美食家。美食家说你最近开的那个馆子都是上个时代吃剩下的菜。有什么新鲜的。饭馆老板说你丫嘴太刁了。你吃过而已。那大家现在知道什么是好吃的么？美食家愣......
+梳理业务边界
+资源隔离部署
+内外网服务隔离
+RPC框架 （序列化、上下文管理超时控制、拦截器鉴权统计限流、服务注册、负载均衡）
+API Gateway
+
+He notes thou......
         </div>
     </a>
     <p class="post-meta">
         Posted by yueLng on
-        2018-07-22
+        2019-12-13
     </p>
 
 </div>
@@ -363,53 +395,21 @@ CAP 理论
 
 <div class="post-preview">
 
-    <a href="/2018/06/20/database/rust_kv/">
+    <a href="/2019/12/13/system_design/api/">
         <h2 class="post-title">
-            使用 Rust 构建分布式 Key-Value Store
+            通用API设计
         </h2>
         <h3 class="post-subtitle">
-             "kv 系统"
+             "API设计中的通用规则"
         </h3>
         <div class="post-content-preview">
-            引子构建一个分布式 Key-Value Store 并不是一件容易的事情，我们需要考虑很多的问题，首先就是我们的系统到底需要提供什么样的功能，譬如：
-
-一致性：我们是否需要保证整个系统的线性一致性，还是能容忍短时间的数据不一致，只支持最终一致性。
-稳定性：我们能否保证系统 7 x 24 小时稳定运行。系统的可用性是 4 个 9，还有 5 个 9？如果出现了机器损坏等灾难情况，系统能否做的自动......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by pingCAP on
-        2018-06-20
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2018/03/27/database/distributed/">
-        <h2 class="post-title">
-            怎样打造一个分布式数据库
-        </h2>
-        <h3 class="post-subtitle">
-             "distributed database"
-        </h3>
-        <div class="post-content-preview">
-            参考内容
-如何编写一个分布式数据库
-怎样打造一个分布式数据库
-使用 Rust 构建分布式 Key-Value Store
-Build a distributed SQL database from the ground up
-三篇文章了解 TiDB 技术内幕-谈调度
-三篇文章了解 TiDB 技术内幕-谈存储
-三篇文章了解 TiDB 技术内幕-谈计算
-TiDB 源码阅读系列文章（一）序
-TiD......
+            
+Json Web Token(JWT)JSON Web Token (JWT) 是目前应用最为广泛的 token 格式，是为了在网络应用环境间传递声明而执行的一种基于 JSON 的开放标准（RFC 7519)。该 token 设计紧凑且安全，特别适用于分布式站点的单点登录、API 网关等场景。JWT 的声明一般被用来在身份提供者和服务提供者间传递被认证的用户身份信息，以便于从资源服务器获取......
         </div>
     </a>
     <p class="post-meta">
         Posted by yueLng on
-        2018-03-27
+        2019-12-13
     </p>
 
 </div>
@@ -417,7 +417,7 @@ TiD......
 
 <div class="post-preview">
 
-    <a href="/2018/03/26/language/synchronous/">
+    <a href="/2019/12/13/language/synchronous/">
         <h2 class="post-title">
             Golang同步机制的实现
         </h2>
@@ -431,7 +431,7 @@ cas、atomiccas(Compare And Swap)和原子运算是其他同步机制的基.....
     </a>
     <p class="post-meta">
         Posted by yueLng on
-        2018-03-26
+        2019-12-13
     </p>
 
 </div>
@@ -484,6 +484,10 @@ cas、atomiccas(Compare And Swap)和原子运算是其他同步机制的基.....
                             
                         
                             
+                        
+                            
+                        
+                            
                             <a href="/tags/#database" title="database" rel="6">database</a>
                             
                         
@@ -496,13 +500,15 @@ cas、atomiccas(Compare And Swap)和原子运算是其他同步机制的基.....
                             
                         
                             
-                        
-                            
-                            <a href="/tags/#framework" title="framework" rel="3">framework</a>
+                            <a href="/tags/#distributed_system" title="distributed_system" rel="12">distributed_system</a>
                             
                         
                             
                             <a href="/tags/#financial" title="financial" rel="5">financial</a>
+                            
+                        
+                            
+                            <a href="/tags/#framework" title="framework" rel="3">framework</a>
                             
                         
                             
@@ -514,17 +520,19 @@ cas、atomiccas(Compare And Swap)和原子运算是其他同步机制的基.....
                             
                         
                             
-                            <a href="/tags/#product" title="product" rel="5">product</a>
-                            
-                        
-                            
                             <a href="/tags/#project" title="project" rel="8">project</a>
                             
                         
                             
-                            <a href="/tags/#distributed_system" title="distributed_system" rel="12">distributed_system</a>
+                            <a href="/tags/#product" title="product" rel="5">product</a>
                             
                         
+                            
+                            <a href="/tags/#reading" title="reading" rel="3">reading</a>
+                            
+                        
+                            
+                            <a href="/tags/#social_science" title="social_science" rel="2">social_science</a>
                             
                         
                             
@@ -537,14 +545,6 @@ cas、atomiccas(Compare And Swap)和原子运算是其他同步机制的基.....
                         
                             
                             <a href="/tags/#thinking" title="thinking" rel="9">thinking</a>
-                            
-                        
-                            
-                            <a href="/tags/#reading" title="reading" rel="3">reading</a>
-                            
-                        
-                            
-                            <a href="/tags/#social_science" title="social_science" rel="2">social_science</a>
                             
                         
                     </div>

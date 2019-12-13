@@ -161,7 +161,7 @@
 <!-- Post Header -->
 <style type="text/css">
     header.intro-header{
-        background-image: url('http://ogcxtlv6r.bkt.clouddn.com/17-11-30/95014676.jpg')
+        background-image: url('http://img.maker-fans.com/17-11-30/95014676.jpg')
     }
 </style>
 <header class="intro-header" >
@@ -202,7 +202,7 @@
 <li>微服务中如何诊断到耗时服务</li>
 <li>如何定位单点失败</li>
 <li>如何检测并避免循环依赖关系</li>
-<li>如何定位相互调用关系<br><img src="http://ogcxtlv6r.bkt.clouddn.com/18-3-12/98565460.jpg"></li>
+<li>如何定位相互调用关系<br><img src="http://img.maker-fans.com/18-3-12/98565460.jpg"></li>
 </ul>
 <h3 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h3><p>分布式追踪的关键步骤在于，数据采集，存储与分析展示</p>
 <ul>
@@ -211,7 +211,7 @@
 <li>将traceID跟随context注入到下一节点</li>
 <li>入库消息的结构组成，traceID、层级表示、调用方法、调用时间、返回时间<br>custom opentracing </li>
 </ul>
-<p>下图是一个分布式调用的例子<br><img src="http://ogcxtlv6r.bkt.clouddn.com/18-2-7/45201602.jpg"></p>
+<p>下图是一个分布式调用的例子<br><img src="http://img.maker-fans.com/18-2-7/45201602.jpg"></p>
 <h3 id="opentracing-amp-amp-jaeger"><a href="#opentracing-amp-amp-jaeger" class="headerlink" title="opentracing &amp;&amp; jaeger"></a>opentracing &amp;&amp; jaeger</h3><p>opentracing 是分布式追踪应用中的规范，主要解决了不用分布式追踪系统Api不兼容的问题。<a href="https://link.zhihu.com/?target=http%3A//opentracing.io/" target="_blank" rel="external">规范</a></p>
 <p>关于opentracing jaeger ui展示层<br>接收client的trace span消息，存入到内存map中，并定时清理map中的内容</p>
 <h3 id="jaeger实践"><a href="#jaeger实践" class="headerlink" title="jaeger实践"></a>jaeger实践</h3><p>jaeger是Uber开源的一个分布式追踪系统项目，使用Go语言开发。在实践中主要将数据的采集和数据展示拆分出来，简化了中间的存储过程，采用了内存存储的暂时性方案，修改了相应的源码，这里内存存储主要存在以下几个问题，所以后续还是会将存储落地到数据库。在数据的展示层还是兼容了jaeger本身自有的API接口，但是这块非常的薄弱，只有tracing和关系依赖功能，后续可以在这个系统中加入相应的metrics功能，例如参考Prometheus。</p>

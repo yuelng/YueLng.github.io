@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+          数据库加锁分析 - YueLng的博客 | YueLng&#39;s Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://yuelng.github.io/2019/12/13/database/lock/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <!-- Font CSS -->
+    <link rel="stylesheet" href="/css/font.min.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">YueLng&#39;s Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archives/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    
+<!-- Image to hack wechat -->
+<!-- <img src="http://yuelng.github.io/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('http://img.maker-fans.com/17-12-26/19881284.jpg')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/tags/#database" title="database">database</a>
+                        
+                    </div>
+                    <h1>数据库加锁分析</h1>
+                    <h2 class="subheading"> &quot;dead lock&quot;</h2>
+                    <span class="meta">
+                        Posted by yueLng on
+                        2019-12-13
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <h3 id="数据库事务ACID"><a href="#数据库事务ACID" class="headerlink" title="数据库事务ACID"></a>数据库事务ACID</h3><ol>
+<li>原子性(Atomicity): 一个事务必须被视为一个不可分割的最小工作单元，事务中的操作要么全部执行成功，要么全部失败会滚，不可能只执行其中的一部分。</li>
+<li>一致性(consistency) 数据库总是要从一个一致的状态转换到另一个一致的状态。需要确保当从A减去100时若系统崩溃，账户不会损失100元。</li>
+<li>隔离性(isolation)通常来说，一个事务在最终提交前对其他事务是不可见的。为满足不同的并发场景，定义了不同的隔离级别，从低到高是读未提交，读已提交，可重复读和序列化。序列化能够保证最强的一致性，其他隔离级别的一致性依次将此，并发性更好。读未提交会看到其他事务没有提交的操作，称为脏读。读已提交只能看到其他事务已经提交的修改，但是不能重复读，因为一个事务内两次读看到的结果不同。可重复读解决了不可重复读的问题，但是有幻读的问题，就是在读取某个范围的记录时，其他事务在该范围内插入了新的数据，两次读的结果不一致。InnoDB通过多版本并发控制(MVCC)解决了幻读的问题，可重复读是MySQL的默认隔离级别。序列化是最高的隔离级别，会让事务串行执行，在读取的每一行数据加锁，会造成大量的锁征用。</li>
+<li>持久性(durability) 持久性要保证提交了事务后，即使系统崩溃，修改的数据也不会丢失。持久性也分为不同的级别，通过备份等手段可以提高持久性。</li>
+</ol>
+<h3 id="MVCC"><a href="#MVCC" class="headerlink" title="MVCC"></a>MVCC</h3><p>MVCC其实很类似一个特殊的cas，它保证了涉及到跨多key修改的原子操作语义，这样也可以理解为什么MVCC可以把并发粒度控制得更好。</p>
+<h3 id="SQL分析"><a href="#SQL分析" class="headerlink" title="SQL分析"></a>SQL分析</h3><ol>
+<li><p>SELECT … FROM 是一个快照读，通过读取数据库的一个快照，不会加任何锁，除非将隔离级别设置成了 SERIALIZABLE 。在 SERIALIZABLE 隔离级别下，如果索引是非唯一索引，那么将在相应的记录上加上一个共享的next key锁。如果是唯一索引，只需要在相应记录上加index record lock。</p>
+</li>
+<li><p>SELECT … FROM … LOCK IN SHARE MODE 语句在所有索引扫描范围的索引记录上加上共享的next key锁。如果是唯一索引，只需要在相应记录上加index record lock。</p>
+</li>
+<li><p>SELECT … FROM … FOR UPDATE 语句在所有索引扫描范围的索引记录上加上排他的next key锁。如果是唯一索引，只需要在相应记录上加index record lock。这将堵塞其他会话利用SELECT … FROM … LOCK IN SHARE MODE 读取相同的记录，但是快照读将忽略记录上的锁。</p>
+</li>
+<li><p>UPDATE … WHERE …语句在所有索引扫描范围的索引记录上加上排他的next key锁。如果是唯一索引，只需要在相应记录上加index record lock。</p>
+</li>
+</ol>
+<p>当UPDATE 操作修改主键记录的时候，将在相应的二级索引上加上隐式的锁。当进行重复键检测的时候，将会在插入新的二级索引记录之前，在其二级索引上加上一把共享锁。</p>
+<ol start="5">
+<li><p>DELETE FROM … WHERE … 语句在所有索引扫描范围的索引记录上加上排他的next key锁。如果是唯一索引，只需要在相应记录上加index record lock。</p>
+</li>
+<li><p>INSERT 语句将在插入的记录上加一把排他锁，这个锁是一个index-record lock，并不是next-key 锁，因此就没有gap 锁，他将不会阻止其他会话在该条记录之前的gap插入记录。</p>
+</li>
+</ol>
+<p>在插入记录之前，将会加上一种叫做 insert intention gap 的 gap 锁。这个 insert intention gap表示他有意向在这个index gap插入记录，如果其他会话在这个index gap中插入的位置不相同，那么将不需要等待。假设存在索引记录4和7，会话A要插入记录5，会话B要插入记录6，每个会话在插入记录之前都需要锁定4和7之间gap，但是他们彼此不会互相堵塞，因为插入的位置不相同。</p>
+<p>如果出现了重复键错误，将在重复键上加一个共享锁。如果会话1插入一条记录，没有提交，他会在该记录上加上排他锁，会话2和会话3都尝试插入该重复记录，那么他们都会被堵塞，会话2和会话3将尝试在该记录上加一个共享锁。如果此时会话1回滚，将发生死锁。</p>
+<p>为什么会发生死锁呢？当会话1进行回滚的时候，记录上的排他锁释放了，会话2和会话3都获得了共享锁。然后会话2和会话3都想要获得排他锁，进而发生了死锁。<br>会话1在该记录上拥有一把排他锁，会话2和会话3都碰到了重复记录，因此都在申请共享锁。当会话1提交之后，会话1释放了排他锁，之后的会话2会话3先后获得了共享锁，此时他们发生了死锁，因为会话2和会话3都无法或者排他锁，因为彼此都占用了该记录的共享锁。</p>
+<ol start="7">
+<li><p>INSERT … ON DUPLICATE KEY UPDATE 和普通的INSERT并不相同。如果碰到重复键值，INSERT … ON DUPLICATE KEY UPDATE 将在记录上加排他的 next-key锁。</p>
+</li>
+<li><p>REPLACE 在没有碰到重复键值的时候和普通的INSERT是一样的，如果碰到重复键，将在记录上加一个排他的 next-key锁。</p>
+</li>
+<li><p>INSERT INTO T SELECT … FROM S WHERE … 语句在插入T表的每条记录上加上 index record lock 。如果隔离级别是 READ COMMITTED, 或者启用了 innodb_locks_unsafe_for_binlog 且事务隔离级别不是SERIALIZABLE，那么innodb将通过快照读取表S(no locks)。否则，innodb将在S的记录上加共享的next-key锁。</p>
+</li>
+</ol>
+<p>CREATE TABLE … SELECT … 和 INSERT INTO T SELECT … FROM S WHERE … 一样，在S上加共享的next-key锁或者进行快照读取（(no locks）</p>
+<ol start="10">
+<li><p>REPLACE INTO t SELECT … FROM s WHERE … 和 UPDATE t … WHERE col IN (SELECT … FROM s …) 中的select 部分将在表s上加共享的next-key锁。</p>
+</li>
+<li><p>当碰到有自增列的表的时候，innodb在自增列的索引最后面加上一个排他锁，叫AUTO-INC table lock 。AUTO-INC table lock会在语句执行完成后进行释放，而不是事务结束。如果AUTO-INC table lock被一个会话占有，那么其他会话将无法在该表中插入数据。innodb可以预先获取sql需要多少自增的大小，而不需要去申请锁，更多设置请参考参数innodb_autoinc_lock_mode.</p>
+</li>
+</ol>
+<p>12.如果一张表的外键约束被启用了，任何在该表上的插入、更新、删除都将需要加共享的 record-level locks来检查是否满足约束。如果约束检查失败，innodb也会加上共享的 record-level locks。</p>
+<ol start="13">
+<li>lock tables 是用来加表级锁，但是是MySQL的server层来加这把锁的。当innodb_table_locks = 1 (the default) 以及 autocommit = 0的时候，innodb能够感知表锁，同时server层了解到innodb已经加了row-level locks。否则，innodb将无法自动检测到死锁，同时server无法确定是否有行级锁，导致当其他会话占用行级锁的时候还能获得表锁。</li>
+</ol>
+<h3 id="数据库死锁问题"><a href="#数据库死锁问题" class="headerlink" title="数据库死锁问题"></a>数据库死锁问题</h3><ul>
+<li><a href="http://825635381.iteye.com/blog/2339434" target="_blank" rel="external">一次mysql死锁的排查过程</a></li>
+<li><a href="http://www.fordba.com/locks-set-by-different-sql-statements-in-innodb.html" target="_blank" rel="external">MySQL innodb中各种SQL语句加锁分析</a></li>
+<li><a href="http://hedengcheng.com/?p=771" target="_blank" rel="external">MySQL 加锁处理分析 何登成</a></li>
+</ul>
+
+
+                <hr>
+
+                
+
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2019/12/13/database/distributed/" data-toggle="tooltip" data-placement="top" title="怎样打造一个分布式数据库">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/2019/12/13/reading/principle/" data-toggle="tooltip" data-placement="top" title="原则">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                
+
+                
+                <!-- disqus 评论框 start -->
+                <div class="comment">
+                    <div id="disqus_thread" class="disqus-thread"></div>
+                </div>
+                <!-- disqus 评论框 end -->
+                
+
+            </div>
+    <!-- Side Catalog Container -->
+        
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+        
+
+    <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#database" title="database">database</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="http://www.zenlife.tk/" target="_blank">Tiancaiamao</a></li>
+                    
+                        <li><a href="http://legendtkl.com/" target="_blank">Tao Kelu</a></li>
+                    
+                        <li><a href="http://rocry.com/" target="_blank">Rocry</a></li>
+                    
+                        <li><a href="https://digests.dylanninin.com/" target="_blank">Dylanninin</a></li>
+                    
+                </ul>
+                
+            </div>
+
+        </div>
+    </div>
+</article>
+
+
+
+
+<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "tamchen";
+    var disqus_identifier = "http://yuelng.github.io/2019/12/13/database/lock/";
+    var disqus_url = "http://yuelng.github.io/2019/12/13/database/lock/";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus 公共JS代码 end -->
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/tam7_penicillus">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/tamchen">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://www.facebook.com/chen.penicillus">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/YueLng">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; YueLng&#39;s Blog 2019
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a>
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span>
+                    Ported by <a href="http://blog.kaijun.rocks">Kaijun</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=kaijun&repo=hexo-theme-huxblog&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--
+     Because of the native support for backtick-style fenced code blocks
+     right within the Markdown is landed in Github Pages,
+     From V1.6, There is no need for Highlight.js,
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://yuelng.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-67304654-1';
+    var _gaDomain = 'yuelng.github.io';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- Side Catalog -->
+
+<script type="text/javascript">
+    function generateCatalog (selector) {
+        var P = $('div.post-container'),a,n,t,l,i,c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#"+$(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="'+i+'" rel="nofollow">'+t+'</a>');
+            l = $('<li class="'+n+'_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    // toggle side catalog
+    $(".catalog-toggle").click((function(e){
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    /*
+     * Doc: https://github.com/davist11/jQuery-One-Page-Nav
+     * Fork by Hux to support padding
+     */
+    async("/js/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+
+
+<!-- Image to hack wechat -->
+<img src="http://yuelng.github.io/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

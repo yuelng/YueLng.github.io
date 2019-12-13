@@ -161,7 +161,7 @@
 <!-- Post Header -->
 <style type="text/css">
     header.intro-header{
-        background-image: url('http://ogcxtlv6r.bkt.clouddn.com/18-3-16/37874625.jpg')
+        background-image: url('http://img.maker-fans.com/18-3-16/37874625.jpg')
     }
 </style>
 <header class="intro-header" >
@@ -224,11 +224,11 @@
 <li>信号驱动 I/O（ signal driven IO）少用</li>
 <li>异步 I/O（asynchronous IO）</li>
 </ul>
-<h4 id="阻塞-I-O（blocking-IO）"><a href="#阻塞-I-O（blocking-IO）" class="headerlink" title="阻塞 I/O（blocking IO）"></a>阻塞 I/O（blocking IO）</h4><p><img src="http://ogcxtlv6r.bkt.clouddn.com/18-3-16/82590111.jpg"><br>blocking IO的特点是在IO执行的两个阶段都被block了</p>
-<h4 id="非阻塞I-O-nonblocking-IO）"><a href="#非阻塞I-O-nonblocking-IO）" class="headerlink" title="非阻塞I/O (nonblocking IO）"></a>非阻塞I/O (nonblocking IO）</h4><p><img src="http://ogcxtlv6r.bkt.clouddn.com/18-3-16/60634439.jpg"><br>nonblocking IO的特点是用户进程需要不断的主动询问kernel数据好了没有。</p>
-<h4 id="I-O-多路复用（-IO-multiplexing）"><a href="#I-O-多路复用（-IO-multiplexing）" class="headerlink" title="I/O 多路复用（ IO multiplexing）"></a>I/O 多路复用（ IO multiplexing）</h4><p><img src="http://ogcxtlv6r.bkt.clouddn.com/18-3-16/36748227.jpg"><br>当用户进程调用了select，那么整个进程会被block，而同时，kernel会“监视”所有select负责的socket，当任何一个socket中的数据准备好了，select就会返回。这个时候用户进程再调用read操作，将数据从kernel拷贝到用户进程。<br>所以，I/O 多路复用的特点是通过一种机制一个进程能同时等待多个文件描述符，而这些文件描述符（套接字描述符）其中的任意一个进入读就绪状态，select()函数就可以返回。</p>
-<h4 id="异步-I-O（asynchronous-IO）"><a href="#异步-I-O（asynchronous-IO）" class="headerlink" title="异步 I/O（asynchronous IO）"></a>异步 I/O（asynchronous IO）</h4><p><img src="http://ogcxtlv6r.bkt.clouddn.com/18-3-16/57995850.jpg"><br>用户进程发起read操作之后，立刻就可以开始去做其它的事。而另一方面，从kernel的角度，当它受到一个asynchronous read之后，首先它会立刻返回，所以不会对用户进程产生任何block。然后，kernel会等待数据准备完成，然后将数据拷贝到用户内存，当这一切都完成之后，kernel会给用户进程发送一个signal，告诉它read操作完成了。</p>
-<h4 id="I-O模型之间的区别"><a href="#I-O模型之间的区别" class="headerlink" title="I/O模型之间的区别"></a>I/O模型之间的区别</h4><p><img src="http://ogcxtlv6r.bkt.clouddn.com/18-3-16/74734746.jpg"><br>阻塞与非阻塞：调用blocking IO会一直block住对应的进程直到操作完成，而non-blocking IO在kernel还准备数据的情况下会立刻返回。<br>synchronous IO和asynchronous IO：这里说的IO operation是指真正的IO操作，non-blocking IO在执行recvfrom这个system call的时候，如果kernel的数据没有准备好，这时候不会block进程。但是，当kernel中数据准备好的时候，recvfrom会将数据从kernel拷贝到用户内存中，这个时候进程是被block了，在这段时间内，进程是被block的。</p>
+<h4 id="阻塞-I-O（blocking-IO）"><a href="#阻塞-I-O（blocking-IO）" class="headerlink" title="阻塞 I/O（blocking IO）"></a>阻塞 I/O（blocking IO）</h4><p><img src="http://img.maker-fans.com/18-3-16/82590111.jpg"><br>blocking IO的特点是在IO执行的两个阶段都被block了</p>
+<h4 id="非阻塞I-O-nonblocking-IO）"><a href="#非阻塞I-O-nonblocking-IO）" class="headerlink" title="非阻塞I/O (nonblocking IO）"></a>非阻塞I/O (nonblocking IO）</h4><p><img src="http://img.maker-fans.com/18-3-16/60634439.jpg"><br>nonblocking IO的特点是用户进程需要不断的主动询问kernel数据好了没有。</p>
+<h4 id="I-O-多路复用（-IO-multiplexing）"><a href="#I-O-多路复用（-IO-multiplexing）" class="headerlink" title="I/O 多路复用（ IO multiplexing）"></a>I/O 多路复用（ IO multiplexing）</h4><p><img src="http://img.maker-fans.com/18-3-16/36748227.jpg"><br>当用户进程调用了select，那么整个进程会被block，而同时，kernel会“监视”所有select负责的socket，当任何一个socket中的数据准备好了，select就会返回。这个时候用户进程再调用read操作，将数据从kernel拷贝到用户进程。<br>所以，I/O 多路复用的特点是通过一种机制一个进程能同时等待多个文件描述符，而这些文件描述符（套接字描述符）其中的任意一个进入读就绪状态，select()函数就可以返回。</p>
+<h4 id="异步-I-O（asynchronous-IO）"><a href="#异步-I-O（asynchronous-IO）" class="headerlink" title="异步 I/O（asynchronous IO）"></a>异步 I/O（asynchronous IO）</h4><p><img src="http://img.maker-fans.com/18-3-16/57995850.jpg"><br>用户进程发起read操作之后，立刻就可以开始去做其它的事。而另一方面，从kernel的角度，当它受到一个asynchronous read之后，首先它会立刻返回，所以不会对用户进程产生任何block。然后，kernel会等待数据准备完成，然后将数据拷贝到用户内存，当这一切都完成之后，kernel会给用户进程发送一个signal，告诉它read操作完成了。</p>
+<h4 id="I-O模型之间的区别"><a href="#I-O模型之间的区别" class="headerlink" title="I/O模型之间的区别"></a>I/O模型之间的区别</h4><p><img src="http://img.maker-fans.com/18-3-16/74734746.jpg"><br>阻塞与非阻塞：调用blocking IO会一直block住对应的进程直到操作完成，而non-blocking IO在kernel还准备数据的情况下会立刻返回。<br>synchronous IO和asynchronous IO：这里说的IO operation是指真正的IO操作，non-blocking IO在执行recvfrom这个system call的时候，如果kernel的数据没有准备好，这时候不会block进程。但是，当kernel中数据准备好的时候，recvfrom会将数据从kernel拷贝到用户内存中，这个时候进程是被block了，在这段时间内，进程是被block的。</p>
 <p>而asynchronous IO则不一样，当进程发起IO 操作之后，就直接返回再也不理睬了，直到kernel发送一个信号，告诉进程说IO完成。在这整个过程中，进程完全没有被block。</p>
 <h3 id="redis网络模型"><a href="#redis网络模型" class="headerlink" title="redis网络模型"></a>redis网络模型</h3><p>redis的网络模型是单线程EPOLL模型，利用I/O多路复用技术，监听感兴趣的I/O事件。<br>单线程的好处有： </p>
 <ol>
@@ -236,7 +236,7 @@
 <li>单线程避免了锁的争用。 </li>
 <li>对于一个内存型数据库，如果不考虑数据持久化，也就是读写物理磁盘，不会有阻塞操作，内存操作是非常快的。</li>
 </ol>
-<p>它的处理过程如图所示：<br><img src="http://ogcxtlv6r.bkt.clouddn.com/18-3-16/49954233.jpg"></p>
+<p>它的处理过程如图所示：<br><img src="http://img.maker-fans.com/18-3-16/49954233.jpg"></p>
 <h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><a href="https://segmentfault.com/a/1190000003063859" target="_blank" rel="external">Linux IO模式及 select、poll、epoll详解</a><br><a href="http://wiki.jikexueyuan.com/project/redis/" target="_blank" rel="external">Redis 源码日志-极客学院</a><br><a href="http://blog.csdn.net/yangbodong22011/article/details/65444273" target="_blank" rel="external">Redis网络库源码分析(1)之介绍篇</a></p>
 
 
@@ -247,7 +247,7 @@
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/2018/03/23/thinking/evolution/" data-toggle="tooltip" data-placement="top" title="Self evolution">&larr; Previous Post</a>
+                            <a href="/2018/07/22/culture/xuzhiyuan-madong/" data-toggle="tooltip" data-placement="top" title="许知远对话马东">&larr; Previous Post</a>
                         </li>
                     
                     

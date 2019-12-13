@@ -190,7 +190,7 @@
 
 <div class="post-preview">
 
-    <a href="/2018/02/27/database/kv/">
+    <a href="/2019/12/13/database/kv/">
         <h2 class="post-title">
             Key-value system
         </h2>
@@ -208,7 +208,7 @@ A hig......
     </a>
     <p class="post-meta">
         Posted by yueLng on
-        2018-02-27
+        2019-12-13
     </p>
 
 </div>
@@ -216,21 +216,53 @@ A hig......
 
 <div class="post-preview">
 
-    <a href="/2018/02/27/thinking/think_master_function/">
+    <a href="/2019/12/13/database/rust_kv/">
         <h2 class="post-title">
-            函数式编程
+            使用 Rust 构建分布式 Key-Value Store
         </h2>
         <h3 class="post-subtitle">
-            
+             "kv 系统"
         </h3>
         <div class="post-content-preview">
-            概念定义
-In computer science, functional programming is a programming paradigm that treats computation as the evaluation of mathematical functions and avoids state and mutable data.函数式编程是一种编程模型，他将计算机运算......
+            引子构建一个分布式 Key-Value Store 并不是一件容易的事情，我们需要考虑很多的问题，首先就是我们的系统到底需要提供什么样的功能，譬如：
+
+一致性：我们是否需要保证整个系统的线性一致性，还是能容忍短时间的数据不一致，只支持最终一致性。
+稳定性：我们能否保证系统 7 x 24 小时稳定运行。系统的可用性是 4 个 9，还有 5 个 9？如果出现了机器损坏等灾难情况，系统能否做的自动......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by pingCAP on
+        2019-12-13
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2019/12/13/database/distributed/">
+        <h2 class="post-title">
+            怎样打造一个分布式数据库
+        </h2>
+        <h3 class="post-subtitle">
+             "distributed database"
+        </h3>
+        <div class="post-content-preview">
+            参考内容
+如何编写一个分布式数据库
+怎样打造一个分布式数据库
+使用 Rust 构建分布式 Key-Value Store
+Build a distributed SQL database from the ground up
+三篇文章了解 TiDB 技术内幕-谈调度
+三篇文章了解 TiDB 技术内幕-谈存储
+三篇文章了解 TiDB 技术内幕-谈计算
+TiDB 源码阅读系列文章（一）序
+TiD......
         </div>
     </a>
     <p class="post-meta">
         Posted by yueLng on
-        2018-02-27
+        2019-12-13
     </p>
 
 </div>
@@ -238,21 +270,23 @@ In computer science, functional programming is a programming paradigm that treat
 
 <div class="post-preview">
 
-    <a href="/2018/02/22/computer_science/gc/">
+    <a href="/2019/12/13/database/lock/">
         <h2 class="post-title">
-            垃圾回收机制
+            数据库加锁分析
         </h2>
         <h3 class="post-subtitle">
-            Garbage collection
+             "dead lock"
         </h3>
         <div class="post-content-preview">
-            
-In computer science, garbage collection (GC) is a form of automatic memory management. The garbage collector, or just collector, attempts to reclaim garbage, or memory occupied by objects) that ar......
+            数据库事务ACID
+原子性(Atomicity): 一个事务必须被视为一个不可分割的最小工作单元，事务中的操作要么全部执行成功，要么全部失败会滚，不可能只执行其中的一部分。
+一致性(consistency) 数据库总是要从一个一致的状态转换到另一个一致的状态。需要确保当从A减去100时若系统崩溃，账户不会损失100元。
+隔离性(isolation)通常来说，一个事务在最终提交前对其他事务是不......
         </div>
     </a>
     <p class="post-meta">
         Posted by yueLng on
-        2018-02-22
+        2019-12-13
     </p>
 
 </div>
@@ -260,24 +294,24 @@ In computer science, garbage collection (GC) is a form of automatic memory manag
 
 <div class="post-preview">
 
-    <a href="/2018/02/16/life_is_short/movie/">
+    <a href="/2019/12/13/reading/principle/">
         <h2 class="post-title">
-            电影艺术
+            原则
         </h2>
         <h3 class="post-subtitle">
-            
+            桥水基金创始人的经验
         </h3>
         <div class="post-content-preview">
             
- 挖掘每一部电影、电视剧所反映的现实意义，是观影者的自我修养。
-价值观、剧本、情怀、艺术技巧、制作技术、态度、表演，评价电影价值的排序 —— 张小北
+人与其他物种最大的区别在于——自我反思和学习的能力。
 
-2018至暗时刻 影片讲述英国首相丘吉尔在作为首相期间面临的最重要的审判：是向纳粹妥协做俘虏，还是团结人民群起反抗？丘吉尔将集结整个国家为自由奋战，试图改变世界历史进程，度过黎明前的黑暗。盲井 这部电影改编自刘庆邦的小说《神木》，而《神木》......
+用最好的想法决策(idea meritocracy)做事原则对事不对人，不盲目迷信权威也不从众，而是选择最有价值的决策。因为任何一个人都有可能犯错，群体在大多数情况也会做出错误的决定，如何才能解决这个问题
+所以，需要极度的实话和透明 (Radical Truth and Radical Transparency), 发现问题来提供反馈......
         </div>
     </a>
     <p class="post-meta">
         Posted by YueLng Chen on
-        2018-02-16
+        2019-12-13
     </p>
 
 </div>
@@ -285,21 +319,24 @@ In computer science, garbage collection (GC) is a form of automatic memory manag
 
 <div class="post-preview">
 
-    <a href="/2018/02/16/social_science/social/">
+    <a href="/2019/12/13/reading/conflict/">
         <h2 class="post-title">
-            社会科学
+            《社会冲突》读书笔记
         </h2>
         <h3 class="post-subtitle">
-             "每个人心中的善恶的种子，在社会这片森林中郁郁葱葱"
+            读书笔记
         </h3>
         <div class="post-content-preview">
-            权利的游戏，纸牌屋，星球大战 西比厄斯对权利的攫取，利用战争来确定自身的权利，所以权利需要好的叙事来支撑(这里想到电影至暗时刻中丘吉尔的演讲)，语言的力量体现在引导民众心理的能力。
-谣言如何传播，他们相信的并不是谣言本身，而是对无序局面的一种恐惧。他们认为在无序中有一切恐惧的可能。正如同恐慌、谣言易于传播一样，也要看到勇气的力量，就好像只有在至黑的环境，再小的微光也能激发人们内心的希望，这这......
+            冲突的定义感知到的利益分歧—-即冲突一方认识到自身的期望与另一方的期望存在矛盾冲突理论，争斗、让步、问题解决、回避卡尔马克思 冲突是社会生活不可避免的内容冲突通过施加压力以求革新和创造，来阻止社会系统的僵化
+冲突的积极面
+
+孕育社会变迁的温床，例如 美国国会 颁布新的法案都是 经过一段时间的讨论，经利益对立的群体交互施压后才得以颁布
+防止不成熟的群体决策。一方是如此惧怕得罪某一方，以至于未能......
         </div>
     </a>
     <p class="post-meta">
-        Posted by yueLng on
-        2018-02-16
+        Posted by YueLng Chen on
+        2019-12-13
     </p>
 
 </div>
@@ -307,22 +344,52 @@ In computer science, garbage collection (GC) is a form of automatic memory manag
 
 <div class="post-preview">
 
-    <a href="/2018/02/16/social_science/voice/">
+    <a href="/2019/12/13/reading/style/">
         <h2 class="post-title">
-            他说
+            《编程风格》读书笔记
         </h2>
         <h3 class="post-subtitle">
-            
+            学习编程风格最好的方法应该是去读源代码
         </h3>
         <div class="post-content-preview">
-            世界上只有两种悲剧，一种是没有得到的，另一种是得到了 
-叔本华认为：生命是一团欲望，欲望不能满足便痛苦，满足便无聊，人生就在痛苦和无聊之间。
+            悠久历史
+
+往日的美好，内存约束下的写法
+forth风格基本风格
+单片风格，由上往下瀑布流的写法
+食谱风格，分割各个函数，共享全局变量，各个函数只对全局变量进行处理
+流水线风格，每个函数都有明确的输入输出，消除全局变量
+高尔夫风格，尽量使用已有的基础库函数组合
+无限镜像风格，使用递归的方式进行处理，考虑是否调用栈过深，导致栈溢出，是否有尾递归优化
+骨牌风格，每个函数最后参数是函数，传入的参数......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2019-12-13
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2018/08/28/language/lua/">
+        <h2 class="post-title">
+            Lua
+        </h2>
+        <h3 class="post-subtitle">
+             "lua开发"
+        </h3>
+        <div class="post-content-preview">
+            lua语法相对简洁它最大的特点就是用同步的代码逻辑实现非阻塞的调用，其次它有单进程内的 LRU cache 和进程间的 share DICT cache，而且它是揉合 nginx 和 LuaJIT 而产生的
+参考资料openresty最佳实践
 ...
         </div>
     </a>
     <p class="post-meta">
         Posted by yueLng on
-        2018-02-16
+        2018-08-28
     </p>
 
 </div>
@@ -330,107 +397,47 @@ In computer science, garbage collection (GC) is a form of automatic memory manag
 
 <div class="post-preview">
 
-    <a href="/2018/02/12/computer_science/topic/">
+    <a href="/2018/08/28/language/php/">
         <h2 class="post-title">
-            Some topic about computer science
+            PHP
+        </h2>
+        <h3 class="post-subtitle">
+            世界上最好的语言
+        </h3>
+        <div class="post-content-preview">
+            以php脚本为例，当web服务器遇到匹配的php结尾的uri请求时，会启动php解释器，并把客户端发送的相关的数据（比如，用户请求的uri，相应的get和post的数据等）通过环境变量传递给php解释器，然后php解释器根据这些环境变量在解析脚本的时候设置$_GET, $_POST, $_SERVER等全局变量以供脚本使用，然后解析整个脚本内容，html原样输出，php代码执行输出，得到最后......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2018-08-28
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2018/08/27/distributed_system/fun_profit/">
+        <h2 class="post-title">
+            Distributed systems for fun and profit
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            计算机体系
-进程与虚拟存储器
-Concurrency
-Distributed Systems
-Garbage Collection
-Memory Locality 缓存
-Readability 
+            一般来说，我们利用分布式系统是为了：
 
-编程思想鸭子类型(duck typing)
+Storage：扩展存储能力
+Computation：扩展计算能力
 
-When I see a bird that walks like a duck and swins like a duck and quacks l......
+分布式系统想要达成的目标Scalability
+“Is the ability of a system,network, or process, to handle a growing amount of work in a capable manner or its ability......
         </div>
     </a>
     <p class="post-meta">
         Posted by yueLng on
-        2018-02-12
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2018/02/11/language/language/">
-        <h2 class="post-title">
-            编程语言
-        </h2>
-        <h3 class="post-subtitle">
-             "programming language"
-        </h3>
-        <div class="post-content-preview">
-            语言特性
-memory model
-calling conventions
-resource management gc
-coordination
-abstraction(让表达式或复合表达式可以通过捆绑的名字单独隔离出来做一个单独的个体使用) 
-types 类型系统 （基本表达式，数字与符号）
-计算能力（formula/expression 复合表达式，例如3+4)
-逻辑能力(顺序、分支与......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2018-02-11
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2018/02/07/language/study_golang/">
-        <h2 class="post-title">
-            golang
-        </h2>
-        <h3 class="post-subtitle">
-             "golang"
-        </h3>
-        <div class="post-content-preview">
-            本文部分转自系统编程语言明日之星-GO作者淘宝余锋写于2010年
-Go语言由Google提供支持，于2007年 9月开始浮出水面，出自Rob Pike、 Ken Thomason等大师之手，是一种 支持并发和垃圾回收的编译型编程语言。
-Go语言是基于BSD许可发行的开源项目， 目前只支持Linux、Mac OS X和Windows平台。 由于团队资源及社区规模的限制，目前Go还无 法支持更多......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2018-02-07
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2018/02/07/financial/method/">
-        <h2 class="post-title">
-            投资方法论
-        </h2>
-        <h3 class="post-subtitle">
-            投资是一种通过详细分析，能够保证本金安全和获得令人满意的回报 的行为。
-        </h3>
-        <div class="post-content-preview">
-            摘录
-炒股是一种克服贪婪与恐惧的游戏
-让自己认真做商业判断的学习行为，通过持续提升，可以让自己在某些行业产生深刻的认识，从而提升自己未来商业判断的能力。另外，炒股本身也让自己更加深刻体会到人性的力量，有利于产生更强的自我控制能力
-保持好奇，坚持独立思考，以事实驱动的客观的态度来分析问题，习惯于抵抗情绪和无关动机的干扰，才是一个VC成熟的标志。
-一个真正的价值投资者，除了对企业价值要有深刻的理......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2018-02-07
+        2018-08-27
     </p>
 
 </div>
@@ -487,6 +494,10 @@ Go语言是基于BSD许可发行的开源项目， 目前只支持Linux、Mac OS
                             
                         
                             
+                        
+                            
+                        
+                            
                             <a href="/tags/#database" title="database" rel="6">database</a>
                             
                         
@@ -499,13 +510,15 @@ Go语言是基于BSD许可发行的开源项目， 目前只支持Linux、Mac OS
                             
                         
                             
-                        
-                            
-                            <a href="/tags/#framework" title="framework" rel="3">framework</a>
+                            <a href="/tags/#distributed_system" title="distributed_system" rel="12">distributed_system</a>
                             
                         
                             
                             <a href="/tags/#financial" title="financial" rel="5">financial</a>
+                            
+                        
+                            
+                            <a href="/tags/#framework" title="framework" rel="3">framework</a>
                             
                         
                             
@@ -517,17 +530,19 @@ Go语言是基于BSD许可发行的开源项目， 目前只支持Linux、Mac OS
                             
                         
                             
-                            <a href="/tags/#product" title="product" rel="5">product</a>
-                            
-                        
-                            
                             <a href="/tags/#project" title="project" rel="8">project</a>
                             
                         
                             
-                            <a href="/tags/#distributed_system" title="distributed_system" rel="12">distributed_system</a>
+                            <a href="/tags/#product" title="product" rel="5">product</a>
                             
                         
+                            
+                            <a href="/tags/#reading" title="reading" rel="3">reading</a>
+                            
+                        
+                            
+                            <a href="/tags/#social_science" title="social_science" rel="2">social_science</a>
                             
                         
                             
@@ -540,14 +555,6 @@ Go语言是基于BSD许可发行的开源项目， 目前只支持Linux、Mac OS
                         
                             
                             <a href="/tags/#thinking" title="thinking" rel="9">thinking</a>
-                            
-                        
-                            
-                            <a href="/tags/#reading" title="reading" rel="3">reading</a>
-                            
-                        
-                            
-                            <a href="/tags/#social_science" title="social_science" rel="2">social_science</a>
                             
                         
                     </div>
