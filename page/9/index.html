@@ -96,14 +96,14 @@
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
@@ -187,6 +187,101 @@
             
                 <!-- Main Content -->
 
+
+<div class="post-preview">
+
+    <a href="/2017/11/30/computer_science/study_algorithm/">
+        <h2 class="post-title">
+            相似距离算法
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            相似距离算法是推荐算法的一部分。
+一、EuclideanDistanceSimilarity: 欧氏距离相似度原理：利用欧式距离d定义的相似度s，s=1 / (1+d)。
+范围：[0,1]，值越大，说明d越小，也就是距离越近，则相似度越大。
+说明：同皮尔森相似度一样，该相似度也没有考虑重叠数对结果的影响，同样地，Mahout通过增加一个枚举类型（Weighting）的参数来使得重叠数也成为计......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/30/codeing/study_coding/">
+        <h2 class="post-title">
+            勿在浮沙聚高塔
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            1.摘要今天看了新浪新兵训练营的一些资料，整理下关于程序员最基础的知识————关于编码主要内容包括，什么是烂代码，什么是好代码，好代码需要注意什么，如何做出优雅的设计，如何规划合理的架构编码主要是给人看的，其次才是给机器看的。第一个保证用户逻辑是对的，第二个保证这算法写法性能最好的，第三保证相关成本是最低的包括内存分配成本垃圾回收成本
+2.关于烂代码写出烂代码很容易，入行时很容易被鼓吹要把主......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/30/distributed_system/raft/">
+        <h2 class="post-title">
+            分布式系统的一致性算法
+        </h2>
+        <h3 class="post-subtitle">
+             "如何解决集群内共识的问题"
+        </h3>
+        <div class="post-content-preview">
+            一致性协议或共识算法所针对的问题，简单来说就是要保证
+
+即使发生网络或节点异常，整个集群依然能够像单机一样提供一致的服务，即在每次成功操作时都可以看到其之前的所有成功操作按顺序完成。用 2PC 是因为要支持分布式事务，用 Raft 是要支持强一致的复制。这两个解决的不是一个问题  — 申砾
+
+故障模型
+Crash-stop Failures：故名思议，一旦发生故障，节点就停止提供服务，并且不......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/28/database/database/">
+        <h2 class="post-title">
+            数据库原理、实践
+        </h2>
+        <h3 class="post-subtitle">
+             "数据库原理、实践"
+        </h3>
+        <div class="post-content-preview">
+            数据库实践数据库并发查询下 导致巨大时延？
+SHOW PROCESSLIST 查看数据库连接，看哪个连接导致锁表kill id   //杀掉被锁的表
+如何使用online DDL 增加字段MySQL Online DDL - 腾讯云社区 - 腾讯云没有使用 online DDL选项主库增加了字段，通过binlog 同步到从库执行alter 操作 会导致锁表，锁表导致set old_alter......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2017-11-28
+    </p>
+
+</div>
+<hr>
 
 <div class="post-preview">
 
@@ -338,111 +433,6 @@ Supervisor是一款Linux下的进程管理软件。最主要的两个功能是:
 </div>
 <hr>
 
-<div class="post-preview">
-
-    <a href="/2017/03/30/computer_science/algorithm/">
-        <h2 class="post-title">
-            算法
-        </h2>
-        <h3 class="post-subtitle">
-             "算法"
-        </h3>
-        <div class="post-content-preview">
-            
-
-穷举=树型搜索
-递归=树型搜索+剪枝
-动态规划=树型搜索+剪枝+节点合并
-因此算法效率：动态规划&gt;递归&gt;穷举。
-
-
-
-递归与分治策略
-一个直接或间接地调用自身的算法称为递归算法。
-分治算法的模式如下：
-12345678910Divide_and_Conquer(P)&#123;    if(|P|&lt;=n0)    Adhoc(P);//Adhoc(P)是基本子算法   ......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2017-03-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/03/30/computer_science/network/">
-        <h2 class="post-title">
-            计算机网络
-        </h2>
-        <h3 class="post-subtitle">
-             "计算机网络"
-        </h3>
-        <div class="post-content-preview">
-            TCP四次挥手过程
-TCP是面向连接的服务；三次握手（建立连接）和四次挥手（关闭连接）；使用滑动窗口机制进行流量控制；TCP要保证在所有可能的情况下使得所有的数据都能够被投递，当你关闭一个socket时，主动关闭一端的socket将进入TIME_WAIT状态，而被动关闭一方则转入CLOSED状态，这的确能够保证所有的数据都被传输。1）首先A B端的TCP进程都处于established状态，......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2017-03-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/03/30/devops/basic_oprate/">
-        <h2 class="post-title">
-            记录常用的配置
-        </h2>
-        <h3 class="post-subtitle">
-             "配置"
-        </h3>
-        <div class="post-content-preview">
-            ####项目部署执行openplay_backend requirement.txt 中却少raven
-在跑run.py时，debug配置文件下却少sentry，将product环境下的sentry添加即可
-####项目基础架构
-
-总共分为球员版player，管理员admin，用户user，统计stats，网页web，五个部分
-项目之间的关系：五个部分全都是基于tornado API项目开发......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2017-03-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/03/30/framework/tornado/">
-        <h2 class="post-title">
-            Tornado Pyhton web框架介绍
-        </h2>
-        <h3 class="post-subtitle">
-             "tornado为何这么快"
-        </h3>
-        <div class="post-content-preview">
-            ##Tornado直接读代码
-简介FriendFeed使用了一款使用Python编写的，相对简单的非阻塞式Web服务器。它的特点在于非阻塞服务器和epoll的运用，这个Web框架还包含了一些相关的有用工具和优化。
-以下是经典的“Hello, world”示例：
-123456789101112131415import tornado.ioloopimport tornado.webclass ......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2017-03-30
-    </p>
-
-</div>
-<hr>
-
 
 
 <!-- Pager -->
@@ -498,6 +488,10 @@ TCP是面向连接的服务；三次握手（建立连接）和四次挥手（�
                             
                         
                             
+                        
+                            
+                        
+                            
                             <a href="/tags/#database" title="database" rel="6">database</a>
                             
                         
@@ -506,7 +500,7 @@ TCP是面向连接的服务；三次握手（建立连接）和四次挥手（�
                             
                         
                             
-                        
+                            <a href="/tags/#distributed_system" title="distributed_system" rel="12">distributed_system</a>
                             
                         
                             
@@ -522,7 +516,7 @@ TCP是面向连接的服务；三次握手（建立连接）和四次挥手（�
                             
                         
                             
-                            <a href="/tags/#distributed_system" title="distributed_system" rel="12">distributed_system</a>
+                            <a href="/tags/#life_is_short" title="life_is_short" rel="5">life_is_short</a>
                             
                         
                             
@@ -530,15 +524,15 @@ TCP是面向连接的服务；三次握手（建立连接）和四次挥手（�
                             
                         
                             
-                            <a href="/tags/#life_is_short" title="life_is_short" rel="5">life_is_short</a>
-                            
                         
                             
                             <a href="/tags/#product" title="product" rel="5">product</a>
                             
                         
                             
-                            <a href="/tags/#reading" title="reading" rel="3">reading</a>
+                        
+                            
+                            <a href="/tags/#reading" title="reading" rel="4">reading</a>
                             
                         
                             
@@ -555,6 +549,8 @@ TCP是面向连接的服务；三次握手（建立连接）和四次挥手（�
                         
                             
                             <a href="/tags/#thinking" title="thinking" rel="9">thinking</a>
+                            
+                        
                             
                         
                     </div>

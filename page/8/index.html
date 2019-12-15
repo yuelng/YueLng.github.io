@@ -96,14 +96,14 @@
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
@@ -187,6 +187,108 @@
             
                 <!-- Main Content -->
 
+
+<div class="post-preview">
+
+    <a href="/2017/12/12/distributed_system/mq/">
+        <h2 class="post-title">
+            消息队列
+        </h2>
+        <h3 class="post-subtitle">
+             "消息队列"
+        </h3>
+        <div class="post-content-preview">
+            kafka问题描述：kafka 重复消费的问题，每次重启服务，都从broker拉取offset，拉到旧的消息解决：消费者每次从broker拉取数据，消费之后都会自动commit，自动commit有一个定时机制，但是并不保证一定提交成功，例如在commit的时候，程序崩溃（例如重启的情况在重启后，消费者会拉取最新的offset作为消费的起点，sarama默认的initial offset 为O......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2017-12-12
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/12/12/financial/snow_ball/">
+        <h2 class="post-title">
+            雪球2017嘉年华
+        </h2>
+        <h3 class="post-subtitle">
+             "一些整理"
+        </h3>
+        <div class="post-content-preview">
+            三公子经验每一年达到60%的储蓄率，两到三年达到30W的储蓄最重要的不是去界定你能力圈范围的大小，而是要明白你能力圈的边界在哪里，当一个人如果了解了他的边界，其实他所拥有的能量是要比很多能力圈比他大但是不了解边界这些人的能量大得多
+坚持读了很多方面的书坚持写读书笔记
+第一就是，我们需要正确地认识自己，就像巴菲特说的，我们需要对自己的能力边界有一个确定，当我们认识了自己才知道自己可以做什么，自......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2017-12-12
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/30/thinking/think_master_unittest/">
+        <h2 class="post-title">
+            编程之路-单元测试
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            编程之路
+编程规范
+函数式编程
+性能与优化
+单元测试
+
+概念定义
+在计算机编程中，单元测试（又称为模块测试, Unit Testing）是针对程序模块（软件设计的最小单位）来进行正确性检验的测试工作。程序单元是应用的最小可测试部件。在过程化编程中，一个单元就是单个程序、函数、过程等；对于面向对象编程，最小单元就是方法，包括基类（超类）、抽象类、或者派生类（子类）中的方法。
+
+了解项目背景，选......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/30/thinking/think_master_program/">
+        <h2 class="post-title">
+            编程之路—编程规范
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            编程之路
+编程规范
+函数式编程
+性能与优化
+单元测试
+
+####宏观编程规范编程规范应该是编程活动中的精华所在，虽然与其他几种同列，但是我认为这不仅仅是规范
+规范体现了一个程序员的基本素养，武林高手一般会有他自己的独有风格，但是也会有大多数高手都有的气质。编程规范是能够体现出程序员水准的标准，通常在达到一定的境界的时候，大家都会不约而同形成一套体系，而这套体系是前人不断总结出来的，在我看来这......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2017-11-30
+    </p>
+
+</div>
+<hr>
 
 <div class="post-preview">
 
@@ -337,101 +439,6 @@ Monitor your data作为程序员，我们开发一个后台服务，大家有没
 </div>
 <hr>
 
-<div class="post-preview">
-
-    <a href="/2017/11/30/computer_science/study_algorithm/">
-        <h2 class="post-title">
-            相似距离算法
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            相似距离算法是推荐算法的一部分。
-一、EuclideanDistanceSimilarity: 欧氏距离相似度原理：利用欧式距离d定义的相似度s，s=1 / (1+d)。
-范围：[0,1]，值越大，说明d越小，也就是距离越近，则相似度越大。
-说明：同皮尔森相似度一样，该相似度也没有考虑重叠数对结果的影响，同样地，Mahout通过增加一个枚举类型（Weighting）的参数来使得重叠数也成为计......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/codeing/study_coding/">
-        <h2 class="post-title">
-            勿在浮沙聚高塔
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            1.摘要今天看了新浪新兵训练营的一些资料，整理下关于程序员最基础的知识————关于编码主要内容包括，什么是烂代码，什么是好代码，好代码需要注意什么，如何做出优雅的设计，如何规划合理的架构编码主要是给人看的，其次才是给机器看的。第一个保证用户逻辑是对的，第二个保证这算法写法性能最好的，第三保证相关成本是最低的包括内存分配成本垃圾回收成本
-2.关于烂代码写出烂代码很容易，入行时很容易被鼓吹要把主......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/distributed_system/raft/">
-        <h2 class="post-title">
-            分布式系统的一致性算法
-        </h2>
-        <h3 class="post-subtitle">
-             "如何解决集群内共识的问题"
-        </h3>
-        <div class="post-content-preview">
-            一致性协议或共识算法所针对的问题，简单来说就是要保证
-
-即使发生网络或节点异常，整个集群依然能够像单机一样提供一致的服务，即在每次成功操作时都可以看到其之前的所有成功操作按顺序完成。用 2PC 是因为要支持分布式事务，用 Raft 是要支持强一致的复制。这两个解决的不是一个问题  — 申砾
-
-故障模型
-Crash-stop Failures：故名思议，一旦发生故障，节点就停止提供服务，并且不......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2017-11-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/28/database/database/">
-        <h2 class="post-title">
-            数据库原理、实践
-        </h2>
-        <h3 class="post-subtitle">
-             "数据库原理、实践"
-        </h3>
-        <div class="post-content-preview">
-            数据库实践数据库并发查询下 导致巨大时延？
-SHOW PROCESSLIST 查看数据库连接，看哪个连接导致锁表kill id   //杀掉被锁的表
-如何使用online DDL 增加字段MySQL Online DDL - 腾讯云社区 - 腾讯云没有使用 online DDL选项主库增加了字段，通过binlog 同步到从库执行alter 操作 会导致锁表，锁表导致set old_alter......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2017-11-28
-    </p>
-
-</div>
-<hr>
-
 
 
 <!-- Pager -->
@@ -487,6 +494,10 @@ SHOW PROCESSLIST 查看数据库连接，看哪个连接导致锁表kill id   //
                             
                         
                             
+                        
+                            
+                        
+                            
                             <a href="/tags/#database" title="database" rel="6">database</a>
                             
                         
@@ -495,7 +506,7 @@ SHOW PROCESSLIST 查看数据库连接，看哪个连接导致锁表kill id   //
                             
                         
                             
-                        
+                            <a href="/tags/#distributed_system" title="distributed_system" rel="12">distributed_system</a>
                             
                         
                             
@@ -511,7 +522,7 @@ SHOW PROCESSLIST 查看数据库连接，看哪个连接导致锁表kill id   //
                             
                         
                             
-                            <a href="/tags/#distributed_system" title="distributed_system" rel="12">distributed_system</a>
+                            <a href="/tags/#life_is_short" title="life_is_short" rel="5">life_is_short</a>
                             
                         
                             
@@ -519,15 +530,15 @@ SHOW PROCESSLIST 查看数据库连接，看哪个连接导致锁表kill id   //
                             
                         
                             
-                            <a href="/tags/#life_is_short" title="life_is_short" rel="5">life_is_short</a>
-                            
                         
                             
                             <a href="/tags/#product" title="product" rel="5">product</a>
                             
                         
                             
-                            <a href="/tags/#reading" title="reading" rel="3">reading</a>
+                        
+                            
+                            <a href="/tags/#reading" title="reading" rel="4">reading</a>
                             
                         
                             
@@ -544,6 +555,8 @@ SHOW PROCESSLIST 查看数据库连接，看哪个连接导致锁表kill id   //
                         
                             
                             <a href="/tags/#thinking" title="thinking" rel="9">thinking</a>
+                            
+                        
                             
                         
                     </div>

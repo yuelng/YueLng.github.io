@@ -96,14 +96,14 @@
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
@@ -190,19 +190,75 @@
 
 <div class="post-preview">
 
-    <a href="/2017/03/30/language/ruby_dev_env/">
+    <a href="/2017/03/30/computer_science/algorithm/">
         <h2 class="post-title">
-            ruby开发环境的搭建
+            算法
         </h2>
         <h3 class="post-subtitle">
-             "ruby开发"
+             "算法"
         </h3>
         <div class="post-content-preview">
-            ruby开发环境
-Mac OS本身自带ruby在系统目录 /System/Library/Frameworks/Ruby.framework/Versions/Current12345# 通过homebrew安装ruby最新版brew updatebrew install ruby# 安装railsgem install rails
+            
+
+穷举=树型搜索
+递归=树型搜索+剪枝
+动态规划=树型搜索+剪枝+节点合并
+因此算法效率：动态规划&gt;递归&gt;穷举。
 
 
-...
+
+递归与分治策略
+一个直接或间接地调用自身的算法称为递归算法。
+分治算法的模式如下：
+12345678910Divide_and_Conquer(P)&#123;    if(|P|&lt;=n0)    Adhoc(P);//Adhoc(P)是基本子算法   ......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2017-03-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/03/30/computer_science/network/">
+        <h2 class="post-title">
+            计算机网络
+        </h2>
+        <h3 class="post-subtitle">
+             "计算机网络"
+        </h3>
+        <div class="post-content-preview">
+            TCP四次挥手过程
+TCP是面向连接的服务；三次握手（建立连接）和四次挥手（关闭连接）；使用滑动窗口机制进行流量控制；TCP要保证在所有可能的情况下使得所有的数据都能够被投递，当你关闭一个socket时，主动关闭一端的socket将进入TIME_WAIT状态，而被动关闭一方则转入CLOSED状态，这的确能够保证所有的数据都被传输。1）首先A B端的TCP进程都处于established状态，......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2017-03-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/03/30/devops/basic_oprate/">
+        <h2 class="post-title">
+            记录常用的配置
+        </h2>
+        <h3 class="post-subtitle">
+             "配置"
+        </h3>
+        <div class="post-content-preview">
+            ####项目部署执行openplay_backend requirement.txt 中却少raven
+在跑run.py时，debug配置文件下却少sentry，将product环境下的sentry添加即可
+####项目基础架构
+
+总共分为球员版player，管理员admin，用户user，统计stats，网页web，五个部分
+项目之间的关系：五个部分全都是基于tornado API项目开发......
         </div>
     </a>
     <p class="post-meta">
@@ -233,6 +289,55 @@ Mac OS本身自带ruby在系统目录 /System/Library/Frameworks/Ruby.framework/
 命令行选项和参数值具有最高优先级，可以override前两层的配置项值。
 
 错误处理golang内置两种错误处理方式，error与panic，error是逻辑上程序可控制可预见的错误，而panic则相对于error是比较严重的错误。在通常的项......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2017-03-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/03/30/framework/tornado/">
+        <h2 class="post-title">
+            Tornado Pyhton web框架介绍
+        </h2>
+        <h3 class="post-subtitle">
+             "tornado为何这么快"
+        </h3>
+        <div class="post-content-preview">
+            ##Tornado直接读代码
+简介FriendFeed使用了一款使用Python编写的，相对简单的非阻塞式Web服务器。它的特点在于非阻塞服务器和epoll的运用，这个Web框架还包含了一些相关的有用工具和优化。
+以下是经典的“Hello, world”示例：
+123456789101112131415import tornado.ioloopimport tornado.webclass ......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2017-03-30
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/03/30/language/ruby_dev_env/">
+        <h2 class="post-title">
+            ruby开发环境的搭建
+        </h2>
+        <h3 class="post-subtitle">
+             "ruby开发"
+        </h3>
+        <div class="post-content-preview">
+            ruby开发环境
+Mac OS本身自带ruby在系统目录 /System/Library/Frameworks/Ruby.framework/Versions/Current12345# 通过homebrew安装ruby最新版brew updatebrew install ruby# 安装railsgem install rails
+
+
+...
         </div>
     </a>
     <p class="post-meta">
@@ -353,116 +458,6 @@ bla......
 </div>
 <hr>
 
-<div class="post-preview">
-
-    <a href="/2016/03/30/collection/note_category/">
-        <h2 class="post-title">
-            操作技能目录
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            
-“Any organization that design a system(defined broadly) will produce a design whose structure is a copy of the organization’s communication structureConway’s Law
-
-
-Linux开发
-Python开发
-爬虫开发使用豆瓣的接口，使用爬......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2016-03-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2016/03/30/language/python_dev_env/">
-        <h2 class="post-title">
-            python开发环境搭建
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            homebrew安装与基本使用1，homebrew简介
-homebrew是Mac OSX上的包管理工具，类似于linux中的apt，yum等等，能在mac中方便地安装软件或者卸载软件。
-2，homebrew安装
-1ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)
-3......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2016-03-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2016/03/30/life_is_short/life_food/">
-        <h2 class="post-title">
-            生活-美食
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            
-“唯美食，好姑娘，梦想不可辜负.”
-
-写在记录之前总觉得一句话讲的非常好，唯美食和好姑娘不可辜负，现在好姑娘都没有，谈不上辜负，现在只是谈谈不辜负这美食。这里会搜罗世界各地，风情各异的美酒美食，也尽量给出美食的做法，以防自己老了，记录在这，不管怎么样，记得都要好好生活。（真想再开一篇记录国内各大菜系的特色和各种歪果仁的各种黑暗料理，不要漏掉酱料这个大头，各种菜系都要试一试的呀
-汤类最近一直......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2016-03-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2016/03/30/life_is_short/life_xiexiongmao/">
-        <h2 class="post-title">
-            生活-美食(知乎谢雄猫君
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            谢熊猫君记录意大利面
-牛肉碎
-有西餐holy trinity之称的洋葱、胡萝卜和西芹
-番茄酱（切记要用tomato puree或者tomato paste，
-Tagliatelle或者Fettucine这种宽的意面
-奶酪（mozzarella或者parmesan），牛奶，橄榄油
-
-酱：
-
-胡萝卜，西芹切丁，洋葱切碎，
-放橄榄油，先炒洋葱至透明
-放胡萝卜和西芹，炒热，下牛肉碎，变色
-下番茄酱，......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2016-03-30
-    </p>
-
-</div>
-<hr>
-
 
 
 <!-- Pager -->
@@ -518,6 +513,10 @@ Tagliatelle或者Fettucine这种宽的意面
                             
                         
                             
+                        
+                            
+                        
+                            
                             <a href="/tags/#database" title="database" rel="6">database</a>
                             
                         
@@ -526,7 +525,7 @@ Tagliatelle或者Fettucine这种宽的意面
                             
                         
                             
-                        
+                            <a href="/tags/#distributed_system" title="distributed_system" rel="12">distributed_system</a>
                             
                         
                             
@@ -542,7 +541,7 @@ Tagliatelle或者Fettucine这种宽的意面
                             
                         
                             
-                            <a href="/tags/#distributed_system" title="distributed_system" rel="12">distributed_system</a>
+                            <a href="/tags/#life_is_short" title="life_is_short" rel="5">life_is_short</a>
                             
                         
                             
@@ -550,15 +549,15 @@ Tagliatelle或者Fettucine这种宽的意面
                             
                         
                             
-                            <a href="/tags/#life_is_short" title="life_is_short" rel="5">life_is_short</a>
-                            
                         
                             
                             <a href="/tags/#product" title="product" rel="5">product</a>
                             
                         
                             
-                            <a href="/tags/#reading" title="reading" rel="3">reading</a>
+                        
+                            
+                            <a href="/tags/#reading" title="reading" rel="4">reading</a>
                             
                         
                             
@@ -575,6 +574,8 @@ Tagliatelle或者Fettucine这种宽的意面
                         
                             
                             <a href="/tags/#thinking" title="thinking" rel="9">thinking</a>
+                            
+                        
                             
                         
                     </div>

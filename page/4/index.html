@@ -96,14 +96,14 @@
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
@@ -187,6 +187,107 @@
             
                 <!-- Main Content -->
 
+
+<div class="post-preview">
+
+    <a href="/2019/12/13/reading/style/">
+        <h2 class="post-title">
+            《编程风格》读书笔记
+        </h2>
+        <h3 class="post-subtitle">
+            学习编程风格最好的方法应该是去读源代码
+        </h3>
+        <div class="post-content-preview">
+            悠久历史
+
+往日的美好，内存约束下的写法
+forth风格基本风格
+单片风格，由上往下瀑布流的写法
+食谱风格，分割各个函数，共享全局变量，各个函数只对全局变量进行处理
+流水线风格，每个函数都有明确的输入输出，消除全局变量
+高尔夫风格，尽量使用已有的基础库函数组合
+无限镜像风格，使用递归的方式进行处理，考虑是否调用栈过深，导致栈溢出，是否有尾递归优化
+骨牌风格，每个函数最后参数是函数，传入的参数......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by YueLng Chen on
+        2019-12-13
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2018/08/28/language/lua/">
+        <h2 class="post-title">
+            Lua
+        </h2>
+        <h3 class="post-subtitle">
+             "lua开发"
+        </h3>
+        <div class="post-content-preview">
+            lua语法相对简洁它最大的特点就是用同步的代码逻辑实现非阻塞的调用，其次它有单进程内的 LRU cache 和进程间的 share DICT cache，而且它是揉合 nginx 和 LuaJIT 而产生的
+参考资料openresty最佳实践
+...
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2018-08-28
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2018/08/28/language/php/">
+        <h2 class="post-title">
+            PHP
+        </h2>
+        <h3 class="post-subtitle">
+            世界上最好的语言
+        </h3>
+        <div class="post-content-preview">
+            以php脚本为例，当web服务器遇到匹配的php结尾的uri请求时，会启动php解释器，并把客户端发送的相关的数据（比如，用户请求的uri，相应的get和post的数据等）通过环境变量传递给php解释器，然后php解释器根据这些环境变量在解析脚本的时候设置$_GET, $_POST, $_SERVER等全局变量以供脚本使用，然后解析整个脚本内容，html原样输出，php代码执行输出，得到最后......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2018-08-28
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2018/08/27/distributed_system/fun_profit/">
+        <h2 class="post-title">
+            Distributed systems for fun and profit
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            一般来说，我们利用分布式系统是为了：
+
+Storage：扩展存储能力
+Computation：扩展计算能力
+
+分布式系统想要达成的目标Scalability
+“Is the ability of a system,network, or process, to handle a growing amount of work in a capable manner or its ability......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by yueLng on
+        2018-08-27
+    </p>
+
+</div>
+<hr>
 
 <div class="post-preview">
 
@@ -327,103 +428,6 @@ R......
 </div>
 <hr>
 
-<div class="post-preview">
-
-    <a href="/2018/03/12/distributed_system/trace/">
-        <h2 class="post-title">
-            分布式系统追踪
-        </h2>
-        <h3 class="post-subtitle">
-             "分布式系统调用链追踪、监控"
-        </h3>
-        <div class="post-content-preview">
-            Logging，Metrics 和 Tracing单体应用慢慢进化成微服务应用，随之带来的是运维方式的改变。形成了DevOps方式的运维，这一切都是为了提高软件的交付和部署效率。相应的基础的运维服务主要总结为以下三大块，Logging集中的日志管理系统，结构化的日志，统一的查询使得定位问题更加有针对性，Metrics则关注整个系统的各种指标的的变化，集中度量系统主要采集QPS、吞吐量、网络带......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2018-03-12
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2018/03/12/life_is_short/travel/">
-        <h2 class="post-title">
-            关于旅行的句子
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            你来，为你开。你不来，自己开。开，有开的快乐，不开，有不开的欢喜。
-这一朵不开，下一朵开。春天来了，躲不开。
-这一刻不开，下一刻开。春天来了，不躲开。
-
-
-我躺下来，以一张报纸当枕头。高高在我上方的，是会眨眼的星星，而当火车弯曲而行，这些星群便上上下下的画着弧线，望着它们，我睡着了。今天已经过去——我生命中所有天中的一天，明天又会是新的一天，而我依然年轻。  ——杰克伦敦《大路》
-
-
-每个人......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by YueLng Chen on
-        2018-03-12
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2018/02/28/computer_science/stack_heap/">
-        <h2 class="post-title">
-            stack && heap
-        </h2>
-        <h3 class="post-subtitle">
-            runtime
-        </h3>
-        <div class="post-content-preview">
-            堆和栈基本形式golang中的内存分配 基于tcmalloc内存分配器
-栈与指针Go逃逸分析Golang编译器在决定变量应该分配到堆上还是栈上的过程称为逃逸分析。
-
-From a correctness standpoint, you don’t need to know. Each variable in Go exists as long as there are references ......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2018-02-28
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2018/02/28/language/golang_runtime/">
-        <h2 class="post-title">
-            golang Runtime底层学习
-        </h2>
-        <h3 class="post-subtitle">
-            runtime
-        </h3>
-        <div class="post-content-preview">
-            导读引入这个系列深入剖析 Runtime 三大组件，内存分配器、垃圾回收器、Goroutine 调度。
-内容介绍现在用几句话概括这个系列的内容。
-内存管理涉及两个核心问题，第一是快速分配，第二是适可而止。Go 语言基于 tcmalloc 实现的内存分配器，tcmalloc 就是 Google 开发的快速内存分配器，它本身就是基于并发设计的，目的是找到相对比较好的平衡，既有很高的性能同时内存消......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by yueLng on
-        2018-02-28
-    </p>
-
-</div>
-<hr>
-
 
 
 <!-- Pager -->
@@ -479,6 +483,10 @@ From a correctness standpoint, you don’t need to know. Each variable in Go exi
                             
                         
                             
+                        
+                            
+                        
+                            
                             <a href="/tags/#database" title="database" rel="6">database</a>
                             
                         
@@ -487,7 +495,7 @@ From a correctness standpoint, you don’t need to know. Each variable in Go exi
                             
                         
                             
-                        
+                            <a href="/tags/#distributed_system" title="distributed_system" rel="12">distributed_system</a>
                             
                         
                             
@@ -503,7 +511,7 @@ From a correctness standpoint, you don’t need to know. Each variable in Go exi
                             
                         
                             
-                            <a href="/tags/#distributed_system" title="distributed_system" rel="12">distributed_system</a>
+                            <a href="/tags/#life_is_short" title="life_is_short" rel="5">life_is_short</a>
                             
                         
                             
@@ -511,15 +519,15 @@ From a correctness standpoint, you don’t need to know. Each variable in Go exi
                             
                         
                             
-                            <a href="/tags/#life_is_short" title="life_is_short" rel="5">life_is_short</a>
-                            
                         
                             
                             <a href="/tags/#product" title="product" rel="5">product</a>
                             
                         
                             
-                            <a href="/tags/#reading" title="reading" rel="3">reading</a>
+                        
+                            
+                            <a href="/tags/#reading" title="reading" rel="4">reading</a>
                             
                         
                             
@@ -536,6 +544,8 @@ From a correctness standpoint, you don’t need to know. Each variable in Go exi
                         
                             
                             <a href="/tags/#thinking" title="thinking" rel="9">thinking</a>
+                            
+                        
                             
                         
                     </div>
